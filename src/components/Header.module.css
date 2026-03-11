@@ -1,0 +1,60 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  background: linear-gradient(180deg, rgba(8,6,3,0.99) 0%, rgba(12,10,7,0.92) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo image — the black bg of the PNG blends into the header */
+.logoImg {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  /* Slight brightness boost so gold pops against dark header */
+  filter: brightness(1.05) contrast(1.02);
+  display: block;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.navBtn {
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: #C9A84C;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  padding: 9px 22px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.navBtn:hover {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: #C9A84C;
+}
+
+.navBtn.active {
+  background: #722F37;
+  border-color: #722F37;
+  color: #E8DCC8;
+}

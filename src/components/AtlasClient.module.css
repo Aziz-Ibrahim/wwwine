@@ -1,0 +1,24 @@
+.root { display:flex; flex-direction:column; height:100vh; overflow:hidden; background:#0A0704; }
+.main { flex:1; overflow:hidden; padding-top:72px; }
+.mainCompare { flex:1; overflow-y:auto; padding-top:72px; }
+
+.mapLayout { display:flex; height:100%; }
+.mapArea { flex:1; position:relative; overflow:hidden; }
+
+.panelArea { width:360px; flex-shrink:0; border-left:1px solid rgba(245,230,200,0.12); overflow-y:auto; background:#0F0B07; }
+
+/* Empty state */
+.emptyPanel { display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; padding:40px 28px; gap:12px; }
+.emptySteps { display:flex; flex-direction:column; align-items:flex-start; gap:0; width:100%; }
+.step { display:flex; align-items:center; gap:14px; padding:12px 0; }
+.stepNum { width:28px; height:28px; border-radius:50%; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.35); color:#E8C96A; font-family:'Cinzel',serif; font-size:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stepText { font-family:'EB Garamond',serif; font-size:15px; color:#C8BAA8; line-height:1.4; }
+.stepText strong { color:#F0E8D8; font-weight:600; }
+.stepArrow { font-size:18px; color:rgba(201,168,76,0.3); padding-left:12px; }
+.emptyDivider { width:40px; height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent); margin:8px 0; }
+.emptyCount { font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(201,168,76,0.4); }
+
+@media (max-width:768px) {
+  .mapLayout { flex-direction:column; }
+  .panelArea { width:100%; max-height:50vh; border-left:none; border-top:1px solid rgba(245,230,200,0.12); }
+}

@@ -1,0 +1,749 @@
+[
+  {
+    "id": "loire",
+    "region": "Loire Valley",
+    "country": "France",
+    "countryCode": "FR",
+    "continent": "Europe",
+    "coordinates": { "lat": 47.4, "lng": 0.7 },
+    "countryCoordinates": { "lat": 46.6, "lng": 2.3 },
+    "color": "#4A7C59",
+    "vintage": "c. 1st century BCE",
+    "description": "The 'Garden of France' stretches 1,000km along the Loire River. Its cool climate produces the world's benchmark Sauvignon Blanc (Sancerre, Pouilly-Fumé), ethereal Chenin Blanc (Vouvray, Savennières) and age-worthy Cabernet Franc (Chinon, Bourgueil).",
+    "mythology": [
+      { "name": "Bacchus", "culture": "Roman", "role": "God of Wine", "note": "Roman viticulture along the Loire dates to the 1st century CE, documented by the poet Ausonius who praised the region's wines." }
+    ],
+    "productionVolume": "~450 million bottles/year",
+    "appellations": [
+      {
+        "id": "sancerre",
+        "name": "Sancerre",
+        "type": "AOC",
+        "coordinates": { "lat": 47.33, "lng": 2.84 },
+        "grapes": ["Sauvignon Blanc", "Pinot Noir"],
+        "description": "Perched on limestone hills above the Loire, Sancerre is the world's most precise expression of Sauvignon Blanc — flinty, mineral, aristocratic. Its Kimmeridgian limestone and silex soils give the wine its unmistakable gunflint character.",
+        "climate": "Cool continental — cold winters, warm summers. Frost risk in spring.",
+        "soilTypes": ["Kimmeridgian limestone", "Silex (flint)", "Terres blanches (chalk-clay)"],
+        "tastingProfile": {
+          "body": 2, "tannins": 1, "acidity": 5, "sweetness": 1, "alcohol": 3,
+          "fruits": ["Grapefruit", "Lime", "Green apple", "White peach", "Gooseberry"],
+          "secondaryNotes": ["Gunflint", "Chalk", "Nettles", "Cut grass", "White flowers"],
+          "tertiaryNotes": ["Honey", "Petrol", "Beeswax"],
+          "finish": "long",
+          "style": "Flinty, mineral, aristocratic Sauvignon Blanc"
+        },
+        "servingTemp": "9–11°C",
+        "foodPairings": ["Crottin de Chavignol (goat's cheese)", "Oysters", "Grilled sole", "Asparagus"],
+        "agingPotential": "3–10 years",
+        "bestVintages": [2014, 2018, 2019, 2020, 2022],
+        "wineries": [
+          { "name": "Henri Bourgeois", "founded": 1950, "flagship": "La Bourgeoise" },
+          { "name": "Domaine Vacheron", "founded": 1935, "flagship": "Sancerre Rouge Belle Dame" },
+          { "name": "Domaine Lucien Crochet", "founded": 1950, "flagship": "Le Chêne Marchand" }
+        ]
+      },
+      {
+        "id": "pouilly-fume",
+        "name": "Pouilly-Fumé",
+        "type": "AOC",
+        "coordinates": { "lat": 47.28, "lng": 2.96 },
+        "grapes": ["Sauvignon Blanc"],
+        "description": "Directly across the Loire from Sancerre, Pouilly-Fumé grows exclusively Sauvignon Blanc on soils rich in silex (flint). The 'fumé' refers to the smoky, gunpowder character the silex imparts. Richer and rounder than Sancerre, yet equally mineral.",
+        "climate": "Cool continental with Loire moderation.",
+        "soilTypes": ["Silex (flint)", "Kimmeridgian limestone", "Clay-limestone"],
+        "tastingProfile": {
+          "body": 2, "tannins": 1, "acidity": 4, "sweetness": 1, "alcohol": 3,
+          "fruits": ["White peach", "Grapefruit", "Lemon zest", "Passionfruit"],
+          "secondaryNotes": ["Gunsmoke", "Flint", "White flowers", "Herbs"],
+          "tertiaryNotes": ["Honey", "Beeswax"],
+          "finish": "long",
+          "style": "Smoky, flinty, richer-textured than Sancerre"
+        },
+        "servingTemp": "9–12°C",
+        "foodPairings": ["Goat's cheese", "Salmon", "Grilled sea bass", "Sushi"],
+        "agingPotential": "4–12 years",
+        "bestVintages": [2014, 2018, 2019, 2022],
+        "wineries": [
+          { "name": "Didier Dagueneau", "founded": 1982, "flagship": "Silex" },
+          { "name": "Château de Tracy", "founded": 1396, "flagship": "Haute Densité" },
+          { "name": "Domaine Masson-Blondelet", "founded": 1974, "flagship": "Tradition Cullus" }
+        ]
+      },
+      {
+        "id": "vouvray",
+        "name": "Vouvray",
+        "type": "AOC",
+        "coordinates": { "lat": 47.38, "lng": 0.80 },
+        "grapes": ["Chenin Blanc"],
+        "description": "Vouvray produces Chenin Blanc in every style from bone-dry to richly sweet — and some of the world's greatest sparkling wines. Its tufa limestone caves provide perfect ageing conditions. Dry Vouvrays can age 50+ years, developing extraordinary honeyed complexity.",
+        "climate": "Oceanic — mild, maritime-influenced, ideal for Chenin's slow ripening.",
+        "soilTypes": ["Tufa limestone", "Clay-silex", "Sand"],
+        "tastingProfile": {
+          "body": 2, "tannins": 1, "acidity": 5, "sweetness": 2, "alcohol": 2,
+          "fruits": ["Quince", "Green apple", "Apricot", "Pear", "Honey"],
+          "secondaryNotes": ["Beeswax", "Chamomile", "Wool", "Chalk"],
+          "tertiaryNotes": ["Petrol", "Honey", "Dried apricot"],
+          "finish": "very long",
+          "style": "Electric Chenin Blanc — dry to luscious, ages magnificently"
+        },
+        "servingTemp": "10–13°C",
+        "foodPairings": ["Rillettes de Tours", "Blue cheese", "Foie gras", "Tarte Tatin"],
+        "agingPotential": "5–50 years",
+        "bestVintages": [1989, 1997, 2002, 2014, 2018, 2020],
+        "wineries": [
+          { "name": "Domaine Huet", "founded": 1928, "flagship": "Le Haut-Lieu Moelleux" },
+          { "name": "Foreau (Clos Naudin)", "founded": 1923, "flagship": "Vouvray Moelleux" }
+        ]
+      },
+      {
+        "id": "chinon",
+        "name": "Chinon",
+        "type": "AOC",
+        "coordinates": { "lat": 47.17, "lng": 0.25 },
+        "grapes": ["Cabernet Franc", "Chenin Blanc"],
+        "description": "The Loire's greatest red wine appellation. Cabernet Franc on gravel and tufa soils produces wines of elegant pencil-lead and raspberry character. Rabelais called Chinon 'the divine bottle'. With age, the best become hauntingly complex.",
+        "climate": "Oceanic — cool, mild; Cabernet Franc ripens slowly and perfectly.",
+        "soilTypes": ["Gravel (Graves)", "Tufa limestone", "Sand and clay"],
+        "tastingProfile": {
+          "body": 3, "tannins": 2, "acidity": 4, "sweetness": 1, "alcohol": 3,
+          "fruits": ["Raspberry", "Red cherry", "Blackcurrant leaf", "Strawberry"],
+          "secondaryNotes": ["Pencil shavings", "Violet", "Green pepper", "Earth"],
+          "tertiaryNotes": ["Leather", "Tobacco", "Forest floor"],
+          "finish": "long",
+          "style": "Loire's finest red — elegant, pencil-lead Cabernet Franc"
+        },
+        "servingTemp": "14–16°C",
+        "foodPairings": ["Rillettes", "Grilled river fish", "Mushroom dishes", "Goat's cheese"],
+        "agingPotential": "5–20 years",
+        "bestVintages": [2005, 2009, 2014, 2015, 2018, 2019],
+        "wineries": [
+          { "name": "Domaine Bernard Baudry", "founded": 1975, "flagship": "La Croix Boissée" },
+          { "name": "Charles Joguet", "founded": 1957, "flagship": "Clos du Chêne Vert" }
+        ]
+      },
+      {
+        "id": "muscadet",
+        "name": "Muscadet Sèvre-et-Maine",
+        "type": "AOC",
+        "coordinates": { "lat": 47.13, "lng": -1.45 },
+        "grapes": ["Melon de Bourgogne"],
+        "description": "The Loire's Atlantic gateway. Muscadet sur lie (aged on lees) produces dry, saline whites of surprising depth at remarkable prices. The best Muscadets — aged 24–36 months on lees — rival fine Chablis in mineral intensity.",
+        "climate": "Atlantic maritime — mild, wet, strongly influenced by the ocean.",
+        "soilTypes": ["Gneiss", "Granite", "Gabbro"],
+        "tastingProfile": {
+          "body": 1, "tannins": 1, "acidity": 4, "sweetness": 1, "alcohol": 2,
+          "fruits": ["Lemon", "Green apple", "Pear", "Sea spray"],
+          "secondaryNotes": ["Saline", "Yeast", "Chalk", "Stone"],
+          "finish": "medium",
+          "style": "Bone-dry, saline, lees-aged Atlantic white"
+        },
+        "servingTemp": "8–10°C",
+        "foodPairings": ["Oysters", "Moules marinières", "Grilled sardines", "Seafood platter"],
+        "agingPotential": "2–10 years (sur lie crus)",
+        "wineries": [
+          { "name": "Domaine de la Louvetrie", "founded": 1964, "flagship": "Amphibolite Nature" },
+          { "name": "Château de Chasseloir", "founded": 1978, "flagship": "Muscadet sur lie" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bordeaux",
+    "region": "Bordeaux",
+    "country": "France",
+    "countryCode": "FR",
+    "continent": "Europe",
+    "coordinates": { "lat": 44.85, "lng": -0.58 },
+    "countryCoordinates": { "lat": 46.6, "lng": 2.3 },
+    "color": "#722F37",
+    "vintage": "c. 1st century BCE",
+    "description": "The undisputed capital of fine wine. Over 7,000 châteaux, a millennium of winemaking, and the world's most influential classification system.",
+    "mythology": [
+      { "name": "Bacchus", "culture": "Roman", "role": "God of Wine", "note": "Roman amphorae bearing Bacchus imagery have been found across the Gironde region." },
+      { "name": "Dionysus", "culture": "Greek", "role": "God of the Grape Harvest", "note": "Greek traders brought Dionysian rites to southern Gaul from the 6th century BCE." }
+    ],
+    "productionVolume": "~700 million bottles/year",
+    "appellations": [
+      {
+        "id": "pauillac",
+        "name": "Pauillac",
+        "type": "AOC",
+        "coordinates": { "lat": 45.19, "lng": -0.75 },
+        "grapes": ["Cabernet Sauvignon", "Merlot", "Cabernet Franc"],
+        "description": "Pauillac contains three of Bordeaux's five Premier Crus — Lafite Rothschild, Latour and Mouton Rothschild. Its deep gravel terraces on the Médoc's left bank produce Cabernet Sauvignon of unrivalled structure, power and longevity.",
+        "climate": "Maritime — Atlantic moderation, Gironde estuary influence.",
+        "soilTypes": ["Deep Günzian gravel", "Clay subsoil"],
+        "tastingProfile": {
+          "body": 5, "tannins": 5, "acidity": 3, "sweetness": 1, "alcohol": 3,
+          "fruits": ["Blackcurrant", "Black cherry", "Cedar", "Plum"],
+          "secondaryNotes": ["Graphite", "Cigar box", "Lead pencil", "Cedar"],
+          "tertiaryNotes": ["Leather", "Truffle", "Tobacco", "Balsamic"],
+          "finish": "very long",
+          "style": "Supremely structured — the most powerful of the Médoc"
+        },
+        "servingTemp": "17–18°C",
+        "foodPairings": ["Roast lamb", "Venison", "Aged Comté", "Truffle dishes"],
+        "agingPotential": "15–50+ years",
+        "bestVintages": [1961, 1982, 1996, 2000, 2005, 2009, 2010, 2016, 2019],
+        "wineries": [
+          { "name": "Château Lafite Rothschild", "founded": 1234, "flagship": "Château Lafite Rothschild" },
+          { "name": "Château Latour", "founded": 1331, "flagship": "Château Latour" },
+          { "name": "Château Mouton Rothschild", "founded": 1853, "flagship": "Mouton Rothschild" },
+          { "name": "Château Pichon Baron", "founded": 1851, "flagship": "Pichon Baron" }
+        ]
+      },
+      {
+        "id": "margaux",
+        "name": "Margaux",
+        "type": "AOC",
+        "coordinates": { "lat": 45.03, "lng": -0.68 },
+        "grapes": ["Cabernet Sauvignon", "Merlot", "Cabernet Franc", "Petit Verdot"],
+        "description": "Margaux is the most perfumed and feminine of the Médoc appellations. Its fine gravel soils produce wines of extraordinary floral elegance, with violets and cassis intertwined with silky tannins. Château Margaux is one of wine's immortal names.",
+        "climate": "Maritime with excellent drainage on gravel terraces.",
+        "soilTypes": ["Fine gravel", "Sand", "Clay subsoil"],
+        "tastingProfile": {
+          "body": 4, "tannins": 3, "acidity": 3, "sweetness": 1, "alcohol": 3,
+          "fruits": ["Cassis", "Black cherry", "Raspberry", "Dried rose"],
+          "secondaryNotes": ["Violets", "Cedar", "Graphite", "Iris"],
+          "tertiaryNotes": ["Leather", "Tobacco", "Truffle"],
+          "finish": "very long",
+          "style": "The most feminine of the Médoc — perfumed, silky, aristocratic"
+        },
+        "servingTemp": "17–18°C",
+        "foodPairings": ["Duck confit", "Lamb rack", "Mushroom risotto", "Aged Manchego"],
+        "agingPotential": "15–40 years",
+        "bestVintages": [1900, 1953, 1961, 1996, 2000, 2009, 2010, 2015, 2016],
+        "wineries": [
+          { "name": "Château Margaux", "founded": 1590, "flagship": "Château Margaux Premier Grand Cru" },
+          { "name": "Château Palmer", "founded": 1814, "flagship": "Château Palmer" },
+          { "name": "Château Rauzan-Ségla", "founded": 1661, "flagship": "Rauzan-Ségla" }
+        ]
+      },
+      {
+        "id": "saint-emilion",
+        "name": "Saint-Émilion",
+        "type": "AOC",
+        "coordinates": { "lat": 44.89, "lng": -0.15 },
+        "grapes": ["Merlot", "Cabernet Franc", "Cabernet Sauvignon"],
+        "description": "The right bank jewel of Bordeaux. Merlot dominates on Saint-Émilion's limestone plateau and clay slopes, producing wines of sumptuous texture and plummy richness. The UNESCO-listed town is one of France's most beautiful medieval villages.",
+        "climate": "Maritime, slightly warmer than the Médoc; clay retains moisture.",
+        "soilTypes": ["Limestone plateau", "Clay-limestone slopes", "Sandy gravel"],
+        "tastingProfile": {
+          "body": 4, "tannins": 3, "acidity": 3, "sweetness": 1, "alcohol": 4,
+          "fruits": ["Plum", "Black cherry", "Fig", "Dark chocolate"],
+          "secondaryNotes": ["Truffle", "Cedar", "Mocha", "Spice"],
+          "tertiaryNotes": ["Leather", "Earth", "Dried herbs"],
+          "finish": "long",
+          "style": "Plush, Merlot-driven right bank opulence"
+        },
+        "servingTemp": "16–18°C",
+        "foodPairings": ["Beef bourguignon", "Duck magret", "Truffle pasta", "Aged Brie"],
+        "agingPotential": "10–30 years",
+        "bestVintages": [1982, 1990, 2000, 2005, 2009, 2010, 2015, 2019],
+        "wineries": [
+          { "name": "Pétrus", "founded": 1837, "flagship": "Pétrus Pomerol" },
+          { "name": "Château Cheval Blanc", "founded": 1832, "flagship": "Cheval Blanc" },
+          { "name": "Château Ausone", "founded": "1st century BCE", "flagship": "Château Ausone" }
+        ]
+      },
+      {
+        "id": "sauternes",
+        "name": "Sauternes",
+        "type": "AOC",
+        "coordinates": { "lat": 44.57, "lng": -0.33 },
+        "grapes": ["Sémillon", "Sauvignon Blanc", "Muscadelle"],
+        "description": "The world's greatest sweet wine appellation. Morning mists from the Ciron river create perfect conditions for Botrytis cinerea (noble rot), which concentrates the Sémillon grapes to nectar. Château d'Yquem is wine's greatest sweet wine estate.",
+        "climate": "Maritime with morning mists from the Ciron river — ideal botrytis conditions.",
+        "soilTypes": ["Gravel", "Clay", "Limestone"],
+        "tastingProfile": {
+          "body": 4, "tannins": 1, "acidity": 4, "sweetness": 5, "alcohol": 3,
+          "fruits": ["Apricot jam", "Mango", "Peach", "Pineapple", "Orange zest"],
+          "secondaryNotes": ["Saffron", "Honey", "Marmalade", "Ginger"],
+          "tertiaryNotes": ["Crème brûlée", "Nut", "Beeswax"],
+          "finish": "very long",
+          "style": "Liquid gold — the world's most complex sweet wine"
+        },
+        "servingTemp": "10–12°C",
+        "foodPairings": ["Foie gras", "Roquefort", "Fruit tarts", "Crème brûlée"],
+        "agingPotential": "20–100+ years",
+        "bestVintages": [1921, 1945, 1967, 1975, 1988, 1989, 1990, 2001, 2009],
+        "wineries": [
+          { "name": "Château d'Yquem", "founded": 1593, "flagship": "Château d'Yquem" },
+          { "name": "Château Rieussec", "founded": 1788, "flagship": "Rieussec Premier Cru" },
+          { "name": "Château Climens", "founded": 1855, "flagship": "Château Climens" }
+        ]
+      },
+      {
+        "id": "graves",
+        "name": "Graves / Pessac-Léognan",
+        "type": "AOC",
+        "coordinates": { "lat": 44.72, "lng": -0.61 },
+        "grapes": ["Cabernet Sauvignon", "Merlot", "Sauvignon Blanc", "Sémillon"],
+        "description": "Bordeaux's oldest appellation, now split between Graves and the superior Pessac-Léognan. The only Bordeaux appellation that classifies both red and white wines. Château Haut-Brion, the only non-Médoc property in the 1855 Classification, sits here.",
+        "climate": "Maritime, urban heat island effect around Pessac.",
+        "soilTypes": ["Gravel", "Sand", "Clay"],
+        "tastingProfile": {
+          "body": 4, "tannins": 4, "acidity": 3, "sweetness": 1, "alcohol": 3,
+          "fruits": ["Blackcurrant", "Red cherry", "Plum"],
+          "secondaryNotes": ["Tobacco", "Earth", "Cedar", "Graphite"],
+          "tertiaryNotes": ["Leather", "Cigar", "Dried herbs"],
+          "finish": "long",
+          "style": "Earthy, tobacco-driven — the most terroir-expressive of Bordeaux"
+        },
+        "servingTemp": "17–18°C",
+        "foodPairings": ["Roast lamb", "Grilled pigeon", "Mushroom dishes", "Aged cheese"],
+        "agingPotential": "10–30 years",
+        "bestVintages": [1959, 1961, 1982, 1998, 2009, 2010, 2016],
+        "wineries": [
+          { "name": "Château Haut-Brion", "founded": 1525, "flagship": "Haut-Brion Rouge" },
+          { "name": "Domaine de Chevalier", "founded": 1865, "flagship": "Domaine de Chevalier Blanc" },
+          { "name": "Château Smith Haut Lafitte", "founded": 1365, "flagship": "Smith Haut Lafitte Rouge" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "burgundy",
+    "region": "Burgundy",
+    "country": "France",
+    "countryCode": "FR",
+    "continent": "Europe",
+    "coordinates": { "lat": 47.05, "lng": 4.85 },
+    "countryCoordinates": { "lat": 46.6, "lng": 2.3 },
+    "color": "#8B1A4A",
+    "vintage": "c. 6th century BCE",
+    "description": "Where terroir is religion. Burgundy's fragmented plots produce the world's most coveted Pinot Noir and Chardonnay.",
+    "mythology": [
+      { "name": "Bacchus", "culture": "Roman", "role": "God of Wine", "note": "Autun, the Roman capital of Burgundy, hosted one of Gaul's largest Bacchus cults." },
+      { "name": "Cernunnos", "culture": "Celtic", "role": "Horned God of Nature & Harvest", "note": "Pre-Roman harvest deity worshipped in Burgundy before Roman rites arrived." }
+    ],
+    "productionVolume": "~180 million bottles/year",
+    "appellations": [
+      {
+        "id": "chambertin",
+        "name": "Gevrey-Chambertin",
+        "type": "AOC",
+        "coordinates": { "lat": 47.22, "lng": 4.97 },
+        "grapes": ["Pinot Noir"],
+        "description": "Napoleon's favourite wine and Burgundy's most famous village. Gevrey contains 9 Grand Crus including the supreme Chambertin. The wines are the most powerful and structured of the Côte de Nuits, combining dark fruit with iron-fisted tannins.",
+        "climate": "Continental — cold winters, warm summers. East-facing slopes for morning sun.",
+        "soilTypes": ["Limestone", "Marl", "Red clay-limestone"],
+        "tastingProfile": {
+          "body": 4, "tannins": 4, "acidity": 4, "sweetness": 1, "alcohol": 3,
+          "fruits": ["Dark cherry", "Blackberry", "Plum", "Raspberry"],
+          "secondaryNotes": ["Iron", "Sous bois", "Earth", "Spice"],
+          "tertiaryNotes": ["Leather", "Truffle", "Game", "Chocolate"],
+          "finish": "very long",
+          "style": "The most powerful of Burgundy — iron fist in velvet glove"
+        },
+        "servingTemp": "15–17°C",
+        "foodPairings": ["Boeuf bourguignon", "Roast grouse", "Truffle dishes", "Epoisses"],
+        "agingPotential": "10–30 years",
+        "bestVintages": [1990, 1996, 2002, 2005, 2010, 2015, 2019, 2023],
+        "wineries": [
+          { "name": "Domaine Armand Rousseau", "founded": 1919, "flagship": "Chambertin Grand Cru" },
+          { "name": "Domaine Ponsot", "founded": 1872, "flagship": "Clos Saint-Denis Grand Cru" },
+          { "name": "Faiveley", "founded": 1825, "flagship": "Chambertin Clos de Bèze" }
+        ]
+      },
+      {
+        "id": "romanee-conti",
+        "name": "Vosne-Romanée",
+        "type": "AOC",
+        "coordinates": { "lat": 47.16, "lng": 4.95 },
+        "grapes": ["Pinot Noir"],
+        "description": "The most celebrated wine village on earth. The 1.8-hectare La Romanée-Conti Grand Cru, sole property of Domaine de la Romanée-Conti, produces perhaps the world's most expensive wine. Its neighbour La Tâche, Richebourg and Grands-Échézeaux are hardly less extraordinary.",
+        "climate": "Continental, with the Vougeot château providing some wind protection.",
+        "soilTypes": ["Deep limestone-marl", "Red clay"],
+        "tastingProfile": {
+          "body": 3, "tannins": 3, "acidity": 4, "sweetness": 1, "alcohol": 3,
+          "fruits": ["Violet", "Wild strawberry", "Raspberry", "Black cherry"],
+          "secondaryNotes": ["Rose petals", "Spice", "Forest floor", "Smoke"],
+          "tertiaryNotes": ["Game", "Truffle", "Incense", "Leather"],
+          "finish": "very long",
+          "style": "Transcendent — perfume, silk and eternal complexity"
+        },
+        "servingTemp": "14–16°C",
+        "foodPairings": ["Roasted Bresse chicken", "Truffle", "Wild mushrooms", "Pigeon"],
+        "agingPotential": "15–40 years",
+        "bestVintages": [1945, 1978, 1990, 1999, 2005, 2010, 2015, 2019],
+        "wineries": [
+          { "name": "Domaine de la Romanée-Conti", "founded": 1760, "flagship": "La Romanée-Conti Grand Cru" },
+          { "name": "Domaine Leroy", "founded": 1988, "flagship": "Vosne-Romanée Les Beaux Monts" },
+          { "name": "Méo-Camuzet", "founded": 1959, "flagship": "Vosne-Romanée Cros Parantoux" }
+        ]
+      },
+      {
+        "id": "meursault",
+        "name": "Meursault",
+        "type": "AOC",
+        "coordinates": { "lat": 46.97, "lng": 4.76 },
+        "grapes": ["Chardonnay"],
+        "description": "The world's greatest village for white Burgundy. Meursault produces Chardonnay of incomparable buttery richness and hazelnut depth. No Grand Crus but its 1ers crus — Perrières, Charmes, Genevrières — are among Burgundy's most sought-after whites.",
+        "climate": "Continental — south and east facing for perfect Chardonnay exposure.",
+        "soilTypes": ["Limestone", "Marl", "Oolitic limestone"],
+        "tastingProfile": {
+          "body": 3, "tannins": 1, "acidity": 4, "sweetness": 1, "alcohol": 3,
+          "fruits": ["White peach", "Lemon curd", "Pear", "Quince"],
+          "secondaryNotes": ["Hazelnut", "Butter", "Toasted oak", "Chalk"],
+          "tertiaryNotes": ["Honey", "Beeswax", "Almond"],
+          "finish": "very long",
+          "style": "Buttery, nutty, richly textured white Burgundy"
+        },
+        "servingTemp": "12–14°C",
+        "foodPairings": ["Lobster with butter", "Roast chicken", "Veal with cream sauce", "Comté"],
+        "agingPotential": "8–20 years",
+        "bestVintages": [1996, 2002, 2005, 2010, 2014, 2017, 2019],
+        "wineries": [
+          { "name": "Domaine des Comtes Lafon", "founded": 1894, "flagship": "Meursault Perrières" },
+          { "name": "Domaine Roulot", "founded": 1950, "flagship": "Meursault Charmes" },
+          { "name": "Coche-Dury", "founded": 1973, "flagship": "Meursault Perrières" }
+        ]
+      },
+      {
+        "id": "chablis",
+        "name": "Chablis",
+        "type": "AOC",
+        "coordinates": { "lat": 47.81, "lng": 3.79 },
+        "grapes": ["Chardonnay"],
+        "description": "The purest, most mineral expression of Chardonnay. Chablis' Kimmeridgian limestone — literally ancient seabed packed with oyster fossils — gives the wine a saline, oyster-shell character found nowhere else. Grand Cru Chablis is one of Burgundy's most underrated wines.",
+        "climate": "Cold continental — the most northerly and coldest of Burgundy's sub-regions.",
+        "soilTypes": ["Kimmeridgian limestone", "Portlandian limestone (Petit Chablis)"],
+        "tastingProfile": {
+          "body": 2, "tannins": 1, "acidity": 5, "sweetness": 1, "alcohol": 2,
+          "fruits": ["Green apple", "Lemon", "Lime", "Grapefruit"],
+          "secondaryNotes": ["Oyster shell", "Chalk", "Flint", "Sea salt"],
+          "tertiaryNotes": ["Honey", "Petrol", "Toast"],
+          "finish": "long",
+          "style": "The purest Chardonnay — steely, saline, no compromise"
+        },
+        "servingTemp": "10–12°C",
+        "foodPairings": ["Oysters", "Grilled sole", "Scallops", "Goat's cheese"],
+        "agingPotential": "5–20 years (Grand Cru)",
+        "bestVintages": [1990, 1995, 2000, 2010, 2014, 2017, 2019, 2022],
+        "wineries": [
+          { "name": "François Raveneau", "founded": 1948, "flagship": "Chablis Les Clos Grand Cru" },
+          { "name": "Vincent Dauvissat", "founded": 1931, "flagship": "Chablis Les Preuses" },
+          { "name": "William Fèvre", "founded": 1959, "flagship": "Chablis Bougros Grand Cru" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "napa",
+    "region": "Napa Valley",
+    "country": "USA",
+    "countryCode": "US",
+    "continent": "North America",
+    "coordinates": { "lat": 38.5, "lng": -122.3 },
+    "countryCoordinates": { "lat": 37.1, "lng": -95.7 },
+    "color": "#8B0000",
+    "vintage": "c. 1838 CE",
+    "description": "Since the 1976 Judgement of Paris, Napa has been the New World's benchmark for Cabernet Sauvignon — opulent, powerful, built to age.",
+    "mythology": [
+      { "name": "Coyote Spirit", "culture": "Wappo / Patwin", "role": "Trickster Creator God", "note": "The Wappo people inhabited Napa Valley for thousands of years before European settlement." }
+    ],
+    "productionVolume": "~40 million bottles/year",
+    "appellations": [
+      {
+        "id": "rutherford",
+        "name": "Rutherford",
+        "type": "AVA",
+        "coordinates": { "lat": 38.45, "lng": -122.42 },
+        "grapes": ["Cabernet Sauvignon", "Merlot", "Cabernet Franc"],
+        "description": "Rutherford is where 'Rutherford dust' was born — a silky, almost earthy mid-palate texture unique to its benchland gravel soils. Some of Napa's oldest and most respected estates sit here, producing Cabernet of extraordinary finesse.",
+        "climate": "Mediterranean — warm days, cold nights, fog from San Pablo Bay.",
+        "soilTypes": ["Rutherford bench gravel", "Alluvial loam", "Volcanic"],
+        "tastingProfile": {
+          "body": 5, "tannins": 4, "acidity": 3, "sweetness": 1, "alcohol": 4,
+          "fruits": ["Blackcurrant", "Black cherry", "Plum", "Blueberry"],
+          "secondaryNotes": ["Dusty earth", "Cedar", "Mocha", "Vanilla"],
+          "tertiaryNotes": ["Leather", "Tobacco", "Dark chocolate"],
+          "finish": "very long",
+          "style": "The epitome of Napa — dusty, plush, eternally complex"
+        },
+        "servingTemp": "17–19°C",
+        "foodPairings": ["Prime rib", "Lamb rack", "Truffle risotto", "Aged Cheddar"],
+        "agingPotential": "15–35 years",
+        "bestVintages": [1994, 1997, 2002, 2007, 2012, 2013, 2016, 2019],
+        "wineries": [
+          { "name": "Beaulieu Vineyard", "founded": 1900, "flagship": "Georges de Latour Private Reserve" },
+          { "name": "Inglenook", "founded": 1879, "flagship": "Rubicon Estate" },
+          { "name": "Frog's Leap", "founded": 1981, "flagship": "Rutherford Cabernet" }
+        ]
+      },
+      {
+        "id": "oakville",
+        "name": "Oakville",
+        "type": "AVA",
+        "coordinates": { "lat": 38.42, "lng": -122.41 },
+        "grapes": ["Cabernet Sauvignon", "Merlot", "Sauvignon Blanc"],
+        "description": "Oakville is arguably Napa's finest AVA — home to Opus One and Screaming Eagle. Its well-drained benchland soils and optimal sun exposure produce Cabernet of extraordinary balance between power and finesse.",
+        "climate": "Mediterranean — warm, protected from coast. Classic Napa fog-free ripening.",
+        "soilTypes": ["Oakville bench gravel", "Alluvial", "Loam"],
+        "tastingProfile": {
+          "body": 5, "tannins": 4, "acidity": 3, "sweetness": 1, "alcohol": 5,
+          "fruits": ["Cassis", "Black cherry", "Dark plum", "Blueberry"],
+          "secondaryNotes": ["Vanilla", "Mocha", "Cedar", "Violets"],
+          "tertiaryNotes": ["Dark chocolate", "Tobacco", "Leather"],
+          "finish": "very long",
+          "style": "Napa's summit — power and finesse in perfect balance"
+        },
+        "servingTemp": "17–19°C",
+        "foodPairings": ["Wagyu beef", "Rack of lamb", "Mushroom truffle", "Hard cheese"],
+        "agingPotential": "15–40 years",
+        "bestVintages": [1994, 1997, 2002, 2007, 2012, 2016, 2019],
+        "wineries": [
+          { "name": "Opus One", "founded": 1979, "flagship": "Opus One" },
+          { "name": "Screaming Eagle", "founded": 1986, "flagship": "Screaming Eagle Cabernet" },
+          { "name": "Far Niente", "founded": 1885, "flagship": "Far Niente Cabernet" }
+        ]
+      },
+      {
+        "id": "stags-leap",
+        "name": "Stags Leap District",
+        "type": "AVA",
+        "coordinates": { "lat": 38.38, "lng": -122.33 },
+        "grapes": ["Cabernet Sauvignon", "Merlot"],
+        "description": "The AVA that put California on the world map. In the 1976 Paris Tasting, Stag's Leap Wine Cellars' S.L.V. Cabernet beat Mouton Rothschild and Haut-Brion. The volcanic palisades retain heat and protect from wind, yielding silky, plush Cabernet.",
+        "climate": "Slightly cooler south Napa — volcanic palisades create a heat trap.",
+        "soilTypes": ["Volcanic", "Iron-rich red soil", "Rocky benchland"],
+        "tastingProfile": {
+          "body": 4, "tannins": 3, "acidity": 3, "sweetness": 1, "alcohol": 4,
+          "fruits": ["Cherry", "Cassis", "Red plum", "Raspberry"],
+          "secondaryNotes": ["Iron", "Violets", "Herbs", "Cedar"],
+          "tertiaryNotes": ["Leather", "Coffee", "Tobacco"],
+          "finish": "long",
+          "style": "Silky, approachable — Napa's most elegant Cabernet"
+        },
+        "servingTemp": "16–18°C",
+        "foodPairings": ["Grilled beef", "Roast chicken", "Duck", "Aged Gouda"],
+        "agingPotential": "10–25 years",
+        "bestVintages": [1976, 1994, 2002, 2007, 2012, 2016, 2019],
+        "wineries": [
+          { "name": "Stag's Leap Wine Cellars", "founded": 1970, "flagship": "Cask 23 Cabernet" },
+          { "name": "Shafer Vineyards", "founded": 1978, "flagship": "Hillside Select Cabernet" },
+          { "name": "Pine Ridge", "founded": 1978, "flagship": "Stags Leap District Cabernet" }
+        ]
+      },
+      {
+        "id": "santa-barbara-county",
+        "name": "Santa Barbara County",
+        "type": "AVA",
+        "coordinates": { "lat": 34.69, "lng": -120.04 },
+        "grapes": ["Pinot Noir", "Chardonnay", "Syrah", "Grenache"],
+        "description": "Santa Barbara's transverse mountain ranges channel cold Pacific air inland, creating one of California's most exciting cool-climate regions. Made famous by the film Sideways, its Sta. Rita Hills AVA produces Pinot Noir that rivals Burgundy in elegance. Happy Canyon yields exceptional Bordeaux varietals.",
+        "climate": "Cool maritime — transverse valleys funnel Pacific fog and wind inland. Extreme diurnal temperature variation.",
+        "soilTypes": ["Sandy loam", "Clay", "Diatomaceous earth", "Shale"],
+        "tastingProfile": {
+          "body": 3, "tannins": 2, "acidity": 4, "sweetness": 1, "alcohol": 3,
+          "fruits": ["Strawberry", "Red cherry", "Raspberry", "Pomegranate"],
+          "secondaryNotes": ["Rose petals", "Violet", "Earthy", "Herbs"],
+          "tertiaryNotes": ["Forest floor", "Spice", "Smoke"],
+          "finish": "long",
+          "style": "Cool-climate California — Burgundian elegance meets Pacific freshness"
+        },
+        "servingTemp": "14–16°C",
+        "foodPairings": ["Salmon", "Duck breast", "Mushroom risotto", "Brie"],
+        "agingPotential": "5–15 years",
+        "bestVintages": [2012, 2014, 2016, 2018, 2019, 2021],
+        "wineries": [
+          { "name": "Sine Qua Non", "founded": 1994, "flagship": "Mr. K The Straw Man" },
+          { "name": "Brewer-Clifton", "founded": 1996, "flagship": "Sta. Rita Hills Pinot Noir" },
+          { "name": "Au Bon Climat", "founded": 1982, "flagship": "Knox Alexander Pinot Noir" },
+          { "name": "Foley Johnson", "founded": 1998, "flagship": "Sta. Rita Hills Chardonnay" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mendoza",
+    "region": "Mendoza",
+    "country": "Argentina",
+    "countryCode": "AR",
+    "continent": "South America",
+    "coordinates": { "lat": -32.89, "lng": -68.83 },
+    "countryCoordinates": { "lat": -38.4, "lng": -63.6 },
+    "color": "#6B2D8B",
+    "vintage": "c. 1557 CE",
+    "description": "At Andean altitude, Malbec found its spiritual home. Mendoza's dry desert air, intense UV and cold nights produce wines of extraordinary depth.",
+    "mythology": [
+      { "name": "Pachamama", "culture": "Andean / Quechua", "role": "Earth Mother Goddess of Harvest", "note": "Still honoured at harvest start with offerings of food, coca and chicha." }
+    ],
+    "productionVolume": "~1.1 billion bottles/year (Argentina)",
+    "appellations": [
+      {
+        "id": "lujan-de-cuyo",
+        "name": "Luján de Cuyo",
+        "type": "DOC",
+        "coordinates": { "lat": -33.03, "lng": -68.88 },
+        "grapes": ["Malbec", "Cabernet Sauvignon", "Merlot"],
+        "description": "Argentina's first and only DOC. Luján's alluvial soils and altitude (900–1,100m) produce Malbec of extraordinary structure and complexity. The DOC guarantees organic practices and maximum yields. Home to Argentina's most prestigious producers.",
+        "climate": "High desert — arid, intense UV, extreme diurnal variation (18–22°C daily swing).",
+        "soilTypes": ["Alluvial sandy loam", "Rocky clay", "Calcareous"],
+        "tastingProfile": {
+          "body": 5, "tannins": 4, "acidity": 3, "sweetness": 1, "alcohol": 4,
+          "fruits": ["Blackberry", "Dark plum", "Blueberry", "Black cherry"],
+          "secondaryNotes": ["Violet", "Dark chocolate", "Espresso", "Tobacco"],
+          "tertiaryNotes": ["Cedar", "Leather", "Mocha"],
+          "finish": "long",
+          "style": "Argentina's finest Malbec — structured, complex, built to age"
+        },
+        "servingTemp": "16–18°C",
+        "foodPairings": ["Asado (grilled beef)", "Short rib", "Empanadas", "Aged Manchego"],
+        "agingPotential": "8–20 years",
+        "bestVintages": [2006, 2009, 2013, 2016, 2018, 2021],
+        "wineries": [
+          { "name": "Achaval Ferrer", "founded": 1998, "flagship": "Finca Bella Vista Malbec" },
+          { "name": "Catena Zapata", "founded": 1902, "flagship": "Adrianna Vineyard Malbec" },
+          { "name": "Clos de los Siete", "founded": 2002, "flagship": "Clos de los Siete" }
+        ]
+      },
+      {
+        "id": "valle-de-uco",
+        "name": "Valle de Uco",
+        "type": "GI",
+        "coordinates": { "lat": -33.6, "lng": -69.2 },
+        "grapes": ["Malbec", "Cabernet Franc", "Chardonnay", "Pinot Noir"],
+        "description": "Argentina's most exciting wine frontier. At 1,000–1,500m altitude in the Andean foothills, Valle de Uco's rocky soils and extreme cold nights produce wines of unparalleled mineral precision and freshness — a revelation compared to warmer valley floor wines.",
+        "climate": "Extreme high desert — highest UV in South America, coldest nights, dramatic diurnal swings.",
+        "soilTypes": ["Rocky alluvial", "Calcareous clay", "Volcanic", "Sandy loam"],
+        "tastingProfile": {
+          "body": 4, "tannins": 3, "acidity": 4, "sweetness": 1, "alcohol": 4,
+          "fruits": ["Dark cherry", "Blueberry", "Plum", "Red currant"],
+          "secondaryNotes": ["Violet", "Mineral", "Herbs", "Dark chocolate"],
+          "tertiaryNotes": ["Spice", "Coffee", "Cedar"],
+          "finish": "long",
+          "style": "High-altitude precision — mineral, fresh, Argentina's emerging finest"
+        },
+        "servingTemp": "15–17°C",
+        "foodPairings": ["Grilled lamb", "Venison", "Hard cheese", "Charcuterie"],
+        "agingPotential": "10–25 years",
+        "bestVintages": [2010, 2013, 2015, 2018, 2021],
+        "wineries": [
+          { "name": "Zuccardi Valle de Uco", "founded": 1963, "flagship": "Concreto Malbec" },
+          { "name": "Monteviejo", "founded": 2003, "flagship": "Festivo Malbec" },
+          { "name": "Clos de los Siete", "founded": 2002, "flagship": "Petite Fleur Rosé" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stellenbosch",
+    "region": "Stellenbosch",
+    "country": "South Africa",
+    "countryCode": "ZA",
+    "continent": "Africa",
+    "coordinates": { "lat": -33.93, "lng": 18.86 },
+    "countryCoordinates": { "lat": -30.5, "lng": 22.9 },
+    "color": "#B22222",
+    "vintage": "c. 1685 CE",
+    "description": "The Cape's answer to Bordeaux — sun-drenched mountain flanks producing richly textured reds and home to Pinotage, South Africa's unique grape.",
+    "mythology": [
+      { "name": "Qamata", "culture": "Xhosa", "role": "Supreme Creator God", "note": "The Xhosa are the indigenous custodians of the Western Cape. Qamata governs life's cycles and harvests." }
+    ],
+    "productionVolume": "~30 million bottles/year",
+    "appellations": [
+      {
+        "id": "helderberg",
+        "name": "Helderberg",
+        "type": "Ward",
+        "coordinates": { "lat": -34.05, "lng": 18.87 },
+        "grapes": ["Cabernet Sauvignon", "Merlot", "Shiraz", "Chenin Blanc"],
+        "description": "The Helderberg mountain ward is considered Stellenbosch's finest terroir for red wines. Its decomposed granite soils, cooling ocean breeze from False Bay, and altitude produce Cabernet and Shiraz of extraordinary elegance and structure.",
+        "climate": "Mediterranean — hot dry summers, cool mountain breeze from False Bay.",
+        "soilTypes": ["Decomposed granite", "Sandy loam", "Hutton"],
+        "tastingProfile": {
+          "body": 4, "tannins": 4, "acidity": 3, "sweetness": 1, "alcohol": 4,
+          "fruits": ["Blackcurrant", "Plum", "Dark cherry", "Mulberry"],
+          "secondaryNotes": ["Fynbos", "Cedar", "Dark chocolate", "Tobacco"],
+          "tertiaryNotes": ["Leather", "Earth", "Coffee"],
+          "finish": "long",
+          "style": "Cape's finest — fynbos-scented, structured mountain reds"
+        },
+        "servingTemp": "16–18°C",
+        "foodPairings": ["Braai (BBQ)", "Venison", "Lamb chops", "Aged Cheddar"],
+        "agingPotential": "8–25 years",
+        "bestVintages": [2009, 2012, 2015, 2017, 2019, 2021],
+        "wineries": [
+          { "name": "Vergelegen", "founded": 1700, "flagship": "Vergelegen V" },
+          { "name": "Rust en Vrede", "founded": 1694, "flagship": "Rust en Vrede Estate" },
+          { "name": "Waterford Estate", "founded": 1998, "flagship": "The Jem" }
+        ]
+      },
+      {
+        "id": "simonsberg",
+        "name": "Simonsberg-Stellenbosch",
+        "type": "Ward",
+        "coordinates": { "lat": -33.84, "lng": 18.89 },
+        "grapes": ["Cabernet Sauvignon", "Pinotage", "Shiraz"],
+        "description": "The Simonsberg mountain ward produces Stellenbosch's most powerful and concentrated reds. Kanonkop, arguably South Africa's most celebrated estate, sits here — producing Pinotage and Paul Sauer (Bordeaux blend) of world-class pedigree.",
+        "climate": "Mediterranean — sheltered north-facing slopes with longer ripening season.",
+        "soilTypes": ["Table Mountain Sandstone", "Decomposed granite", "Clay"],
+        "tastingProfile": {
+          "body": 5, "tannins": 4, "acidity": 3, "sweetness": 1, "alcohol": 4,
+          "fruits": ["Black plum", "Mulberry", "Dark cherry", "Blackberry"],
+          "secondaryNotes": ["Rubber", "Earth", "Coffee", "Dark chocolate"],
+          "tertiaryNotes": ["Leather", "Tobacco", "Dried herbs"],
+          "finish": "very long",
+          "style": "South Africa's most powerful — Pinotage and Bordeaux blends"
+        },
+        "servingTemp": "17–19°C",
+        "foodPairings": ["Lamb braai", "Bobotie", "Aged cheese", "Venison pie"],
+        "agingPotential": "10–25 years",
+        "bestVintages": [2009, 2012, 2015, 2019, 2021],
+        "wineries": [
+          { "name": "Kanonkop", "founded": 1910, "flagship": "Paul Sauer" },
+          { "name": "Meerlust", "founded": 1693, "flagship": "Meerlust Rubicon" },
+          { "name": "Warwick Estate", "founded": 1964, "flagship": "Trilogy" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bekaa",
+    "region": "Bekaa Valley",
+    "country": "Lebanon",
+    "countryCode": "LB",
+    "continent": "Asia",
+    "coordinates": { "lat": 33.85, "lng": 35.9 },
+    "countryCoordinates": { "lat": 33.85, "lng": 35.9 },
+    "color": "#8B4513",
+    "vintage": "c. 3000 BCE",
+    "description": "One of the world's oldest wine-producing regions. The Phoenicians invented wine commerce and the Bekaa Valley's soils have yielded wine for 5,000 years.",
+    "mythology": [
+      { "name": "Bacchus", "culture": "Roman", "role": "God of Wine", "note": "The Temple of Bacchus at Baalbek, constructed c.150 CE, is the world's best-preserved Roman temple — a monument to wine in Lebanon's wine heartland." },
+      { "name": "El", "culture": "Canaanite / Phoenician", "role": "Father of the Gods, associated with wine", "note": "The Phoenicians were the ancient world's greatest wine traders, spreading viticulture from Canaan across the Mediterranean from 3000 BCE." }
+    ],
+    "productionVolume": "~8 million bottles/year",
+    "appellations": [
+      {
+        "id": "chateau-musar-region",
+        "name": "Ghazir / Bekaa (Château Musar)",
+        "type": "AOO",
+        "coordinates": { "lat": 33.9, "lng": 35.65 },
+        "grapes": ["Cabernet Sauvignon", "Cinsault", "Carignan"],
+        "description": "Château Musar's vineyards span from the high Bekaa to the Ghazir coast. This legendary estate, founded by Gaston Hochar, continued production even during Lebanon's civil war — bottling 1984 in a besieged country. Musar Rouge is fermented using 19th-century methods and aged for years before release.",
+        "climate": "High-altitude Mediterranean — 1,000m, no irrigation needed. Rarely a failed vintage.",
+        "soilTypes": ["Limestone", "Terra rossa", "Clay"],
+        "tastingProfile": {
+          "body": 4, "tannins": 3, "acidity": 3, "sweetness": 1, "alcohol": 4,
+          "fruits": ["Dark plum", "Dried cherry", "Fig", "Pomegranate"],
+          "secondaryNotes": ["Spice", "Wild herbs", "Tobacco", "Cedar"],
+          "tertiaryNotes": ["Leather", "Earth", "Incense", "Dried rose"],
+          "finish": "very long",
+          "style": "Ancient, exotic — the Phoenician inheritance, unchanged"
+        },
+        "servingTemp": "16–18°C",
+        "foodPairings": ["Mezze", "Lamb kafta", "Kibbeh", "Aged cheeses"],
+        "agingPotential": "20–50 years",
+        "bestVintages": [1999, 2001, 2009, 2012, 2015, 2019],
+        "wineries": [
+          { "name": "Château Musar", "founded": 1930, "flagship": "Château Musar Rouge" },
+          { "name": "Château Ksara", "founded": 1857, "flagship": "Château Ksara Reserve du Couvent" },
+          { "name": "Massaya", "founded": 1997, "flagship": "Massaya Silver Selection" }
+        ]
+      }
+    ]
+  }
+]
