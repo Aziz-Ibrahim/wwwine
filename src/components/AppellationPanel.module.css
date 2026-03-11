@@ -1,70 +1,89 @@
-/* ── AppellationPanel — high-contrast accessible design ── */
 .panel { display:flex; flex-direction:column; min-height:100%; background:#0F0B07; }
 
 /* HERO */
-.hero { padding:24px 22px 18px; border-bottom:1px solid rgba(245,230,200,0.12); position:relative; }
-.closeBtn { position:absolute; top:14px; right:14px; background:rgba(245,230,200,0.08); border:1px solid rgba(245,230,200,0.3); color:#F5E6C8; width:30px; height:30px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:12px; transition:all 0.2s; border-radius:2px; }
-.closeBtn:hover { background:rgba(245,230,200,0.15); border-color:#F5E6C8; }
-.breadcrumb { display:flex; align-items:center; gap:6px; margin-bottom:10px; }
-.country { font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,230,200,0.55); }
-.sep { color:rgba(245,230,200,0.3); font-size:12px; }
-.regionName { font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,230,200,0.55); }
-.appName { font-family:'Cinzel',serif; font-size:22px; font-weight:700; color:#F5E6C8; line-height:1.2; margin-bottom:8px; }
-.typeBadge { display:inline-block; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.4); color:#E8C96A; font-family:'Cinzel',serif; font-size:9px; letter-spacing:2px; padding:3px 9px; margin-bottom:10px; }
-.styleTag { font-family:'EB Garamond',serif; font-style:italic; font-size:14px; color:rgba(245,230,200,0.65); line-height:1.5; }
+.hero { padding:22px 20px 16px; border-bottom:1px solid rgba(245,230,200,0.1); position:relative; }
+.closeBtn { position:absolute; top:12px; right:12px; background:rgba(245,230,200,0.08); border:1px solid rgba(245,230,200,0.3); color:#F5E6C8; width:28px; height:28px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:11px; transition:all 0.2s; border-radius:2px; }
+.closeBtn:hover { background:rgba(245,230,200,0.18); border-color:#F5E6C8; }
+.backAppBtn { background:transparent; border:none; color:#C8B890; font-family:'Cinzel',serif; font-size:10px; letter-spacing:1.5px; cursor:pointer; padding:0; margin-bottom:10px; transition:color 0.2s; display:block; }
+.backAppBtn:hover { color:#F5E6C8; }
+
+/* Region overview */
+.regionCountry { font-family:'Cinzel',serif; font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:rgba(245,230,200,0.45); margin-bottom:6px; }
+.regionTitle { font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:#F5E6C8; margin-bottom:4px; line-height:1.2; }
+.regionVintage { font-family:'EB Garamond',serif; font-style:italic; font-size:12px; color:rgba(201,168,76,0.6); margin-bottom:8px; }
+.regionDesc { font-family:'EB Garamond',serif; font-size:14px; line-height:1.75; color:#D4C4A8; }
+.prodVol { margin-top:8px; font-family:'Cinzel',serif; font-size:8px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(245,230,200,0.3); }
+
+/* Appellation name + badge (detail view) */
+.appName { font-family:'Cinzel',serif; font-size:21px; font-weight:700; color:#F5E6C8; line-height:1.2; margin-bottom:6px; }
+.typeBadge { display:inline-block; background:rgba(201,168,76,0.14); border:1px solid rgba(201,168,76,0.38); color:#E8C96A; font-family:'Cinzel',serif; font-size:9px; letter-spacing:2px; padding:3px 9px; margin-bottom:8px; }
+.styleTag { font-family:'EB Garamond',serif; font-style:italic; font-size:13.5px; color:rgba(245,230,200,0.6); line-height:1.5; }
 
 /* BODY */
-.body { padding:18px 22px 40px; }
-.desc { font-family:'EB Garamond',serif; font-size:15px; line-height:1.8; color:#E8DCC8; margin-bottom:18px; }
+.body { padding:16px 20px 40px; }
+.desc { font-family:'EB Garamond',serif; font-size:14.5px; line-height:1.8; color:#E8DCC8; margin-bottom:14px; }
 
-/* QUICK STATS */
-.stats { display:flex; border:1px solid rgba(245,230,200,0.12); margin-bottom:0; }
-.stat { flex:1; padding:12px 8px; text-align:center; border-right:1px solid rgba(245,230,200,0.1); }
+/* Appellation list */
+.appHint { font-family:'EB Garamond',serif; font-style:italic; font-size:12px; color:rgba(245,230,200,0.4); margin-bottom:12px; }
+.appList { display:flex; flex-direction:column; gap:6px; }
+.appRow { background:rgba(245,230,200,0.04); border:1px solid rgba(245,230,200,0.1); padding:11px 12px; display:flex; align-items:center; gap:11px; cursor:pointer; transition:all 0.2s; text-align:left; width:100%; border-radius:2px; }
+.appRow:hover { background:rgba(245,230,200,0.09); border-color:rgba(245,230,200,0.25); transform:translateX(2px); }
+.appDot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.appRowContent { flex:1; min-width:0; }
+.appRowName { font-family:'Cinzel',serif; font-size:12.5px; color:#F5E6C8; margin-bottom:3px; }
+.appRowMeta { display:flex; gap:8px; align-items:center; margin-bottom:3px; }
+.appRowType { font-family:'Cinzel',serif; font-size:8px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(201,168,76,0.65); background:rgba(201,168,76,0.1); padding:2px 6px; border:1px solid rgba(201,168,76,0.2); }
+.appRowGrapes { font-family:'EB Garamond',serif; font-size:12px; color:rgba(245,230,200,0.5); font-style:italic; }
+.appRowStyle { font-family:'EB Garamond',serif; font-style:italic; font-size:12px; color:rgba(245,230,200,0.45); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.appRowArrow { color:rgba(201,168,76,0.5); font-size:18px; flex-shrink:0; }
+
+/* Quick stats */
+.stats { display:flex; border:1px solid rgba(245,230,200,0.1); }
+.stat { flex:1; padding:10px 6px; text-align:center; border-right:1px solid rgba(245,230,200,0.08); }
 .stat:last-child { border-right:none; }
-.statIcon { display:block; font-size:15px; margin-bottom:3px; }
-.statLabel { display:block; font-family:'Cinzel',serif; font-size:7.5px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(245,230,200,0.5); margin-bottom:3px; }
-.statValue { display:block; font-family:'EB Garamond',serif; font-size:12.5px; color:#F5E6C8; line-height:1.3; }
+.statIcon { display:block; font-size:14px; margin-bottom:2px; }
+.statLabel { display:block; font-family:'Cinzel',serif; font-size:7px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(245,230,200,0.45); margin-bottom:2px; }
+.statValue { display:block; font-family:'EB Garamond',serif; font-size:12px; color:#F5E6C8; line-height:1.3; }
 
-.div { border:none; border-top:1px solid rgba(245,230,200,0.08); margin:18px 0; }
-.secTitle { font-family:'Cinzel',serif; font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:rgba(201,168,76,0.7); margin-bottom:12px; }
-.secGap { margin-top:14px; }
+.div { border:none; border-top:1px solid rgba(245,230,200,0.07); margin:14px 0; }
+.secTitle { font-family:'Cinzel',serif; font-size:8.5px; letter-spacing:2.5px; text-transform:uppercase; color:rgba(201,168,76,0.65); margin-bottom:10px; }
+.secGap { height:12px; }
 
-/* TASTING BARS */
-.bars { display:flex; flex-direction:column; gap:11px; }
+/* Bars */
+.bars { display:flex; flex-direction:column; gap:10px; }
 .barWrap {}
-.barHead { display:flex; justify-content:space-between; margin-bottom:5px; }
-.barLabel { font-family:'Cinzel',serif; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#D4C4A8; }
+.barHead { display:flex; justify-content:space-between; margin-bottom:4px; }
+.barLabel { font-family:'Cinzel',serif; font-size:8.5px; letter-spacing:1.5px; text-transform:uppercase; color:#C8B890; }
 .barDesc { font-family:'EB Garamond',serif; font-size:12px; color:#E8DCC8; font-style:italic; }
-.track { height:5px; background:rgba(245,230,200,0.1); border-radius:3px; position:relative; }
-.fill { height:100%; background:linear-gradient(90deg,#8B2030,#C9A84C); border-radius:3px; transition:width 0.6s cubic-bezier(0.22,1,0.36,1); }
-.tick { position:absolute; top:-2px; width:2px; height:9px; background:rgba(245,230,200,0.2); border-radius:1px; transform:translateX(-50%); }
+.track { height:4px; background:rgba(245,230,200,0.08); border-radius:2px; }
+.fill { height:100%; background:linear-gradient(90deg,#8B2030,#C9A84C); border-radius:2px; transition:width 0.6s cubic-bezier(0.22,1,0.36,1); }
 
-/* TAGS */
+/* Tags */
 .tags { display:flex; flex-wrap:wrap; gap:5px; }
-.tag { display:inline-block; font-size:12px; padding:4px 10px; font-family:'EB Garamond',serif; border-radius:2px; }
-.fruit     { background:rgba(180,50,80,0.2);  border:1px solid rgba(220,100,120,0.4); color:#F0D0D8; }
-.secondary { background:rgba(120,80,30,0.2);  border:1px solid rgba(180,140,60,0.35); color:#E8D4A8; }
-.tertiary  { background:rgba(80,60,20,0.25);  border:1px solid rgba(201,168,76,0.35); color:#D4C080; }
-.grape     { background:rgba(60,40,80,0.25);  border:1px solid rgba(140,100,180,0.4); color:#D4C0E8; border-radius:20px; }
-.food      { background:rgba(20,80,40,0.2);   border:1px solid rgba(60,160,90,0.35); color:#B0E0C0; }
-.vintage   { background:rgba(100,30,40,0.2);  border:1px solid rgba(180,60,70,0.4); color:#F0C0C8; font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:0.5px; }
+.tag { display:inline-block; font-size:12px; padding:3px 9px; font-family:'EB Garamond',serif; border-radius:2px; }
+.fruit     { background:rgba(180,50,80,0.18);  border:1px solid rgba(220,100,120,0.38); color:#F0D0D8; }
+.secondary { background:rgba(120,80,30,0.18);  border:1px solid rgba(180,140,60,0.33); color:#E8D4A8; }
+.tertiary  { background:rgba(80,60,20,0.22);   border:1px solid rgba(201,168,76,0.33); color:#D4C080; }
+.grape     { background:rgba(60,40,80,0.22);   border:1px solid rgba(140,100,180,0.38); color:#D4C0E8; border-radius:20px; }
+.food      { background:rgba(20,80,40,0.18);   border:1px solid rgba(60,160,90,0.33); color:#B0E0C0; }
+.vintage   { background:rgba(100,30,40,0.18);  border:1px solid rgba(180,60,70,0.38); color:#F0C0C8; font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:0.5px; }
 
-/* TERROIR */
+/* Terroir */
 .terroirRow { display:flex; flex-direction:column; gap:3px; margin-bottom:10px; }
-.tLabel { font-family:'Cinzel',serif; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:rgba(201,168,76,0.6); }
-.tValue { font-family:'EB Garamond',serif; font-size:13.5px; color:#E8DCC8; line-height:1.6; }
+.tLabel { font-family:'Cinzel',serif; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:rgba(201,168,76,0.55); }
+.tValue { font-family:'EB Garamond',serif; font-size:13px; color:#E8DCC8; line-height:1.65; }
 
-/* DEITIES */
-.deity { background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.15); padding:12px 14px; margin-bottom:8px; border-radius:2px; }
+/* Deities */
+.deity { background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.14); padding:10px 12px; margin-bottom:7px; border-radius:2px; }
 .deityHead { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px; }
-.deityName { font-family:'Cinzel',serif; font-size:13px; color:#E8C96A; }
-.deityCulture { font-family:'EB Garamond',serif; font-size:11px; color:rgba(201,168,76,0.55); font-style:italic; }
-.deityRole { font-family:'EB Garamond',serif; font-size:13px; color:#E8DCC8; margin-bottom:6px; }
-.deityNote { font-family:'EB Garamond',serif; font-style:italic; font-size:12px; color:rgba(220,205,175,0.7); line-height:1.65; }
+.deityName { font-family:'Cinzel',serif; font-size:12px; color:#E8C96A; }
+.deityCulture { font-family:'EB Garamond',serif; font-size:11px; color:rgba(201,168,76,0.5); font-style:italic; }
+.deityRole { font-family:'EB Garamond',serif; font-size:12.5px; color:#E8DCC8; margin-bottom:5px; }
+.deityNote { font-family:'EB Garamond',serif; font-style:italic; font-size:12px; color:rgba(220,205,175,0.65); line-height:1.65; }
 
-/* WINERIES */
-.winery { display:flex; align-items:flex-start; gap:11px; padding:10px 0; }
-.wineryIcon { width:28px; height:28px; border-radius:50%; border:1px solid; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0; margin-top:2px; }
-.wineryName { font-family:'EB Garamond',serif; font-size:14px; color:#F0E8D8; }
-.wineryFounded { font-family:'EB Garamond',serif; font-style:italic; font-size:11.5px; color:rgba(201,168,76,0.55); margin-top:1px; }
-.wineryFlagship { font-family:'EB Garamond',serif; font-size:12px; color:rgba(220,205,175,0.6); font-style:italic; margin-top:2px; }
+/* Wineries */
+.winery { display:flex; align-items:flex-start; gap:10px; padding:9px 0; }
+.wineryIcon { width:26px; height:26px; border-radius:50%; border:1px solid; display:flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0; margin-top:2px; }
+.wineryName { font-family:'EB Garamond',serif; font-size:13.5px; color:#F0E8D8; }
+.wineryFounded { font-family:'EB Garamond',serif; font-style:italic; font-size:11px; color:rgba(201,168,76,0.52); margin-top:1px; }
+.wineryFlagship { font-family:'EB Garamond',serif; font-size:11.5px; color:rgba(220,205,175,0.58); font-style:italic; margin-top:2px; }
