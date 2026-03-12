@@ -54,7 +54,7 @@ export default function CompareEngine({ wines }: Props) {
         {Array.from(grouped.entries()).map(([country, items]) => (
           <optgroup key={country} label={`── ${country} ──`}>
             {items.map(w => (
-              <option key={w.id} value={w.id}>{w.name ?? w.label} — {w.regionName}</option>
+              <option key={w.id} value={w.id}>{w.label} — {w.regionName}</option>
             ))}
           </optgroup>
         ))}
