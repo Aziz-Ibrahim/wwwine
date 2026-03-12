@@ -38,26 +38,22 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
   const [activeCountry, setActiveCountry]   = useState<WineCountry | null>(null)
   const [zoom, setZoom]                     = useState(1)
   const [center, setCenter]                 = useState<[number, number]>([10, 15])
-  const [hoveredCountry, setHoveredCountry] = useState<string | null>(null)
-  const [hoveredRegion, setHoveredRegion]   = useState<string | null>(null)
+  const [hoveredCountry, setHoveredCountry] = useState<WineCountry | null>(null)
+  const [hoveredRegion, setHoveredRegion]   = useState<WineRegion | null>(null)
 
   const countryRegions = activeCountry
     ? regions.filter(r => r.countryCode === activeCountry.code)
     : []
 
-  // Pin sizes scale DOWN with zoom so they don't overlap at higher zoom
-  // At zoom=1: world pins are ~4px. At zoom=7: region pins appear ~3px in screen space
-  const worldPinR    = (h: boolean) => h ? 5   : 3.5
-  const regionPinR   = (h: boolean, sel: boolean) => sel ? 4.5 : h ? 4 : 3
-  const labelOffset  = 9   // pixels above pin for tooltip
-  const nameOffset   = 11  // pixels below pin for always-visible label
+  const worldPinR  = 5
+  const regionPinR = (sel: boolean) => sel ? 6 : 4.5
 
   const goToCountry = useCallback((country: WineCountry) => {
     setActiveCountry(country)
     setLevel('country')
     const cfg = COUNTRY_ZOOM[country.code] ?? {
       zoom: 6,
-      center: [country.coordinates.lng, country.coordinates.lat] as [number, number]
+      center: [country.coordinates.lng, country.coordinates.lat] as [number, number],
     }
     setCenter(cfg.center)
     setZoom(cfg.zoom)
@@ -68,30 +64,59 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
     setActiveCountry(null)
     setZoom(1)
     setCenter([10, 15])
+    setHoveredCountry(null)
+    setHoveredRegion(null)
   }, [])
+
+  // Decide what to show in the HTML tooltip bar
+  const tooltipCountry = hoveredCountry
+  const tooltipRegion  = hoveredRegion
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.atmosphere} />
 
-      {/* Breadcrumb */}
-      <div className={styles.breadcrumb}>
-        {level === 'world' ? (
-          <span className={styles.crumbInactive}>World Atlas</span>
-        ) : (
-          <>
-            <button className={styles.backBtn} onClick={goBack}>← World</button>
-            <span className={styles.crumbSep}>›</span>
-            <span className={styles.crumbActive}>{activeCountry?.name}</span>
-          </>
-        )}
+      {/* ── TOP BAR: breadcrumb + hint in one row ── */}
+      <div className={styles.topBar}>
+        <div className={styles.breadcrumb}>
+          {level === 'world' ? (
+            <span className={styles.crumbInactive}>World Atlas</span>
+          ) : (
+            <>
+              <button className={styles.backBtn} onClick={goBack}>← World</button>
+              <span className={styles.crumbSep}>›</span>
+              <span className={styles.crumbActive}>{activeCountry?.name}</span>
+            </>
+          )}
+        </div>
+        <div className={styles.hint}>
+          {level === 'world'
+            ? 'Tap a country pin to explore'
+            : 'Tap a region — appellations appear in the panel'}
+        </div>
       </div>
 
-      <div className={styles.hint}>
-        {level === 'world'
-          ? 'Click a country to explore its wine regions'
-          : 'Click a region — its appellations appear in the panel →'}
-      </div>
+      {/* ── HTML TOOLTIP — shown on hover/tap, never in SVG ── */}
+      {(tooltipCountry || tooltipRegion) && (
+        <div className={styles.tooltip}>
+          {tooltipCountry && (
+            <>
+              <span className={styles.tooltipName}>{tooltipCountry.name}</span>
+              <span className={styles.tooltipMeta}>
+                {tooltipCountry.regionCount} region{tooltipCountry.regionCount !== 1 ? 's' : ''}
+              </span>
+            </>
+          )}
+          {tooltipRegion && (
+            <>
+              <span className={styles.tooltipName}>{tooltipRegion.region}</span>
+              <span className={styles.tooltipMeta}>
+                {tooltipRegion.appellations.length} appellation{tooltipRegion.appellations.length !== 1 ? 's' : ''} · tap to explore
+              </span>
+            </>
+          )}
+        </div>
+      )}
 
       <ComposableMap
         projection="geoNaturalEarth1"
@@ -117,90 +142,91 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
                   fill="#161209"
                   stroke="#2A1F10"
                   strokeWidth={0.3}
-                  style={{ default: { outline: 'none' }, hover: { outline: 'none', fill: '#1E1810' }, pressed: { outline: 'none' } }}
+                  style={{
+                    default: { outline: 'none' },
+                    hover:   { outline: 'none', fill: '#1E1810' },
+                    pressed: { outline: 'none' },
+                  }}
                 />
               ))
             }
           </Geographies>
 
-          {/* WORLD: country pins — scale=1/zoom keeps screen size constant */}
+          {/* WORLD: country pins */}
           {level === 'world' && countries.map(c => {
-            const h = hoveredCountry === c.code
-            const r = worldPinR(h)
-            // scale transform makes pins appear same size regardless of zoom
+            const h = hoveredCountry?.code === c.code
+            const r = worldPinR
             return (
               <Marker
                 key={c.code}
                 coordinates={[c.coordinates.lng, c.coordinates.lat]}
                 onClick={() => goToCountry(c)}
-                onMouseEnter={() => setHoveredCountry(c.code)}
+                onMouseEnter={() => setHoveredCountry(c)}
                 onMouseLeave={() => setHoveredCountry(null)}
               >
-                <g transform={`scale(${1 / zoom})`}>
-                  <circle r={r * 2.2} fill="transparent" stroke={c.color} strokeWidth={0.6} opacity={0.22} />
+                <g transform={`scale(${1 / zoom})`} style={{ cursor: 'pointer' }}>
+                  {/* outer glow ring */}
+                  <circle r={r * 2.4} fill="transparent" stroke={c.color} strokeWidth={0.8} opacity={h ? 0.4 : 0.18} />
+                  {/* main dot */}
                   <circle
-                    r={r}
+                    r={h ? r * 1.35 : r}
                     fill={c.color}
                     stroke="#F5E6C8"
-                    strokeWidth={h ? 1.2 : 0.7}
-                    style={{ cursor: 'pointer', transition: 'r 0.15s ease', filter: h ? `drop-shadow(0 0 4px ${c.color}bb)` : 'none' }}
+                    strokeWidth={h ? 1.4 : 0.8}
+                    style={{ transition: 'r 0.15s ease', filter: h ? `drop-shadow(0 0 5px ${c.color}cc)` : 'none' }}
                   />
-                  <text textAnchor="middle" y={r * 0.38} style={{ fontFamily: 'Cinzel,serif', fontSize: `${r * 0.85}px`, fill: '#fff', fontWeight: 700, pointerEvents: 'none' }}>
+                  {/* region count number */}
+                  <text
+                    textAnchor="middle"
+                    y={r * 0.4}
+                    style={{ fontFamily: 'Cinzel,serif', fontSize: `${r * 0.9}px`, fill: '#fff', fontWeight: 700, pointerEvents: 'none' }}
+                  >
                     {c.regionCount}
                   </text>
-                  {h && (
-                    <>
-                      <rect x={-32} y={-(labelOffset + 12)} width={64} height={13} fill="rgba(8,5,2,0.97)" stroke="rgba(245,230,200,0.5)" strokeWidth={0.5} rx={1} />
-                      <text textAnchor="middle" y={-(labelOffset + 3)} style={{ fontFamily: 'Cinzel,serif', fontSize: '6px', fill: '#F5E6C8', pointerEvents: 'none', letterSpacing: '0.5px', fontWeight: 700 }}>
-                        {c.name}
-                      </text>
-                    </>
-                  )}
                 </g>
               </Marker>
             )
           })}
 
           {/* COUNTRY: region pins */}
-          {level === 'country' && countryRegions.map(r => {
-            const h = hoveredRegion === r.id
-            const sel = selectedRegionId === r.id
-            const pr = regionPinR(h, sel)
+          {level === 'country' && countryRegions.map(reg => {
+            const h   = hoveredRegion?.id === reg.id
+            const sel = selectedRegionId === reg.id
+            const pr  = regionPinR(sel)
             return (
               <Marker
-                key={r.id}
-                coordinates={[r.coordinates.lng, r.coordinates.lat]}
-                onClick={() => onSelectRegion(r)}
-                onMouseEnter={() => setHoveredRegion(r.id)}
+                key={reg.id}
+                coordinates={[reg.coordinates.lng, reg.coordinates.lat]}
+                onClick={() => { onSelectRegion(reg); setHoveredRegion(null) }}
+                onMouseEnter={() => setHoveredRegion(reg)}
                 onMouseLeave={() => setHoveredRegion(null)}
               >
-                <g transform={`scale(${1 / zoom})`}>
-                  {sel && <circle r={pr * 2.8} fill="transparent" stroke={r.color} strokeWidth={1} opacity={0.4} />}
-                  {!sel && <circle r={pr * 2} fill="transparent" stroke={r.color} strokeWidth={0.6} opacity={0.25} />}
+                <g transform={`scale(${1 / zoom})`} style={{ cursor: 'pointer' }}>
+                  {/* pulse ring */}
+                  <circle r={pr * (sel ? 3 : 2.2)} fill="transparent" stroke={reg.color} strokeWidth={sel ? 1.2 : 0.7} opacity={sel ? 0.45 : h ? 0.3 : 0.2} />
+                  {/* dot */}
                   <circle
-                    r={pr}
-                    fill={r.color}
+                    r={h ? pr * 1.3 : pr}
+                    fill={reg.color}
                     stroke="#F5E6C8"
-                    strokeWidth={sel ? 1.5 : h ? 1 : 0.6}
-                    style={{ cursor: 'pointer', transition: 'r 0.15s ease', filter: (h || sel) ? `drop-shadow(0 0 4px ${r.color}bb)` : 'none' }}
+                    strokeWidth={sel ? 1.8 : h ? 1.2 : 0.7}
+                    style={{ transition: 'r 0.15s ease', filter: (h || sel) ? `drop-shadow(0 0 5px ${reg.color}cc)` : 'none' }}
                   />
-                  {/* Always-visible region name below pin */}
+                  {/* region name label — always visible below pin */}
                   <text
                     textAnchor="middle"
-                    y={pr + nameOffset}
-                    style={{ fontFamily: 'Cinzel,serif', fontSize: '5px', fill: sel ? '#F5E6C8' : 'rgba(245,230,200,0.6)', pointerEvents: 'none', letterSpacing: '0.3px', fontWeight: sel ? 700 : 400 }}
+                    y={pr + 10}
+                    style={{
+                      fontFamily: 'Cinzel,serif',
+                      fontSize: '5.5px',
+                      fill: sel ? '#F5E6C8' : h ? 'rgba(245,230,200,0.9)' : 'rgba(245,230,200,0.5)',
+                      fontWeight: (sel || h) ? 700 : 400,
+                      pointerEvents: 'none',
+                      letterSpacing: '0.2px',
+                    }}
                   >
-                    {r.region}
+                    {reg.region}
                   </text>
-                  {/* Hover tooltip above pin */}
-                  {(h || sel) && (
-                    <>
-                      <rect x={-38} y={-(pr + labelOffset + 12)} width={76} height={13} fill="rgba(8,5,2,0.97)" stroke="rgba(245,230,200,0.5)" strokeWidth={0.4} rx={1} />
-                      <text textAnchor="middle" y={-(pr + labelOffset + 3)} style={{ fontFamily: 'Cinzel,serif', fontSize: '6px', fill: '#F5E6C8', pointerEvents: 'none', letterSpacing: '0.4px', fontWeight: 700 }}>
-                        {r.region} · {r.appellations.length} appellations
-                      </text>
-                    </>
-                  )}
                 </g>
               </Marker>
             )
@@ -208,11 +234,13 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
         </ZoomableGroup>
       </ComposableMap>
 
+      {/* ── FOOTER ── */}
       <div className={styles.footer}>
-        {level === 'world' && `${countries.length} countries · ${regions.reduce((a, r) => a + r.appellations.length, 0)} appellations charted`}
+        {level === 'world' && `${countries.length} countries · ${regions.reduce((a, r) => a + r.appellations.length, 0)} appellations`}
         {level === 'country' && activeCountry && `${countryRegions.length} regions in ${activeCountry.name}`}
       </div>
 
+      {/* ── ZOOM CONTROLS ── */}
       <div className={styles.zoomControls}>
         <button className={styles.zoomBtn} onClick={() => setZoom(z => Math.min(z * 1.6, 20))}>+</button>
         <button className={styles.zoomBtn} onClick={() => setZoom(z => Math.max(z / 1.6, 1))}>−</button>
