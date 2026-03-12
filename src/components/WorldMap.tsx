@@ -12,7 +12,7 @@ const COUNTRY_ZOOM: Record<string, { zoom: number; center: [number, number] }> =
   IT: { zoom: 7,  center: [12.0,  42.8]  },
   ES: { zoom: 7,  center: [-3.5,  40.2]  },
   DE: { zoom: 8,  center: [10.5,  51.0]  },
-  PT: { zoom: 8,  center: [-8.0,  39.5]  },
+  PT: { zoom: 7,  center: [-8.0,  39.5]  },
   AT: { zoom: 10, center: [14.5,  47.5]  },
   GR: { zoom: 8,  center: [22.5,  38.5]  },
   HU: { zoom: 10, center: [19.5,  47.2]  },
@@ -20,10 +20,10 @@ const COUNTRY_ZOOM: Record<string, { zoom: number; center: [number, number] }> =
   GE: { zoom: 9,  center: [44.5,  42.0]  },
   AR: { zoom: 6,  center: [-68.5,-33.5]  },
   CL: { zoom: 7,  center: [-71.0,-35.0]  },
-  ZA: { zoom: 7,  center: [19.5, -33.5]  },
-  AU: { zoom: 5,  center: [138.5,-34.0]  },
-  NZ: { zoom: 7,  center: [172.5,-41.5]  },
-  US: { zoom: 6,  center: [-118.0, 37.5] },
+  ZA: { zoom: 7,  center: [20.5, -33.8]  },
+  AU: { zoom: 5,  center: [138.5,-34.5]  },
+  NZ: { zoom: 6,  center: [171.5,-43.0]  },
+  US: { zoom: 5,  center: [-108.0, 40.0] },
 }
 
 interface Props {
@@ -150,8 +150,8 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
                   </text>
                   {h && (
                     <>
-                      <rect x={-26} y={-(labelOffset + 10)} width={52} height={11} fill="rgba(8,5,2,0.97)" stroke="rgba(245,230,200,0.5)" strokeWidth={0.5} rx={1} />
-                      <text textAnchor="middle" y={-(labelOffset + 2)} style={{ fontFamily: 'Cinzel,serif', fontSize: '5px', fill: '#F5E6C8', pointerEvents: 'none', letterSpacing: '0.3px' }}>
+                      <rect x={-32} y={-(labelOffset + 12)} width={64} height={13} fill="rgba(8,5,2,0.97)" stroke="rgba(245,230,200,0.5)" strokeWidth={0.5} rx={1} />
+                      <text textAnchor="middle" y={-(labelOffset + 3)} style={{ fontFamily: 'Cinzel,serif', fontSize: '6px', fill: '#F5E6C8', pointerEvents: 'none', letterSpacing: '0.5px', fontWeight: 700 }}>
                         {c.name}
                       </text>
                     </>
@@ -188,15 +188,15 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
                   <text
                     textAnchor="middle"
                     y={pr + nameOffset}
-                    style={{ fontFamily: 'Cinzel,serif', fontSize: '4px', fill: sel ? '#F5E6C8' : 'rgba(245,230,200,0.55)', pointerEvents: 'none', letterSpacing: '0.2px' }}
+                    style={{ fontFamily: 'Cinzel,serif', fontSize: '5px', fill: sel ? '#F5E6C8' : 'rgba(245,230,200,0.6)', pointerEvents: 'none', letterSpacing: '0.3px', fontWeight: sel ? 700 : 400 }}
                   >
                     {r.region}
                   </text>
                   {/* Hover tooltip above pin */}
                   {(h || sel) && (
                     <>
-                      <rect x={-32} y={-(pr + labelOffset + 10)} width={64} height={11} fill="rgba(8,5,2,0.97)" stroke="rgba(245,230,200,0.5)" strokeWidth={0.4} rx={1} />
-                      <text textAnchor="middle" y={-(pr + labelOffset + 2)} style={{ fontFamily: 'Cinzel,serif', fontSize: '4.5px', fill: '#F5E6C8', pointerEvents: 'none', letterSpacing: '0.2px' }}>
+                      <rect x={-38} y={-(pr + labelOffset + 12)} width={76} height={13} fill="rgba(8,5,2,0.97)" stroke="rgba(245,230,200,0.5)" strokeWidth={0.4} rx={1} />
+                      <text textAnchor="middle" y={-(pr + labelOffset + 3)} style={{ fontFamily: 'Cinzel,serif', fontSize: '6px', fill: '#F5E6C8', pointerEvents: 'none', letterSpacing: '0.4px', fontWeight: 700 }}>
                         {r.region} · {r.appellations.length} appellations
                       </text>
                     </>
