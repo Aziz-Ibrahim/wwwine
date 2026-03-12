@@ -15,12 +15,16 @@ export default function Header({ view, onViewChange }: Props) {
       <div className={styles.brand}>
         <Image
           src="/wwwine-logo.png"
-          alt="wwwine — World Wide Wine Atlas"
-          width={160}
-          height={160}
+          alt="wwwine"
+          width={52}
+          height={52}
           className={styles.logoImg}
           priority
         />
+        <div className={styles.brandText}>
+          <div className={styles.brandTitle}>World Wide Wine</div>
+          <div className={styles.brandSubtitle}>An Atlas of Wine</div>
+        </div>
       </div>
 
       <nav className={styles.nav}>

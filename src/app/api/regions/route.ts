@@ -1,19 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { searchRegions, allRegions } from '@/lib/data'
+import { NextResponse } from 'next/server'
+import { allRegions } from '@/lib/data'
 
-export async function GET(request: NextRequest) {
+export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-  const query = searchParams.get('q')
-  const continent = searchParams.get('continent')
-
-  let results = query ? searchRegions(query) : allRegions
-
-  if (continent) {
-    results = results.filter((r) => r.continent.toLowerCase() === continent.toLowerCase())
-  }
-
-  return NextResponse.json({
-    count: results.length,
-    regions: results,
-  })
+  const q = searchParams.get('q')?.toLowerCase() ?? ''
+  const results = q
+    ? allRegions.filter(r =>
+        r.region.toLowerCase().includes(q) ||
+        r.country.toLowerCase().includes(q) ||
+        r.appellations.some(a => a.name.toLowerCase().includes(q))
+      )
+    : allRegions
+  return NextResponse.json(results)
 }

@@ -8,22 +8,22 @@ import styles from './WorldMap.module.css'
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
 
 const COUNTRY_ZOOM: Record<string, { zoom: number; center: [number, number] }> = {
-  FR: { zoom: 5,  center: [2.5,   46.5]  },
-  IT: { zoom: 5,  center: [12.5,  42.5]  },
-  ES: { zoom: 5,  center: [-3.5,  40.2]  },
-  DE: { zoom: 6,  center: [10.5,  51.0]  },
-  PT: { zoom: 6,  center: [-8.0,  39.5]  },
-  AT: { zoom: 7,  center: [14.5,  47.5]  },
-  GR: { zoom: 6,  center: [22.0,  38.5]  },
-  HU: { zoom: 7,  center: [19.5,  47.2]  },
-  LB: { zoom: 8,  center: [35.9,  33.8]  },
-  GE: { zoom: 7,  center: [44.0,  42.0]  },
-  AR: { zoom: 4,  center: [-65.0,-34.0]  },
-  CL: { zoom: 5,  center: [-71.0,-35.0]  },
-  ZA: { zoom: 5,  center: [25.0, -30.0]  },
-  AU: { zoom: 3,  center: [134.0,-28.0]  },
-  NZ: { zoom: 5,  center: [172.0,-42.0]  },
-  US: { zoom: 4,  center: [-110.0, 40.0] },
+  FR: { zoom: 6,  center: [2.0,   46.5]  },
+  IT: { zoom: 6,  center: [12.0,  42.8]  },
+  ES: { zoom: 6,  center: [-3.5,  40.2]  },
+  DE: { zoom: 7,  center: [10.5,  51.0]  },
+  PT: { zoom: 7,  center: [-8.0,  39.5]  },
+  AT: { zoom: 8,  center: [14.5,  47.5]  },
+  GR: { zoom: 7,  center: [22.5,  38.5]  },
+  HU: { zoom: 8,  center: [19.5,  47.2]  },
+  LB: { zoom: 9,  center: [35.9,  33.8]  },
+  GE: { zoom: 8,  center: [44.5,  42.0]  },
+  AR: { zoom: 5,  center: [-68.5,-33.5]  },
+  CL: { zoom: 6,  center: [-71.0,-35.0]  },
+  ZA: { zoom: 6,  center: [19.5, -33.5]  },
+  AU: { zoom: 4,  center: [138.5,-34.0]  },
+  NZ: { zoom: 6,  center: [172.5,-41.5]  },
+  US: { zoom: 5,  center: [-118.0, 37.5] },
 }
 
 interface Props {
@@ -125,15 +125,15 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
                 onMouseEnter={() => setHoveredCountry(c.code)}
                 onMouseLeave={() => setHoveredCountry(null)}
               >
-                <circle r={h ? 14 : 11} fill="transparent" stroke={c.color} strokeWidth={0.8} opacity={0.25} />
+                <circle r={h ? 11 : 8} fill="transparent" stroke={c.color} strokeWidth={0.8} opacity={0.25} />
                 <circle
-                  r={h ? 8 : 6}
+                  r={h ? 6 : 4.5}
                   fill={c.color}
                   stroke="#F5E6C8"
                   strokeWidth={h ? 1.5 : 0.8}
                   style={{ cursor: 'pointer', transition: 'all 0.2s ease', filter: h ? `drop-shadow(0 0 7px ${c.color}cc)` : 'none' }}
                 />
-                <text textAnchor="middle" y={1} style={{ fontFamily: 'Cinzel,serif', fontSize: '3.5px', fill: '#fff', fontWeight: 700, pointerEvents: 'none' }}>
+                <text textAnchor="middle" y={1} style={{ fontFamily: 'Cinzel,serif', fontSize: '3px', fill: '#fff', fontWeight: 700, pointerEvents: 'none' }}>
                   {c.regionCount}
                 </text>
                 {h && (
@@ -160,10 +160,10 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
                 onMouseEnter={() => setHoveredRegion(r.id)}
                 onMouseLeave={() => setHoveredRegion(null)}
               >
-                {!sel && <circle r={h ? 11 : 9} fill="transparent" stroke={r.color} strokeWidth={0.8} opacity={0.28} />}
-                {sel && <circle r={13} fill="transparent" stroke={r.color} strokeWidth={1.5} opacity={0.5} />}
+                {!sel && <circle r={h ? 9 : 7} fill="transparent" stroke={r.color} strokeWidth={0.8} opacity={0.28} />}
+                {sel && <circle r={11} fill="transparent" stroke={r.color} strokeWidth={1.5} opacity={0.5} />}
                 <circle
-                  r={sel ? 7 : h ? 6 : 5}
+                  r={sel ? 6 : h ? 5 : 4}
                   fill={r.color}
                   stroke="#F5E6C8"
                   strokeWidth={sel ? 2 : h ? 1.2 : 0.7}
