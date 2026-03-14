@@ -50,10 +50,10 @@ export default function CompareEngine({ wines }: Props) {
   const Selector = ({ label, value, onChange }: { label: string; value: CompareItem; onChange: (w: CompareItem) => void }) => (
     <div className={styles.selectorWrap}>
       <div className={styles.selectorLabel}>{label}</div>
-      <select className={styles.select} value={value.id} onChange={e => { const found = wines.find(w=>w.id===e.target.value); if(found) onChange(found) }}>
-        {Array.from(grouped.entries()).map(([country, items]) => (
+      <select className={styles.select} value={value.id} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => { const found = wines.find(w=>w.id===e.target.value); if(found) onChange(found) }}>
+        {Array.from(grouped.entries() as Iterable<[string, CompareItem[]]>).map(([country, items]) => (
           <optgroup key={country} label={`── ${country} ──`}>
-            {items.map(w => (
+            {items.map((w: CompareItem) => (
               <option key={w.id} value={w.id}>{w.label} — {w.regionName}</option>
             ))}
           </optgroup>

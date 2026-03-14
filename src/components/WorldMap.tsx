@@ -128,14 +128,14 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
           center={center}
           minZoom={1}
           maxZoom={20}
-          onMoveEnd={({ zoom: z, coordinates }) => {
+          onMoveEnd={({ zoom: z, coordinates }: { zoom: number; coordinates: [number, number] }) => {
             setZoom(z)
             setCenter(coordinates as [number, number])
           }}
         >
           <Geographies geography={GEO_URL}>
-            {({ geographies }) =>
-              geographies.map(geo => (
+            {({ geographies }: { geographies: any[] }) =>
+              geographies.map((geo: any) => (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
@@ -242,8 +242,8 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
 
       {/* ── ZOOM CONTROLS ── */}
       <div className={styles.zoomControls}>
-        <button className={styles.zoomBtn} onClick={() => setZoom(z => Math.min(z * 1.6, 20))}>+</button>
-        <button className={styles.zoomBtn} onClick={() => setZoom(z => Math.max(z / 1.6, 1))}>−</button>
+        <button className={styles.zoomBtn} onClick={() => setZoom((z: number) => Math.min(z * 1.6, 20))}>+</button>
+        <button className={styles.zoomBtn} onClick={() => setZoom((z: number) => Math.max(z / 1.6, 1))}>−</button>
       </div>
     </div>
   )

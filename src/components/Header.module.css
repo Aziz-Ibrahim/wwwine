@@ -52,6 +52,12 @@
   line-height: 1.2;
 }
 
+.right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .nav {
   display: flex;
   gap: 6px;

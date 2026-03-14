@@ -61,7 +61,7 @@ function AppDetail({ app, region, onBack }: { app: Appellation; region: WineRegi
         <h3 className={styles.secTitle}>Tasting Profile</h3>
         <div className={styles.bars}>
           {(['Body', 'Tannins', 'Acidity', 'Sweetness', 'Alcohol'] as const).map(k => (
-            <Bar key={k} label={k} value={tp[k.toLowerCase() as keyof typeof tp] as number} />
+            <div key={k}><Bar label={k} value={tp[k.toLowerCase() as keyof typeof tp] as number} /></div>
           ))}
         </div>
 

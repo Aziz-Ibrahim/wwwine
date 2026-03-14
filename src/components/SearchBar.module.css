@@ -1,0 +1,177 @@
+/* ── WRAPPER ─────────────────────────────────────────────── */
+.wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ── COLLAPSED: icon button ──────────────────────────────── */
+.iconBtn {
+  width: 36px;
+  height: 36px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: #C9A84C;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.iconBtn:hover {
+  background: rgba(201,168,76,0.2);
+  border-color: #C9A84C;
+  color: #F5E6C8;
+}
+
+/* ── EXPANDED ─────────────────────────────────────────────── */
+.expanded {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(8,5,2,0.95);
+  border: 1px solid rgba(201,168,76,0.45);
+  border-radius: 2px;
+  padding: 0 10px;
+  height: 36px;
+  /* expand leftward from the search button position */
+  width: clamp(220px, 28vw, 380px);
+}
+
+.searchIcon {
+  color: rgba(201,168,76,0.6);
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'EB Garamond', serif;
+  font-size: 14px;
+  color: #F5E6C8;
+  min-width: 0;
+}
+.input::placeholder { color: rgba(245,230,200,0.3); font-style: italic; }
+
+.clearBtn, .closeBtn {
+  background: transparent;
+  border: none;
+  color: rgba(245,230,200,0.35);
+  cursor: pointer;
+  font-size: 11px;
+  padding: 2px 4px;
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+.clearBtn:hover, .closeBtn:hover { color: #F5E6C8; }
+.closeBtn { border-left: 1px solid rgba(245,230,200,0.1); margin-left: 2px; padding-left: 8px; }
+
+/* ── DROPDOWN ─────────────────────────────────────────────── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: rgba(10,7,4,0.98);
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 2px;
+  overflow: hidden;
+  z-index: 200;
+  max-height: 420px;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+  animation: dropIn 0.12s ease;
+}
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESULT ROW ───────────────────────────────────────────── */
+.result {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: none;
+  border-bottom: 1px solid rgba(245,230,200,0.05);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.1s;
+}
+.result:last-child { border-bottom: none; }
+.result:hover, .resultActive {
+  background: rgba(201,168,76,0.1);
+}
+.resultIcon { font-size: 15px; flex-shrink: 0; }
+.resultText { flex: 1; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.resultLabel {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  color: #F0E4C8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.resultSub {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: rgba(245,230,200,0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.resultType {
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.55);
+  flex-shrink: 0;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.18);
+  padding: 2px 6px;
+  border-radius: 1px;
+}
+
+/* ── NO RESULTS ───────────────────────────────────────────── */
+.noResults {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+.noResultsIcon { font-size: 24px; }
+.noResultsText {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  color: #D4C4A8;
+}
+.noResultsText em { font-style: italic; color: #C9A84C; }
+.noResultsSub {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(245,230,200,0.4);
+}
+
+/* ── MOBILE ───────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .inputWrap { width: calc(100vw - 80px); }
+  .dropdown  { position: fixed; top: 64px; left: 0; right: 0; border-radius: 0; max-height: 55vh; }
+}
