@@ -1,18 +1,20 @@
 import React from 'react'
 
+
 import type { SearchResult } from '@/lib/search'
 import type { WineRegion } from '@/types'
 import styles from './SearchResultPanel.module.css'
 
 interface Props {
   result: SearchResult
-  regions: WineRegion[]
+  regions: WineRegion[]           // resolved regions (may be empty)
   onSelectRegion: (r: WineRegion) => void
   onClose: () => void
 }
 
 export default function SearchResultPanel({ result, regions, onSelectRegion, onClose }: Props) {
 
+  // ── Case 1: we have regions — show a list to pick from ────────
   if (regions.length > 0) {
     return (
       <div className={styles.panel}>
@@ -67,6 +69,7 @@ export default function SearchResultPanel({ result, regions, onSelectRegion, onC
     )
   }
 
+  // ── Case 2: country exists but no regions in our data ─────────
   if (result.type === 'country') {
     return (
       <div className={styles.panel}>
@@ -93,6 +96,7 @@ export default function SearchResultPanel({ result, regions, onSelectRegion, onC
     )
   }
 
+  // ── Case 3: grape / appellation / region not in dataset ───────
   return (
     <div className={styles.panel}>
       <div className={styles.hero}>

@@ -7476,5 +7476,828 @@
         ]
       }
     ]
+  },
+  {
+    "id": "english-wine",
+    "region": "English Wine",
+    "country": "England",
+    "countryCode": "GB",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 51.1,
+      "lng": -0.3
+    },
+    "countryCoordinates": {
+      "lat": 52.5,
+      "lng": -1.5
+    },
+    "color": "#2A6B4A",
+    "vintage": "c. 43 CE",
+    "description": "England's wine renaissance is one of the 21st century's great surprises. Chalk and limestone soils identical to Champagne, warming climate, and a cool-climate harvest produce sparkling wines now routinely beating top Champagne houses in blind tastings. Nyetimber, Chapel Down and Ridgeview are the vanguard of a revolution.",
+    "mythology": [
+      {
+        "name": "Bacchus",
+        "culture": "Roman",
+        "role": "God of Wine",
+        "note": "Roman legions planted the first English vineyards around Londinium (London) in 43 CE. The Emperor Probus formally legalised viticulture across Britain in 280 CE. English wine never truly stopped — monasteries kept it alive through the medieval period."
+      },
+      {
+        "name": "Dionysus",
+        "culture": "Greek (via Roman import)",
+        "role": "God of Wine",
+        "note": "The Venerable Bede recorded English vineyards in the 8th century. At the Domesday Book (1086), England had 46 recorded vineyards. Climate cooling ended most production by 1400 CE — until the 21st century revival."
+      }
+    ],
+    "productionVolume": "~12 million bottles/year",
+    "appellations": [
+      {
+        "id": "english-sparkling",
+        "name": "English Sparkling Wine",
+        "type": "PDO",
+        "coordinates": {
+          "lat": 51.05,
+          "lng": -0.1
+        },
+        "grapes": [
+          "Chardonnay",
+          "Pinot Noir",
+          "Pinot Meunier",
+          "Pinot Blanc"
+        ],
+        "description": "England's chalk North and South Downs are geologically identical to Champagne's chalk belts — the same ancient seabed, the same Belemnite chalk. Traditional method sparkling wines from Sussex and Kent now challenge the finest Grande Marque Champagnes. The 2009 Nyetimber Classic Cuvée beat Dom Pérignon in a 2015 blind tasting. The cool, long English ripening season preserves extraordinary natural acidity.",
+        "climate": "Cool maritime — long cool growing season, high natural acidity. Chalk and limestone moderate drainage. Warming 1.5°C since 1990.",
+        "soilTypes": [
+          "Chalk (Belemnite)",
+          "Greensand",
+          "Clay-limestone",
+          "Sandstone"
+        ],
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 1,
+          "acidity": 5,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Green apple",
+            "Lemon curd",
+            "White peach",
+            "Pear",
+            "Brioche"
+          ],
+          "secondaryNotes": [
+            "Chalk",
+            "Cream",
+            "Toasted bread",
+            "White flowers",
+            "Hazelnut"
+          ],
+          "tertiaryNotes": [
+            "Honey",
+            "Biscuit",
+            "Almond",
+            "Toast"
+          ],
+          "finish": "very long",
+          "style": "England's finest — Champagne's twin on identical chalk, cool-climate electric acidity"
+        },
+        "servingTemp": "7–9°C",
+        "foodPairings": [
+          "Smoked salmon",
+          "Dressed crab",
+          "Oysters",
+          "Coronation chicken",
+          "Afternoon tea"
+        ],
+        "agingPotential": "5–20 years",
+        "bestVintages": [
+          2009,
+          2013,
+          2014,
+          2016,
+          2018,
+          2020
+        ],
+        "wineries": [
+          {
+            "name": "Nyetimber",
+            "founded": 1988,
+            "flagship": "Classic Cuvée Multi-Vintage"
+          },
+          {
+            "name": "Chapel Down",
+            "founded": 1992,
+            "flagship": "Kit's Coty Blanc de Blancs"
+          },
+          {
+            "name": "Ridgeview",
+            "founded": 1994,
+            "flagship": "Blanc de Blancs Grosvenor"
+          },
+          {
+            "name": "Hambledon Vineyard",
+            "founded": 1952,
+            "flagship": "Classic Cuvée Premier Cuvée"
+          }
+        ]
+      },
+      {
+        "id": "english-still",
+        "name": "English Still Wine (Bacchus)",
+        "type": "PDO",
+        "coordinates": {
+          "lat": 51.8,
+          "lng": 0.6
+        },
+        "grapes": [
+          "Bacchus",
+          "Ortega",
+          "Pinot Noir",
+          "Chardonnay",
+          "Solaris"
+        ],
+        "description": "England's still wines — led by Bacchus, a German crossing of Silvaner × Riesling × Müller-Thurgau — produce herbaceous, gooseberry-and-elderflower whites of real character. The warmest English counties (Suffolk, Essex, Kent) are ripening Pinot Noir for increasingly convincing still reds. Bacchus is to English still wine what Sauvignon Blanc is to Marlborough — a national calling card.",
+        "climate": "Cool maritime — East Anglia and Kent warmest. Clay and sandy loam over chalk.",
+        "soilTypes": [
+          "Sandy loam",
+          "Clay over chalk",
+          "Greensand",
+          "Alluvial"
+        ],
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 1,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 2,
+          "fruits": [
+            "Gooseberry",
+            "Elderflower",
+            "Green apple",
+            "Lime",
+            "Grapefruit"
+          ],
+          "secondaryNotes": [
+            "Nettles",
+            "Cut grass",
+            "White flowers",
+            "Herbs"
+          ],
+          "tertiaryNotes": [
+            "Honey",
+            "Beeswax"
+          ],
+          "finish": "medium",
+          "style": "England's white calling card — herbaceous, elderflower, genuinely English"
+        },
+        "servingTemp": "8–10°C",
+        "foodPairings": [
+          "Fish and chips",
+          "Dressed crab",
+          "Asparagus",
+          "Goat's cheese",
+          "Smoked mackerel"
+        ],
+        "agingPotential": "2–6 years",
+        "bestVintages": [
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+        ],
+        "wineries": [
+          {
+            "name": "Camel Valley",
+            "founded": 1989,
+            "flagship": "Bacchus Dry"
+          },
+          {
+            "name": "Terlingham Vineyard",
+            "founded": 2005,
+            "flagship": "Bacchus Reserve"
+          },
+          {
+            "name": "Gusbourne Estate",
+            "founded": 2004,
+            "flagship": "Guinevere Chardonnay"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "japanese-wine",
+    "region": "Yamanashi / Nagano",
+    "country": "Japan",
+    "countryCode": "JP",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 35.6,
+      "lng": 138.6
+    },
+    "countryCoordinates": {
+      "lat": 36.2,
+      "lng": 138.3
+    },
+    "color": "#C04060",
+    "vintage": "c. 718 CE",
+    "description": "Japan's wine culture is ancient — sake aside, the Koshu grape has been cultivated in Yamanashi since the 8th century. Today Japan produces wines of unique, delicate character. Koshu, a pink-skinned grape brought via the Silk Road, produces neutral, subtly saline whites of extraordinary food affinity. Japan's wine renaissance is led by Château Mercian, Grace Wine and Domaine Sogga.",
+    "mythology": [
+      {
+        "name": "Ōkuninushi",
+        "culture": "Shinto",
+        "role": "God of Agriculture and Nation Building",
+        "note": "Japanese mythology credits divine beings with all agricultural gifts. The cultivation of Koshu grapes at Katsunuma in Yamanashi is traditionally dated to 718 CE, when the monk Gyoki reportedly found the first wild vine and cultivated it as a medicinal fruit."
+      },
+      {
+        "name": "Inari",
+        "culture": "Shinto",
+        "role": "God of Harvest, Rice and Prosperity",
+        "note": "Inari shrines — the most numerous in Japan — are associated with all agricultural abundance including fruit and grape cultivation. Many Japanese wineries maintain small Inari shrines in their vineyards."
+      }
+    ],
+    "productionVolume": "~10 million bottles/year",
+    "appellations": [
+      {
+        "id": "koshu",
+        "name": "Yamanashi Koshu",
+        "type": "GI",
+        "coordinates": {
+          "lat": 35.63,
+          "lng": 138.55
+        },
+        "grapes": [
+          "Koshu",
+          "Muscat Bailey A",
+          "Merlot",
+          "Cabernet Sauvignon"
+        ],
+        "description": "Koshu is Japan's only internationally recognised indigenous white grape — a tetraploidal vinifera brought via the Silk Road, adapted over 1,300 years to Yamanashi's wet, typhoon-prone climate. Koshu wine is pale golden, delicately aromatic, with subtle umami, citrus and saline notes — uniquely suited to Japanese cuisine (washoku). The GI Yamanashi was Japan's first geographical indication, granted in 2013. Château Mercian's Koshu Ki-no-ka is the most internationally distributed.",
+        "climate": "Humid continental — Mt Fuji rain shadow provides drier conditions. Hot humid summers, cold winters. Typhoon management critical.",
+        "soilTypes": [
+          "Alluvial fan (扇状地)",
+          "Sandy loam",
+          "Volcanic ash (富士火山灰)",
+          "Clay"
+        ],
+        "tastingProfile": {
+          "body": 1,
+          "tannins": 1,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 2,
+          "fruits": [
+            "Yuzu",
+            "White peach",
+            "Lemon",
+            "Mandarin",
+            "Pear"
+          ],
+          "secondaryNotes": [
+            "Umami",
+            "Sea salt",
+            "White flowers",
+            "Subtle herbs"
+          ],
+          "tertiaryNotes": [
+            "Honey",
+            "Beeswax",
+            "Almond"
+          ],
+          "finish": "medium",
+          "style": "Japan's unique white — delicate, umami-saline, made for Japanese cuisine"
+        },
+        "servingTemp": "8–10°C",
+        "foodPairings": [
+          "Sashimi",
+          "Tempura",
+          "Kaiseki",
+          "Steamed clams",
+          "Grilled ayu (sweetfish)",
+          "Tofu"
+        ],
+        "agingPotential": "2–8 years",
+        "bestVintages": [
+          2012,
+          2015,
+          2018,
+          2019,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Château Mercian",
+            "founded": 1877,
+            "flagship": "Koshu Ki-no-ka"
+          },
+          {
+            "name": "Grace Wine (Chûô Budôshu)",
+            "founded": 1923,
+            "flagship": "Gris de Koshu"
+          },
+          {
+            "name": "Suntory Tomi no Oka",
+            "founded": 1936,
+            "flagship": "Tomi no Oka Koshu"
+          }
+        ]
+      },
+      {
+        "id": "nagano-wine",
+        "name": "Nagano Merlot / Chardonnay",
+        "type": "GI",
+        "coordinates": {
+          "lat": 36.65,
+          "lng": 138.18
+        },
+        "grapes": [
+          "Merlot",
+          "Cabernet Sauvignon",
+          "Chardonnay",
+          "Pinot Noir"
+        ],
+        "description": "Japan's most exciting wine frontier for international varieties. Nagano's 500–900m altitude, volcanic soils and cool nights produce Merlot and Chardonnay of Burgundian delicacy. Domaine Sogga (Obuse Winery) produces Pinot Noir and Chardonnay that rival fine Burgundy — extraordinary achievements in Japan's challenging, humid climate. The Shinshu terroir is increasingly recognised as Japan's finest for premium wine.",
+        "climate": "Cool continental — high altitude (500–900m), low humidity, volcanic soils. Wide diurnal range.",
+        "soilTypes": [
+          "Volcanic ash",
+          "Sandy loam",
+          "Alluvial",
+          "Mountain granite"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 2,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Raspberry",
+            "Red cherry",
+            "Plum",
+            "Citrus"
+          ],
+          "secondaryNotes": [
+            "Violet",
+            "Earth",
+            "Spice",
+            "Cedar"
+          ],
+          "tertiaryNotes": [
+            "Forest floor",
+            "Tobacco",
+            "Leather"
+          ],
+          "finish": "long",
+          "style": "Japan's Burgundy — mountain-fresh, Merlot and Pinot of real elegance"
+        },
+        "servingTemp": "14–16°C",
+        "foodPairings": [
+          "Wagyu sukiyaki",
+          "Matsutake mushrooms",
+          "Soba with duck",
+          "Miso-glazed aubergine"
+        ],
+        "agingPotential": "5–15 years",
+        "bestVintages": [
+          2015,
+          2017,
+          2019,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Domaine Sogga / Obuse Winery",
+            "founded": 1942,
+            "flagship": "Sogga Père et Fils Pinot Noir"
+          },
+          {
+            "name": "Château Mercian Kikyogahara",
+            "founded": 1938,
+            "flagship": "Kikyogahara Merlot"
+          },
+          {
+            "name": "Shinshu Winery",
+            "founded": 1936,
+            "flagship": "Chardonnay Reserve"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "palestine-wine",
+    "region": "Palestinian Wine (West Bank / Cremisan)",
+    "country": "Palestine",
+    "countryCode": "PS",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 31.76,
+      "lng": 35.23
+    },
+    "countryCoordinates": {
+      "lat": 31.9,
+      "lng": 35.2
+    },
+    "color": "#3A7B4A",
+    "vintage": "c. 3500 BCE",
+    "description": "The Holy Land is the cradle of wine civilisation. Archaeological evidence from the Jordan Valley confirms wine production from at least 3500 BCE. The Canaanites, Philistines and Israelites all produced wine here; Noah's vineyard, Hebron's grapes and the Valley of Eshkol are all rooted in this landscape. Today, Palestinian winemakers — led by the Cremisan Monastery and Taybeh Winery — are reclaiming this ancient heritage with indigenous varieties on limestone terraces.",
+    "mythology": [
+      {
+        "name": "El",
+        "culture": "Canaanite",
+        "role": "Father of Gods, associated with the vine",
+        "note": "Canaanite wine culture from 3500 BCE is the direct ancestor of Biblical viticulture. The 'blood of the grape' (dam ha'anavim) is referenced throughout the Hebrew scriptures as a sacred gift of the land."
+      },
+      {
+        "name": "Bacchus / Dionysus",
+        "culture": "Roman / Greek",
+        "role": "God of Wine",
+        "note": "Roman Palestine (Judea, Samaria, Gaza) was one of the Empire's most productive wine regions. Gaza wine, shipped in distinctive amphorae, was traded across the Mediterranean from 400–700 CE and was described by Byzantine writers as among the finest in the world."
+      },
+      {
+        "name": "Al-Khadir (St George)",
+        "culture": "Islamic / Christian",
+        "role": "Protector of farmers and vintners",
+        "note": "Al-Khadir, venerated by both Muslims and Christians in the Holy Land, is associated with the greening of the earth and the protection of cultivated land — including vines."
+      }
+    ],
+    "productionVolume": "~1 million bottles/year",
+    "appellations": [
+      {
+        "id": "cremisan",
+        "name": "Cremisan Valley / Bethlehem Hills",
+        "type": "GI",
+        "coordinates": {
+          "lat": 31.71,
+          "lng": 35.16
+        },
+        "grapes": [
+          "Dabouki",
+          "Hamdani",
+          "Jandali",
+          "Baladi",
+          "Cabernet Sauvignon",
+          "Syrah"
+        ],
+        "description": "The Cremisan Monastery in Beit Jala, founded by Salesian monks in 1885, produces wine from indigenous Palestinian varieties that have grown on these limestone terraces since Biblical times. Dabouki, Hamdani and Jandali — varieties found nowhere else — produce whites and reds of unique mineral character rooted in some of the world's oldest viticultural soil. The Bethlehem hills (700–900m altitude) have been producing wine continuously for over 5,000 years.",
+        "climate": "Mediterranean — 700–900m altitude, cool nights, limestone terraces. Ancient dry-farmed bush vines.",
+        "soilTypes": [
+          "Limestone (nari)",
+          "Terra rossa",
+          "Chalk",
+          "Ancient alluvial terrace"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 2,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Pomegranate",
+            "Fig",
+            "Dried cherry",
+            "Lemon",
+            "Apricot"
+          ],
+          "secondaryNotes": [
+            "Limestone",
+            "Wild herbs",
+            "Za'atar",
+            "Thyme",
+            "Sage"
+          ],
+          "tertiaryNotes": [
+            "Dried rose",
+            "Earth",
+            "Ancient stone",
+            "Spice"
+          ],
+          "finish": "long",
+          "style": "5,000 years in a glass — indigenous varieties, Biblical terroir, unique on earth"
+        },
+        "servingTemp": "14–16°C",
+        "foodPairings": [
+          "Maqluba (upside-down rice)",
+          "Musakhan (roast chicken, sumac, onion)",
+          "Freekeh",
+          "Knafeh",
+          "Olive oil dishes"
+        ],
+        "agingPotential": "5–15 years",
+        "bestVintages": [
+          2010,
+          2013,
+          2016,
+          2018,
+          2020
+        ],
+        "wineries": [
+          {
+            "name": "Cremisan Wine Cellars",
+            "founded": 1885,
+            "flagship": "Cremisan White (Hamdani-Jandali)"
+          },
+          {
+            "name": "Taybeh Winery",
+            "founded": 2013,
+            "flagship": "Taybeh Red"
+          },
+          {
+            "name": "Philokalia Winery",
+            "founded": 2010,
+            "flagship": "Dabouki Single Vineyard"
+          }
+        ]
+      },
+      {
+        "id": "hebron-wine",
+        "name": "Hebron Hills (Khamr Al-Khalil)",
+        "type": "GI",
+        "coordinates": {
+          "lat": 31.53,
+          "lng": 35.1
+        },
+        "grapes": [
+          "Dabouki",
+          "Baladi",
+          "Hamdani",
+          "Syrah",
+          "Merlot"
+        ],
+        "description": "The Hebron hills (Al-Khalil) are mentioned in the Bible as the source of the giant grape cluster brought back by Moses' spies from the Valley of Eshkol — so large it required two men to carry on a pole. Viticulture here is among the world's most ancient. Today small-scale Palestinian producers are reviving heritage varieties and ancient terracing practices on these high limestone slopes, producing wines of extraordinary historical resonance.",
+        "climate": "Semi-arid Mediterranean — high altitude (800–1,000m), significant diurnal range, minimal rainfall.",
+        "soilTypes": [
+          "Limestone",
+          "Terra rossa",
+          "Rendzina"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 3,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 4,
+          "fruits": [
+            "Fig",
+            "Pomegranate",
+            "Dark cherry",
+            "Dried plum",
+            "Date"
+          ],
+          "secondaryNotes": [
+            "Wild thyme",
+            "Rock rose",
+            "Earth",
+            "Spice"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Dried herbs",
+            "Incense"
+          ],
+          "finish": "long",
+          "style": "The Biblical grape — ancient, earthy, rooted in the oldest wine culture on earth"
+        },
+        "servingTemp": "15–17°C",
+        "foodPairings": [
+          "Mansaf (lamb with jameed)",
+          "Stuffed grape leaves (warak dawali)",
+          "Lamb chops",
+          "Halloumi grilled"
+        ],
+        "agingPotential": "5–12 years",
+        "bestVintages": [
+          2014,
+          2017,
+          2019,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Tura Winery",
+            "founded": 2002,
+            "flagship": "Mountain Peak Red"
+          },
+          {
+            "name": "Ariel Winery (Beit El)",
+            "founded": 1999,
+            "flagship": "Ariel Cabernet"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "baja-california",
+    "region": "Valle de Guadalupe / Baja California",
+    "country": "Mexico",
+    "countryCode": "MX",
+    "continent": "North America",
+    "coordinates": {
+      "lat": 31.96,
+      "lng": -116.58
+    },
+    "countryCoordinates": {
+      "lat": 23.6,
+      "lng": -102.5
+    },
+    "color": "#C05020",
+    "vintage": "c. 1597 CE",
+    "description": "Mexico is the oldest wine-producing country in the Americas — the Spanish planted vines at Parras, Coahuila in 1597. But Baja California's Valle de Guadalupe, just 90km south of San Diego, is the real revolution: a sun-baked Mediterranean valley where a community of artisanal winemakers, chefs and artists have created one of the world's most exciting wine-and-food cultures. The 'Napa of Mexico' is drawing international attention.",
+    "mythology": [
+      {
+        "name": "Coyolxauhqui",
+        "culture": "Aztec",
+        "role": "Moon goddess, agriculture and seasons",
+        "note": "The Aztec peoples cultivated fermented agave and fruit pulque long before Spanish contact. Spanish missionaries combined this indigenous fermentation knowledge with European viticulture from the 1520s."
+      },
+      {
+        "name": "Tlaloc",
+        "culture": "Aztec / Mesoamerican",
+        "role": "God of Rain and Agriculture",
+        "note": "Tlaloc, the rain deity venerated across Mesoamerica, governed the agricultural calendar that determined harvest timing. Spanish missionaries adopted harvest festivals into Catholic celebrations, many of which continue in Baja wine culture today."
+      },
+      {
+        "name": "Santo Tomás Mission",
+        "culture": "Dominican Catholic",
+        "role": "Founders of Baja viticulture",
+        "note": "Dominican missionaries established the Mission Santo Tomás in 1791, planting the first Baja California vineyards. The mission winery — Bodegas de Santo Tomás — is still operating, making it the oldest continuously producing winery in Mexico."
+      }
+    ],
+    "productionVolume": "~5 million bottles/year",
+    "appellations": [
+      {
+        "id": "valle-guadalupe",
+        "name": "Valle de Guadalupe",
+        "type": "DO",
+        "coordinates": {
+          "lat": 31.96,
+          "lng": -116.58
+        },
+        "grapes": [
+          "Nebbiolo",
+          "Grenache",
+          "Tempranillo",
+          "Cabernet Sauvignon",
+          "Syrah",
+          "Chardonnay",
+          "Sauvignon Blanc"
+        ],
+        "description": "Mexico's most exciting wine valley — a Mediterranean microclimate of granitic soils, coastal fog, and intense sunshine 32km from the Pacific. Valle de Guadalupe attracts chefs, artists and winemakers from around the world. The valley's unique culture — open-air restaurants (chef's tables in vineyards, gastrovino culture) combined with wines of genuine character — has made it a pilgrimage destination. Monte Xanic, Casa de Piedra and Adobe Guadalupe produce internationally awarded wines.",
+        "climate": "Mediterranean — Pacific coastal influence, morning fog, hot sunny days, cool nights. Granitic soils with low water retention.",
+        "soilTypes": [
+          "Decomposed granite",
+          "Sandy loam",
+          "Alluvial",
+          "Rocky hillside"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 3,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 4,
+          "fruits": [
+            "Dark cherry",
+            "Blackberry",
+            "Plum",
+            "Dried herbs",
+            "Fig"
+          ],
+          "secondaryNotes": [
+            "Sage",
+            "Chaparral",
+            "Dark chocolate",
+            "Spice",
+            "Vanilla"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Coffee",
+            "Earth"
+          ],
+          "finish": "long",
+          "style": "Mexico's wine soul — granite, Pacific fog, Mediterranean warmth in one valley"
+        },
+        "servingTemp": "16–18°C",
+        "foodPairings": [
+          "Baja fish tacos",
+          "Birria de res",
+          "Grilled octopus with salsa negra",
+          "Lamb barbacoa",
+          "Queso Oaxaca"
+        ],
+        "agingPotential": "5–15 years",
+        "bestVintages": [
+          2010,
+          2013,
+          2016,
+          2018,
+          2020,
+          2022
+        ],
+        "wineries": [
+          {
+            "name": "Monte Xanic",
+            "founded": 1987,
+            "flagship": "Gran Ricardo Cabernet-Merlot"
+          },
+          {
+            "name": "Casa de Piedra",
+            "founded": 1997,
+            "flagship": "Vino de Piedra Tempranillo"
+          },
+          {
+            "name": "Adobe Guadalupe",
+            "founded": 1999,
+            "flagship": "Gabriel Nebbiolo"
+          },
+          {
+            "name": "Bodegas de Santo Tomás",
+            "founded": 1888,
+            "flagship": "Misión Nebbiolo"
+          }
+        ]
+      },
+      {
+        "id": "parras-coahuila",
+        "name": "Parras de la Fuente, Coahuila",
+        "type": "DO",
+        "coordinates": {
+          "lat": 25.44,
+          "lng": -102.18
+        },
+        "grapes": [
+          "Cabernet Sauvignon",
+          "Merlot",
+          "Malbec",
+          "Tempranillo",
+          "Zinfandel"
+        ],
+        "description": "The Americas' oldest wine region — Francisco de Urdiñola planted the first vines here in 1597 at 1,500m altitude in the Chihuahuan Desert oasis. Casa Madero, founded 1626, is the Western Hemisphere's oldest winery in continuous operation. The desert altitude and cool nights produce structured, age-worthy reds of genuine character, very different from Baja California's Mediterranean style.",
+        "climate": "Desert continental — high altitude (1,500m), low rainfall, extreme diurnal range. Natural oasis spring water for irrigation.",
+        "soilTypes": [
+          "Limestone",
+          "Sandy desert loam",
+          "Calcareous clay"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 4,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 4,
+          "fruits": [
+            "Dark plum",
+            "Blackcurrant",
+            "Black cherry",
+            "Spice"
+          ],
+          "secondaryNotes": [
+            "Vanilla",
+            "Cedar",
+            "Chocolate",
+            "Desert herbs"
+          ],
+          "tertiaryNotes": [
+            "Tobacco",
+            "Leather",
+            "Earth"
+          ],
+          "finish": "long",
+          "style": "The Americas' oldest wines — desert-altitude structure, 400+ years of history"
+        },
+        "servingTemp": "16–17°C",
+        "foodPairings": [
+          "Cabrito (roast kid goat)",
+          "Machaca (dried beef)",
+          "Chile en nogada",
+          "Aged Manchego Mexicano"
+        ],
+        "agingPotential": "8–20 years",
+        "bestVintages": [
+          2005,
+          2010,
+          2012,
+          2016,
+          2018,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Casa Madero",
+            "founded": 1626,
+            "flagship": "3V Cabernet-Merlot-Shiraz"
+          },
+          {
+            "name": "Hacienda El Santuario",
+            "founded": 1860,
+            "flagship": "Tempranillo Reserva"
+          }
+        ]
+      }
+    ]
   }
 ]

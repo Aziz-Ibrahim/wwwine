@@ -24,6 +24,10 @@ const COUNTRY_ZOOM: Record<string, { zoom: number; center: [number, number] }> =
   AU: { zoom: 5,  center: [138.5,-34.5]  },
   NZ: { zoom: 6,  center: [171.5,-43.0]  },
   US: { zoom: 5,  center: [-108.0, 40.0] },
+  GB: { zoom: 7,  center: [-1.5,   52.5]  },
+  JP: { zoom: 6,  center: [138.5,  36.5]  },
+  PS: { zoom: 9,  center: [35.2,   31.7]  },
+  MX: { zoom: 6,  center: [-104.0, 27.0]  },
 }
 
 interface Props {
@@ -179,9 +183,28 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
                   <text
                     textAnchor="middle"
                     y={r * 0.4}
-                    style={{ fontFamily: 'Cinzel,serif', fontSize: `${r * 0.9}px`, fill: '#fff', fontWeight: 700, pointerEvents: 'none' }}
+                    style={{ fontFamily: 'Cinzel,serif', fontSize: `${r * 1.0}px`, fill: '#fff', fontWeight: 800, pointerEvents: 'none' }}
                   >
                     {c.regionCount}
+                  </text>
+                  {/* country name always visible below world pin */}
+                  <text
+                    textAnchor="middle"
+                    y={r + 9}
+                    style={{
+                      fontFamily: 'Cinzel,serif',
+                      fontSize: '5px',
+                      fill: h ? '#F5E6C8' : 'rgba(245,230,200,0.65)',
+                      fontWeight: h ? 700 : 500,
+                      pointerEvents: 'none',
+                      letterSpacing: '0.2px',
+                      paintOrder: 'stroke',
+                      stroke: 'rgba(8,5,2,0.8)',
+                      strokeWidth: '2px',
+                      strokeLinejoin: 'round' as const,
+                    }}
+                  >
+                    {c.name}
                   </text>
                 </g>
               </Marker>
@@ -212,17 +235,21 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
                     strokeWidth={sel ? 1.8 : h ? 1.2 : 0.7}
                     style={{ transition: 'r 0.15s ease', filter: (h || sel) ? `drop-shadow(0 0 5px ${reg.color}cc)` : 'none' }}
                   />
-                  {/* region name label — always visible below pin */}
+                  {/* region name — always legible, brighter on hover/select */}
                   <text
                     textAnchor="middle"
-                    y={pr + 10}
+                    y={pr + 12}
                     style={{
                       fontFamily: 'Cinzel,serif',
-                      fontSize: '5.5px',
-                      fill: sel ? '#F5E6C8' : h ? 'rgba(245,230,200,0.9)' : 'rgba(245,230,200,0.5)',
-                      fontWeight: (sel || h) ? 700 : 400,
+                      fontSize: '6.5px',
+                      fill: sel ? '#F5E6C8' : h ? '#F0E4C8' : 'rgba(245,230,200,0.75)',
+                      fontWeight: (sel || h) ? 700 : 600,
                       pointerEvents: 'none',
-                      letterSpacing: '0.2px',
+                      letterSpacing: '0.3px',
+                      paintOrder: 'stroke',
+                      stroke: 'rgba(8,5,2,0.85)',
+                      strokeWidth: '2.5px',
+                      strokeLinejoin: 'round' as const,
                     }}
                   >
                     {reg.region}
