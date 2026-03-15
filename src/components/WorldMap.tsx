@@ -164,7 +164,7 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
               <Marker
                 key={c.code}
                 coordinates={[c.coordinates.lng, c.coordinates.lat]}
-                onClick={() => goToCountry(c)}
+                onClick={() => { setHoveredCountry(c); goToCountry(c) }}
                 onMouseEnter={() => setHoveredCountry(c)}
                 onMouseLeave={() => setHoveredCountry(null)}
               >
@@ -187,25 +187,27 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
                   >
                     {c.regionCount}
                   </text>
-                  {/* country name always visible below world pin */}
-                  <text
-                    textAnchor="middle"
-                    y={r + 9}
-                    style={{
-                      fontFamily: 'Cinzel,serif',
-                      fontSize: '5px',
-                      fill: h ? '#F5E6C8' : 'rgba(245,230,200,0.65)',
-                      fontWeight: h ? 700 : 500,
-                      pointerEvents: 'none',
-                      letterSpacing: '0.2px',
-                      paintOrder: 'stroke',
-                      stroke: 'rgba(8,5,2,0.8)',
-                      strokeWidth: '2px',
-                      strokeLinejoin: 'round' as const,
-                    }}
-                  >
-                    {c.name}
-                  </text>
+                  {/* country name: hover only on world view — prevents clutter */}
+                  {h && (
+                    <text
+                      textAnchor="middle"
+                      y={-(r * 1.35 + 5)}
+                      style={{
+                        fontFamily: 'Cinzel,serif',
+                        fontSize: '6px',
+                        fill: '#F5E6C8',
+                        fontWeight: 700,
+                        pointerEvents: 'none',
+                        letterSpacing: '0.4px',
+                        paintOrder: 'stroke',
+                        stroke: 'rgba(6,3,1,0.95)',
+                        strokeWidth: '3px',
+                        strokeLinejoin: 'round' as const,
+                      }}
+                    >
+                      {c.name}
+                    </text>
+                  )}
                 </g>
               </Marker>
             )
@@ -220,7 +222,7 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
               <Marker
                 key={reg.id}
                 coordinates={[reg.coordinates.lng, reg.coordinates.lat]}
-                onClick={() => { onSelectRegion(reg); setHoveredRegion(null) }}
+                onClick={() => { setHoveredRegion(reg); onSelectRegion(reg) }}
                 onMouseEnter={() => setHoveredRegion(reg)}
                 onMouseLeave={() => setHoveredRegion(null)}
               >
@@ -235,25 +237,27 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
                     strokeWidth={sel ? 1.8 : h ? 1.2 : 0.7}
                     style={{ transition: 'r 0.15s ease', filter: (h || sel) ? `drop-shadow(0 0 5px ${reg.color}cc)` : 'none' }}
                   />
-                  {/* region name — always legible, brighter on hover/select */}
-                  <text
-                    textAnchor="middle"
-                    y={pr + 12}
-                    style={{
-                      fontFamily: 'Cinzel,serif',
-                      fontSize: '6.5px',
-                      fill: sel ? '#F5E6C8' : h ? '#F0E4C8' : 'rgba(245,230,200,0.75)',
-                      fontWeight: (sel || h) ? 700 : 600,
-                      pointerEvents: 'none',
-                      letterSpacing: '0.3px',
-                      paintOrder: 'stroke',
-                      stroke: 'rgba(8,5,2,0.85)',
-                      strokeWidth: '2.5px',
-                      strokeLinejoin: 'round' as const,
-                    }}
-                  >
-                    {reg.region}
-                  </text>
+                  {/* label only on hover or selected — never permanently, prevents overlap on dense maps */}
+                  {(h || sel) && (
+                    <text
+                      textAnchor="middle"
+                      y={-(pr * 1.4 + 5)}
+                      style={{
+                        fontFamily: 'Cinzel,serif',
+                        fontSize: '7px',
+                        fill: '#F5E6C8',
+                        fontWeight: 700,
+                        pointerEvents: 'none',
+                        letterSpacing: '0.3px',
+                        paintOrder: 'stroke',
+                        stroke: 'rgba(6,3,1,0.95)',
+                        strokeWidth: '3px',
+                        strokeLinejoin: 'round' as const,
+                      }}
+                    >
+                      {reg.region}
+                    </text>
+                  )}
                 </g>
               </Marker>
             )
