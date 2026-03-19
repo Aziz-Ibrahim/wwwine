@@ -1,6 +1,6 @@
 .root { display:flex; flex-direction:column; height:100vh; overflow:hidden; background:#0A0704; }
-.main { flex:1; overflow:hidden; padding-top:72px; }
-.mainCompare { flex:1; overflow-y:auto; padding-top:72px; }
+.main { flex:1; overflow:hidden; padding-top:64px; }
+.mainCompare { flex:1; overflow-y:auto; padding-top:64px; }
 
 .mapLayout { display:flex; height:100%; }
 .mapArea { flex: 3 1 0; min-width: 0; position:relative; overflow:hidden; }

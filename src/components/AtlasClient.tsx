@@ -9,6 +9,7 @@ import AppellationPanel from '@/components/AppellationPanel'
 import SearchResultPanel from '@/components/SearchResultPanel'
 import CompareEngine from '@/components/CompareEngine'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import styles from './AtlasClient.module.css'
 
 // What the side panel is currently showing
@@ -124,6 +125,7 @@ export default function AtlasClient({ regions, countries, allAppellations }: Pro
           <CompareEngine wines={allAppellations} />
         </main>
       )}
+      <Footer />
     </div>
   )
 }

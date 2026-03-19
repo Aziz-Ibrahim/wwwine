@@ -28,6 +28,7 @@ const COUNTRY_ZOOM: Record<string, { zoom: number; center: [number, number] }> =
   JP: { zoom: 6,  center: [138.5,  36.5]  },
   PS: { zoom: 9,  center: [35.2,   31.7]  },
   MX: { zoom: 6,  center: [-104.0, 27.0]  },
+  RO: { zoom: 7,  center: [25.0,   45.9]  },
 }
 
 interface Props {

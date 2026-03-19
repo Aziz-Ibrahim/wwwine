@@ -8299,5 +8299,286 @@
         ]
       }
     ]
+  },
+  {
+    "id": "romania",
+    "region": "Romania",
+    "country": "Romania",
+    "countryCode": "RO",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 45.5,
+      "lng": 25.0
+    },
+    "countryCoordinates": {
+      "lat": 45.9,
+      "lng": 24.9
+    },
+    "color": "#8B1A30",
+    "vintage": "c. 3000 BCE",
+    "description": "One of Europe's oldest and most underrated wine nations. The Dacians were producing wine millennia before the Romans arrived. Romania's indigenous varieties — Fetească Regală, Fetească Albă, Fetească Neagră and Tămâioasă Românească — produce wines of genuine originality that are only now reaching international audiences.",
+    "mythology": [
+      {
+        "name": "Sabazios",
+        "culture": "Dacian / Thracian",
+        "role": "God of the Harvest and Wine",
+        "note": "The Dacian deity Sabazios — later conflated with Dionysus by the Romans — was the supreme vine god of ancient Romania. Dacian silver wine vessels decorated with vine motifs have been found across Transylvania dating to 500 BCE."
+      },
+      {
+        "name": "Dionysus",
+        "culture": "Greek / Roman",
+        "role": "God of Wine",
+        "note": "Greek colonies on the Black Sea coast (Histria, Tomis — modern Constanța) introduced systematic viticulture to Romania from the 7th century BCE. The Romans later codified Dacian wine culture across the province of Dacia from 106 CE."
+      }
+    ],
+    "productionVolume": "~400 million bottles/year",
+    "appellations": [
+      {
+        "id": "feteasca-regala",
+        "name": "Fetească Regală",
+        "type": "DOC",
+        "coordinates": {
+          "lat": 46.18,
+          "lng": 23.8
+        },
+        "grapes": [
+          "Fetească Regală",
+          "Fetească Albă"
+        ],
+        "description": "The 'Royal Maiden' — Romania's most widely planted indigenous white grape and its most important calling card. A natural cross between Fetească Albă and Francușă, discovered in Transylvania in the 1930s. At its best (Jidvei, SERVE, Cramele Recaș) it produces elegant, floral whites with notes of white peach, honey and almonds — a genuine alternative to Alsace Pinot Gris at a fraction of the price. The Târnave plateau in Transylvania, at 380–500m altitude, is its spiritual home.",
+        "climate": "Continental — Transylvania plateau, cold winters, warm summers, significant diurnal range. Târnave river valley moderates extremes.",
+        "soilTypes": [
+          "Limestone",
+          "Clay-limestone",
+          "Sandy loam",
+          "Alluvial terraces"
+        ],
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 1,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "White peach",
+            "Apricot",
+            "Pear",
+            "Lemon blossom",
+            "Quince"
+          ],
+          "secondaryNotes": [
+            "Almond",
+            "White flowers",
+            "Honey",
+            "Chalk"
+          ],
+          "tertiaryNotes": [
+            "Beeswax",
+            "Toast",
+            "Dried apricot"
+          ],
+          "finish": "medium",
+          "style": "Romania's crown jewel — floral, honeyed, uniquely Transylvanian"
+        },
+        "servingTemp": "9–11°C",
+        "foodPairings": [
+          "Mămăligă cu brânză (polenta with cheese)",
+          "Grilled trout",
+          "Chicken ciorbă",
+          "Fresh goat's cheese",
+          "Cozonac (sweet bread)"
+        ],
+        "agingPotential": "3–8 years",
+        "bestVintages": [
+          2012,
+          2015,
+          2017,
+          2019,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Jidvei",
+            "founded": 1949,
+            "flagship": "Fetească Regală Tezaur"
+          },
+          {
+            "name": "SERVE (Société Européenne de Vins Roumains)",
+            "founded": 1994,
+            "flagship": "Terre des Charmes Fetească Regală"
+          },
+          {
+            "name": "Cramele Recaș",
+            "founded": 1999,
+            "flagship": "Sole Fetească Regală"
+          }
+        ]
+      },
+      {
+        "id": "romania-chardonnay",
+        "name": "Romanian Chardonnay (Dealu Mare)",
+        "type": "DOC",
+        "coordinates": {
+          "lat": 45.08,
+          "lng": 26.52
+        },
+        "grapes": [
+          "Chardonnay",
+          "Sauvignon Blanc",
+          "Pinot Gris"
+        ],
+        "description": "The Dealu Mare ('Big Hill') sub-Carpathian hills produce Romania's most internationally successful white wines. Chardonnay here benefits from the same southern sun exposure and limestone soils that make Burgundy great — at altitude (200–400m) that preserves acidity. The style sits between unoaked Chablis freshness and lightly oaked Mâcon richness. Producers like SERVE and Prince Știrbey are winning international recognition.",
+        "climate": "Continental — south-facing sub-Carpathian slopes, warm days, cool nights, limestone soils. Protected from northern cold.",
+        "soilTypes": [
+          "Limestone",
+          "Clay-limestone",
+          "Sandy marl",
+          "Terra rossa pockets"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 1,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "White peach",
+            "Lemon curd",
+            "Green apple",
+            "Pear",
+            "Citrus blossom"
+          ],
+          "secondaryNotes": [
+            "Chalk",
+            "Hazelnut",
+            "Light cream",
+            "Flowers"
+          ],
+          "tertiaryNotes": [
+            "Butter",
+            "Toast",
+            "Honey"
+          ],
+          "finish": "long",
+          "style": "Romania's Burgundy aspirant — limestone Chardonnay of genuine elegance"
+        },
+        "servingTemp": "10–12°C",
+        "foodPairings": [
+          "Grilled carp",
+          "Chicken paprikash",
+          "Soft cheese",
+          "Vegetable strudel",
+          "Fresh pasta"
+        ],
+        "agingPotential": "3–10 years",
+        "bestVintages": [
+          2013,
+          2015,
+          2017,
+          2019,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Prince Știrbey",
+            "founded": 1993,
+            "flagship": "Chardonnay Dealu Mare"
+          },
+          {
+            "name": "SERVE Ceptura",
+            "founded": 1994,
+            "flagship": "Ceptura Chardonnay"
+          },
+          {
+            "name": "Budureasca",
+            "founded": 2000,
+            "flagship": "Premium Chardonnay"
+          }
+        ]
+      },
+      {
+        "id": "romania-pinot-noir",
+        "name": "Romanian Pinot Noir (Dealu Mare / Cotnari)",
+        "type": "DOC",
+        "coordinates": {
+          "lat": 45.12,
+          "lng": 26.48
+        },
+        "grapes": [
+          "Pinot Noir",
+          "Fetească Neagră",
+          "Merlot"
+        ],
+        "description": "Romania's Pinot Noir is one of Eastern Europe's best-kept secrets. The Dealu Mare region — sub-Carpathian hillsides at 200–400m with south-facing limestone and clay soils — produces Pinot of genuine Burgundian delicacy. The indigenous Fetească Neagră ('Black Maiden'), often blended with Pinot, adds a uniquely Romanian dark-cherry, spiced character. SERVE's Terra Romana Pinot Noir regularly impresses international critics.",
+        "climate": "Continental — warm south-facing slopes, cold nights preserve fruit. Sub-Carpathian protection from northern frosts.",
+        "soilTypes": [
+          "Clay-limestone",
+          "Limestone",
+          "Sandy clay",
+          "Loam"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 2,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Red cherry",
+            "Raspberry",
+            "Strawberry",
+            "Pomegranate",
+            "Dark cherry"
+          ],
+          "secondaryNotes": [
+            "Violet",
+            "Earth",
+            "Spice",
+            "Cedar"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Tobacco",
+            "Forest floor",
+            "Dried cherry"
+          ],
+          "finish": "long",
+          "style": "Eastern Europe's surprise — elegant, cherry-bright Pinot on limestone hills"
+        },
+        "servingTemp": "14–16°C",
+        "foodPairings": [
+          "Sarmale (stuffed cabbage)",
+          "Roast duck",
+          "Mushroom ciorbă",
+          "Aged Telemea cheese",
+          "Grilled lamb"
+        ],
+        "agingPotential": "5–15 years",
+        "bestVintages": [
+          2012,
+          2015,
+          2017,
+          2019,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "SERVE Terra Romana",
+            "founded": 1994,
+            "flagship": "Terra Romana Pinot Noir"
+          },
+          {
+            "name": "Cramposie Selectionata",
+            "founded": 1991,
+            "flagship": "Pinot Noir Reserve"
+          },
+          {
+            "name": "Davino",
+            "founded": 2002,
+            "flagship": "Flamboyant Pinot Noir"
+          }
+        ]
+      }
+    ]
   }
 ]
