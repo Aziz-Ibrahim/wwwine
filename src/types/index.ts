@@ -81,7 +81,7 @@ export interface WineCountry {
 
 // ── Map navigation state ───────────────────────────────────────
 export type MapLevel = 'world' | 'country' | 'region';
-export type AppView = 'map' | 'compare';
+export type AppView = 'map' | 'compare' | 'food' | 'match';
 
 // ── Compare Engine — derived from appellations in regions.json ─
 export interface CompareItem {

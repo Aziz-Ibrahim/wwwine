@@ -2009,7 +2009,42 @@
             "flagship": "Cirsion"
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "priorat-region",
+    "region": "Priorat",
+    "country": "Spain",
+    "countryCode": "ES",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 41.18,
+      "lng": 0.75
+    },
+    "countryCoordinates": {
+      "lat": 40.4,
+      "lng": -3.7
+    },
+    "color": "#6B0040",
+    "vintage": "c. 12th century CE",
+    "description": "Spain's most dramatic wine landscape — near-vertical slate terraces in a remote Catalonian valley. One of only two Spanish DOCa, earned by wines of extraordinary concentration. Ancient Garnacha and Carignan vines on llicorella slate produce wines unlike anything else on earth.",
+    "mythology": [
+      {
+        "name": "Sant Pere del Priorat",
+        "culture": "Carthusian monastic",
+        "role": "Patron of the priory",
+        "note": "The Carthusian monks of Scala Dei (Stairway of God) — founded 1163 — planted the first systematic vineyards here. The priory gave the region its name: Priorat ('the priory's lands')."
       },
+      {
+        "name": "Dionysus",
+        "culture": "Greek / Roman",
+        "role": "God of Wine",
+        "note": "Roman settlers cultivated vines on the llicorella slate terraces before the monks arrived. The Carthusians formalised what was already an ancient viticultural tradition."
+      }
+    ],
+    "productionVolume": "~5 million bottles/year",
+    "appellations": [
       {
         "id": "priorat",
         "name": "Priorat",

@@ -1,13 +1,32 @@
 .root { display:flex; flex-direction:column; height:100vh; overflow:hidden; background:#0A0704; }
-.main { flex:1; overflow:hidden; padding-top:64px; }
+.main { flex:1; overflow:hidden; padding-top:64px; position:relative; }
 .mainCompare { flex:1; overflow-y:auto; padding-top:64px; }
 
-.mapLayout { display:flex; height:100%; }
-.mapArea { flex: 3 1 0; min-width: 0; position:relative; overflow:hidden; }
+/* ── Default: map + narrow empty panel side by side ─── */
+.mapLayout { display:flex; height:100%; position:relative; }
+.mapArea { flex: 3 1 0; min-width: 0; position:relative; overflow:hidden; transition: flex 0.35s ease, opacity 0.35s ease; }
+.panelArea { flex: 0 0 0; width:0; overflow:hidden; border-left:none; background:#0F0B07; transition: flex 0.35s ease, width 0.35s ease; }
 
-.panelArea { flex: 2 1 0; min-width: 280px; max-width: 520px; border-left:1px solid rgba(245,230,200,0.12); overflow-y:auto; background:#0F0B07; }
+/* ── Empty state: map wide, tiny hint strip ──────────── */
+.mapLayout.emptyState .mapArea { flex: 1 1 100%; }
+.mapLayout.emptyState .panelArea { flex: 0 0 320px; width: 320px; border-left:1px solid rgba(245,230,200,0.12); overflow-y:auto; }
 
-/* Empty state */
+/* ── Panel open: panel takes full width, map hidden ─── */
+.mapLayout.panelOpen .mapArea {
+  flex: 0 0 0;
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.mapLayout.panelOpen .panelArea {
+  flex: 1 1 100%;
+  width: 100%;
+  border-left: none;
+  overflow-y: auto;
+}
+
+/* ── Empty state panel content ───────────────────────── */
 .emptyPanel { display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; padding:40px 28px; gap:12px; }
 .emptySteps { display:flex; flex-direction:column; align-items:flex-start; gap:0; width:100%; }
 .step { display:flex; align-items:center; gap:14px; padding:12px 0; }
@@ -17,9 +36,10 @@
 .stepArrow { font-size:18px; color:rgba(201,168,76,0.3); padding-left:12px; }
 .emptyDivider { width:40px; height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent); margin:8px 0; }
 .emptyCount { font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(201,168,76,0.4); }
-
-@media (max-width:768px) {
-  .mapLayout { flex-direction:column; }
-  .panelArea { width:100%; max-height:50vh; border-left:none; border-top:1px solid rgba(245,230,200,0.12); }
-}
 .emptySearchHint { font-family:'EB Garamond',serif; font-style:italic; font-size:13px; color:rgba(245,230,200,0.3); margin-top:4px; }
+
+/* ── Mobile: always full-width panel when open ────────── */
+@media (max-width:768px) {
+  .mapLayout.emptyState .panelArea { flex: 0 0 0; width: 0; overflow: hidden; }
+  .mapLayout.panelOpen .panelArea { flex: 1 1 100%; width: 100%; }
+}

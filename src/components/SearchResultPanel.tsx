@@ -1,6 +1,4 @@
 import React from 'react'
-
-
 import type { SearchResult } from '@/lib/search'
 import type { WineRegion } from '@/types'
 import styles from './SearchResultPanel.module.css'
