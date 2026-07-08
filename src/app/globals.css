@@ -1,33 +1,104 @@
-/* wwwine — Global Styles — WCAG AA compliant */
-*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+/* wwwine — Design System v3 — Modern Editorial */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── DARK MODE ─────────────────────────────────────────────────
+   Modern deep-midnight, not parchment-cellar.
+   Deep navy-black bg, crisp cool-white text, refined gold accent.  */
+:root,
+[data-theme="dark"] {
+  /* backgrounds */
+  --bg-page:      #0D0F14;
+  --bg-surface:   #13161D;
+  --bg-surface2:  #1A1E27;
+  --bg-raised:    #21263300;
+
+  /* text */
+  --text-primary:   #EEF0F4;
+  --text-secondary: #B0B8C8;
+  --text-muted:     #6B7590;
+
+  /* accents */
+  --gold:         #C8A85A;
+  --gold-bright:  #E0BF6A;
+  --gold-dim:     rgba(200,168,90,0.18);
+  --wine:         #8B2635;
+  --wine-bright:  #A63040;
+  --wine-dim:     rgba(139,38,53,0.22);
+
+  /* borders */
+  --border:       rgba(238,240,244,0.09);
+  --border-gold:  rgba(200,168,90,0.28);
+
+  /* misc */
+  --shadow:       0 4px 24px rgba(0,0,0,0.55);
+  --radius:       4px;
+  --scrollbar-track: #0D0F14;
+
+  color-scheme: dark;
+}
+
+/* ── LIGHT MODE ────────────────────────────────────────────────
+   Clean editorial white. Think Decanter Magazine online.
+   Warm off-white bg, deep ink text, warm wine accent.           */
+[data-theme="light"] {
+  --bg-page:      #FAFAF8;
+  --bg-surface:   #FFFFFF;
+  --bg-surface2:  #F3F1EC;
+  --bg-raised:    #FFFFFF;
+
+  --text-primary:   #1A1814;
+  --text-secondary: #4A4438;
+  --text-muted:     #8C8070;
+
+  --gold:         #8A6020;
+  --gold-bright:  #6E4C16;
+  --gold-dim:     rgba(138,96,32,0.1);
+  --wine:         #8B2635;
+  --wine-bright:  #A63040;
+  --wine-dim:     rgba(139,38,53,0.1);
+
+  --border:       rgba(26,24,20,0.1);
+  --border-gold:  rgba(138,96,32,0.25);
+
+  --shadow:       0 2px 16px rgba(0,0,0,0.1);
+  --radius:       4px;
+  --scrollbar-track: #EAE8E2;
+
+  color-scheme: light;
+}
+
+/* ── TYPOGRAPHY ──────────────────────────────────────────────── */
 :root {
-  --ink:        #0A0704;
-  --surface:    #0F0B07;
-  --surface2:   #161009;
-  --text-primary:   #F5E6C8;   /* 12:1 on --ink */
-  --text-secondary: #D4C4A8;   /* 8:1 on --ink */
-  --text-muted:     #9E8E78;   /* 4.5:1 on --ink — minimum AA */
-  --gold:       #E8C96A;       /* brighter gold for contrast */
-  --gold-dim:   rgba(232,201,106,0.35);
-  --wine:       #A33040;       /* brighter than before */
-  --border:     rgba(245,230,200,0.14);
+  --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
   --font-serif:   'EB Garamond', Georgia, serif;
   --font-display: 'Cinzel', serif;
   --font-italic:  'Cormorant Garamond', Georgia, serif;
 }
 
-html, body { height:100%; background:var(--ink); color:var(--text-primary); font-family:var(--font-serif); -webkit-font-smoothing:antialiased; }
+html, body {
+  height: 100%;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-::-webkit-scrollbar { width:4px; }
-::-webkit-scrollbar-track { background:#1a1410; }
-::-webkit-scrollbar-thumb { background:var(--wine); border-radius:2px; }
+/* ── SCROLLBAR ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--wine); border-radius: 2px; }
 
-::selection { background:var(--wine); color:#fff; }
-:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+::selection { background: var(--wine); color: #fff; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
-@keyframes fadeUp   { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-@keyframes slideIn  { from{opacity:0;transform:translateX(24px)} to{opacity:1;transform:translateX(0)} }
+/* ── ANIMATIONS ──────────────────────────────────────────────── */
+@keyframes fadeUp  { from { opacity:0; transform:translateY(10px) } to { opacity:1; transform:translateY(0) } }
+@keyframes fadeIn  { from { opacity:0 } to { opacity:1 } }
+@keyframes slideIn { from { opacity:0; transform:translateX(20px) } to { opacity:1; transform:translateX(0) } }
+@keyframes scaleIn { from { opacity:0; transform:scale(0.97) } to { opacity:1; transform:scale(1) } }
 
-.animate-fade-up  { animation:fadeUp  0.5s ease forwards; }
-.animate-slide-in { animation:slideIn 0.45s cubic-bezier(0.22,1,0.36,1) forwards; }
+.animate-fade-up  { animation: fadeUp  0.4s ease forwards; }
+.animate-slide-in { animation: slideIn 0.4s cubic-bezier(0.22,1,0.36,1) forwards; }
+.animate-scale-in { animation: scaleIn 0.35s cubic-bezier(0.22,1,0.36,1) forwards; }

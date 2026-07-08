@@ -1,16 +1,16 @@
-.panel { display: flex; flex-direction: column; min-height: 100%; background: #0F0B07; }
+.panel { display: flex; flex-direction: column; min-height: 100%; background: var(--bg-surface); }
 
 .hero {
   padding: 22px 20px 16px;
-  border-bottom: 1px solid rgba(245,230,200,0.1);
+  border: 1px solid var(--border);
   border-top: 3px solid rgba(201,168,76,0.5);
   position: relative;
 }
 
 .closeBtn {
   position: absolute; top: 12px; right: 12px;
-  background: rgba(245,230,200,0.08); border: 1px solid rgba(245,230,200,0.3);
-  color: #F5E6C8; width: 28px; height: 28px; display: flex; align-items: center;
+  background: var(--bg-surface2); border: 1px solid rgba(245,230,200,0.3);
+  color: var(--text-primary); width: 28px; height: 28px; display: flex; align-items: center;
   justify-content: center; cursor: pointer; font-size: 11px; transition: all 0.2s; border-radius: 2px;
 }
 .closeBtn:hover { background: rgba(245,230,200,0.18); }
@@ -22,7 +22,7 @@
 
 .title {
   font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700;
-  color: #F5E6C8; margin-bottom: 6px; line-height: 1.2; padding-right: 36px;
+  color: var(--text-primary); margin-bottom: 6px; line-height: 1.2; padding-right: 36px;
 }
 
 .sub {
@@ -42,16 +42,16 @@
 
 .row {
   width: 100%; display: flex; align-items: center; gap: 11px;
-  padding: 11px 12px; border: 1px solid rgba(245,230,200,0.1);
-  background: rgba(245,230,200,0.03); cursor: pointer; text-align: left;
+  padding: 11px 12px; border: 1px solid var(--border);
+  background: var(--bg-surface2); cursor: pointer; text-align: left;
   transition: all 0.2s; border-radius: 2px;
 }
-.row:hover { background: rgba(245,230,200,0.08); border-color: rgba(245,230,200,0.25); transform: translateX(2px); }
+.row:hover { background: var(--bg-surface2); border-color: rgba(245,230,200,0.25); transform: translateX(2px); }
 
 .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
 .rowContent { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.rowName { font-family: 'Cinzel', serif; font-size: 12.5px; color: #F5E6C8; }
+.rowName { font-family: 'Cinzel', serif; font-size: 12.5px; color: var(--text-primary); }
 .rowMeta { font-family: 'EB Garamond', serif; font-style: italic; font-size: 12px; color: rgba(245,230,200,0.5); }
 .rowGrapes { font-family: 'EB Garamond', serif; font-size: 11px; color: rgba(201,168,76,0.55); margin-top: 1px; }
 .arrow { color: rgba(201,168,76,0.5); font-size: 18px; flex-shrink: 0; }
@@ -66,20 +66,20 @@
 
 .emptyTitle {
   font-family: 'Cinzel', serif; font-size: 15px; font-weight: 700;
-  color: #F5E6C8; letter-spacing: 1px;
+  color: var(--text-primary); letter-spacing: 1px;
 }
 
 .emptyText {
   font-family: 'EB Garamond', serif; font-size: 14px;
-  color: #D4C4A8; line-height: 1.75; max-width: 280px;
+  color: var(--text-secondary); line-height: 1.75; max-width: 280px;
 }
-.emptyText strong { color: #F0E4C8; }
+.emptyText strong { color: var(--text-primary); }
 
 .emptyHint {
   font-family: 'EB Garamond', serif; font-style: italic;
   font-size: 13px; color: rgba(245,230,200,0.5); line-height: 1.7; max-width: 260px;
 }
-.emptyHint em { color: #C9A84C; font-style: normal; }
+.emptyHint em { color: var(--gold); font-style: normal; }
 
 .emptyNote {
   font-family: 'EB Garamond', serif; font-style: italic;
@@ -90,6 +90,6 @@
   margin-top: 8px;
   font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px;
   text-transform: uppercase; color: rgba(201,168,76,0.7);
-  background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25);
+  background: var(--gold-dim); border: 1px solid var(--border-gold);
   padding: 6px 14px; border-radius: 2px;
 }

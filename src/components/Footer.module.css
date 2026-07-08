@@ -1,8 +1,8 @@
 .footer {
   flex-shrink: 0;
   width: 100%;
-  background: rgba(6, 3, 1, 0.98);
-  border-top: 1px solid rgba(201, 168, 76, 0.18);
+  background: color-mix(in srgb, var(--bg-page) 96%, transparent);
+  border-top: 1px solid var(--border);
   z-index: 50;
 }
 
@@ -98,7 +98,7 @@
 }
 
 .link:hover {
-  color: #E8C96A;
+  color: var(--gold-bright);
   border-bottom-color: rgba(201, 168, 76, 0.5);
 }
 

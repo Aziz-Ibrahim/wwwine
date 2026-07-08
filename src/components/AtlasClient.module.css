@@ -1,45 +1,30 @@
-.root { display:flex; flex-direction:column; height:100vh; overflow:hidden; background:#0A0704; }
-.main { flex:1; overflow:hidden; padding-top:64px; position:relative; }
-.mainCompare { flex:1; overflow-y:auto; padding-top:64px; }
+.root { display:flex; flex-direction:column; height:100vh; overflow:hidden; background:var(--bg-page); }
+.main { flex:1; overflow:hidden; padding-top:60px; position:relative; }
+.mainCompare { flex:1; overflow-y:auto; padding-top:60px; background:var(--bg-page); }
 
-/* ── Default: map + narrow empty panel side by side ─── */
 .mapLayout { display:flex; height:100%; position:relative; }
-.mapArea { flex: 3 1 0; min-width: 0; position:relative; overflow:hidden; transition: flex 0.35s ease, opacity 0.35s ease; }
-.panelArea { flex: 0 0 0; width:0; overflow:hidden; border-left:none; background:#0F0B07; transition: flex 0.35s ease, width 0.35s ease; }
+.mapArea { flex:3 1 0; min-width:0; position:relative; overflow:hidden; transition:flex 0.35s ease, opacity 0.35s ease; }
+.panelArea { flex:0 0 0; width:0; overflow:hidden; background:var(--bg-surface); transition:flex 0.35s ease, width 0.35s ease; }
 
-/* ── Empty state: map wide, tiny hint strip ──────────── */
-.mapLayout.emptyState .mapArea { flex: 1 1 100%; }
-.mapLayout.emptyState .panelArea { flex: 0 0 320px; width: 320px; border-left:1px solid rgba(245,230,200,0.12); overflow-y:auto; }
+.mapLayout.emptyState .mapArea  { flex:1 1 100%; }
+.mapLayout.emptyState .panelArea { flex:0 0 320px; width:320px; border-left:1px solid var(--border); overflow-y:auto; }
 
-/* ── Panel open: panel takes full width, map hidden ─── */
-.mapLayout.panelOpen .mapArea {
-  flex: 0 0 0;
-  width: 0;
-  opacity: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.mapLayout.panelOpen .panelArea {
-  flex: 1 1 100%;
-  width: 100%;
-  border-left: none;
-  overflow-y: auto;
-}
+.mapLayout.panelOpen .mapArea   { flex:0 0 0; width:0; opacity:0; pointer-events:none; overflow:hidden; }
+.mapLayout.panelOpen .panelArea { flex:1 1 100%; width:100%; border-left:none; overflow-y:auto; }
 
-/* ── Empty state panel content ───────────────────────── */
+/* Empty panel */
 .emptyPanel { display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; padding:40px 28px; gap:12px; }
 .emptySteps { display:flex; flex-direction:column; align-items:flex-start; gap:0; width:100%; }
 .step { display:flex; align-items:center; gap:14px; padding:12px 0; }
-.stepNum { width:28px; height:28px; border-radius:50%; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.35); color:#E8C96A; font-family:'Cinzel',serif; font-size:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.stepText { font-family:'EB Garamond',serif; font-size:15px; color:#C8BAA8; line-height:1.4; }
-.stepText strong { color:#F0E8D8; font-weight:600; }
-.stepArrow { font-size:18px; color:rgba(201,168,76,0.3); padding-left:12px; }
-.emptyDivider { width:40px; height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent); margin:8px 0; }
-.emptyCount { font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(201,168,76,0.4); }
-.emptySearchHint { font-family:'EB Garamond',serif; font-style:italic; font-size:13px; color:rgba(245,230,200,0.3); margin-top:4px; }
+.stepNum { width:28px; height:28px; border-radius:50%; background:var(--wine-dim); border:1px solid var(--wine); color:var(--wine-bright); font-family:var(--font-display); font-size:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.stepText { font-family:var(--font-serif); font-size:15px; color:var(--text-secondary); line-height:1.4; }
+.stepText strong { color:var(--text-primary); font-weight:600; }
+.stepArrow { font-size:16px; color:var(--text-muted); padding-left:12px; }
+.emptyDivider { width:40px; height:1px; background:var(--border-gold); margin:8px 0; opacity:0.5; }
+.emptyCount { font-family:var(--font-display); font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--text-muted); }
+.emptySearchHint { font-family:var(--font-serif); font-style:italic; font-size:13px; color:var(--text-muted); margin-top:4px; opacity:0.7; }
 
-/* ── Mobile: always full-width panel when open ────────── */
 @media (max-width:768px) {
-  .mapLayout.emptyState .panelArea { flex: 0 0 0; width: 0; overflow: hidden; }
-  .mapLayout.panelOpen .panelArea { flex: 1 1 100%; width: 100%; }
+  .mapLayout.emptyState .panelArea { flex:0 0 0; width:0; overflow:hidden; }
+  .mapLayout.panelOpen .panelArea  { flex:1 1 100%; width:100%; }
 }

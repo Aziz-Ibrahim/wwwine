@@ -11,7 +11,7 @@
   height: 36px;
   background: rgba(201,168,76,0.1);
   border: 1px solid rgba(201,168,76,0.3);
-  color: #C9A84C;
+  color: var(--gold);
   border-radius: 2px;
   cursor: pointer;
   display: flex;
@@ -22,8 +22,8 @@
 }
 .iconBtn:hover {
   background: rgba(201,168,76,0.2);
-  border-color: #C9A84C;
-  color: #F5E6C8;
+  border-color: var(--gold);
+  color: var(--text-primary);
 }
 
 /* ── EXPANDED ─────────────────────────────────────────────── */
@@ -37,8 +37,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(8,5,2,0.95);
-  border: 1px solid rgba(201,168,76,0.45);
+  background: color-mix(in srgb, var(--bg-page) 96%, transparent);
+  border: 1px solid var(--border-gold);
   border-radius: 2px;
   padding: 0 10px;
   height: 36px;
@@ -58,7 +58,7 @@
   outline: none;
   font-family: 'EB Garamond', serif;
   font-size: 14px;
-  color: #F5E6C8;
+  color: var(--text-primary);
   min-width: 0;
 }
 .input::placeholder { color: rgba(245,230,200,0.3); font-style: italic; }
@@ -73,8 +73,8 @@
   transition: color 0.15s;
   flex-shrink: 0;
 }
-.clearBtn:hover, .closeBtn:hover { color: #F5E6C8; }
-.closeBtn { border-left: 1px solid rgba(245,230,200,0.1); margin-left: 2px; padding-left: 8px; }
+.clearBtn:hover, .closeBtn:hover { color: var(--text-primary); }
+.closeBtn { border: 1px solid var(--border); margin-left: 2px; padding-left: 8px; }
 
 /* ── DROPDOWN ─────────────────────────────────────────────── */
 .dropdown {
@@ -82,8 +82,8 @@
   top: calc(100% + 4px);
   left: 0;
   right: 0;
-  background: rgba(10,7,4,0.98);
-  border: 1px solid rgba(201,168,76,0.35);
+  background: color-mix(in srgb, var(--bg-page) 98%, transparent);
+  border: 1px solid var(--border-gold);
   border-radius: 2px;
   overflow: hidden;
   z-index: 200;
@@ -120,7 +120,7 @@
 .resultLabel {
   font-family: 'Cinzel', serif;
   font-size: 12px;
-  color: #F0E4C8;
+  color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -141,7 +141,7 @@
   text-transform: uppercase;
   color: rgba(201,168,76,0.55);
   flex-shrink: 0;
-  background: rgba(201,168,76,0.08);
+  background: var(--gold-dim);
   border: 1px solid rgba(201,168,76,0.18);
   padding: 2px 6px;
   border-radius: 1px;
@@ -160,9 +160,9 @@
 .noResultsText {
   font-family: 'Cinzel', serif;
   font-size: 12px;
-  color: #D4C4A8;
+  color: var(--text-secondary);
 }
-.noResultsText em { font-style: italic; color: #C9A84C; }
+.noResultsText em { font-style: italic; color: var(--gold); }
 .noResultsSub {
   font-family: 'EB Garamond', serif;
   font-style: italic;

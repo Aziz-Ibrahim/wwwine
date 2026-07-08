@@ -1,15 +1,12 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
   title: 'wwwine — World Wide Wine Atlas',
-  description:
-    'An interactive atlas of the world\'s great wine regions. Explore appellations, ancient mythology, and notable houses. Compare styles across continents.',
-  keywords: ['wine', 'atlas', 'appellations', 'wine regions', 'Bordeaux', 'Burgundy', 'Napa', 'comparison'],
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-  },
+  description: 'An interactive atlas of the world\'s great wine regions. Explore appellations, ancient mythology, and notable houses.',
+  keywords: ['wine', 'atlas', 'appellations', 'wine regions', 'Bordeaux', 'Burgundy', 'Napa'],
+  icons: { icon: '/favicon.ico', shortcut: '/favicon.ico' },
   openGraph: {
     title: 'wwwine — World Wide Wine Atlas',
     description: 'Explore the world\'s great wine regions, their mythology, appellations, and notable houses.',
@@ -18,11 +15,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -30,11 +23,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,500&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   )
 }
