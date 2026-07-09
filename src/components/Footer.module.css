@@ -1,7 +1,7 @@
 .footer {
   flex-shrink: 0;
   width: 100%;
-  background: color-mix(in srgb, var(--bg-page) 96%, transparent);
+  background: var(--bg-surface);
   border-top: 1px solid var(--border);
   z-index: 50;
 }
@@ -17,13 +17,8 @@
   flex-wrap: wrap;
 }
 
-/* ── LEFT: brand name ─────────────────────────────── */
-.left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
+/* ── LEFT ─────────────────────────────────────────── */
+.left { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 
 .name {
   font-family: 'Cinzel', serif;
@@ -31,63 +26,47 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(245, 230, 200, 0.7);
+  color: var(--text-primary);   /* was text-secondary — too faint at small size */
 }
 
-.sep {
-  color: rgba(201, 168, 76, 0.3);
-  font-size: 12px;
-}
+.sep   { color: var(--text-muted); font-size: 12px; }
 
 .tagline {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 12px;
-  color: rgba(201, 168, 76, 0.5);
+  color: var(--gold);           /* solid gold — reads in both modes */
   letter-spacing: 0.5px;
 }
 
-/* ── CENTER: stats ────────────────────────────────── */
-.center {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
+/* ── CENTER ───────────────────────────────────────── */
+.center { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 
 .stat {
   font-family: 'Cinzel', serif;
   font-size: 9px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(201, 168, 76, 0.4);
+  color: var(--text-secondary); /* solid token — not a transparency mix */
 }
 
-.dot {
-  color: rgba(201, 168, 76, 0.2);
-  font-size: 10px;
-}
+.dot { color: var(--text-muted); font-size: 10px; }
 
-/* ── RIGHT: creator link ──────────────────────────── */
-.right {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  flex-shrink: 0;
-}
+/* ── RIGHT ────────────────────────────────────────── */
+.right { display:flex; align-items:center; gap:7px; flex-shrink:0; }
 
 .by {
   font-family: 'EB Garamond', serif;
   font-style: italic;
   font-size: 12px;
-  color: rgba(245, 230, 200, 0.35);
+  color: var(--text-secondary); /* was text-muted — too faint */
 }
 
 .link {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: rgba(201, 168, 76, 0.75);
+  color: var(--gold);
   text-decoration: none;
   font-family: 'Cinzel', serif;
   font-size: 11px;
@@ -99,48 +78,21 @@
 
 .link:hover {
   color: var(--gold-bright);
-  border-bottom-color: rgba(201, 168, 76, 0.5);
+  border-bottom-color: var(--gold);
 }
 
-.ghIcon {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-}
+.ghIcon { width:14px; height:14px; flex-shrink:0; }
 
 /* ── RESPONSIVE ───────────────────────────────────── */
 @media (max-width: 700px) {
-  .inner {
-    padding: 8px 14px;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  /* On mobile: center block, hide tagline and stats to save space */
-  .left {
-    order: 1;
-    justify-content: center;
-  }
-
-  .tagline { display: none; }
-  .sep { display: none; }
-
-  .center {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .right {
-    order: 2;
-  }
-
-  .name { font-size: 10px; }
-  .stat { font-size: 8px; letter-spacing: 1px; }
-  .by   { display: none; }
+  .inner { padding:8px 14px; justify-content:center; gap:8px; }
+  .left  { order:1; justify-content:center; }
+  .tagline, .sep { display:none; }
+  .center { order:3; width:100%; justify-content:center; flex-wrap:wrap; }
+  .right  { order:2; }
+  .name { font-size:10px; }
+  .stat { font-size:8px; letter-spacing:1px; }
+  .by   { display:none; }
 }
 
-@media (max-width: 400px) {
-  .center { display: none; }
-}
+@media (max-width: 400px) { .center { display:none; } }

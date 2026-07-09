@@ -46,11 +46,11 @@
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(201,168,76,0.5);
+  color: var(--gold);
 }
 
 .backBtn {
-  background: rgba(201,168,76,0.12);
+  background: var(--gold-dim);
   border: 1px solid var(--border-gold);
   color: var(--gold);
   font-family: var(--font-display);
@@ -64,13 +64,13 @@
 }
 
 .backBtn:hover {
-  background: rgba(201,168,76,0.22);
+  background: var(--gold-dim);
   border-color: var(--gold);
   color: var(--text-primary);
 }
 
 .crumbSep {
-  color: rgba(201,168,76,0.4);
+  color: color-mix(in srgb, var(--gold) 70%, var(--text-muted));
   font-size: 14px;
 }
 
@@ -125,7 +125,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 20;
-  background: rgba(6,3,1,0.96);
+  background: var(--bg-surface);
   border: 1px solid var(--border-gold);
   border-radius: 3px;
   padding: 8px 20px 9px;

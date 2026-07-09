@@ -24,12 +24,19 @@ const NAV: { key: AppView; label: string; icon: string }[] = [
 export default function Header({ view, onViewChange, onSearchResult }: Props) {
   const { theme, toggle } = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
+  const menuRef  = useRef<HTMLDivElement>(null)
+  const burgerRef = useRef<HTMLButtonElement>(null)
 
-  // Close menu on outside click
+  // Close on outside click — but explicitly ignore clicks ON the burger button
+  // (the burger's own onClick handles toggle; without this exclusion mousedown
+  //  closes the menu then onClick reopens it, making the X appear broken)
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      const target = e.target as Node
+      if (
+        menuRef.current   && !menuRef.current.contains(target) &&
+        burgerRef.current && !burgerRef.current.contains(target)
+      ) {
         setMenuOpen(false)
       }
     }
@@ -37,57 +44,38 @@ export default function Header({ view, onViewChange, onSearchResult }: Props) {
     return () => document.removeEventListener('mousedown', handler)
   }, [menuOpen])
 
-  // Close menu on route change
-  const navigate = (v: AppView) => {
-    onViewChange(v)
-    setMenuOpen(false)
-  }
+  const navigate = (v: AppView) => { onViewChange(v); setMenuOpen(false) }
 
   return (
     <>
       <header className={styles.header}>
-        {/* ── Brand ── */}
+        {/* Brand */}
         <div className={styles.brand}>
-          <Image
-            src="/wwwine-logo.png"
-            alt="wwwine"
-            width={40}
-            height={40}
-            className={styles.logoImg}
-            priority
-          />
+          <Image src="/wwwine-logo.png" alt="wwwine" width={40} height={40} className={styles.logoImg} priority />
           <div className={styles.brandText}>
             <span className={styles.brandTitle}>World Wide Wine</span>
             <span className={styles.brandSubtitle}>An Atlas of Wine</span>
           </div>
         </div>
 
-        {/* ── Desktop right side ── */}
+        {/* Right cluster */}
         <div className={styles.right}>
-          {/* Desktop nav — hidden on mobile */}
           <nav className={styles.desktopNav}>
             {NAV.map(n => (
               <button
                 key={n.key}
                 className={`${styles.navBtn} ${view === n.key ? styles.active : ''}`}
                 onClick={() => onViewChange(n.key)}
-              >
-                {n.label}
-              </button>
+              >{n.label}</button>
             ))}
           </nav>
 
           <SearchBar onResult={r => { onSearchResult(r); setMenuOpen(false) }} />
 
           {/* Theme toggle */}
-          <button
-            className={styles.themeBtn}
-            onClick={toggle}
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          >
+          <button className={styles.themeBtn} onClick={toggle}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
             {theme === 'dark' ? (
-              /* sun icon */
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 <circle cx="12" cy="12" r="5"/>
                 <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
@@ -96,18 +84,18 @@ export default function Header({ view, onViewChange, onSearchResult }: Props) {
                 <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
               </svg>
             ) : (
-              /* moon icon */
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
               </svg>
             )}
           </button>
 
-          {/* Burger — mobile only */}
+          {/* Burger — ref added for outside-click exclusion */}
           <button
+            ref={burgerRef}
             className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
             onClick={() => setMenuOpen(o => !o)}
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
           >
             <span /><span /><span />
@@ -115,7 +103,7 @@ export default function Header({ view, onViewChange, onSearchResult }: Props) {
         </div>
       </header>
 
-      {/* ── Mobile slide-down menu ── */}
+      {/* Mobile slide-down menu */}
       {menuOpen && (
         <div className={styles.mobileMenu} ref={menuRef}>
           <nav className={styles.mobileNav}>
@@ -134,7 +122,6 @@ export default function Header({ view, onViewChange, onSearchResult }: Props) {
         </div>
       )}
 
-      {/* Backdrop */}
       {menuOpen && <div className={styles.backdrop} onClick={() => setMenuOpen(false)} />}
     </>
   )
