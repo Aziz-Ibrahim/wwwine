@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import type { CompareItem } from '@/types'
+import { intent } from '@/lib/intent'
 import styles from './FoodPairing.module.css'
 
 // Flavour profile tags that broaden matching beyond exact string match
@@ -83,7 +84,10 @@ export default function FoodPairing({ appellations }: Props) {
           />
           <button
             className={styles.searchBtn}
-            onClick={() => { if (query.trim()) setSubmitted(query.trim()) }}
+            onClick={() => { if (query.trim()) {
+          setSubmitted(query.trim())
+          intent.foodSearch(query.trim())
+        } }}
           >
             Find Wines
           </button>
@@ -92,7 +96,7 @@ export default function FoodPairing({ appellations }: Props) {
         <div className={styles.suggestions}>
           {suggestions.map(s => (
             <button key={s} className={styles.chip}
-              onClick={() => { setQuery(s); setSubmitted(s) }}>
+              onClick={() => { setQuery(s); setSubmitted(s); intent.foodSearch(s) }}>
               {s}
             </button>
           ))}

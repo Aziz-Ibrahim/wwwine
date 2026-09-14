@@ -12,6 +12,7 @@ import FoodPairing from '@/components/FoodPairing'
 import WineMatch from '@/components/WineMatch'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { intent } from '@/lib/intent'
 import styles from './AtlasClient.module.css'
 
 type PanelState =
@@ -35,6 +36,7 @@ export default function AtlasClient({ regions, countries, allAppellations }: Pro
   const handleSearchResult = useCallback((result: SearchResult) => {
     setView('map')
     const resolved = resolveRegions(result)
+    intent.search(result.label, result.type, resolved.length > 0)
     if (resolved.length === 1 && result.type !== 'country') {
       setPanel({ kind: 'region', region: resolved[0] })
     } else {
@@ -62,7 +64,7 @@ export default function AtlasClient({ regions, countries, allAppellations }: Pro
                 regions={regions}
                 countries={countries}
                 selectedRegionId={selectedRegionId}
-                onSelectRegion={r => setPanel({ kind: 'region', region: r })}
+                onSelectRegion={r => { setPanel({ kind: 'region', region: r }); intent.viewRegion(r.country, r.region) }}
               />
             </div>
 
@@ -75,7 +77,7 @@ export default function AtlasClient({ regions, countries, allAppellations }: Pro
                 <SearchResultPanel
                   result={panel.result}
                   regions={panel.regions}
-                  onSelectRegion={r => setPanel({ kind: 'region', region: r })}
+                  onSelectRegion={r => { setPanel({ kind: 'region', region: r }); intent.viewRegion(r.country, r.region) }}
                   onClose={closePanel}
                 />
               )}

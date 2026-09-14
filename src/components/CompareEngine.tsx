@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import type { CompareItem } from '@/types'
+import { intent } from '@/lib/intent'
 import { getSommelierNote } from '@/lib/data'
 import styles from './CompareEngine.module.css'
 
@@ -46,6 +47,11 @@ export default function CompareEngine({ wines }: Props) {
 
   const grouped = useMemo(() => groupByCountry(wines), [wines])
   const note = wineA.id !== wineB.id ? getSommelierNote(wineA, wineB) : null
+  // Track compare intent (once per unique pair per render)
+  useEffect(() => {
+    if (wineA.id !== wineB.id) intent.compare(wineA.label, wineB.label)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [wineA.id, wineB.id])
 
   const Selector = ({ label, value, onChange }: { label: string; value: CompareItem; onChange: (w: CompareItem) => void }) => (
     <div className={styles.selectorWrap}>

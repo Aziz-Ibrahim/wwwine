@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { intent } from '@/lib/intent'
 import type { Appellation, WineRegion } from '@/types'
 import styles from './AppellationPanel.module.css'
 
@@ -35,6 +36,15 @@ function Bar({ label, value }: { label: string; value: number }) {
 
 function AppDetail({ app, region, onBack }: { app: Appellation; region: WineRegion; onBack: () => void }) {
   const tp = app.tastingProfile
+  const openedAt = useRef(Date.now())
+  useEffect(() => {
+    intent.viewAppellation(region.country, region.region, app.name, tp.style)
+    return () => {
+      const secs = (Date.now() - openedAt.current) / 1000
+      intent.dwellAppellation(app.name, region.country, secs)
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [app.id])
   const col = app.color ?? region.color
   return (
     <div className={styles.panel}>

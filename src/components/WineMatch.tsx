@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import type { CompareItem } from '@/types'
+import { intent } from '@/lib/intent'
 import styles from './WineMatch.module.css'
 
 interface Question {
@@ -179,6 +180,11 @@ export default function WineMatch({ appellations }: Props) {
       setCurrent(c => c + 1)
     } else {
       setStep('results')
+      // Track quiz completion with top match
+      const topMatch = matchWines(computeScores({ ...answers, [q.id]: value }), appellations)[0]
+      if (topMatch) {
+        intent.quizComplete(topMatch.label, topMatch.country, topMatch.regionName, topMatch.tastingProfile.style)
+      }
     }
   }
 
