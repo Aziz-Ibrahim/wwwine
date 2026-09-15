@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { ThemeProvider } from '@/components/ThemeProvider'
-import PrivacyPreferences from '@/components/PrivacyPreferences'
+import { ThemeProvider }      from '@/components/ThemeProvider'
+import PrivacyPreferences     from '@/components/PrivacyPreferences'
 
 export const metadata: Metadata = {
   title: 'wwwine — World Wide Wine Atlas',
-  description: 'An interactive atlas of the world\'s great wine regions. Explore appellations, ancient mythology, and notable houses.',
+  description: 'An interactive atlas of the world\'s great wine regions, appellations, mythology and notable houses.',
   keywords: ['wine', 'atlas', 'appellations', 'wine regions', 'Bordeaux', 'Burgundy', 'Napa'],
   icons: { icon: '/favicon.ico', shortcut: '/favicon.ico' },
   openGraph: {
@@ -31,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ThemeProvider>
           {children}
+          {/* Banner renders on every page — hides itself after acknowledgement */}
           <PrivacyPreferences />
         </ThemeProvider>
       </body>

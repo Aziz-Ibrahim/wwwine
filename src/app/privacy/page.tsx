@@ -25,36 +25,26 @@ export default function PrivacyPage() {
 
         <section className={styles.section}>
           <h2>Who We Are</h2>
-          <p>
-            wwwine is an interactive wine atlas created by Aziz Ibrahim. You can contact the operator at{' '}
-            <a href="mailto:hello@wwwine.com">hello@wwwine.com</a>.
-          </p>
+          <p>wwwine is an interactive wine atlas created by Aziz Ibrahim. You can contact the operator at{' '}
+            <a href="mailto:hello@wwwine.com">hello@wwwine.com</a>.</p>
         </section>
 
         <section className={styles.section}>
           <h2>What We Collect</h2>
-          <p>
-            wwwine collects anonymous behavioural events such as viewed countries, wine regions and appellations,
+          <p>wwwine collects anonymous behavioural events such as viewed countries, wine regions and appellations,
             searches, food pairing queries, comparison activity, quiz results, affiliate click intent, dwell-time
-            buckets, timestamps, timezone, and a random session ID for the current visit.
-          </p>
-          <p>
-            wwwine does not ask for an account, and the behavioural event stream is not designed to collect names,
+            buckets, timestamps, timezone, and a random session ID for the current visit.</p>
+          <p>wwwine does not ask for an account, and the behavioural event stream is not designed to collect names,
             email addresses, postal addresses, phone numbers, IP addresses, user agents, or precise device
-            fingerprinting data.
-          </p>
+            fingerprinting data.</p>
         </section>
 
         <section className={styles.section}>
           <h2>Cookies And Local Storage</h2>
-          <p>
-            wwwine uses local storage for essential preferences, including theme choice and whether you have seen
+          <p>wwwine uses local storage for essential preferences, including theme choice and whether you have seen
             the privacy preferences panel. Anonymous behavioural data is sent to the wwwine intent endpoint because
-            it is treated as necessary for the service.
-          </p>
-          <p>
-            You can review this information at any time by using the Privacy preferences control in the site footer.
-          </p>
+            it is treated as necessary for the service.</p>
+          <p>You can review this information at any time by using the Privacy preferences control in the site footer.</p>
         </section>
 
         <section className={styles.section}>
@@ -70,37 +60,28 @@ export default function PrivacyPage() {
 
         <section className={styles.section}>
           <h2>Legal Basis</h2>
-          <p>
-            In the UK and European Economic Area, anonymous behavioural measurement is treated as necessary for the
+          <p>In the UK and European Economic Area, anonymous behavioural measurement is treated as necessary for the
             operation and improvement of wwwine&apos;s wine-intent features. Essential preference storage is used because
-            it is necessary to remember choices you make while using the site.
-          </p>
+            it is necessary to remember choices you make while using the site.</p>
         </section>
 
         <section className={styles.section}>
           <h2>Sharing And Retention</h2>
-          <p>
-            wwwine may use aggregated, anonymised insights commercially, including in private intelligence
-            dashboards or reports. Raw behavioural events are not sold as personal data.
-          </p>
-          <p>
-            Behavioural data is intended to be retained for up to 90 days before deletion or aggregation. Because
+          <p>wwwine may use aggregated, anonymised insights commercially, including in private intelligence
+            dashboards or reports. Raw behavioural events are not sold as personal data.</p>
+          <p>Behavioural data is intended to be retained for up to 90 days before deletion or aggregation. Because
             the data is anonymous, it may not be possible to identify or delete a specific visitor&apos;s events
-            after they have been collected.
-          </p>
+            after they have been collected.</p>
         </section>
 
         <section className={styles.section}>
           <h2>Your Rights</h2>
-          <p>
-            Depending on where you live, you may have rights to access, correct, delete, restrict, or object to
+          <p>Depending on where you live, you may have rights to access, correct, delete, restrict, or object to
             processing of personal data. Because wwwine is designed not to collect directly identifying data, some
-            rights may be limited where the site cannot reasonably connect anonymous events to you.
-          </p>
-          <p>
-            For privacy questions or requests, email <a href="mailto:hello@wwwine.com">hello@wwwine.com</a>.
-          </p>
+            rights may be limited where the site cannot reasonably connect anonymous events to you.</p>
+          <p>For privacy questions or requests, email <a href="mailto:hello@wwwine.com">hello@wwwine.com</a>.</p>
         </section>
+
         <nav className={styles.bottomNav} aria-label="Legal page navigation">
           <Link className={styles.back} href="/">Back to atlas</Link>
         </nav>
