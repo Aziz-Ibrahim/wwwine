@@ -52,6 +52,32 @@
 
 .dot { color: var(--text-muted); font-size: 10px; }
 
+.legalLink,
+.legalButton {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.legalButton {
+  padding: 0;
+  background: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  cursor: pointer;
+}
+
+.legalLink:hover,
+.legalButton:hover {
+  color: var(--gold-bright);
+  border-bottom-color: var(--gold);
+}
+
 /* ── RIGHT ────────────────────────────────────────── */
 .right { display:flex; align-items:center; gap:7px; flex-shrink:0; }
 
