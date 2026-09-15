@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
-import CookieConsent from '@/components/CookieConsent'
+import PrivacyPreferences from '@/components/PrivacyPreferences'
 
 export const metadata: Metadata = {
   title: 'wwwine — World Wide Wine Atlas',
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ThemeProvider>
           {children}
-          <CookieConsent />
+          <PrivacyPreferences />
         </ThemeProvider>
       </body>
     </html>

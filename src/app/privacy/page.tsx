@@ -1,22 +1,25 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Footer from '@/components/Footer'
+import LegalHeader from '@/components/LegalHeader'
 import styles from '../legal.module.css'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | wwwine',
-  description: 'How wwwine handles anonymous behavioural data, consent, storage, and privacy rights.',
+  description: 'How wwwine handles anonymous behavioural data, preference storage, and privacy rights.',
 }
 
 export default function PrivacyPage() {
   return (
     <main className={styles.page}>
+      <LegalHeader />
       <div className={styles.wrap}>
         <Link className={styles.back} href="/">Back to atlas</Link>
         <p className={styles.eyebrow}>wwwine</p>
         <h1 className={styles.title}>Privacy Policy</h1>
         <p className={styles.intro}>
-          wwwine collects anonymous behavioural data only with consent, so the atlas can understand which wines,
-          regions, searches, and tools people find useful.
+          wwwine collects anonymous behavioural data that is necessary for the atlas and wine-intent features to
+          understand which wines, regions, searches, and tools people find useful.
         </p>
         <p className={styles.updated}>Last updated: 15 September 2026</p>
 
@@ -31,9 +34,9 @@ export default function PrivacyPage() {
         <section className={styles.section}>
           <h2>What We Collect</h2>
           <p>
-            With your consent, wwwine collects anonymous behavioural events such as viewed countries, wine regions
-            and appellations, searches, food pairing queries, comparison activity, quiz results, affiliate click
-            intent, dwell-time buckets, timestamps, timezone, and a random session ID for the current visit.
+            wwwine collects anonymous behavioural events such as viewed countries, wine regions and appellations,
+            searches, food pairing queries, comparison activity, quiz results, affiliate click intent, dwell-time
+            buckets, timestamps, timezone, and a random session ID for the current visit.
           </p>
           <p>
             wwwine does not ask for an account, and the behavioural event stream is not designed to collect names,
@@ -45,12 +48,12 @@ export default function PrivacyPage() {
         <section className={styles.section}>
           <h2>Cookies And Local Storage</h2>
           <p>
-            wwwine uses local storage for essential preferences, including theme choice and your consent choice.
-            If you accept analytics, anonymous behavioural data is sent to the wwwine intent endpoint. If you
-            decline, those analytics events are not sent.
+            wwwine uses local storage for essential preferences, including theme choice and whether you have seen
+            the privacy preferences panel. Anonymous behavioural data is sent to the wwwine intent endpoint because
+            it is treated as necessary for the service.
           </p>
           <p>
-            You can change your choice at any time by using the Privacy choices control in the site footer.
+            You can review this information at any time by using the Privacy preferences control in the site footer.
           </p>
         </section>
 
@@ -68,9 +71,9 @@ export default function PrivacyPage() {
         <section className={styles.section}>
           <h2>Legal Basis</h2>
           <p>
-            In the UK and European Economic Area, analytics and behavioural measurement are processed on the basis
-            of your consent. Essential preference storage is used because it is necessary to remember choices you
-            make while using the site.
+            In the UK and European Economic Area, anonymous behavioural measurement is treated as necessary for the
+            operation and improvement of wwwine&apos;s wine-intent features. Essential preference storage is used because
+            it is necessary to remember choices you make while using the site.
           </p>
         </section>
 
@@ -98,7 +101,11 @@ export default function PrivacyPage() {
             For privacy questions or requests, email <a href="mailto:hello@wwwine.com">hello@wwwine.com</a>.
           </p>
         </section>
+        <nav className={styles.bottomNav} aria-label="Legal page navigation">
+          <Link className={styles.back} href="/">Back to atlas</Link>
+        </nav>
       </div>
+      <Footer />
     </main>
   )
 }

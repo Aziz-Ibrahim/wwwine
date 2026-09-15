@@ -57,8 +57,7 @@
   flex-shrink: 0;
 }
 
-.primary,
-.secondary {
+.primary {
   min-height: 36px;
   border-radius: var(--radius);
   font-family: var(--font-display);
@@ -81,18 +80,6 @@
   border-color: var(--wine-bright);
 }
 
-.secondary {
-  padding: 0 13px;
-  color: var(--text-secondary);
-  background: transparent;
-  border: 1px solid var(--border);
-}
-
-.secondary:hover {
-  color: var(--gold);
-  border-color: var(--border-gold);
-}
-
 @media (max-width: 620px) {
   .banner {
     right: 12px;
@@ -106,8 +93,7 @@
     width: 100%;
   }
 
-  .primary,
-  .secondary {
+  .primary {
     flex: 1;
   }
 }

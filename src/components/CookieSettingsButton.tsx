@@ -7,9 +7,9 @@ export default function CookieSettingsButton() {
     <button
       className={styles.legalButton}
       type="button"
-      onClick={() => window.dispatchEvent(new Event('wwwine:open-consent'))}
+      onClick={() => window.dispatchEvent(new Event('wwwine:open-preferences'))}
     >
-      Privacy choices
+      Privacy preferences
     </button>
   )
 }

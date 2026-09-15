@@ -1,19 +1,22 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Footer from '@/components/Footer'
+import LegalHeader from '@/components/LegalHeader'
 import styles from '../legal.module.css'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | wwwine',
+  title: 'Terms of Use | wwwine',
   description: 'The terms that govern use of wwwine, the World Wide Wine atlas.',
 }
 
 export default function TermsPage() {
   return (
     <main className={styles.page}>
+      <LegalHeader />
       <div className={styles.wrap}>
         <Link className={styles.back} href="/">Back to atlas</Link>
         <p className={styles.eyebrow}>wwwine</p>
-        <h1 className={styles.title}>Terms of Service</h1>
+        <h1 className={styles.title}>Terms of Use</h1>
         <p className={styles.intro}>
           These terms govern access to and use of wwwine, including the wine atlas, pairing tools, matching tools,
           comparison features, and any related intelligence views.
@@ -91,7 +94,11 @@ export default function TermsPage() {
             the updated terms. Questions can be sent to <a href="mailto:hello@wwwine.com">hello@wwwine.com</a>.
           </p>
         </section>
+        <nav className={styles.bottomNav} aria-label="Legal page navigation">
+          <Link className={styles.back} href="/">Back to atlas</Link>
+        </nav>
       </div>
+      <Footer />
     </main>
   )
 }

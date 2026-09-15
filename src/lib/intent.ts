@@ -43,15 +43,6 @@ export interface IntentEvent {
 
 // ── Session management ───────────────────────────────────────────
 let _sessionId: string | null = null
-const CONSENT_KEY = 'wwwine-cookie-consent'
-
-function hasAnalyticsConsent(): boolean {
-  try {
-    return window.localStorage.getItem(CONSENT_KEY) === 'accepted'
-  } catch {
-    return false
-  }
-}
 
 function getSessionId(): string {
   if (!_sessionId) {
@@ -69,7 +60,6 @@ function getTimezone(): string {
 // ── Fire and forget — non-blocking ──────────────────────────────
 export async function trackIntent(event: Omit<IntentEvent, 'sessionId' | 'timestamp' | 'timezone'>): Promise<void> {
   if (typeof window === 'undefined') return   // SSR guard
-  if (!hasAnalyticsConsent()) return
 
   const payload: IntentEvent = {
     sessionId:  getSessionId(),

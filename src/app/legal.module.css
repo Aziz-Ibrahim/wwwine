@@ -2,12 +2,15 @@
   min-height: 100vh;
   background: var(--bg-page);
   color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
 }
 
 .wrap {
   width: min(860px, calc(100vw - 40px));
   margin: 0 auto;
-  padding: 64px 0 80px;
+  padding: 124px 0 80px;
+  flex: 1;
 }
 
 .back {
@@ -94,10 +97,17 @@
   margin-top: 8px;
 }
 
+.bottomNav {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+}
+
 @media (max-width: 640px) {
   .wrap {
     width: min(100vw - 28px, 860px);
-    padding-top: 42px;
+    padding-top: 104px;
   }
 
   .intro {
