@@ -32,7 +32,6 @@
 
 [data-theme="light"] .logoImg {
   mix-blend-mode: multiply;
-  filter: brightness(0.3);
 }
 
 .brandText {
