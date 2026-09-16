@@ -65,3 +65,38 @@ export function getSommelierNote(a: CompareItem, b: CompareItem): string {
     `Let the occasion decide which pours first.`
   )
 }
+
+// ── SEO static pages ─────────────────────────────────────────────
+
+import type { Appellation } from '@/types'
+
+export interface AppellationWithRegion extends Appellation {
+  regionId:          string
+  regionName:        string
+  country:           string
+  countryCode:       string
+  continent:         string
+  regionColor:       string
+  regionDescription: string
+  regionVintage:     string
+}
+
+export function getAllAppellationDetails(): AppellationWithRegion[] {
+  return allRegions.flatMap(region =>
+    region.appellations.map(app => ({
+      ...app,
+      regionId:          region.id,
+      regionName:        region.region,
+      country:           region.country,
+      countryCode:       region.countryCode,
+      continent:         region.continent,
+      regionColor:       region.color,
+      regionDescription: region.description,
+      regionVintage:     region.vintage ?? '',
+    }))
+  )
+}
+
+export function getAppellationById(id: string): AppellationWithRegion | undefined {
+  return getAllAppellationDetails().find(app => app.id === id)
+}

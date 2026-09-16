@@ -24,6 +24,8 @@ export default function Footer() {
         <div className={styles.right}>
           {/* Legal links */}
           <nav className={styles.legal} aria-label="Legal">
+            <Link href="/appellations" className={styles.legalLink}>Appellations</Link>
+            <span className={styles.legalSep}>·</span>
             <Link href="/privacy" className={styles.legalLink}>Privacy</Link>
             <span className={styles.legalSep}>·</span>
             <Link href="/terms"   className={styles.legalLink}>Terms</Link>
