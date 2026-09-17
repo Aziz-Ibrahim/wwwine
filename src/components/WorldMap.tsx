@@ -33,6 +33,9 @@ const COUNTRY_ZOOM: Record<string, { zoom: number; center: [number, number] }> =
   IL: { zoom: 7,  center: [35.0,   32.5]  },
   HR: { zoom: 7,  center: [15.5,   45.5]  },
   UY: { zoom: 6,  center: [-56.5, -33.5]  },
+  SI: { zoom: 10, center: [14.9,   46.0]  },
+  TR: { zoom: 6,  center: [35.0,   39.0]  },
+  CN: { zoom: 4,  center: [103.5,  35.0]  },
 }
 
 interface Props {

@@ -9289,6 +9289,783 @@
     ]
   },
   {
+    "id": "jura",
+    "region": "Jura",
+    "country": "France",
+    "countryCode": "FR",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 46.82,
+      "lng": 5.8
+    },
+    "countryCoordinates": {
+      "lat": 46.6,
+      "lng": 2.3
+    },
+    "color": "#B08B3C",
+    "vintage": "c. Roman era",
+    "description": "The Jura is France's smallest great wine region and one of its most singular. Alpine limestone, Savagnin, Poulsard and oxidative cellar traditions produce wines that feel halfway between Burgundy, the mountains and sherry country.",
+    "mythology": [
+      {
+        "name": "Bacchus",
+        "culture": "Roman",
+        "role": "God of Wine",
+        "note": "Roman roads and settlements carried viticulture into the limestone foothills between Burgundy and the Alps."
+      }
+    ],
+    "productionVolume": "~6 million bottles/year",
+    "appellations": [
+      {
+        "id": "arbois",
+        "name": "Arbois",
+        "type": "AOC",
+        "coordinates": {
+          "lat": 46.9,
+          "lng": 5.77
+        },
+        "grapes": [
+          "Savagnin",
+          "Chardonnay",
+          "Poulsard",
+          "Trousseau",
+          "Pinot Noir"
+        ],
+        "description": "Arbois is the Jura's historic capital, producing everything from pale, peppery Poulsard to nutty sous voile Savagnin and crystalline Chardonnay. It is one of France's most food-friendly and stylistically varied appellations.",
+        "climate": "Cool semi-continental - cold winters, warm summers, Alpine influence and marked vintage variation.",
+        "soilTypes": [
+          "Grey marl",
+          "Blue marl",
+          "Limestone",
+          "Clay"
+        ],
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 2,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Red currant",
+            "Sour cherry",
+            "Apple",
+            "Lemon"
+          ],
+          "secondaryNotes": [
+            "Walnut",
+            "Curry leaf",
+            "Mushroom",
+            "Chalk"
+          ],
+          "tertiaryNotes": [
+            "Hazelnut",
+            "Comte rind",
+            "Dried herbs"
+          ],
+          "finish": "long",
+          "style": "Jura's shape-shifter - pale reds, mineral Chardonnay and nutty Savagnin energy"
+        },
+        "servingTemp": "11-15C",
+        "foodPairings": [
+          "Comte",
+          "Chicken with morels",
+          "Trout with almonds",
+          "Mushroom tart"
+        ],
+        "agingPotential": "4-20 years",
+        "bestVintages": [
+          2015,
+          2016,
+          2018,
+          2019,
+          2020
+        ],
+        "wineries": [
+          {
+            "name": "Domaine Tissot",
+            "founded": 1962,
+            "flagship": "Singulier Trousseau"
+          },
+          {
+            "name": "Domaine de la Tournelle",
+            "founded": 1991,
+            "flagship": "Fleur de Savagnin"
+          },
+          {
+            "name": "Domaine Rolet",
+            "founded": 1942,
+            "flagship": "Arbois Vin Jaune"
+          }
+        ]
+      },
+      {
+        "id": "chateau-chalon",
+        "name": "Chateau-Chalon",
+        "type": "AOC",
+        "coordinates": {
+          "lat": 46.75,
+          "lng": 5.63
+        },
+        "grapes": [
+          "Savagnin"
+        ],
+        "description": "Chateau-Chalon is reserved for Vin Jaune, the Jura's extraordinary oxidative Savagnin aged under a veil of yeast for more than six years. Bottled in the squat 62cl clavelin, it is one of the world's most distinctive dry white wines.",
+        "climate": "Cool semi-continental with steep limestone slopes, autumn humidity and cellar ageing under flor-like voile.",
+        "soilTypes": [
+          "Blue marl",
+          "Limestone scree",
+          "Clay-marl"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 1,
+          "acidity": 5,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Dried apple",
+            "Lemon peel",
+            "Quince",
+            "Green walnut"
+          ],
+          "secondaryNotes": [
+            "Walnut",
+            "Curry spice",
+            "Fenugreek",
+            "Salted almond"
+          ],
+          "tertiaryNotes": [
+            "Mushroom",
+            "Beeswax",
+            "Dried hay"
+          ],
+          "finish": "very long",
+          "style": "Legendary Vin Jaune - bone-dry, oxidative, walnut-salted and built for decades"
+        },
+        "servingTemp": "13-15C",
+        "foodPairings": [
+          "Comte 24 months",
+          "Bresse chicken with morels",
+          "Walnut tart",
+          "Aged Gruyere"
+        ],
+        "agingPotential": "20-80 years",
+        "bestVintages": [
+          1996,
+          2002,
+          2005,
+          2010,
+          2016
+        ],
+        "wineries": [
+          {
+            "name": "Domaine Macle",
+            "founded": 1850,
+            "flagship": "Chateau-Chalon Vin Jaune"
+          },
+          {
+            "name": "Domaine Berthet-Bondet",
+            "founded": 1984,
+            "flagship": "Chateau-Chalon"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "burgenland",
+    "region": "Burgenland",
+    "country": "Austria",
+    "countryCode": "AT",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 47.78,
+      "lng": 16.75
+    },
+    "countryCoordinates": {
+      "lat": 47.5,
+      "lng": 14.5
+    },
+    "color": "#6F2D45",
+    "vintage": "c. Roman era",
+    "description": "Austria's warm eastern frontier produces profound Blaufrankisch, vivid Zweigelt and legendary botrytised sweet wines around Lake Neusiedl. It is the country's red-wine engine and its great lake-effect dessert wine zone.",
+    "mythology": [
+      {
+        "name": "Bacchus",
+        "culture": "Roman",
+        "role": "God of Wine",
+        "note": "Roman Pannonia brought organized viticulture to the eastern Austrian borderlands."
+      }
+    ],
+    "productionVolume": "~90 million bottles/year",
+    "appellations": [
+      {
+        "id": "leithaberg",
+        "name": "Leithaberg",
+        "type": "DAC",
+        "coordinates": {
+          "lat": 47.88,
+          "lng": 16.62
+        },
+        "grapes": [
+          "Blaufrankisch",
+          "Gruner Veltliner",
+          "Chardonnay",
+          "Pinot Blanc"
+        ],
+        "description": "Leithaberg DAC sits on limestone and schist slopes west of Lake Neusiedl. Blaufrankisch here is savory, mineral and firm rather than plush, while the whites carry bright acidity and stony precision.",
+        "climate": "Pannonian continental - warm summers, lake moderation, cool air from the Leitha Mountains.",
+        "soilTypes": [
+          "Limestone",
+          "Schist",
+          "Gneiss",
+          "Clay"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 3,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Sour cherry",
+            "Black raspberry",
+            "Red plum",
+            "Cranberry"
+          ],
+          "secondaryNotes": [
+            "Pepper",
+            "Graphite",
+            "Violet",
+            "Stony mineral"
+          ],
+          "tertiaryNotes": [
+            "Tobacco",
+            "Leather",
+            "Dried herbs"
+          ],
+          "finish": "long",
+          "style": "Savory Austrian Blaufrankisch - limestone bite, cherry fruit and peppery lift"
+        },
+        "servingTemp": "15-17C",
+        "foodPairings": [
+          "Wiener schnitzel",
+          "Roast duck",
+          "Mushroom goulash",
+          "Aged mountain cheese"
+        ],
+        "agingPotential": "6-18 years",
+        "bestVintages": [
+          2015,
+          2017,
+          2019,
+          2020,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Moric",
+            "founded": 2001,
+            "flagship": "Blaufrankisch Reserve"
+          },
+          {
+            "name": "Prieler",
+            "founded": 1972,
+            "flagship": "Blaufrankisch Goldberg"
+          },
+          {
+            "name": "Heinrich",
+            "founded": 1990,
+            "flagship": "Alter Berg"
+          }
+        ]
+      },
+      {
+        "id": "rust-ausbruch",
+        "name": "Ruster Ausbruch",
+        "type": "DAC",
+        "coordinates": {
+          "lat": 47.8,
+          "lng": 16.67
+        },
+        "grapes": [
+          "Furmint",
+          "Welschriesling",
+          "Chardonnay",
+          "Weissburgunder"
+        ],
+        "description": "Ruster Ausbruch is one of Europe's historic noble-sweet wines. Morning humidity from Lake Neusiedl encourages botrytis, while afternoon sun concentrates grapes into saffron, apricot and marmalade intensity.",
+        "climate": "Warm Pannonian lake climate - autumn fog, dry afternoons and reliable noble rot.",
+        "soilTypes": [
+          "Limestone",
+          "Clay",
+          "Loess",
+          "Gravel"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 1,
+          "acidity": 5,
+          "sweetness": 5,
+          "alcohol": 2,
+          "fruits": [
+            "Apricot",
+            "Orange peel",
+            "Quince",
+            "Mango"
+          ],
+          "secondaryNotes": [
+            "Saffron",
+            "Honey",
+            "Marmalade",
+            "Ginger"
+          ],
+          "tertiaryNotes": [
+            "Caramel",
+            "Dried fig",
+            "Tea"
+          ],
+          "finish": "very long",
+          "style": "Noble-sweet lake wine - luscious apricot and saffron balanced by piercing acidity"
+        },
+        "servingTemp": "7-9C",
+        "foodPairings": [
+          "Foie gras",
+          "Blue cheese",
+          "Apricot tart",
+          "Spiced duck"
+        ],
+        "agingPotential": "15-50 years",
+        "bestVintages": [
+          1995,
+          2002,
+          2006,
+          2013,
+          2017
+        ],
+        "wineries": [
+          {
+            "name": "Feiler-Artinger",
+            "founded": 1936,
+            "flagship": "Ruster Ausbruch Essenz"
+          },
+          {
+            "name": "Wenzel",
+            "founded": 1647,
+            "flagship": "Ruster Ausbruch"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "slovenia-primorska",
+    "region": "Primorska",
+    "country": "Slovenia",
+    "countryCode": "SI",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 45.9,
+      "lng": 13.8
+    },
+    "countryCoordinates": {
+      "lat": 46.1,
+      "lng": 14.8
+    },
+    "color": "#4C7A5C",
+    "vintage": "c. Roman era",
+    "description": "Slovenia's Adriatic-facing west links Alpine freshness with Mediterranean texture. Brda and Vipava are now essential stops for Rebula, aromatic whites, skin-contact wines and polished Merlot-Cabernet blends.",
+    "mythology": [
+      {
+        "name": "Ziva",
+        "culture": "Slavic",
+        "role": "Goddess of life and fertility",
+        "note": "Vineyards in western Slovenia sit on a cultural crossroads between Slavic, Venetian and Habsburg wine traditions."
+      }
+    ],
+    "productionVolume": "~35 million bottles/year",
+    "appellations": [
+      {
+        "id": "goriska-brda",
+        "name": "Goriska Brda",
+        "type": "ZGP",
+        "coordinates": {
+          "lat": 45.99,
+          "lng": 13.55
+        },
+        "grapes": [
+          "Rebula",
+          "Sauvignonasse",
+          "Merlot",
+          "Cabernet Sauvignon",
+          "Pinot Grigio"
+        ],
+        "description": "Goriska Brda, pressed against Italy's Collio, is Slovenia's star region for Rebula. The best wines can be crystalline and citrus-driven or amber, textured and deeply savory after skin contact.",
+        "climate": "Mediterranean-Alpine - Adriatic warmth, mountain nights and strong bora winds.",
+        "soilTypes": [
+          "Opoka marl",
+          "Sandstone",
+          "Flysch"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 2,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Pear",
+            "Lemon",
+            "Apricot",
+            "Quince"
+          ],
+          "secondaryNotes": [
+            "Almond",
+            "Dried herbs",
+            "Sea salt",
+            "White flowers"
+          ],
+          "tertiaryNotes": [
+            "Honey",
+            "Beeswax",
+            "Dried citrus"
+          ],
+          "finish": "long",
+          "style": "Adriatic Rebula - pear, almond and saline structure with serious skin-contact depth"
+        },
+        "servingTemp": "10-13C",
+        "foodPairings": [
+          "Frika cheese pancake",
+          "Prosciutto",
+          "Grilled trout",
+          "Mushroom risotto"
+        ],
+        "agingPotential": "4-15 years",
+        "bestVintages": [
+          2015,
+          2016,
+          2018,
+          2020,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Movia",
+            "founded": 1700,
+            "flagship": "Veliko Belo"
+          },
+          {
+            "name": "Edi Simcic",
+            "founded": 1990,
+            "flagship": "Rebula"
+          },
+          {
+            "name": "Marjan Simcic",
+            "founded": 1860,
+            "flagship": "Opoka Rebula"
+          }
+        ]
+      },
+      {
+        "id": "vipava-valley",
+        "name": "Vipava Valley",
+        "type": "ZGP",
+        "coordinates": {
+          "lat": 45.85,
+          "lng": 13.96
+        },
+        "grapes": [
+          "Zelen",
+          "Pinela",
+          "Malvasia",
+          "Merlot",
+          "Barbera"
+        ],
+        "description": "Vipava is a windy limestone valley famous for indigenous whites such as Zelen and Pinela. The wines are fragrant, herbal and textured, with the bora wind preserving freshness in a sunny landscape.",
+        "climate": "Sub-Mediterranean - sunny, dry, strongly influenced by bora winds and cool Alpine air.",
+        "soilTypes": [
+          "Marl",
+          "Limestone",
+          "Flysch",
+          "Alluvial gravel"
+        ],
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 1,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Green apple",
+            "Lemon",
+            "Apricot",
+            "Melon"
+          ],
+          "secondaryNotes": [
+            "Sage",
+            "Acacia",
+            "Almond",
+            "Wet stone"
+          ],
+          "tertiaryNotes": [
+            "Honey",
+            "Dried herbs"
+          ],
+          "finish": "medium",
+          "style": "Fresh Slovenian mountain-Mediterranean white - herbal, mineral and quietly distinctive"
+        },
+        "servingTemp": "9-11C",
+        "foodPairings": [
+          "Jota stew",
+          "Grilled vegetables",
+          "Fresh goat cheese",
+          "Roast chicken"
+        ],
+        "agingPotential": "2-8 years",
+        "bestVintages": [
+          2016,
+          2018,
+          2019,
+          2021,
+          2022
+        ],
+        "wineries": [
+          {
+            "name": "Burja Estate",
+            "founded": 2009,
+            "flagship": "Bela"
+          },
+          {
+            "name": "Guerila",
+            "founded": 2005,
+            "flagship": "Zelen"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "turkey-thrace",
+    "region": "Thrace / Marmara",
+    "country": "Turkey",
+    "countryCode": "TR",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 41.1,
+      "lng": 27.5
+    },
+    "countryCoordinates": {
+      "lat": 39.0,
+      "lng": 35.0
+    },
+    "color": "#8B4E3A",
+    "vintage": "c. 6000 BCE",
+    "description": "Turkey sits near one of wine's birthplaces, yet its modern quality movement is still being rediscovered. Thrace and the Marmara coast now produce polished reds from Kalecik Karasi, Papaskarasi and international grapes.",
+    "mythology": [
+      {
+        "name": "Dionysus",
+        "culture": "Greek / Thracian",
+        "role": "God of Wine",
+        "note": "Dionysian traditions were deeply tied to Thrace, while Anatolia preserves some of the world's oldest evidence of grape domestication."
+      }
+    ],
+    "productionVolume": "~70 million bottles/year",
+    "appellations": [
+      {
+        "id": "thrace-reds",
+        "name": "Thrace Reds",
+        "type": "GI",
+        "coordinates": {
+          "lat": 41.12,
+          "lng": 27.6
+        },
+        "grapes": [
+          "Kalecik Karasi",
+          "Papaskarasi",
+          "Cabernet Sauvignon",
+          "Merlot",
+          "Syrah"
+        ],
+        "description": "Thrace's rolling vineyards between the Aegean, Marmara and Black Sea produce Turkey's most accessible modern reds. Kalecik Karasi gives pale, fragrant cherry wines, while Papaskarasi and Bordeaux varieties add spice and structure.",
+        "climate": "Maritime-continental - Balkan winds, sea influence and warm dry summers.",
+        "soilTypes": [
+          "Limestone",
+          "Clay",
+          "Loam",
+          "Gravel"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 3,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Cherry",
+            "Red plum",
+            "Blackberry",
+            "Pomegranate"
+          ],
+          "secondaryNotes": [
+            "Allspice",
+            "Tobacco",
+            "Dried herbs",
+            "Violet"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Cedar",
+            "Earth"
+          ],
+          "finish": "medium",
+          "style": "Modern Turkish red - cherry-fruited, spicy and lifted by indigenous varieties"
+        },
+        "servingTemp": "15-17C",
+        "foodPairings": [
+          "Lamb kofte",
+          "Adana kebab",
+          "Stuffed aubergine",
+          "Aged kasar cheese"
+        ],
+        "agingPotential": "4-12 years",
+        "bestVintages": [
+          2015,
+          2017,
+          2018,
+          2020,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Chamlija",
+            "founded": 2000,
+            "flagship": "Papaskarasi"
+          },
+          {
+            "name": "Arcadia Vineyards",
+            "founded": 2005,
+            "flagship": "A Cabernet Sauvignon"
+          },
+          {
+            "name": "Suvla",
+            "founded": 2009,
+            "flagship": "Reserve Karasakiz"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ningxia",
+    "region": "Ningxia",
+    "country": "China",
+    "countryCode": "CN",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 38.45,
+      "lng": 106.05
+    },
+    "countryCoordinates": {
+      "lat": 35.9,
+      "lng": 104.2
+    },
+    "color": "#7C2538",
+    "vintage": "c. 1980 CE",
+    "description": "Ningxia, at the eastern foot of the Helan Mountains, is China's flagship fine-wine region. High desert light, cold nights and careful irrigation produce structured Cabernet blends with growing international recognition.",
+    "mythology": [
+      {
+        "name": "Shennong",
+        "culture": "Chinese",
+        "role": "Divine Farmer",
+        "note": "Modern winegrowing is recent, but Ningxia's farming culture draws on a much older Chinese reverence for agriculture and seasonal balance."
+      }
+    ],
+    "productionVolume": "~130 million bottles/year",
+    "appellations": [
+      {
+        "id": "helan-mountain-east",
+        "name": "Eastern Foothills of Helan Mountain",
+        "type": "GI",
+        "coordinates": {
+          "lat": 38.6,
+          "lng": 106.1
+        },
+        "grapes": [
+          "Cabernet Sauvignon",
+          "Marselan",
+          "Merlot",
+          "Cabernet Gernischt",
+          "Chardonnay"
+        ],
+        "description": "The Eastern Foothills of Helan Mountain are China's most important fine-wine appellation. Cabernet Sauvignon and Marselan dominate, delivering dark fruit, firm tannin and polished oak against a dramatic desert-mountain backdrop.",
+        "climate": "Continental semi-arid - intense sunshine, cold nights, low rainfall, winter vine burial in many sites.",
+        "soilTypes": [
+          "Alluvial gravel",
+          "Sand",
+          "Loess",
+          "Silt"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 4,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 4,
+          "fruits": [
+            "Blackcurrant",
+            "Black cherry",
+            "Mulberry",
+            "Plum"
+          ],
+          "secondaryNotes": [
+            "Cedar",
+            "Dark chocolate",
+            "Mint",
+            "Graphite"
+          ],
+          "tertiaryNotes": [
+            "Tobacco",
+            "Leather",
+            "Dried date"
+          ],
+          "finish": "long",
+          "style": "China's benchmark Cabernet country - dark, structured and mountain-desert polished"
+        },
+        "servingTemp": "16-18C",
+        "foodPairings": [
+          "Peking duck",
+          "Cumin lamb",
+          "Braised beef noodle soup",
+          "Char siu"
+        ],
+        "agingPotential": "6-20 years",
+        "bestVintages": [
+          2013,
+          2015,
+          2017,
+          2019,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Silver Heights",
+            "founded": 2007,
+            "flagship": "The Summit"
+          },
+          {
+            "name": "Helan Qingxue",
+            "founded": 2005,
+            "flagship": "Jia Bei Lan"
+          },
+          {
+            "name": "Kanaan Winery",
+            "founded": 2011,
+            "flagship": "Pretty Pony"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "montefalco",
     "region": "Montefalco",
     "country": "Italy",
