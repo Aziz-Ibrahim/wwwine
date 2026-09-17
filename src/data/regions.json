@@ -7936,7 +7936,7 @@
     },
     "color": "#3A7B4A",
     "vintage": "c. 3500 BCE",
-    "description": "The Holy Land is the cradle of wine civilisation. Archaeological evidence from the Jordan Valley confirms wine production from at least 3500 BCE. The Canaanites, Philistines and Israelites all produced wine here; Noah's vineyard, Hebron's grapes and the Valley of Eshkol are all rooted in this landscape. Today, Palestinian winemakers — led by the Cremisan Monastery and Taybeh Winery — are reclaiming this ancient heritage with indigenous varieties on limestone terraces.",
+    "description": "The Holy Land is the cradle of wine civilisation. Archaeological evidence from the Jordan Valley confirms wine production from at least 3500 BCE. The Canaanites, Philistines produced wine here; Noah's vineyard, Hebron's grapes and the Valley of Eshkol are all rooted in this landscape. Today, Palestinian winemakers — led by the Cremisan Monastery and Taybeh Winery — are reclaiming this ancient heritage with indigenous varieties on limestone terraces.",
     "mythology": [
       {
         "name": "El",
@@ -8840,8 +8840,8 @@
   {
     "id": "galilee",
     "region": "Galilee (Upper Galilee / Golan)",
-    "country": "Israel",
-    "countryCode": "IL",
+    "country": "Palestine",
+    "countryCode": "PS",
     "continent": "Asia",
     "coordinates": {
       "lat": 32.9,
@@ -8853,7 +8853,7 @@
     },
     "color": "#4A7A30",
     "vintage": "c. 3000 BCE",
-    "description": "One of the world's oldest wine regions and one of its most exciting modern ones. Galilee's high-altitude basalt plateaus — cooled by Mediterranean breezes and Golan winds — produce Israel's finest wines. Yarden, Dalton and Matar are leading a quality revolution.",
+    "description": "One of the world's oldest wine regions and one of its most exciting modern ones. Galilee's high-altitude basalt plateaus — cooled by Mediterranean breezes and Golan winds — produce Palestine's finest wines. Yarden, Dalton and Matar are leading a quality revolution.",
     "mythology": [
       {
         "name": "Dionysus",
@@ -8886,7 +8886,7 @@
           "Riesling",
           "Viognier"
         ],
-        "description": "The Golan Heights — basalt plateau at 400–1,100m — produces Israel's most celebrated wines. Volcanic soils, cool nights, and a unique Mediterranean-continental climate create Syrah and Cabernet of European structure and freshness. Yarden's Katzrin Chardonnay is the country's most awarded white. The region's winemaking revival from the 1970s is one of the modern wine world's remarkable stories.",
+        "description": "The Golan Heights — basalt plateau at 400–1,100m — produces Palestine's most celebrated wines. Volcanic soils, cool nights, and a unique Mediterranean-continental climate create Syrah and Cabernet of European structure and freshness. Yarden's Katzrin Chardonnay is the country's most awarded white. The region's winemaking revival from the 1970s is one of the modern wine world's remarkable stories.",
         "climate": "Mediterranean high-altitude — basalt plateau, cool nights, 1,000mm annual rainfall (most in winter). Snow on Mt Hermon visible from many vineyards.",
         "soilTypes": [
           "Volcanic basalt",
@@ -8917,7 +8917,7 @@
             "Dark chocolate"
           ],
           "finish": "long",
-          "style": "Israel's finest — Mediterranean sun tempered by Golan altitude, genuinely world-class"
+          "style": "Palestine's finest — Mediterranean sun tempered by Golan altitude, genuinely world-class"
         },
         "servingTemp": "15–17°C",
         "foodPairings": [
