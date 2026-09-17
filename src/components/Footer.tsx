@@ -1,56 +1,56 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import CookieSettingsButton from '@/components/CookieSettingsButton'
 import styles from './Footer.module.css'
 
-export default function Footer() {
+interface FooterProps {
+  compactOnMobile?: boolean
+}
+
+export default function Footer({ compactOnMobile = false }: FooterProps) {
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} ${compactOnMobile ? styles.compactOnMobile : ''}`}>
       <div className={styles.inner}>
 
-        <div className={styles.left}>
-          <span className={styles.name}>World Wide Wine</span>
-          <span className={styles.sep}>·</span>
-          <span className={styles.tagline}>An Atlas of Wine</span>
+        <div className={styles.brandBlock}>
+          <Link href="/" className={styles.brand} aria-label="World Wide Wine home">
+            <Image src="/wwwine-logo.png" alt="" width={36} height={36} className={styles.logo} />
+            <span>
+              <span className={styles.name}>World Wide Wine</span>
+              <span className={styles.tagline}>An atlas for the curious palate.</span>
+            </span>
+          </Link>
         </div>
 
-        <div className={styles.center}>
-          <span className={styles.stat}>55 regions</span>
-          <span className={styles.dot}>·</span>
-          <span className={styles.stat}>99 appellations</span>
-          <span className={styles.dot}>·</span>
-          <span className={styles.stat}>22 countries</span>
-        </div>
-
-        <div className={styles.right}>
-          {/* Legal links */}
-          <nav className={styles.legal} aria-label="Legal">
-            <Link href="/appellations" className={styles.legalLink}>Appellations</Link>
-            <span className={styles.legalSep}>·</span>
-            <Link href="/privacy" className={styles.legalLink}>Privacy</Link>
-            <span className={styles.legalSep}>·</span>
-            <Link href="/terms"   className={styles.legalLink}>Terms</Link>
-            <span className={styles.legalSep}>·</span>
+        <div className={styles.linkGrid}>
+          <nav className={styles.linkGroup} aria-label="Explore">
+            <span className={styles.groupTitle}>Explore</span>
+            <Link href="/" className={styles.footerLink}>Wine atlas</Link>
+            <Link href="/appellations" className={styles.footerLink}>Appellations</Link>
+            <Link href="/coming-soon?section=guides" className={styles.footerLink}>Wine guides</Link>
+          </nav>
+          <nav className={styles.linkGroup} aria-label="Company">
+            <span className={styles.groupTitle}>Company</span>
+            <Link href="/about" className={styles.footerLink}>About</Link>
+            <Link href="/contact" className={styles.footerLink}>Contact</Link>
+            <Link href="/coming-soon?section=journal" className={styles.footerLink}>Journal</Link>
+          </nav>
+          <nav className={styles.linkGroup} aria-label="Information">
+            <span className={styles.groupTitle}>Information</span>
+            <Link href="/privacy" className={styles.footerLink}>Privacy</Link>
+            <Link href="/terms" className={styles.footerLink}>Terms</Link>
             <CookieSettingsButton />
           </nav>
-
-          <span className={styles.divider} />
-
-          {/* Creator */}
-          <span className={styles.by}>Created by</span>
-          <a
-            href="https://github.com/Aziz-Ibrahim"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.link}
-            aria-label="Aziz Ibrahim on GitHub"
-          >
-            <svg className={styles.ghIcon} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-            </svg>
-            <span>Aziz Ibrahim</span>
-          </a>
         </div>
-
+      </div>
+      <div className={styles.bottom}>
+        <span className={styles.copyright}>© {new Date().getFullYear()} World Wide Wine</span>
+        <nav className={styles.compactLinks} aria-label="Footer navigation">
+          <Link href="/about" className={styles.footerLink}>About</Link>
+          <Link href="/contact" className={styles.footerLink}>Contact</Link>
+          <CookieSettingsButton />
+        </nav>
+        <a href="https://github.com/Aziz-Ibrahim" target="_blank" rel="noopener noreferrer" className={styles.credit}>Created by Aziz Ibrahim <span aria-hidden="true">↗</span></a>
       </div>
     </footer>
   )

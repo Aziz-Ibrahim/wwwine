@@ -2,20 +2,20 @@
 .header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: 60px;
+  height: 64px;
   z-index: 200;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
-  background: color-mix(in srgb, var(--bg-surface) 92%, transparent);
+  padding: 0 clamp(16px, 3vw, 40px);
+  background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
 
 /* ── BRAND ───────────────────────────────────────────────────── */
-.brand { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.brand { display:flex; align-items:center; gap:11px; flex-shrink:0; padding:0; border:0; background:transparent; color:inherit; cursor:pointer; text-align:left; }
 
 .logoImg {
   width: 34px; height: 34px;
@@ -49,6 +49,9 @@
 
 /* ── RIGHT CLUSTER ───────────────────────────────────────────── */
 .right { display:flex; align-items:center; gap:6px; }
+.navDivider { width:1px; height:20px; margin:0 5px; background:var(--border); }
+.utilityLink { padding:7px 9px; color:var(--text-muted); font-family:var(--font-sans); font-size:12px; font-weight:500; text-decoration:none; transition:color .15s ease; }
+.utilityLink:hover { color:var(--text-primary); }
 
 /* ── DESKTOP NAV ─────────────────────────────────────────────── */
 .desktopNav { display:flex; gap:2px; }
@@ -71,6 +74,7 @@
   color: var(--accent);
   background: var(--accent-dim);
   font-weight: 600;
+  box-shadow: inset 0 -1px 0 var(--accent);
 }
 
 /* ── THEME TOGGLE ────────────────────────────────────────────── */
@@ -106,7 +110,7 @@
 
 /* ── MOBILE MENU ─────────────────────────────────────────────── */
 .mobileMenu {
-  position: fixed; top: 60px; left: 0; right: 0; z-index: 199;
+  position: fixed; top: 64px; left: 0; right: 0; z-index: 199;
   background: var(--bg-surface); border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow); animation: menuSlide 0.2s cubic-bezier(0.22,1,0.36,1);
 }
@@ -126,9 +130,12 @@
 .mobileLabel { flex:1; font-family: var(--font-sans); font-size: 15px; font-weight: 500; color: var(--text-primary); }
 .mobileNavBtn.mobileActive .mobileLabel { color: var(--accent); font-weight: 600; }
 .mobileTick  { font-size: 13px; color: var(--accent); }
+.mobileRule { height:1px; margin:6px 16px; background:var(--border); }
+.mobilePageLink { display:flex; align-items:center; min-height:46px; padding:0 56px; color:var(--text-secondary); font-family:var(--font-sans); font-size:14px; text-decoration:none; }
+.mobilePageLink:hover { color:var(--accent); }
 
 .backdrop {
-  position: fixed; inset: 60px 0 0; z-index: 198;
+  position: fixed; inset: 64px 0 0; z-index: 198;
   background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
   animation: fadeIn 0.2s ease;
 }
@@ -137,6 +144,7 @@
 /* ── RESPONSIVE ──────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .desktopNav { display: none; }
+  .navDivider, .utilityLink { display:none; }
   .burger     { display: flex; }
   .brandSubtitle { display: none; }
 }

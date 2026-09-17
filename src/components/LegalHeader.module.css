@@ -1,13 +1,13 @@
 .header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: 60px;
+  height: 64px;
   z-index: 200;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
-  background: var(--bg-surface);
+  padding: 0 clamp(16px, 3vw, 40px);
+  background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -32,6 +32,9 @@
 .brandSubtitle { font-family:var(--font-italic); font-style:italic; font-size:11px; color:var(--gold); letter-spacing:0.5px; margin-top:2px; }
 
 .right { display:flex; align-items:center; gap:8px; }
+.nav { display:flex; align-items:center; gap:4px; }
+.pageLink { padding:8px 10px; color:var(--text-muted); font-family:var(--font-sans); font-size:12px; font-weight:500; text-decoration:none; }
+.pageLink:hover { color:var(--text-primary); }
 
 .atlasLink {
   min-height: 34px;
@@ -63,4 +66,6 @@
   .logoImg { width:30px; height:30px; }
   .brandTitle { font-size:10px; letter-spacing:1.5px; }
   .brandSubtitle { display:none; }
+  .pageLink { display:none; }
+  .atlasLink { padding:0 10px; }
 }

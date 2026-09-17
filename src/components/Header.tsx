@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import type { AppView } from '@/types'
 import type { SearchResult } from '@/lib/search'
 import { useTheme } from '@/components/ThemeProvider'
@@ -50,13 +51,13 @@ export default function Header({ view, onViewChange, onSearchResult }: Props) {
     <>
       <header className={styles.header}>
         {/* Brand */}
-        <div className={styles.brand}>
+        <button className={styles.brand} type="button" onClick={() => navigate('map')} aria-label="Open the wine atlas">
           <Image src="/wwwine-logo.png" alt="wwwine" width={40} height={40} className={styles.logoImg} priority />
           <div className={styles.brandText}>
             <span className={styles.brandTitle}>World Wide Wine</span>
             <span className={styles.brandSubtitle}>An Atlas of Wine</span>
           </div>
-        </div>
+        </button>
 
         {/* Right cluster */}
         <div className={styles.right}>
@@ -69,6 +70,9 @@ export default function Header({ view, onViewChange, onSearchResult }: Props) {
               >{n.label}</button>
             ))}
           </nav>
+
+          <span className={styles.navDivider} aria-hidden="true" />
+          <Link href="/about" className={styles.utilityLink}>About</Link>
 
           <SearchBar onResult={r => { onSearchResult(r); setMenuOpen(false) }} />
 
@@ -118,6 +122,9 @@ export default function Header({ view, onViewChange, onSearchResult }: Props) {
                 {view === n.key && <span className={styles.mobileTick}>✓</span>}
               </button>
             ))}
+            <div className={styles.mobileRule} />
+            <Link href="/about" className={styles.mobilePageLink} onClick={() => setMenuOpen(false)}>About</Link>
+            <Link href="/contact" className={styles.mobilePageLink} onClick={() => setMenuOpen(false)}>Contact</Link>
           </nav>
         </div>
       )}

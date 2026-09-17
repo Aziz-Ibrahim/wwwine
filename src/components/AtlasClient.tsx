@@ -104,7 +104,7 @@ export default function AtlasClient({ regions, countries, allAppellations }: Pro
       {view === 'food'     && <main className={styles.mainCompare}><FoodPairing appellations={allAppellations} /></main>}
       {view === 'match'    && <main className={styles.mainCompare}><WineMatch appellations={allAppellations} /></main>}
 
-      <Footer />
+      <Footer compactOnMobile />
     </div>
   )
 }

@@ -19,7 +19,11 @@ export default function LegalHeader() {
       </Link>
 
       <div className={styles.right}>
-        <Link className={styles.atlasLink} href="/">Atlas</Link>
+        <nav className={styles.nav} aria-label="Primary navigation">
+          <Link className={styles.pageLink} href="/about">About</Link>
+          <Link className={styles.pageLink} href="/contact">Contact</Link>
+          <Link className={styles.atlasLink} href="/">Open atlas</Link>
+        </nav>
         <button
           className={styles.themeBtn}
           onClick={toggle}
