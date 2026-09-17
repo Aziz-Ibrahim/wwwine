@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { ThemeProvider }      from '@/components/ThemeProvider'
-import PrivacyPreferences     from '@/components/PrivacyPreferences'
+import { ThemeProvider }   from '@/components/ThemeProvider'
+import PrivacyPreferences  from '@/components/PrivacyPreferences'
 
 export const metadata: Metadata = {
   title: 'wwwine — World Wide Wine Atlas',
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   icons: { icon: '/favicon.ico', shortcut: '/favicon.ico' },
   openGraph: {
     title: 'wwwine — World Wide Wine Atlas',
-    description: 'Explore the world\'s great wine regions, their mythology, appellations, and notable houses.',
+    description: 'Explore the world\'s great wine regions, appellations, and notable houses.',
     type: 'website',
     images: [{ url: '/wwwine-logo.png' }],
   },
@@ -24,14 +24,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap"
           rel="stylesheet"
         />
       </head>
       <body>
         <ThemeProvider>
           {children}
-          {/* Banner renders on every page — hides itself after acknowledgement */}
           <PrivacyPreferences />
         </ThemeProvider>
       </body>

@@ -32,7 +32,7 @@ export default function AppellationsPage() {
         <p className={styles.eyebrow}>wwwine appellations</p>
         <h1 className={styles.title}>Wine Appellations Guide</h1>
         <p className={styles.intro}>
-          Explore all 92 appellations in the World Wide Wine atlas, from benchmark European AOCs and DOCs to
+          Explore all 99 appellations in the World Wide Wine atlas, from benchmark European AOCs and DOCs to
           high-altitude New World regions, island vineyards, desert valleys, and ancient wine cultures.
         </p>
         <div className={styles.meta} aria-label="Appellation guide summary">

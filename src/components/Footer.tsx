@@ -14,11 +14,11 @@ export default function Footer() {
         </div>
 
         <div className={styles.center}>
-          <span className={styles.stat}>48 regions</span>
+          <span className={styles.stat}>55 regions</span>
           <span className={styles.dot}>·</span>
-          <span className={styles.stat}>92 appellations</span>
+          <span className={styles.stat}>99 appellations</span>
           <span className={styles.dot}>·</span>
-          <span className={styles.stat}>20 countries</span>
+          <span className={styles.stat}>22 countries</span>
         </div>
 
         <div className={styles.right}>

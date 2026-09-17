@@ -8615,5 +8615,788 @@
         ]
       }
     ]
+  },
+  {
+    "id": "sonoma",
+    "region": "Sonoma Coast",
+    "country": "USA",
+    "countryCode": "US",
+    "continent": "North America",
+    "coordinates": {
+      "lat": 38.4,
+      "lng": -122.9
+    },
+    "countryCoordinates": {
+      "lat": 37.1,
+      "lng": -95.7
+    },
+    "color": "#8B3A6A",
+    "vintage": "c. 1812 CE",
+    "description": "California's cool-climate answer to Burgundy. Defined by Pacific fog, low-yielding Pinot Noir, and a new generation of obsessive winemakers who rejected Napa's power in favour of precision.",
+    "mythology": [
+      {
+        "name": "Coast Miwok",
+        "culture": "Coast Miwok people",
+        "role": "Original custodians of the Sonoma Coast",
+        "note": "The Coast Miwok people inhabited these coastal valleys for thousands of years. Russian colonists at Fort Ross planted California's first northern coast vines in 1812."
+      }
+    ],
+    "productionVolume": "~8 million bottles/year",
+    "appellations": [
+      {
+        "id": "sonoma-pinot",
+        "name": "Sonoma Coast Pinot Noir",
+        "type": "AVA",
+        "coordinates": {
+          "lat": 38.4,
+          "lng": -122.9
+        },
+        "grapes": [
+          "Pinot Noir",
+          "Chardonnay"
+        ],
+        "description": "The West Sonoma Coast — from Fort Ross-Seaview down to the Petaluma Gap — produces California's most Burgundian Pinot Noir. Extreme sites on steep ridges above the fog line, volcanic and sandstone soils, and relentlessly cool ocean air create wines of electric acidity and red-cherry delicacy that shocked California's wine world in the 2000s. Flowers, Littorai and Hirsch are benchmark names.",
+        "climate": "Cold maritime — Pacific fog channels through river valleys, temperatures barely reach 25°C even in summer.",
+        "soilTypes": [
+          "Franciscan Complex (greywacke/chert)",
+          "Volcanic",
+          "Marine sandstone"
+        ],
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 2,
+          "acidity": 5,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Red cherry",
+            "Strawberry",
+            "Cranberry",
+            "Pomegranate"
+          ],
+          "secondaryNotes": [
+            "Violets",
+            "Forest floor",
+            "Mushroom",
+            "Herbs"
+          ],
+          "tertiaryNotes": [
+            "Truffle",
+            "Cedar",
+            "Tea",
+            "Dried rose"
+          ],
+          "finish": "long",
+          "style": "California's Burgundy — cool, precise, red-fruited, wildly elegant"
+        },
+        "servingTemp": "13–15°C",
+        "foodPairings": [
+          "Wild salmon",
+          "Duck breast",
+          "Mushroom risotto",
+          "Grilled quail",
+          "Aged Brie"
+        ],
+        "agingPotential": "8–20 years",
+        "bestVintages": [
+          2012,
+          2014,
+          2016,
+          2018,
+          2019,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Flowers Vineyard",
+            "founded": 1991,
+            "flagship": "Flowers Camp Meeting Ridge Pinot Noir"
+          },
+          {
+            "name": "Littorai",
+            "founded": 1993,
+            "flagship": "The Pivot Vineyard Pinot Noir"
+          },
+          {
+            "name": "Hirsch Vineyards",
+            "founded": 1980,
+            "flagship": "San Andreas Fault Pinot Noir"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "okanagan",
+    "region": "Okanagan Valley",
+    "country": "Canada",
+    "countryCode": "CA",
+    "continent": "North America",
+    "coordinates": {
+      "lat": 49.5,
+      "lng": -119.6
+    },
+    "countryCoordinates": {
+      "lat": 56.1,
+      "lng": -106.3
+    },
+    "color": "#6B8B40",
+    "vintage": "c. 1860 CE",
+    "description": "Canada's finest wine region — a high-desert lake district in British Columbia where the Okanagan Valley's unique topography creates warm days, cold nights, and dramatic diurnal shifts perfect for aromatic whites and structured reds.",
+    "mythology": [
+      {
+        "name": "Ogopogo",
+        "culture": "Syilx/Okanagan Nation",
+        "role": "Sacred lake serpent of Lake Okanagan",
+        "note": "The Syilx people have stewarded the Okanagan Valley for thousands of years. Ogopogo, the sacred serpent of Lake Okanagan, is a central figure in their spiritual relationship with the land. Several wineries honour this connection."
+      }
+    ],
+    "productionVolume": "~20 million bottles/year",
+    "appellations": [
+      {
+        "id": "okanagan-riesling",
+        "name": "Okanagan Valley Riesling",
+        "type": "VQA",
+        "coordinates": {
+          "lat": 49.5,
+          "lng": -119.6
+        },
+        "grapes": [
+          "Riesling",
+          "Pinot Gris",
+          "Chardonnay",
+          "Pinot Noir"
+        ],
+        "description": "The Okanagan produces Canada's finest Riesling — from bone-dry to lusciously sweet — on south-facing benchland above Lake Okanagan. The lake moderates the harsh continental winters, and the volcanic and granite soils give Riesling a distinctive mineral snap. Mission Hill, Quails' Gate and CedarCreek have elevated the valley to international recognition.",
+        "climate": "Semi-arid continental — Canada's hottest, driest wine region. Lake Okanagan moderates extremes. Up to 40°C in summer, -20°C in winter.",
+        "soilTypes": [
+          "Sandy loam over clay",
+          "Volcanic",
+          "Granite benchland"
+        ],
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 1,
+          "acidity": 5,
+          "sweetness": 2,
+          "alcohol": 2,
+          "fruits": [
+            "Lime",
+            "Green apple",
+            "Peach",
+            "Apricot",
+            "Lychee"
+          ],
+          "secondaryNotes": [
+            "Mineral",
+            "Slate",
+            "White flowers",
+            "Citrus blossom"
+          ],
+          "tertiaryNotes": [
+            "Petrol",
+            "Honey",
+            "Toast"
+          ],
+          "finish": "long",
+          "style": "Canada's great Riesling — alpine-crisp, minerally complex, genuinely world-class"
+        },
+        "servingTemp": "8–10°C",
+        "foodPairings": [
+          "Pacific salmon",
+          "Spot prawns",
+          "Dungeness crab",
+          "Thai cuisine",
+          "Aged Cheddar"
+        ],
+        "agingPotential": "5–20 years",
+        "bestVintages": [
+          2013,
+          2015,
+          2018,
+          2020,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Mission Hill Family Estate",
+            "founded": 1981,
+            "flagship": "Perpetua Chardonnay"
+          },
+          {
+            "name": "Quails' Gate",
+            "founded": 1989,
+            "flagship": "Stewart Family Reserve Pinot Noir"
+          },
+          {
+            "name": "CedarCreek Estate Winery",
+            "founded": 1987,
+            "flagship": "Platinum Riesling"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "galilee",
+    "region": "Galilee (Upper Galilee / Golan)",
+    "country": "Israel",
+    "countryCode": "IL",
+    "continent": "Asia",
+    "coordinates": {
+      "lat": 32.9,
+      "lng": 35.5
+    },
+    "countryCoordinates": {
+      "lat": 31.0,
+      "lng": 35.0
+    },
+    "color": "#4A7A30",
+    "vintage": "c. 3000 BCE",
+    "description": "One of the world's oldest wine regions and one of its most exciting modern ones. Galilee's high-altitude basalt plateaus — cooled by Mediterranean breezes and Golan winds — produce Israel's finest wines. Yarden, Dalton and Matar are leading a quality revolution.",
+    "mythology": [
+      {
+        "name": "Dionysus",
+        "culture": "Greek/Phoenician",
+        "role": "God of Wine",
+        "note": "Canaanite and Phoenician winemaking in Galilee dates to 3000 BCE. The Sea of Galilee region features prominently in the Hebrew Bible and New Testament as a wine-producing area."
+      },
+      {
+        "name": "El",
+        "culture": "Canaanite",
+        "role": "Father of the Gods",
+        "note": "Ancient Canaanite wine culture in Galilee is among the oldest documented viticulture in the world. Archaeological evidence of wine production at Tel Kabri dates to 1700 BCE."
+      }
+    ],
+    "productionVolume": "~30 million bottles/year",
+    "appellations": [
+      {
+        "id": "galilee-syrah",
+        "name": "Upper Galilee / Golan Heights",
+        "type": "PDO",
+        "coordinates": {
+          "lat": 33.1,
+          "lng": 35.7
+        },
+        "grapes": [
+          "Cabernet Sauvignon",
+          "Syrah",
+          "Merlot",
+          "Chardonnay",
+          "Riesling",
+          "Viognier"
+        ],
+        "description": "The Golan Heights — basalt plateau at 400–1,100m — produces Israel's most celebrated wines. Volcanic soils, cool nights, and a unique Mediterranean-continental climate create Syrah and Cabernet of European structure and freshness. Yarden's Katzrin Chardonnay is the country's most awarded white. The region's winemaking revival from the 1970s is one of the modern wine world's remarkable stories.",
+        "climate": "Mediterranean high-altitude — basalt plateau, cool nights, 1,000mm annual rainfall (most in winter). Snow on Mt Hermon visible from many vineyards.",
+        "soilTypes": [
+          "Volcanic basalt",
+          "Terra rossa",
+          "Tufa limestone"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 3,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 4,
+          "fruits": [
+            "Dark cherry",
+            "Cassis",
+            "Plum",
+            "Blueberry"
+          ],
+          "secondaryNotes": [
+            "Basalt mineral",
+            "Herbs",
+            "Cedar",
+            "Tobacco"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Coffee",
+            "Dark chocolate"
+          ],
+          "finish": "long",
+          "style": "Israel's finest — Mediterranean sun tempered by Golan altitude, genuinely world-class"
+        },
+        "servingTemp": "15–17°C",
+        "foodPairings": [
+          "Lamb shawarma",
+          "Sabich (aubergine)",
+          "Kibbeh",
+          "Aged Gouda",
+          "Mezze"
+        ],
+        "agingPotential": "8–20 years",
+        "bestVintages": [
+          2010,
+          2013,
+          2015,
+          2018,
+          2020
+        ],
+        "wineries": [
+          {
+            "name": "Golan Heights Winery (Yarden)",
+            "founded": 1983,
+            "flagship": "Yarden Katzrin Chardonnay"
+          },
+          {
+            "name": "Dalton Winery",
+            "founded": 1995,
+            "flagship": "Dalton Reserve Cabernet Sauvignon"
+          },
+          {
+            "name": "Matar",
+            "founded": 2000,
+            "flagship": "Matar Carignan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "istria",
+    "region": "Istria",
+    "country": "Croatia",
+    "countryCode": "HR",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 45.2,
+      "lng": 13.9
+    },
+    "countryCoordinates": {
+      "lat": 45.1,
+      "lng": 15.2
+    },
+    "color": "#8B6030",
+    "vintage": "c. 200 BCE",
+    "description": "Croatia's westernmost peninsula is one of Europe's great undiscovered wine regions. Malvazija Istarska — a white grape found only here — produces wines of extraordinary amber-tinged individuality. Teran, the fierce red, has been argued over by Croatia and Slovenia for centuries.",
+    "mythology": [
+      {
+        "name": "Bacchus",
+        "culture": "Roman",
+        "role": "God of Wine",
+        "note": "Roman veterans settled in Istria from the 2nd century BCE, planting vines across the peninsula's terra rossa soils. Pula's amphitheatre — better preserved than the Colosseum — was built by the Roman wine-growing aristocracy."
+      }
+    ],
+    "productionVolume": "~10 million bottles/year",
+    "appellations": [
+      {
+        "id": "malvazija",
+        "name": "Malvazija Istarska",
+        "type": "PDO",
+        "coordinates": {
+          "lat": 45.2,
+          "lng": 13.9
+        },
+        "grapes": [
+          "Malvazija Istarska",
+          "Teran",
+          "Refošk"
+        ],
+        "description": "Croatia's most unique white grape, found almost exclusively on Istria's red terra rossa soils. Fresh Malvazija has lemon, almond and a distinctive floral note. Skin-contact (orange/amber) Malvazija — macerated on skins for weeks — produces structured, tannic whites of extraordinary complexity that put Istria on the natural wine world's map. Kozlović, Clai and Roxanich are the definitive producers.",
+        "climate": "Mediterranean — Adriatic influence, warm summers, mild winters. Terra rossa clay soils.",
+        "soilTypes": [
+          "Terra rossa (red clay-limestone)",
+          "Flysch (sandstone-marl)",
+          "Limestone"
+        ],
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 1,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Lemon",
+            "Peach",
+            "Almond",
+            "Apricot",
+            "Citrus blossom"
+          ],
+          "secondaryNotes": [
+            "Almond",
+            "Floral",
+            "Mineral",
+            "Herbs"
+          ],
+          "tertiaryNotes": [
+            "Honey",
+            "Beeswax",
+            "Dried flowers"
+          ],
+          "finish": "long",
+          "style": "Croatia's treasure — lemon-almond Malvazija; or amber-skinned, profound and tannic"
+        },
+        "servingTemp": "10–13°C",
+        "foodPairings": [
+          "Istrian truffles",
+          "Grilled sea bass",
+          "Prosciutto d'Istria",
+          "Fritule (doughnuts)",
+          "Fuži pasta"
+        ],
+        "agingPotential": "3–15 years",
+        "bestVintages": [
+          2015,
+          2017,
+          2018,
+          2020,
+          2022
+        ],
+        "wineries": [
+          {
+            "name": "Kozlović",
+            "founded": 1904,
+            "flagship": "Malvazija Santa Lucia"
+          },
+          {
+            "name": "Clai Bijele Zemlje",
+            "founded": 2003,
+            "flagship": "Sveti Jakov Orange Malvazija"
+          },
+          {
+            "name": "Roxanich",
+            "founded": 2001,
+            "flagship": "Ines u Bijelom Malvazija"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "uruguay",
+    "region": "Canelones / Maldonado",
+    "country": "Uruguay",
+    "countryCode": "UY",
+    "continent": "South America",
+    "coordinates": {
+      "lat": -34.5,
+      "lng": -56.3
+    },
+    "countryCoordinates": {
+      "lat": -32.5,
+      "lng": -55.8
+    },
+    "color": "#3A7B6A",
+    "vintage": "c. 1870 CE",
+    "description": "South America's most overlooked wine country. Uruguay's Tannat — a grape from the Basque Country — has found a second home here, producing structured, age-worthy reds that bear no resemblance to the rustic Madiran original. Bodega Garzón on the Maldonado coast is redefining what the continent can produce.",
+    "mythology": [
+      {
+        "name": "Pachamama",
+        "culture": "Indigenous Uruguayan",
+        "role": "Mother Earth goddess of harvest",
+        "note": "Basque immigrants brought Tannat to Uruguay in the 1870s. The grape — tough and uncompromising in its homeland — thrived in Uruguay's maritime climate, producing wines of extraordinary ripeness and approachability."
+      }
+    ],
+    "productionVolume": "~8 million bottles/year",
+    "appellations": [
+      {
+        "id": "tannat",
+        "name": "Uruguayan Tannat",
+        "type": "DOC",
+        "coordinates": {
+          "lat": -34.5,
+          "lng": -56.3
+        },
+        "grapes": [
+          "Tannat",
+          "Merlot",
+          "Cabernet Sauvignon",
+          "Pinot Noir"
+        ],
+        "description": "Tannat is to Uruguay what Malbec is to Argentina — an adopted grape that found its highest expression in a new hemisphere. Uruguay's maritime climate (cooler and wetter than Mendoza) gives Tannat ripeness without losing its characteristic structure. Bodega Garzón's single vineyard Tannat — from Maldonado's granite and gneiss soils above the Atlantic — is the country's most internationally celebrated wine.",
+        "climate": "Maritime temperate — Atlantic influence, moderate temperatures, significant rainfall. No extreme heat or cold.",
+        "soilTypes": [
+          "Granite",
+          "Gneiss",
+          "Sandy loam",
+          "Clay"
+        ],
+        "tastingProfile": {
+          "body": 5,
+          "tannins": 5,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 4,
+          "fruits": [
+            "Dark plum",
+            "Blackberry",
+            "Black cherry",
+            "Cassis"
+          ],
+          "secondaryNotes": [
+            "Violet",
+            "Dark chocolate",
+            "Iron",
+            "Graphite"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Coffee",
+            "Cedar",
+            "Game"
+          ],
+          "finish": "very long",
+          "style": "South America's secret — massive Tannat tamed by the Atlantic, built to age"
+        },
+        "servingTemp": "16–18°C",
+        "foodPairings": [
+          "Asado (Uruguayan BBQ)",
+          "Chivito (steak sandwich)",
+          "Lamb chops",
+          "Aged estancia cheese"
+        ],
+        "agingPotential": "10–25 years",
+        "bestVintages": [
+          2010,
+          2013,
+          2015,
+          2018,
+          2020
+        ],
+        "wineries": [
+          {
+            "name": "Bodega Garzón",
+            "founded": 2011,
+            "flagship": "Single Vineyard Tannat"
+          },
+          {
+            "name": "Bouza",
+            "founded": 2000,
+            "flagship": "Tannat Monte Vide Eu"
+          },
+          {
+            "name": "Pisano",
+            "founded": 1924,
+            "flagship": "RPF Tannat"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "elgin",
+    "region": "Elgin",
+    "country": "South Africa",
+    "countryCode": "ZA",
+    "continent": "Africa",
+    "coordinates": {
+      "lat": -34.15,
+      "lng": 19.05
+    },
+    "countryCoordinates": {
+      "lat": -30.5,
+      "lng": 22.9
+    },
+    "color": "#3A6B8B",
+    "vintage": "c. 1980 CE",
+    "description": "The Cape's cool-climate secret — a high-altitude apple-growing plateau transformed into one of South Africa's most exciting wine regions. Elgin's Sauvignon Blanc rivals New Zealand; its Pinot Noir challenges Burgundy; its Riesling is a revelation.",
+    "mythology": [
+      {
+        "name": "Qamata",
+        "culture": "Xhosa",
+        "role": "Supreme Creator God",
+        "note": "The Elgin Valley, in the heart of historic Xhosa territory, was apple country before it was wine country. Paul Cluver planted the first serious vines in 1896; the modern wine revolution began in the 1980s."
+      }
+    ],
+    "productionVolume": "~5 million bottles/year",
+    "appellations": [
+      {
+        "id": "elgin-pinot",
+        "name": "Elgin Pinot Noir / Sauvignon Blanc",
+        "type": "WO",
+        "coordinates": {
+          "lat": -34.15,
+          "lng": 19.05
+        },
+        "grapes": [
+          "Pinot Noir",
+          "Sauvignon Blanc",
+          "Riesling",
+          "Chardonnay",
+          "Syrah"
+        ],
+        "description": "At 200–400m altitude, cooled by Atlantic and Indian Ocean air through the Hottentots Holland Mountains, Elgin is 8–10°C cooler than Stellenbosch. The Pinot Noir — from Paul Cluver, Shannon and Iona — has genuine Burgundian character: red cherry, forest floor, silky tannins. The Sauvignon Blanc rivals Marlborough. And the Riesling? South Africa's most underrated wine.",
+        "climate": "Cool maritime-continental — high altitude plateau, Atlantic and Indian Ocean breezes, regular mist. 800mm annual rainfall.",
+        "soilTypes": [
+          "Decomposed granite",
+          "Clay",
+          "Deep well-drained soils"
+        ],
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 2,
+          "acidity": 5,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Red cherry",
+            "Raspberry",
+            "Pomegranate",
+            "Lime",
+            "Gooseberry"
+          ],
+          "secondaryNotes": [
+            "Fynbos",
+            "Violets",
+            "Forest floor",
+            "Herbs"
+          ],
+          "tertiaryNotes": [
+            "Truffle",
+            "Cedar",
+            "Spice"
+          ],
+          "finish": "long",
+          "style": "The Cape's cool-climate gem — Burgundian Pinot, electric Sauvignon, world-class Riesling"
+        },
+        "servingTemp": "13–15°C",
+        "foodPairings": [
+          "Grilled snoek",
+          "Ostrich fillet",
+          "Wild mushrooms",
+          "Aged Gouda",
+          "Cape Malay chicken"
+        ],
+        "agingPotential": "5–15 years",
+        "bestVintages": [
+          2012,
+          2015,
+          2017,
+          2019,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Paul Cluver Estate",
+            "founded": 1896,
+            "flagship": "Seven Flags Pinot Noir"
+          },
+          {
+            "name": "Shannon Vineyards",
+            "founded": 2000,
+            "flagship": "Mount Bullet Merlot"
+          },
+          {
+            "name": "Iona Vineyard",
+            "founded": 1997,
+            "flagship": "Iona Sauvignon Blanc"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "montefalco",
+    "region": "Montefalco",
+    "country": "Italy",
+    "countryCode": "IT",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 42.93,
+      "lng": 12.65
+    },
+    "countryCoordinates": {
+      "lat": 41.9,
+      "lng": 12.5
+    },
+    "color": "#5A1A40",
+    "vintage": "c. 1st century CE",
+    "description": "Umbria's greatest wine secret. Sagrantino di Montefalco — an ancient indigenous variety found only in this small medieval hill town — produces Italy's most tannic wine, with more polyphenols than any other variety on earth. Extraordinary with age.",
+    "mythology": [
+      {
+        "name": "Bacchus",
+        "culture": "Roman",
+        "role": "God of Wine",
+        "note": "Roman settlements around Montefalco's hilltop cultivated Sagrantino from at least the 1st century CE. The grape's name likely derives from 'sacro' (sacred) — it was used in religious rites and dried for Easter wine."
+      }
+    ],
+    "productionVolume": "~2 million bottles/year",
+    "appellations": [
+      {
+        "id": "sagrantino",
+        "name": "Sagrantino di Montefalco",
+        "type": "DOCG",
+        "coordinates": {
+          "lat": 42.93,
+          "lng": 12.65
+        },
+        "grapes": [
+          "Sagrantino"
+        ],
+        "description": "Sagrantino produces the world's most tannic wine — even more tannic than Barolo or Tannat. 100% indigenous, grown only in 5 communes around Montefalco, aged minimum 37 months before release (80 for Riserva). In youth it is almost unapproachable; after 10–15 years it develops extraordinary dried-fruit, chocolate and violet complexity. Arnaldo Caprai rescued the variety from near-extinction in the 1970s.",
+        "climate": "Warm continental — Umbrian hills, elevated (400–600m), hot dry summers, cold winters.",
+        "soilTypes": [
+          "Clay-limestone",
+          "Sandstone",
+          "Schist"
+        ],
+        "tastingProfile": {
+          "body": 5,
+          "tannins": 5,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 4,
+          "fruits": [
+            "Dried cherry",
+            "Dark plum",
+            "Blackberry",
+            "Fig",
+            "Prune"
+          ],
+          "secondaryNotes": [
+            "Dark chocolate",
+            "Iron",
+            "Violet",
+            "Herbs"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Tobacco",
+            "Coffee",
+            "Dried rose"
+          ],
+          "finish": "very long",
+          "style": "Italy's most tannic — unyielding in youth, transcendent with age"
+        },
+        "servingTemp": "17–18°C",
+        "foodPairings": [
+          "Wild boar (cinghiale)",
+          "Grilled lamb",
+          "Truffle pasta",
+          "Aged Pecorino",
+          "Lentils of Castelluccio"
+        ],
+        "agingPotential": "15–40 years",
+        "bestVintages": [
+          1997,
+          2004,
+          2007,
+          2010,
+          2013,
+          2016,
+          2019
+        ],
+        "wineries": [
+          {
+            "name": "Arnaldo Caprai",
+            "founded": 1971,
+            "flagship": "Sagrantino 25 Anni"
+          },
+          {
+            "name": "Scacciadiavoli",
+            "founded": 1884,
+            "flagship": "Sagrantino di Montefalco"
+          },
+          {
+            "name": "Paolo Bea",
+            "founded": 1980,
+            "flagship": "San Valentino Sagrantino"
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -1,78 +1,97 @@
-/* wwwine — Design System v3 — Modern Editorial */
+/* wwwine — Design System v4 — Modern Wine Editorial */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* ── DARK MODE ─────────────────────────────────────────────────
-   Modern deep-midnight, not parchment-cellar.
-   Deep navy-black bg, crisp cool-white text, refined gold accent.  */
+   Deep indigo-slate — like the inside of a great wine cellar
+   reimagined by a Scandinavian studio. Not brown. Not parchment. */
 :root,
 [data-theme="dark"] {
-  /* backgrounds */
-  --bg-page:      #0D0F14;
-  --bg-surface:   #13161D;
-  --bg-surface2:  #1A1E27;
-  --bg-raised:    #21263300;
+  --bg-page:       #0A0A12;
+  --bg-surface:    #111118;
+  --bg-surface2:   #18181F;
+  --bg-card:       #1C1C25;
 
-  /* text */
-  --text-primary:   #EEF0F4;
-  --text-secondary: #B0B8C8;
-  --text-muted:     #6B7590;
+  --text-primary:   #F0EEF8;
+  --text-secondary: #9B98B2;
+  --text-muted:     #585670;
 
-  /* accents */
-  --gold:         #C8A85A;
-  --gold-bright:  #E0BF6A;
-  --gold-dim:     rgba(200,168,90,0.18);
-  --wine:         #8B2635;
-  --wine-bright:  #A63040;
-  --wine-dim:     rgba(139,38,53,0.22);
+  /* Accent palette — vivid, not amber */
+  --accent:        #C44B6A;   /* warm rose-wine */
+  --accent-bright: #E05578;
+  --accent-dim:    rgba(196,75,106,0.15);
+  --accent2:       #4E8FA6;   /* slate-teal for contrast */
+  --accent2-dim:   rgba(78,143,166,0.15);
+  --gold:          #D4A84B;   /* kept but secondary — warmer, less amber */
+  --gold-bright:   #EAC05C;
+  --gold-dim:      rgba(212,168,75,0.14);
 
-  /* borders */
-  --border:       rgba(238,240,244,0.09);
-  --border-gold:  rgba(200,168,90,0.28);
+  /* legacy aliases so old vars don't break */
+  --wine:          var(--accent);
+  --wine-bright:   var(--accent-bright);
+  --wine-dim:      var(--accent-dim);
 
-  /* misc */
-  --shadow:       0 4px 24px rgba(0,0,0,0.55);
-  --radius:       4px;
-  --scrollbar-track: #0D0F14;
+  --border:        rgba(240,238,248,0.08);
+  --border-accent: rgba(196,75,106,0.3);
+  --border-gold:   rgba(212,168,75,0.25);
+
+  --shadow:        0 4px 32px rgba(0,0,0,0.6);
+  --shadow-sm:     0 2px 8px rgba(0,0,0,0.4);
+  --radius:        6px;
+  --radius-sm:     4px;
+  --scrollbar-track: #0A0A12;
 
   color-scheme: dark;
 }
 
-/* ── LIGHT MODE ────────────────────────────────────────────────
-   Clean editorial white. Think Decanter Magazine online.
-   Warm off-white bg, deep ink text, warm wine accent.           */
+/* ── LIGHT MODE ─────────────────────────────────────────────────
+   Clean white editorial. Think a well-designed wine magazine
+   not a government form. Bold accents, lots of air. */
 [data-theme="light"] {
-  --bg-page:      #FAFAF8;
-  --bg-surface:   #FFFFFF;
-  --bg-surface2:  #F3F1EC;
-  --bg-raised:    #FFFFFF;
+  --bg-page:       #FFFFFF;
+  --bg-surface:    #FAFAFA;
+  --bg-surface2:   #F2F2F4;
+  --bg-card:       #FFFFFF;
 
-  --text-primary:   #1A1814;
-  --text-secondary: #4A4438;
-  --text-muted:     #8C8070;
+  --text-primary:   #111118;
+  --text-secondary: #45444E;
+  --text-muted:     #888698;
 
-  --gold:         #8A6020;
-  --gold-bright:  #6E4C16;
-  --gold-dim:     rgba(138,96,32,0.1);
-  --wine:         #8B2635;
-  --wine-bright:  #A63040;
-  --wine-dim:     rgba(139,38,53,0.1);
+  --accent:        #B83050;
+  --accent-bright: #A02040;
+  --accent-dim:    rgba(184,48,80,0.08);
+  --accent2:       #2B7B8A;
+  --accent2-dim:   rgba(43,123,138,0.1);
+  --gold:          #9A6B10;
+  --gold-bright:   #7A5208;
+  --gold-dim:      rgba(154,107,16,0.1);
 
-  --border:       rgba(26,24,20,0.1);
-  --border-gold:  rgba(138,96,32,0.25);
+  --wine:          var(--accent);
+  --wine-bright:   var(--accent-bright);
+  --wine-dim:      var(--accent-dim);
 
-  --shadow:       0 2px 16px rgba(0,0,0,0.1);
-  --radius:       4px;
-  --scrollbar-track: #EAE8E2;
+  --border:        rgba(17,17,24,0.09);
+  --border-accent: rgba(184,48,80,0.25);
+  --border-gold:   rgba(154,107,16,0.22);
+
+  --shadow:        0 2px 20px rgba(0,0,0,0.08);
+  --shadow-sm:     0 1px 4px rgba(0,0,0,0.06);
+  --radius:        6px;
+  --radius-sm:     4px;
+  --scrollbar-track: #F2F2F4;
 
   color-scheme: light;
 }
 
-/* ── TYPOGRAPHY ──────────────────────────────────────────────── */
+/* ── TYPOGRAPHY ─────────────────────────────────────────────────
+   DM Serif Display — modern editorial, not old-world Roman
+   DM Sans        — clean, geometric, highly legible
+   EB Garamond    — kept for wine descriptions (appropriate there)  */
 :root {
-  --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-sans:    'DM Sans', system-ui, -apple-system, sans-serif;
   --font-serif:   'EB Garamond', Georgia, serif;
-  --font-display: 'Cinzel', serif;
-  --font-italic:  'Cormorant Garamond', Georgia, serif;
+  --font-italic:  'DM Serif Display', Georgia, serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
 }
 
 html, body {
@@ -80,25 +99,28 @@ html, body {
   background: var(--bg-page);
   color: var(--text-primary);
   font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* ── SCROLLBAR ───────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 4px; }
+/* ── SCROLLBAR ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
-::-webkit-scrollbar-thumb { background: var(--wine); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
 
-::selection { background: var(--wine); color: #fff; }
-:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+::selection { background: var(--accent); color: #fff; }
+:focus-visible { outline: 2px solid var(--accent2); outline-offset: 3px; border-radius: 2px; }
 
-/* ── ANIMATIONS ──────────────────────────────────────────────── */
-@keyframes fadeUp  { from { opacity:0; transform:translateY(10px) } to { opacity:1; transform:translateY(0) } }
-@keyframes fadeIn  { from { opacity:0 } to { opacity:1 } }
-@keyframes slideIn { from { opacity:0; transform:translateX(20px) } to { opacity:1; transform:translateX(0) } }
-@keyframes scaleIn { from { opacity:0; transform:scale(0.97) } to { opacity:1; transform:scale(1) } }
+/* ── ANIMATIONS ───────────────────────────────────────────────── */
+@keyframes fadeUp   { from { opacity:0; transform:translateY(12px) } to { opacity:1; transform:translateY(0) } }
+@keyframes fadeIn   { from { opacity:0 } to { opacity:1 } }
+@keyframes slideIn  { from { opacity:0; transform:translateX(16px) } to { opacity:1; transform:translateX(0) } }
+@keyframes scaleIn  { from { opacity:0; transform:scale(0.96) } to { opacity:1; transform:scale(1) } }
+@keyframes pulse    { 0%,100% { opacity:1 } 50% { opacity:0.5 } }
 
-.animate-fade-up  { animation: fadeUp  0.4s ease forwards; }
-.animate-slide-in { animation: slideIn 0.4s cubic-bezier(0.22,1,0.36,1) forwards; }
-.animate-scale-in { animation: scaleIn 0.35s cubic-bezier(0.22,1,0.36,1) forwards; }
+.animate-fade-up  { animation: fadeUp  0.4s cubic-bezier(0.22,1,0.36,1) forwards; }
+.animate-slide-in { animation: slideIn 0.35s cubic-bezier(0.22,1,0.36,1) forwards; }
+.animate-scale-in { animation: scaleIn 0.3s cubic-bezier(0.22,1,0.36,1) forwards; }
