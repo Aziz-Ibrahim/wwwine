@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Footer from '@/components/Footer'
 import LegalHeader from '@/components/LegalHeader'
+import ContactForm from '@/components/ContactForm'
 import styles from '../info.module.css'
 
 export const metadata: Metadata = {
@@ -19,8 +20,8 @@ export default function ContactPage() {
       <section className={styles.grid}>
         <h2 className={styles.sectionLabel}>Start a conversation</h2>
         <div className={styles.copy}>
-          <p>For editorial corrections, partnerships, product feedback, or general enquiries, email us directly. Please include the relevant region or appellation when reporting atlas information.</p>
-          <div className={styles.actions}><a href="mailto:hello@wwwine.com" className={styles.primary}>hello@wwwine.com</a><a href="https://github.com/Aziz-Ibrahim" target="_blank" rel="noopener noreferrer" className={styles.secondary}>GitHub ↗</a></div>
+          <p>For editorial corrections, partnerships, product feedback, or general enquiries, send a message below. Please include the relevant region or appellation when reporting atlas information.</p>
+          <ContactForm />
         </div>
       </section>
     </main>

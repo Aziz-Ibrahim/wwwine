@@ -1,0 +1,18 @@
+.form { display:flex; flex-direction:column; gap:18px; width:100%; }
+.row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.field { position:relative; display:flex; flex-direction:column; gap:7px; }
+.field > span:first-child { color:var(--text-muted); font-family:var(--font-sans); font-size:10px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; }
+.field input,.field select,.field textarea { width:100%; border:1px solid var(--border); border-radius:4px; background:var(--bg-surface); color:var(--text-primary); font-family:var(--font-sans); font-size:14px; outline:none; transition:border-color .15s ease, background .15s ease; }
+.field input,.field select { height:44px; padding:0 12px; }
+.field textarea { min-height:132px; padding:11px 12px 30px; resize:vertical; line-height:1.55; }
+.field input:focus,.field select:focus,.field textarea:focus { border-color:var(--accent); background:var(--bg-card); }
+.counter { position:absolute; right:11px; bottom:8px; color:var(--text-muted); font-family:var(--font-mono); font-size:10px; }
+.honeypot { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.submitRow { display:flex; align-items:center; gap:16px; min-height:44px; }
+.submit { min-width:140px; height:42px; padding:0 16px; border:1px solid var(--accent); border-radius:4px; background:var(--accent); color:#fff; font-family:var(--font-sans); font-size:13px; font-weight:600; cursor:pointer; }
+.submit:hover { background:var(--accent-bright); border-color:var(--accent-bright); }
+.submit:disabled { opacity:.55; cursor:wait; }
+.feedback { color:var(--text-secondary); font-family:var(--font-sans); font-size:12px; line-height:1.45; }
+.success { color:var(--accent2); }
+.error { color:var(--accent-bright); }
+@media (max-width:600px) { .row { grid-template-columns:1fr; } .submitRow { align-items:flex-start; flex-direction:column; } }

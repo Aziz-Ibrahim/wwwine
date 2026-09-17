@@ -25,6 +25,11 @@
 .periodBtn   { background:transparent; border:1px solid var(--border); color:var(--text-muted); font-family:var(--font-sans); font-size:11px; padding:6px 12px; border-radius:var(--radius); cursor:pointer; transition:all 0.15s; }
 .periodBtn:hover   { border-color:var(--border-gold); color:var(--gold); }
 .periodBtn.periodActive { background:var(--wine-dim); border-color:var(--wine); color:var(--wine-bright); font-weight:600; }
+.tabs { display:flex; gap:4px; padding:10px 28px 0; background:var(--bg-surface); border-bottom:1px solid var(--border); }
+.tab { min-height:38px; padding:0 14px; border:0; border-bottom:2px solid transparent; background:transparent; color:var(--text-muted); font-family:var(--font-sans); font-size:12px; font-weight:600; cursor:pointer; }
+.tab:hover { color:var(--text-primary); }
+.tabActive { border-bottom-color:var(--accent); color:var(--text-primary); }
+.badge { display:inline-flex; align-items:center; justify-content:center; min-width:18px; height:18px; margin-left:5px; padding:0 5px; border-radius:9px; background:var(--accent); color:#fff; font-size:9px; }
 
 /* KPIs */
 .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px; background:var(--border); border-bottom:1px solid var(--border); }
@@ -35,6 +40,11 @@
 /* Funnel */
 .section { padding:28px 28px 8px; }
 .sectionTitle { font-family:var(--font-display); font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+.trendChart { height:190px; display:flex; align-items:flex-end; gap:4px; padding:24px 16px 0; border:1px solid var(--border); background:var(--bg-surface); overflow-x:auto; }
+.trendPoint { min-width:18px; height:100%; flex:1 0 18px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:5px; }
+.trendBar { width:min(22px, 75%); min-height:4px; border-radius:2px 2px 0 0; background:var(--accent2); }
+.trendValue { color:var(--text-muted); font-family:var(--font-mono); font-size:8px; }
+.trendLabel { height:22px; color:var(--text-muted); font-family:var(--font-mono); font-size:8px; white-space:nowrap; }
 .funnel { display:flex; flex-direction:column; gap:10px; max-width:700px; }
 .funnelStage { display:flex; align-items:center; gap:12px; }
 .funnelIcon  { font-size:18px; width:28px; text-align:center; flex-shrink:0; }
@@ -67,9 +77,27 @@
 
 /* Privacy footer */
 .privacy { margin:28px; padding:14px 18px; background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius); font-family:var(--font-sans); font-size:11px; color:var(--text-muted); line-height:1.6; }
+.messages { width:min(1080px, calc(100% - 40px)); margin:0 auto; padding:34px 0; }
+.messagesHead { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:18px; }
+.messagesHead h2 { font-family:var(--font-display); font-size:24px; font-weight:400; }
+.messagesHead p { margin-top:3px; color:var(--text-muted); font-family:var(--font-sans); font-size:12px; }
+.messageList { display:flex; flex-direction:column; gap:10px; }
+.message { padding:18px 20px; border:1px solid var(--border); border-left:3px solid transparent; background:var(--bg-surface); }
+.messageUnread { border-left-color:var(--accent); background:var(--bg-card); }
+.messageMeta { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:10px; }
+.reason { color:var(--accent); font-family:var(--font-sans); font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; }
+.messageMeta time { color:var(--text-muted); font-family:var(--font-mono); font-size:10px; }
+.messageIdentity { display:flex; align-items:baseline; flex-wrap:wrap; gap:8px 14px; }
+.messageIdentity strong { font-family:var(--font-display); font-size:16px; font-weight:400; }
+.messageIdentity a { color:var(--accent2); font-family:var(--font-sans); font-size:12px; text-decoration:none; }
+.messageBody { margin:13px 0; color:var(--text-secondary); font-family:var(--font-sans); font-size:14px; line-height:1.6; white-space:pre-wrap; }
+.readButton { padding:5px 9px; border:1px solid var(--border); border-radius:3px; background:transparent; color:var(--text-muted); font-family:var(--font-sans); font-size:10px; cursor:pointer; }
+.readButton:hover { border-color:var(--border-accent); color:var(--text-primary); }
+.emptyMessages { padding:50px 20px; border:1px solid var(--border); color:var(--text-muted); font-family:var(--font-serif); font-size:16px; text-align:center; }
 
 @media (max-width:600px) {
   .header { padding:16px; }
+  .tabs { padding-left:16px; padding-right:16px; }
   .headerRight { flex-wrap:wrap; }
   .kpis { grid-template-columns:1fr 1fr; }
   .grid { grid-template-columns:1fr; }
@@ -77,4 +105,6 @@
   .card { padding:18px 16px; }
   .funnelInfo { min-width:160px; }
   .funnelDesc { display:none; }
+  .messages { width:calc(100% - 28px); padding-top:24px; }
+  .messageMeta { align-items:flex-start; flex-direction:column; gap:5px; }
 }

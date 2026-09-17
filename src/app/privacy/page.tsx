@@ -25,8 +25,8 @@ export default function PrivacyPage() {
 
         <section className={styles.section}>
           <h2>Who We Are</h2>
-          <p>wwwine is an interactive wine atlas created by Aziz Ibrahim. You can contact the operator at{' '}
-            <a href="mailto:hello@wwwine.com">hello@wwwine.com</a>.</p>
+          <p>wwwine is an interactive wine atlas created by Aziz Ibrahim. You can contact the operator through the{' '}
+            <Link href="/contact">contact form</Link>.</p>
         </section>
 
         <section className={styles.section}>
@@ -37,6 +37,9 @@ export default function PrivacyPage() {
           <p>wwwine does not ask for an account, and the behavioural event stream is not designed to collect names,
             email addresses, postal addresses, phone numbers, IP addresses, user agents, or precise device
             fingerprinting data.</p>
+          <p>If you use the contact form, wwwine collects the name, email address, contact reason, and message that
+            you choose to provide. This information is kept separately from anonymous behavioural events and is used
+            only to review and respond to your enquiry.</p>
         </section>
 
         <section className={styles.section}>
@@ -72,6 +75,9 @@ export default function PrivacyPage() {
           <p>Behavioural data is intended to be retained for up to 90 days before deletion or aggregation. Because
             the data is anonymous, it may not be possible to identify or delete a specific visitor&apos;s events
             after they have been collected.</p>
+          <p>Contact messages are accessible only through the private administration dashboard and are retained only
+            for as long as reasonably necessary to handle the enquiry, maintain an appropriate correspondence record,
+            or meet legal obligations.</p>
         </section>
 
         <section className={styles.section}>
@@ -79,7 +85,7 @@ export default function PrivacyPage() {
           <p>Depending on where you live, you may have rights to access, correct, delete, restrict, or object to
             processing of personal data. Because wwwine is designed not to collect directly identifying data, some
             rights may be limited where the site cannot reasonably connect anonymous events to you.</p>
-          <p>For privacy questions or requests, email <a href="mailto:hello@wwwine.com">hello@wwwine.com</a>.</p>
+          <p>For privacy questions or requests, use the <Link href="/contact">contact form</Link> and select Privacy request.</p>
         </section>
 
         <nav className={styles.bottomNav} aria-label="Legal page navigation">

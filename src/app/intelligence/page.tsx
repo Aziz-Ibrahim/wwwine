@@ -24,6 +24,49 @@ interface IntentSummary {
   quiz_results:     [string, number][]
   actions:          Record<string, number>
   intent_breakdown: { discovery: number; affinity: number; purchase: number; learning: number }
+  event_trend:      [string, number][]
+}
+
+interface ContactMessage {
+  id: string
+  created_at: string
+  name: string
+  email: string
+  reason: string
+  message: string
+  read_at: string | null
+}
+
+const EMPTY_SUMMARY: IntentSummary = {
+  period_hours: 24,
+  total_events: 0,
+  unique_sessions: 0,
+  top_appellations: [],
+  top_countries: [],
+  top_searches: [],
+  quiz_results: [],
+  actions: {},
+  intent_breakdown: { discovery: 0, affinity: 0, purchase: 0, learning: 0 },
+  event_trend: [],
+}
+
+function normalizeSummary(value: unknown): IntentSummary {
+  if (!value || typeof value !== 'object') return EMPTY_SUMMARY
+  const data = value as Partial<IntentSummary>
+  return {
+    period_hours: typeof data.period_hours === 'number' ? data.period_hours : 24,
+    total_events: typeof data.total_events === 'number' ? data.total_events : 0,
+    unique_sessions: typeof data.unique_sessions === 'number' ? data.unique_sessions : 0,
+    top_appellations: Array.isArray(data.top_appellations) ? data.top_appellations : [],
+    top_countries: Array.isArray(data.top_countries) ? data.top_countries : [],
+    top_searches: Array.isArray(data.top_searches) ? data.top_searches : [],
+    quiz_results: Array.isArray(data.quiz_results) ? data.quiz_results : [],
+    actions: data.actions && typeof data.actions === 'object' ? data.actions : {},
+    intent_breakdown: data.intent_breakdown && typeof data.intent_breakdown === 'object'
+      ? { ...EMPTY_SUMMARY.intent_breakdown, ...data.intent_breakdown }
+      : EMPTY_SUMMARY.intent_breakdown,
+    event_trend: Array.isArray(data.event_trend) ? data.event_trend : [],
+  }
 }
 
 const HOURS_OPTIONS = [
@@ -41,6 +84,22 @@ function Spark({ value, max }: { value: number; max: number }) {
   )
 }
 
+function TrendChart({ points }: { points: [string, number][] }) {
+  const max = Math.max(...points.map(([, value]) => value), 1)
+  return (
+    <div className={styles.trendChart} aria-label="Intent events over time">
+      {points.length === 0 && <p className={styles.empty}>No intent events in this period</p>}
+      {points.map(([label, value]) => (
+        <div className={styles.trendPoint} key={label} title={`${label}: ${value} events`}>
+          <span className={styles.trendValue}>{value}</span>
+          <span className={styles.trendBar} style={{ height: `${Math.max(4, (value / max) * 100)}%` }} />
+          <span className={styles.trendLabel}>{label.slice(5, 10)}</span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 export default function IntelligencePage() {
   const [secret,  setSecret]  = useState('')
   const [hours,   setHours]   = useState(24)
@@ -48,18 +107,28 @@ export default function IntelligencePage() {
   const [loading, setLoading] = useState(false)
   const [error,   setError]   = useState('')
   const [authed,  setAuthed]  = useState(false)
+  const [tab, setTab] = useState<'analytics' | 'messages'>('analytics')
+  const [messages, setMessages] = useState<ContactMessage[]>([])
 
   async function load() {
     setLoading(true)
     setError('')
     try {
-      const res = await fetch(`/api/intent?secret=${encodeURIComponent(secret)}&hours=${hours}`)
+      const res = await fetch(`/api/intent?hours=${hours}`, {
+        headers: { Authorization: `Bearer ${secret}` },
+      })
       if (res.status === 401) { setError('Invalid access key'); setLoading(false); return }
       const json = await res.json()
-      setData(json)
+      if (!res.ok) throw new Error(json.error || 'Failed to load dashboard data')
+      setData(normalizeSummary(json))
       setAuthed(true)
-    } catch {
-      setError('Failed to load — try again')
+      const contactRes = await fetch('/api/contact', { headers: { Authorization: `Bearer ${secret}` } })
+      if (contactRes.ok) {
+        const contactData = await contactRes.json()
+        setMessages(Array.isArray(contactData.messages) ? contactData.messages : [])
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to load - try again')
     }
     setLoading(false)
   }
@@ -70,6 +139,21 @@ export default function IntelligencePage() {
   const maxSrch = data ? Math.max(...data.top_searches.map(([, n]) => n), 1) : 1
   const total   = data ? Object.values(data.intent_breakdown).reduce((a, b) => a + b, 0) : 0
   const pct     = (n: number) => total > 0 ? Math.round((n / total) * 100) : 0
+  const unread  = messages.filter(message => !message.read_at).length
+
+  async function toggleRead(message: ContactMessage) {
+    const read = !message.read_at
+    const response = await fetch('/api/contact', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${secret}` },
+      body: JSON.stringify({ id: message.id, read }),
+    })
+    if (response.ok) {
+      setMessages(current => current.map(item => item.id === message.id
+        ? { ...item, read_at: read ? new Date().toISOString() : null }
+        : item))
+    }
+  }
 
   if (!authed) {
     return (
@@ -92,7 +176,7 @@ export default function IntelligencePage() {
         </div>
         {error && <p className={styles.gateError}>{error}</p>}
         <p className={styles.gateNote}>
-          Don't have access? <a href="mailto:hello@wwwine.com">Request a demo</a>
+          Need access? <a href="/contact">Send a request</a>
         </p>
       </div>
     )
@@ -109,7 +193,7 @@ export default function IntelligencePage() {
           </div>
         </div>
         <div className={styles.headerRight}>
-          {HOURS_OPTIONS.map(o => (
+          {tab === 'analytics' && HOURS_OPTIONS.map(o => (
             <button key={o.value}
               className={`${styles.periodBtn} ${hours === o.value ? styles.periodActive : ''}`}
               onClick={() => setHours(o.value)}>
@@ -119,7 +203,12 @@ export default function IntelligencePage() {
         </div>
       </header>
 
-      {data && (
+      <nav className={styles.tabs} aria-label="Dashboard sections">
+        <button className={`${styles.tab} ${tab === 'analytics' ? styles.tabActive : ''}`} onClick={() => setTab('analytics')}>Analytics</button>
+        <button className={`${styles.tab} ${tab === 'messages' ? styles.tabActive : ''}`} onClick={() => setTab('messages')}>Messages {unread > 0 && <span className={styles.badge}>{unread}</span>}</button>
+      </nav>
+
+      {data && tab === 'analytics' && (
         <>
           {/* KPI strip */}
           <div className={styles.kpis}>
@@ -160,6 +249,11 @@ export default function IntelligencePage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className={styles.section}>
+            <h2 className={styles.sectionTitle}>Intent Activity</h2>
+            <TrendChart points={data.event_trend} />
           </div>
 
           <div className={styles.grid}>
@@ -236,6 +330,31 @@ export default function IntelligencePage() {
             Data retained for 90 days then purged.
           </div>
         </>
+      )}
+
+      {tab === 'messages' && (
+        <main className={styles.messages}>
+          <div className={styles.messagesHead}>
+            <div><h2>Contact messages</h2><p>{messages.length} received · {unread} unread</p></div>
+          </div>
+          <div className={styles.messageList}>
+            {messages.map(message => (
+              <article key={message.id} className={`${styles.message} ${!message.read_at ? styles.messageUnread : ''}`}>
+                <div className={styles.messageMeta}>
+                  <span className={styles.reason}>{message.reason}</span>
+                  <time dateTime={message.created_at}>{new Date(message.created_at).toLocaleString()}</time>
+                </div>
+                <div className={styles.messageIdentity}>
+                  <strong>{message.name}</strong>
+                  <a href={`mailto:${message.email}`}>{message.email}</a>
+                </div>
+                <p className={styles.messageBody}>{message.message}</p>
+                <button className={styles.readButton} onClick={() => toggleRead(message)}>{message.read_at ? 'Mark unread' : 'Mark read'}</button>
+              </article>
+            ))}
+            {messages.length === 0 && <p className={styles.emptyMessages}>No contact messages yet.</p>}
+          </div>
+        </main>
       )}
     </div>
   )

@@ -90,7 +90,8 @@ export async function POST(req: Request) {
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
 
-  if (searchParams.get('secret') !== process.env.INTELLIGENCE_SECRET) {
+  const bearer = req.headers.get('authorization')
+  if (bearer !== `Bearer ${process.env.INTELLIGENCE_SECRET}`) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
@@ -103,7 +104,7 @@ export async function GET(req: Request) {
     // All events in window
     const { data: events, error } = await sb
       .from('intent_events')
-      .select('session_id, category, action, country, appellation, search_query, food_query, quiz_result, dwell_bucket')
+      .select('ts, session_id, category, action, country, appellation, search_query, food_query, quiz_result, dwell_bucket')
       .gte('ts', since)
 
     if (error) throw error
@@ -117,6 +118,7 @@ export async function GET(req: Request) {
     const searchTerms:   Record<string, number> = {}
     const quizResults:   Record<string, number> = {}
     const breakdown     = { discovery: 0, affinity: 0, purchase: 0, learning: 0 }
+    const trend: Record<string, number> = {}
 
     for (const e of rows) {
       if (e.appellation)   byAppellation[e.appellation] = (byAppellation[e.appellation] ?? 0) + 1
@@ -126,6 +128,11 @@ export async function GET(req: Request) {
       if (e.quiz_result)   quizResults[e.quiz_result]   = (quizResults[e.quiz_result]   ?? 0) + 1
       const cat = e.category?.toLowerCase() as keyof typeof breakdown
       if (cat in breakdown) breakdown[cat]++
+      const date = new Date(e.ts)
+      const bucket = hours <= 24
+        ? `${date.toISOString().slice(0, 13)}:00`
+        : date.toISOString().slice(0, 10)
+      trend[bucket] = (trend[bucket] ?? 0) + 1
     }
 
     const sort = (obj: Record<string, number>) =>
@@ -141,6 +148,7 @@ export async function GET(req: Request) {
       quiz_results:     sort(quizResults).slice(0, 10),
       actions:          byAction,
       intent_breakdown: breakdown,
+      event_trend:      Object.entries(trend).sort(([a], [b]) => a.localeCompare(b)),
     })
   } catch (err) {
     console.error('[intent] dashboard query failed:', err)

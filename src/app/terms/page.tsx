@@ -76,7 +76,7 @@ export default function TermsPage() {
         <section className={styles.section}>
           <h2>Changes And Contact</h2>
           <p>These terms may be updated as wwwine evolves. Continued use of the site after changes means you accept
-            the updated terms. Questions can be sent to <a href="mailto:hello@wwwine.com">hello@wwwine.com</a>.</p>
+            the updated terms. Questions can be sent through the <Link href="/contact">contact form</Link>.</p>
         </section>
 
         <nav className={styles.bottomNav} aria-label="Legal page navigation">
