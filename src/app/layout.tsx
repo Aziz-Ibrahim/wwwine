@@ -4,6 +4,7 @@ import { ThemeProvider }   from '@/components/ThemeProvider'
 import PrivacyPreferences  from '@/components/PrivacyPreferences'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://wwwine.co.uk'),
   title: 'wwwine — World Wide Wine Atlas',
   description: 'An interactive atlas of the world\'s great wine regions, appellations, mythology and notable houses.',
   keywords: ['wine', 'atlas', 'appellations', 'wine regions', 'Bordeaux', 'Burgundy', 'Napa'],
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

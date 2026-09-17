@@ -1,9 +1,11 @@
 .page { min-height:100vh; background:var(--bg-page); color:var(--text-primary); display:flex; flex-direction:column; }
 
 .wrap { width:min(1080px, calc(100vw - 40px)); margin:0 auto; padding:124px 0 80px; flex:1; }
+.embedded { width:min(1080px, calc(100% - 40px)); padding:42px 0 64px; }
 
 .back { display:inline-flex; margin-bottom:30px; font-family:var(--font-display); font-size:10px; letter-spacing:1.4px; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid transparent; }
 .back:hover { border-bottom-color:var(--gold); }
+.backButton { border-top:0; border-right:0; border-left:0; background:transparent; cursor:pointer; }
 
 .eyebrow { font-family:var(--font-display); font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
 
@@ -36,6 +38,7 @@
 
 .scale { flex:1 1 180px; }
 .scaleHead { display:flex; justify-content:space-between; gap:10px; margin-bottom:6px; font-family:var(--font-display); font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:var(--text-muted); }
+.scaleDescriptor { margin-left:5px; color:var(--text-secondary); font-family:var(--font-serif); font-size:12px; font-style:italic; letter-spacing:0; text-transform:none; }
 .track { height:5px; background:var(--bg-surface2); }
 .fill  { height:100%; background:linear-gradient(90deg, var(--wine), var(--gold)); }
 
@@ -46,6 +49,14 @@
 .linkList { display:flex; flex-direction:column; gap:8px; }
 .appLink  { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-top:1px solid var(--border); color:var(--text-secondary); text-decoration:none; font-family:var(--font-serif); font-size:15px; }
 .appLink:hover { color:var(--gold); }
+.appLinkButton { width:100%; border-right:0; border-bottom:0; border-left:0; background:transparent; cursor:pointer; text-align:left; }
+.patronList { display:flex; flex-direction:column; gap:8px; }
+.patron { padding:12px 0; border-top:1px solid var(--border); }
+.patronHead { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+.patronHead span:first-child { color:var(--text-primary); font-family:var(--font-display); font-size:15px; }
+.patronHead span:last-child { color:var(--gold); font-family:var(--font-sans); font-size:9px; letter-spacing:1.2px; text-transform:uppercase; }
+.patronRole { margin-top:4px; color:var(--text-secondary); font-family:var(--font-sans); font-size:12px; line-height:1.5; }
+.patronNote { margin-top:5px; color:var(--text-muted); font-family:var(--font-serif); font-size:13px; font-style:italic; line-height:1.5; }
 
 /* ── Index page grid ───────────────────────── */
 .listGrid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px; }
@@ -67,4 +78,5 @@
   .wrap { width:min(100vw - 28px, 1080px); padding-top:104px; }
   .intro { font-size:18px; }
   .listGrid { grid-template-columns:1fr; }
+  .embedded { width:min(100% - 28px, 1080px); padding:28px 0 48px; }
 }

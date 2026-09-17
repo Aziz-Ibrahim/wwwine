@@ -5,17 +5,16 @@ import { createContext, useContext, useEffect, useState, useCallback } from 'rea
 type Theme = 'dark' | 'light'
 
 const Ctx = createContext<{ theme: Theme; toggle: () => void }>({
-  theme: 'dark',
+  theme: 'light',
   toggle: () => {},
 })
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark')
+  const [theme, setTheme] = useState<Theme>('light')
 
   useEffect(() => {
     const saved = localStorage.getItem('wwwine-theme') as Theme | null
-    const preferred = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
-    const initial = saved ?? preferred
+    const initial = saved === 'dark' || saved === 'light' ? saved : 'light'
     setTheme(initial)
     document.documentElement.setAttribute('data-theme', initial)
   }, [])

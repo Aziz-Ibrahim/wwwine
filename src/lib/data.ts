@@ -1,4 +1,4 @@
-import type { WineRegion, WineCountry, CompareItem } from '@/types'
+import type { WineRegion, WineCountry, CompareItem, Deity } from '@/types'
 import regionsData from '@/data/regions.json'
 
 export const allRegions: WineRegion[] = regionsData as unknown as WineRegion[]
@@ -79,6 +79,7 @@ export interface AppellationWithRegion extends Appellation {
   regionColor:       string
   regionDescription: string
   regionVintage:     string
+  regionMythology:   Deity[]
 }
 
 export function getAllAppellationDetails(): AppellationWithRegion[] {
@@ -93,6 +94,7 @@ export function getAllAppellationDetails(): AppellationWithRegion[] {
       regionColor:       region.color,
       regionDescription: region.description,
       regionVintage:     region.vintage ?? '',
+      regionMythology:   region.mythology ?? [],
     }))
   )
 }
