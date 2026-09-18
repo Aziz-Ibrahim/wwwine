@@ -50,7 +50,7 @@ export default function Footer({ compactOnMobile = false }: FooterProps) {
           <Link href="/contact" className={styles.footerLink}>Contact</Link>
           <CookieSettingsButton />
         </nav>
-        <a href="https://github.com/Aziz-Ibrahim" target="_blank" rel="noopener noreferrer" className={styles.credit}>Created by Aziz Ibrahim <span aria-hidden="true">↗</span></a>
+        <a href="https://aziz-ibrahim.github.io/my-portfolio/" target="_blank" rel="noopener noreferrer" className={styles.credit}>Created by Aziz Ibrahim <span aria-hidden="true">↗</span></a>
       </div>
     </footer>
   )
