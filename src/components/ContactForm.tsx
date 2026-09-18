@@ -23,7 +23,8 @@ export default function ContactForm() {
     setStatus('sending')
     setError('')
 
-    const form = new FormData(event.currentTarget)
+    const formEl = event.currentTarget          // ← save ref before any await
+    const form = new FormData(formEl)
     const payload = Object.fromEntries(form.entries())
 
     try {
@@ -34,7 +35,7 @@ export default function ContactForm() {
       })
       const result = await response.json()
       if (!response.ok) throw new Error(result.error || 'Unable to send your message.')
-      event.currentTarget.reset()
+      formEl.reset()                             // ← use saved ref, not event.currentTarget
       setMessage('')
       setStatus('success')
     } catch (err) {
