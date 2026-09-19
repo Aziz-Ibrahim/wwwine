@@ -1,12 +1,26 @@
 'use client'
 
+import { useState } from 'react'
+import type { Route } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useTheme } from '@/components/ThemeProvider'
 import styles from './LegalHeader.module.css'
 
+const navItems: { label: string; href: Route }[] = [
+  { label: 'Atlas', href: '/?view=map' },
+  { label: 'Food', href: '/?view=food' },
+  { label: 'Match', href: '/?view=match' },
+  { label: 'Compare', href: '/?view=compare' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+]
+
 export default function LegalHeader() {
   const { theme, toggle } = useTheme()
+  const pathname = usePathname()
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <header className={styles.header}>
@@ -20,9 +34,15 @@ export default function LegalHeader() {
 
       <div className={styles.right}>
         <nav className={styles.nav} aria-label="Primary navigation">
-          <Link className={styles.pageLink} href="/about">About</Link>
-          <Link className={styles.pageLink} href="/contact">Contact</Link>
-          <Link className={styles.atlasLink} href="/">Open atlas</Link>
+          {navItems.map(item => (
+            <Link
+              key={item.label}
+              className={`${styles.pageLink} ${pathname === item.href ? styles.active : ''}`}
+              href={item.href}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
         <button
           className={styles.themeBtn}
@@ -43,7 +63,24 @@ export default function LegalHeader() {
             </svg>
           )}
         </button>
+        <button
+          className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
+          onClick={() => setMenuOpen(open => !open)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+        >
+          <span /><span /><span />
+        </button>
       </div>
+      {menuOpen && (
+        <nav className={styles.mobileMenu} aria-label="Mobile navigation">
+          {navItems.map(item => (
+            <Link key={item.label} href={item.href} onClick={() => setMenuOpen(false)}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      )}
     </header>
   )
 }

@@ -1,5 +1,5 @@
-.root { display:flex; flex-direction:column; height:100vh; overflow:hidden; background:var(--bg-page); }
-.main { flex:1; overflow:hidden; padding-top:64px; position:relative; }
+.root { display:flex; flex-direction:column; min-height:100vh; overflow-y:auto; background:var(--bg-page); }
+.main { flex:none; height:100svh; overflow:hidden; padding-top:64px; position:relative; }
 .mainCompare { flex:1; overflow-y:auto; padding-top:64px; background:var(--bg-page); }
 
 .mapLayout { display:flex; height:100%; position:relative; }
@@ -30,7 +30,6 @@
 }
 
 @media (min-width:521px) {
-  .root { height:auto; min-height:100vh; overflow-y:auto; }
   .main { flex:none; height:100vh; }
   .mainCompare { flex:none; min-height:100vh; overflow-y:visible; }
 }

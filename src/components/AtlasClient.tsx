@@ -24,10 +24,11 @@ interface Props {
   regions: WineRegion[]
   countries: WineCountry[]
   allAppellations: CompareItem[]
+  initialView?: AppView
 }
 
-export default function AtlasClient({ regions, countries, allAppellations }: Props) {
-  const [view,  setView]  = useState<AppView>('map')
+export default function AtlasClient({ regions, countries, allAppellations, initialView = 'map' }: Props) {
+  const [view,  setView]  = useState<AppView>(initialView)
   const [panel, setPanel] = useState<PanelState>({ kind: 'empty' })
 
   const panelOpen = panel.kind !== 'empty'
@@ -104,7 +105,7 @@ export default function AtlasClient({ regions, countries, allAppellations }: Pro
       {view === 'food'     && <main className={styles.mainCompare}><FoodPairing appellations={allAppellations} /></main>}
       {view === 'match'    && <main className={styles.mainCompare}><WineMatch appellations={allAppellations} /></main>}
 
-      <Footer compactOnMobile />
+      <Footer />
     </div>
   )
 }

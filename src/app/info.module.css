@@ -15,7 +15,7 @@
 .primary:hover { background:var(--accent-bright); border-color:var(--accent-bright); }
 .secondary { color:var(--text-primary); border:1px solid var(--border); background:var(--bg-surface); }
 .secondary:hover { border-color:var(--border-accent); color:var(--accent-bright); }
-.coming { min-height:calc(100vh - 64px); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:120px 20px 70px; text-align:center; }
+.coming { flex:1; min-height:calc(100vh - 64px); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:120px 20px 70px; text-align:center; }
 .coming .lead { max-width:560px; }
 .coming .actions { justify-content:center; }
 @media (max-width:680px) { .main { width:calc(100% - 28px); padding-top:112px; } .grid { grid-template-columns:1fr; gap:18px; } .rule { margin-top:40px; } }

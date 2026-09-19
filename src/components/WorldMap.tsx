@@ -133,13 +133,14 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
       <ComposableMap
         projection="geoNaturalEarth1"
         projectionConfig={{ scale: 160, center: [0, 0] }}
-        style={{ width: '100%', height: '100%' }}
+        style={{ width: '100%', height: '100%', touchAction: 'pan-y' }}
       >
         <ZoomableGroup
           zoom={zoom}
           center={center}
           minZoom={1}
           maxZoom={20}
+          filterZoomEvent={() => false}
           onMoveEnd={({ zoom: z, coordinates }: { zoom: number; coordinates: [number, number] }) => {
             setZoom(z)
             setCenter(coordinates as [number, number])

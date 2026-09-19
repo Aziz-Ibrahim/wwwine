@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Footer from '@/components/Footer'
 import LegalHeader from '@/components/LegalHeader'
 import styles from '../info.module.css'
 
@@ -17,5 +18,6 @@ export default function ComingSoonPage({ searchParams }: { searchParams: { secti
       <p className={styles.lead}>We are preparing something considered and useful. Until then, there is plenty more to discover across the atlas.</p>
       <div className={styles.actions}><Link href="/" className={styles.primary}>Return to the atlas</Link><Link href="/appellations" className={styles.secondary}>Browse appellations</Link></div>
     </main>
+    <Footer />
   </div>
 }
