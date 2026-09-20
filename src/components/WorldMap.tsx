@@ -80,6 +80,14 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
     setHoveredRegion(null)
   }, [])
 
+  const panMap = useCallback((lngDirection: number, latDirection: number) => {
+    const step = 24 / zoom
+    setCenter(([lng, lat]) => [
+      Math.max(-180, Math.min(180, lng + lngDirection * step)),
+      Math.max(-75, Math.min(75, lat + latDirection * step)),
+    ])
+  }, [zoom])
+
   // Decide what to show in the HTML tooltip bar
   const tooltipCountry = hoveredCountry
   const tooltipRegion  = hoveredRegion
@@ -140,7 +148,7 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
           center={center}
           minZoom={1}
           maxZoom={20}
-          filterZoomEvent={() => false}
+          filterZoomEvent={event => (event as unknown as Event).type === 'mousedown'}
           onMoveEnd={({ zoom: z, coordinates }: { zoom: number; coordinates: [number, number] }) => {
             setZoom(z)
             setCenter(coordinates as [number, number])
@@ -280,10 +288,18 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
         {level === 'country' && activeCountry && `${countryRegions.length} regions in ${activeCountry.name}`}
       </div>
 
-      {/* ── ZOOM CONTROLS ── */}
-      <div className={styles.zoomControls}>
-        <button className={styles.zoomBtn} onClick={() => setZoom((z: number) => Math.min(z * 1.6, 20))}>+</button>
-        <button className={styles.zoomBtn} onClick={() => setZoom((z: number) => Math.max(z / 1.6, 1))}>−</button>
+      {/* ── MAP CONTROLS ── */}
+      <div className={styles.mapControls}>
+        <div className={styles.panControls}>
+          <button className={`${styles.mapBtn} ${styles.panUp}`} onClick={() => panMap(0, 1)} aria-label="Pan map north">&uarr;</button>
+          <button className={`${styles.mapBtn} ${styles.panLeft}`} onClick={() => panMap(-1, 0)} aria-label="Pan map west">&larr;</button>
+          <button className={`${styles.mapBtn} ${styles.panRight}`} onClick={() => panMap(1, 0)} aria-label="Pan map east">&rarr;</button>
+          <button className={`${styles.mapBtn} ${styles.panDown}`} onClick={() => panMap(0, -1)} aria-label="Pan map south">&darr;</button>
+        </div>
+        <div className={styles.zoomControls}>
+          <button className={styles.mapBtn} onClick={() => setZoom((z: number) => Math.min(z * 1.6, 20))} aria-label="Zoom in">+</button>
+          <button className={styles.mapBtn} onClick={() => setZoom((z: number) => Math.max(z / 1.6, 1))} aria-label="Zoom out">&minus;</button>
+        </div>
       </div>
     </div>
   )
