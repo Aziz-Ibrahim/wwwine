@@ -961,6 +961,556 @@
             "flagship": "Smith Haut Lafitte Rouge"
           }
         ]
+      },
+      {
+        "id": "medoc",
+        "name": "Medoc",
+        "type": "AOC",
+        "coordinates": {
+          "lat": 45.32,
+          "lng": -0.88
+        },
+        "grapes": [
+          "Cabernet Sauvignon",
+          "Merlot",
+          "Cabernet Franc",
+          "Petit Verdot"
+        ],
+        "description": "The northern Medoc gives Bordeaux its broadest left-bank appellation: gravel, clay and estuary air shaping firm Cabernet-Merlot blends with cassis, cedar and savory grip.",
+        "climate": "Maritime - Atlantic weather softened by the Gironde estuary.",
+        "soilTypes": [
+          "Gravel",
+          "Clay-limestone",
+          "Sand"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 4,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Blackcurrant",
+            "Black plum",
+            "Red cherry",
+            "Cassis"
+          ],
+          "secondaryNotes": [
+            "Cedar",
+            "Graphite",
+            "Tobacco",
+            "Dried herbs"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Forest floor",
+            "Cigar box"
+          ],
+          "finish": "long",
+          "style": "Classic left-bank Bordeaux - structured cassis, cedar and gravelly restraint"
+        },
+        "servingTemp": "17-18C",
+        "foodPairings": [
+          "Roast beef",
+          "Lamb shoulder",
+          "Mushroom gratin",
+          "Aged cheddar"
+        ],
+        "agingPotential": "6-20 years",
+        "bestVintages": [
+          2005,
+          2009,
+          2010,
+          2016,
+          2018,
+          2019,
+          2020
+        ],
+        "wineries": [
+          {
+            "name": "Chateau Potensac",
+            "founded": 1870,
+            "flagship": "Chateau Potensac"
+          },
+          {
+            "name": "Chateau La Tour de By",
+            "founded": 1876,
+            "flagship": "Chateau La Tour de By"
+          }
+        ]
+      },
+      {
+        "id": "haut-medoc",
+        "name": "Haut-Medoc",
+        "type": "AOC",
+        "coordinates": {
+          "lat": 45.08,
+          "lng": -0.74
+        },
+        "grapes": [
+          "Cabernet Sauvignon",
+          "Merlot",
+          "Cabernet Franc",
+          "Petit Verdot"
+        ],
+        "description": "Haut-Medoc surrounds the famous communal crus and often delivers the left bank's best value: blackcurrant, graphite and polished tannin from deep gravel ridges.",
+        "climate": "Maritime with strong Gironde moderation and well-drained gravel terraces.",
+        "soilTypes": [
+          "Garonne gravel",
+          "Clay",
+          "Sand"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 4,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Blackcurrant",
+            "Black cherry",
+            "Plum",
+            "Redcurrant"
+          ],
+          "secondaryNotes": [
+            "Graphite",
+            "Cedar",
+            "Violet",
+            "Tobacco"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Truffle",
+            "Dried leaves"
+          ],
+          "finish": "long",
+          "style": "Gravel-grown left bank - poised Cabernet structure with dark fruit and cedar"
+        },
+        "servingTemp": "17-18C",
+        "foodPairings": [
+          "Entrecote bordelaise",
+          "Roast lamb",
+          "Duck breast",
+          "Comte"
+        ],
+        "agingPotential": "8-25 years",
+        "bestVintages": [
+          2000,
+          2005,
+          2009,
+          2010,
+          2015,
+          2016,
+          2019
+        ],
+        "wineries": [
+          {
+            "name": "Chateau La Lagune",
+            "founded": 1715,
+            "flagship": "Chateau La Lagune"
+          },
+          {
+            "name": "Chateau Cantemerle",
+            "founded": 1147,
+            "flagship": "Chateau Cantemerle"
+          }
+        ]
+      },
+      {
+        "id": "saint-estephe",
+        "name": "Saint-Estephe",
+        "type": "AOC",
+        "coordinates": {
+          "lat": 45.26,
+          "lng": -0.77
+        },
+        "grapes": [
+          "Cabernet Sauvignon",
+          "Merlot",
+          "Cabernet Franc",
+          "Petit Verdot"
+        ],
+        "description": "Saint-Estephe is the most northerly major Medoc commune, marked by clay-rich gravel that gives muscular, long-lived wines with black fruit, iron and earthy depth.",
+        "climate": "Maritime - cool northern Medoc exposure balanced by the Gironde.",
+        "soilTypes": [
+          "Gravel",
+          "Clay",
+          "Limestone subsoil"
+        ],
+        "tastingProfile": {
+          "body": 5,
+          "tannins": 5,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Blackcurrant",
+            "Blackberry",
+            "Plum",
+            "Damson"
+          ],
+          "secondaryNotes": [
+            "Iron",
+            "Cedar",
+            "Graphite",
+            "Earth"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Tobacco",
+            "Game",
+            "Truffle"
+          ],
+          "finish": "very long",
+          "style": "Muscular northern Medoc - dark, earthy, tannic and built for age"
+        },
+        "servingTemp": "17-18C",
+        "foodPairings": [
+          "Ribeye steak",
+          "Braised short rib",
+          "Venison",
+          "Aged hard cheeses"
+        ],
+        "agingPotential": "15-40 years",
+        "bestVintages": [
+          1982,
+          1990,
+          1996,
+          2005,
+          2009,
+          2010,
+          2016,
+          2019
+        ],
+        "wineries": [
+          {
+            "name": "Chateau Cos d Estournel",
+            "founded": 1811,
+            "flagship": "Cos d Estournel"
+          },
+          {
+            "name": "Chateau Montrose",
+            "founded": 1815,
+            "flagship": "Chateau Montrose"
+          },
+          {
+            "name": "Chateau Calon-Segur",
+            "founded": 1147,
+            "flagship": "Chateau Calon-Segur"
+          }
+        ]
+      },
+      {
+        "id": "saint-julien",
+        "name": "Saint-Julien",
+        "type": "AOC",
+        "coordinates": {
+          "lat": 45.16,
+          "lng": -0.74
+        },
+        "grapes": [
+          "Cabernet Sauvignon",
+          "Merlot",
+          "Cabernet Franc",
+          "Petit Verdot"
+        ],
+        "description": "Saint-Julien is the Medoc's great balancing act: less austere than Pauillac, more structured than Margaux, with silky blackcurrant, cedar and mineral precision.",
+        "climate": "Maritime with even ripening from the Gironde estuary.",
+        "soilTypes": [
+          "Deep gravel",
+          "Clay-gravel",
+          "Sand"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 4,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Blackcurrant",
+            "Black cherry",
+            "Blueberry",
+            "Plum"
+          ],
+          "secondaryNotes": [
+            "Cedar",
+            "Graphite",
+            "Violet",
+            "Cigar box"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Tobacco",
+            "Forest floor"
+          ],
+          "finish": "very long",
+          "style": "The balanced Medoc commune - polished power, cassis and cedar precision"
+        },
+        "servingTemp": "17-18C",
+        "foodPairings": [
+          "Rack of lamb",
+          "Beef Wellington",
+          "Duck confit",
+          "Aged Gouda"
+        ],
+        "agingPotential": "12-35 years",
+        "bestVintages": [
+          1982,
+          1990,
+          1996,
+          2000,
+          2005,
+          2009,
+          2010,
+          2016
+        ],
+        "wineries": [
+          {
+            "name": "Chateau Leoville Las Cases",
+            "founded": 1638,
+            "flagship": "Grand Vin de Leoville"
+          },
+          {
+            "name": "Chateau Ducru-Beaucaillou",
+            "founded": 1720,
+            "flagship": "Ducru-Beaucaillou"
+          },
+          {
+            "name": "Chateau Beychevelle",
+            "founded": 1565,
+            "flagship": "Chateau Beychevelle"
+          }
+        ]
+      },
+      {
+        "id": "moulis-en-medoc",
+        "name": "Moulis-en-Medoc",
+        "type": "AOC",
+        "coordinates": {
+          "lat": 45.06,
+          "lng": -0.77
+        },
+        "grapes": [
+          "Cabernet Sauvignon",
+          "Merlot",
+          "Petit Verdot"
+        ],
+        "description": "Moulis is a small inland Medoc appellation with compact gravel and clay-limestone soils, making savory, ageworthy reds that often overperform their modest profile.",
+        "climate": "Maritime, slightly inland from the Gironde with warm gravel ridges.",
+        "soilTypes": [
+          "Gravel",
+          "Clay-limestone",
+          "Marl"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 3,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Black cherry",
+            "Cassis",
+            "Red plum",
+            "Blackberry"
+          ],
+          "secondaryNotes": [
+            "Cedar",
+            "Pencil lead",
+            "Violet",
+            "Spice"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Tobacco",
+            "Mushroom"
+          ],
+          "finish": "long",
+          "style": "Quietly serious Medoc - savory cassis, firm tannin and old-school charm"
+        },
+        "servingTemp": "16-18C",
+        "foodPairings": [
+          "Grilled lamb chops",
+          "Steak frites",
+          "Mushroom tart",
+          "Cantal"
+        ],
+        "agingPotential": "8-22 years",
+        "bestVintages": [
+          2005,
+          2009,
+          2010,
+          2015,
+          2016,
+          2018,
+          2019
+        ],
+        "wineries": [
+          {
+            "name": "Chateau Chasse-Spleen",
+            "founded": 1720,
+            "flagship": "Chateau Chasse-Spleen"
+          },
+          {
+            "name": "Chateau Poujeaux",
+            "founded": 1806,
+            "flagship": "Chateau Poujeaux"
+          }
+        ]
+      },
+      {
+        "id": "listrac-medoc",
+        "name": "Listrac-Medoc",
+        "type": "AOC",
+        "coordinates": {
+          "lat": 45.07,
+          "lng": -0.79
+        },
+        "grapes": [
+          "Cabernet Sauvignon",
+          "Merlot",
+          "Cabernet Franc",
+          "Petit Verdot"
+        ],
+        "description": "Listrac-Medoc sits on one of the highest gravel rises in the peninsula, producing firm, traditional claret with black fruit, cedar and a sturdy tannic frame.",
+        "climate": "Maritime, inland Medoc with cooler nights and slow ripening.",
+        "soilTypes": [
+          "Pyrenean gravel",
+          "Clay",
+          "Limestone"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 4,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Blackcurrant",
+            "Red plum",
+            "Black cherry",
+            "Cranberry"
+          ],
+          "secondaryNotes": [
+            "Cedar",
+            "Graphite",
+            "Dried herbs",
+            "Violet"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Tobacco",
+            "Forest floor"
+          ],
+          "finish": "medium",
+          "style": "Firm traditional claret - structured, savory and built around Cabernet freshness"
+        },
+        "servingTemp": "16-18C",
+        "foodPairings": [
+          "Roast beef",
+          "Lamb stew",
+          "Charcuterie",
+          "Tomme de Savoie"
+        ],
+        "agingPotential": "6-18 years",
+        "bestVintages": [
+          2009,
+          2010,
+          2015,
+          2016,
+          2018,
+          2019,
+          2020
+        ],
+        "wineries": [
+          {
+            "name": "Chateau Fourcas-Hosten",
+            "founded": 1810,
+            "flagship": "Chateau Fourcas-Hosten"
+          },
+          {
+            "name": "Chateau Clarke",
+            "founded": 1771,
+            "flagship": "Chateau Clarke"
+          }
+        ]
+      },
+      {
+        "id": "barsac",
+        "name": "Barsac",
+        "type": "AOC",
+        "coordinates": {
+          "lat": 44.61,
+          "lng": -0.31
+        },
+        "grapes": [
+          "Semillon",
+          "Sauvignon Blanc",
+          "Muscadelle"
+        ],
+        "description": "Barsac may be sold under its own name or as Sauternes, but its limestone and red sand often give a brighter, more lifted expression of botrytised Semillon.",
+        "climate": "Maritime with Ciron morning mists and dry autumn afternoons.",
+        "soilTypes": [
+          "Limestone",
+          "Red sand",
+          "Clay-gravel"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 1,
+          "acidity": 5,
+          "sweetness": 5,
+          "alcohol": 3,
+          "fruits": [
+            "Apricot",
+            "Orange marmalade",
+            "Pineapple",
+            "Peach"
+          ],
+          "secondaryNotes": [
+            "Honey",
+            "Saffron",
+            "Ginger",
+            "Candied citrus"
+          ],
+          "tertiaryNotes": [
+            "Caramel",
+            "Almond",
+            "Beeswax"
+          ],
+          "finish": "very long",
+          "style": "Lifted noble-sweet Bordeaux - honeyed richness with limestone brightness"
+        },
+        "servingTemp": "9-11C",
+        "foodPairings": [
+          "Foie gras",
+          "Roquefort",
+          "Apricot tart",
+          "Spiced duck"
+        ],
+        "agingPotential": "15-60 years",
+        "bestVintages": [
+          1967,
+          1988,
+          1989,
+          1990,
+          2001,
+          2009,
+          2011
+        ],
+        "wineries": [
+          {
+            "name": "Chateau Climens",
+            "founded": 1547,
+            "flagship": "Chateau Climens"
+          },
+          {
+            "name": "Chateau Coutet",
+            "founded": 1643,
+            "flagship": "Chateau Coutet"
+          }
+        ]
       }
     ]
   },
@@ -5805,6 +6355,233 @@
             "flagship": "Giall'Oro Valdobbiadene Superiore"
           }
         ]
+      },
+      {
+        "id": "valpolicella-classico",
+        "name": "Valpolicella Classico",
+        "type": "DOC",
+        "coordinates": {
+          "lat": 45.55,
+          "lng": 10.88
+        },
+        "grapes": [
+          "Corvina",
+          "Corvinone",
+          "Rondinella",
+          "Molinara"
+        ],
+        "description": "Valpolicella Classico is Amarone's fresher counterpart from the historic hills northwest of Verona: red cherry, herbs and almond-edged brightness, often with superb drinkability.",
+        "climate": "Continental Veronese foothills with Lake Garda moderation.",
+        "soilTypes": [
+          "Limestone",
+          "Basalt",
+          "Marl",
+          "Alluvial gravel"
+        ],
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 2,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 2,
+          "fruits": [
+            "Red cherry",
+            "Raspberry",
+            "Redcurrant",
+            "Sour cherry"
+          ],
+          "secondaryNotes": [
+            "Almond",
+            "Dried herbs",
+            "Violet",
+            "Pepper"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Dried cherry"
+          ],
+          "finish": "medium",
+          "style": "Fresh Veronese red - cherry, herbs and agile alpine-Mediterranean lift"
+        },
+        "servingTemp": "14-16C",
+        "foodPairings": [
+          "Pizza",
+          "Salumi",
+          "Roast chicken",
+          "Tomato pasta"
+        ],
+        "agingPotential": "2-8 years",
+        "bestVintages": [
+          2015,
+          2016,
+          2018,
+          2019,
+          2020,
+          2021
+        ],
+        "wineries": [
+          {
+            "name": "Allegrini",
+            "founded": 1854,
+            "flagship": "La Grola"
+          },
+          {
+            "name": "Tommasi",
+            "founded": 1902,
+            "flagship": "Valpolicella Classico Superiore"
+          }
+        ]
+      },
+      {
+        "id": "valpolicella-ripasso",
+        "name": "Valpolicella Ripasso",
+        "type": "DOC",
+        "coordinates": {
+          "lat": 45.51,
+          "lng": 10.92
+        },
+        "grapes": [
+          "Corvina",
+          "Corvinone",
+          "Rondinella"
+        ],
+        "description": "Ripasso is Valpolicella passed over Amarone pomace, gaining depth, spice and dried-cherry richness while staying less monumental than Amarone itself.",
+        "climate": "Continental foothills, moderated by Lake Garda and shaped by cool nights.",
+        "soilTypes": [
+          "Limestone",
+          "Basalt",
+          "Clay",
+          "Marl"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 3,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 4,
+          "fruits": [
+            "Dark cherry",
+            "Dried cherry",
+            "Plum",
+            "Fig"
+          ],
+          "secondaryNotes": [
+            "Spice",
+            "Chocolate",
+            "Tobacco",
+            "Almond"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Coffee",
+            "Dried flowers"
+          ],
+          "finish": "long",
+          "style": "Baby Amarone - dried cherry richness, spice and generous texture"
+        },
+        "servingTemp": "16-18C",
+        "foodPairings": [
+          "Risotto all Amarone",
+          "Braised beef",
+          "Mushroom polenta",
+          "Aged Monte Veronese"
+        ],
+        "agingPotential": "5-15 years",
+        "bestVintages": [
+          2011,
+          2013,
+          2015,
+          2016,
+          2018,
+          2019,
+          2020
+        ],
+        "wineries": [
+          {
+            "name": "Zenato",
+            "founded": 1960,
+            "flagship": "Ripassa"
+          },
+          {
+            "name": "Masi",
+            "founded": 1772,
+            "flagship": "Campofiorin"
+          }
+        ]
+      },
+      {
+        "id": "bardolino",
+        "name": "Bardolino",
+        "type": "DOC",
+        "coordinates": {
+          "lat": 45.55,
+          "lng": 10.72
+        },
+        "grapes": [
+          "Corvina",
+          "Rondinella",
+          "Molinara"
+        ],
+        "description": "Bardolino, from the eastern shore of Lake Garda, is Veneto at its lightest and most joyful: pale cherry, spice and brisk acidity, increasingly serious in the Classico zone.",
+        "climate": "Lake-moderated continental with breezes from Garda.",
+        "soilTypes": [
+          "Moraine",
+          "Gravel",
+          "Sand",
+          "Clay"
+        ],
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 2,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 2,
+          "fruits": [
+            "Red cherry",
+            "Strawberry",
+            "Raspberry",
+            "Pomegranate"
+          ],
+          "secondaryNotes": [
+            "White pepper",
+            "Herbs",
+            "Violet",
+            "Almond"
+          ],
+          "tertiaryNotes": [
+            "Dried herbs"
+          ],
+          "finish": "medium",
+          "style": "Light Lake Garda red - bright cherry, spice and breezy freshness"
+        },
+        "servingTemp": "13-15C",
+        "foodPairings": [
+          "Lake fish",
+          "Charcuterie",
+          "Margherita pizza",
+          "Grilled vegetables"
+        ],
+        "agingPotential": "1-6 years",
+        "bestVintages": [
+          2016,
+          2018,
+          2019,
+          2020,
+          2021,
+          2022
+        ],
+        "wineries": [
+          {
+            "name": "Le Fraghe",
+            "founded": 1984,
+            "flagship": "Bardolino Classico"
+          },
+          {
+            "name": "Guerrieri Rizzardi",
+            "founded": 1914,
+            "flagship": "Tacchetto"
+          }
+        ]
       }
     ]
   },
@@ -10171,6 +10948,184 @@
             "name": "Paolo Bea",
             "founded": 1980,
             "flagship": "San Valentino Sagrantino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lombardy",
+    "region": "Lombardy",
+    "country": "Italy",
+    "countryCode": "IT",
+    "continent": "Europe",
+    "coordinates": {
+      "lat": 45.6,
+      "lng": 9.9
+    },
+    "countryCoordinates": {
+      "lat": 41.9,
+      "lng": 12.5
+    },
+    "color": "#B88A2A",
+    "vintage": "c. Roman era",
+    "description": "Lombardy is northern Italy's alpine-lake wine country, anchored by Franciacorta's traditional-method sparkling wines and Valtellina's mountain Nebbiolo terraces.",
+    "mythology": [
+      {
+        "name": "Bacchus",
+        "culture": "Roman",
+        "role": "God of Wine",
+        "note": "Roman roads and lake trade helped establish viticulture across Lombardy and the Alpine valleys."
+      }
+    ],
+    "productionVolume": "~160 million bottles/year",
+    "appellations": [
+      {
+        "id": "franciacorta",
+        "name": "Franciacorta",
+        "type": "DOCG",
+        "coordinates": {
+          "lat": 45.63,
+          "lng": 10.02
+        },
+        "grapes": [
+          "Chardonnay",
+          "Pinot Noir",
+          "Pinot Blanc",
+          "Erbamat"
+        ],
+        "description": "Franciacorta is Italy's leading traditional-method sparkling appellation, grown on glacial hills near Lake Iseo and aged on lees for creamy, precise, Champagne-method depth.",
+        "climate": "Lake-influenced continental - warm days, cool nights and Alpine air.",
+        "soilTypes": [
+          "Glacial moraine",
+          "Limestone",
+          "Gravel",
+          "Sand"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 1,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Green apple",
+            "Lemon",
+            "Pear",
+            "White peach"
+          ],
+          "secondaryNotes": [
+            "Brioche",
+            "Almond",
+            "Chalk",
+            "Cream"
+          ],
+          "tertiaryNotes": [
+            "Hazelnut",
+            "Toast",
+            "Honey"
+          ],
+          "finish": "long",
+          "style": "Italy's benchmark traditional-method sparkling - creamy, chalky and precise"
+        },
+        "servingTemp": "6-9C",
+        "foodPairings": [
+          "Oysters",
+          "Risotto alla Milanese",
+          "Fried seafood",
+          "Prosciutto"
+        ],
+        "agingPotential": "3-12 years",
+        "bestVintages": [
+          2011,
+          2013,
+          2016,
+          2018,
+          2019
+        ],
+        "wineries": [
+          {
+            "name": "Ca del Bosco",
+            "founded": 1968,
+            "flagship": "Annamaria Clementi"
+          },
+          {
+            "name": "Bellavista",
+            "founded": 1977,
+            "flagship": "Alma Gran Cuvee"
+          }
+        ]
+      },
+      {
+        "id": "valtellina-superiore",
+        "name": "Valtellina Superiore",
+        "type": "DOCG",
+        "coordinates": {
+          "lat": 46.17,
+          "lng": 9.87
+        },
+        "grapes": [
+          "Nebbiolo"
+        ],
+        "description": "Valtellina Superiore is Nebbiolo in an Alpine register: steep stone terraces, high-altitude sunlight and savory, floral reds with less weight than Barolo but remarkable perfume.",
+        "climate": "Alpine continental - sunny south-facing terraces, cool nights and mountain winds.",
+        "soilTypes": [
+          "Granite sand",
+          "Schist",
+          "Rocky terraces"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 4,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Red cherry",
+            "Raspberry",
+            "Wild strawberry",
+            "Redcurrant"
+          ],
+          "secondaryNotes": [
+            "Rose",
+            "Tar",
+            "Alpine herbs",
+            "Mineral"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Dried rose",
+            "Tobacco"
+          ],
+          "finish": "long",
+          "style": "Alpine Nebbiolo - perfumed, savory and lifted by mountain acidity"
+        },
+        "servingTemp": "15-17C",
+        "foodPairings": [
+          "Bresaola",
+          "Pizzoccheri",
+          "Braised veal",
+          "Taleggio"
+        ],
+        "agingPotential": "8-25 years",
+        "bestVintages": [
+          2010,
+          2013,
+          2016,
+          2018,
+          2019,
+          2020
+        ],
+        "wineries": [
+          {
+            "name": "Ar.Pe.Pe.",
+            "founded": 1984,
+            "flagship": "Rocce Rosse"
+          },
+          {
+            "name": "Nino Negri",
+            "founded": 1897,
+            "flagship": "Sfursat 5 Stelle"
           }
         ]
       }
