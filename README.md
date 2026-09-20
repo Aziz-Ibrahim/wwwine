@@ -1,204 +1,192 @@
-# 🍷 wwwine — World Wide Wine Atlas
+# wwwine
 
-> *An open atlas of the world's great wine regions: appellations, ancient mythology, notable houses, and a comparison engine.*
+World Wide Wine is a Next.js application for exploring wine countries, regions,
+and appellations. This document is for local development, deployment, and
+maintenance.
 
-**Live:** Deploy free to [Vercel](https://vercel.com) · **Stack:** Next.js 14 · TypeScript · JSON · CSS Modules · react-simple-maps
+## Project status
 
----
+The project is currently maintained by a single owner. It is not open source
+and is not accepting external contributions at this time. See [LICENSE](LICENSE)
+for the current terms. Collaboration and contribution terms can be introduced
+later without treating the existing repository as an open-source project.
 
-## Features
+## Technology
 
-| Feature | Description |
-|---|---|
-| 🗺️ **Interactive World Map** | Click pins on a real geo-projected world map to explore wine regions |
-| 📜 **Region Detail Panel** | Appellations, ancient deity patrons, notable wineries, grapes, vintages |
-| ⚖️ **Comparison Engine** | Compare any two wines side-by-side with tasting notes, scores, food pairings |
-| 🏺 **Mythology** | Each region's ancient patron deities with historical context |
-| 🔌 **REST API** | `/api/regions`, `/api/regions/[id]`, `/api/compare-wines` |
+- Next.js 14 App Router and React 18
+- TypeScript with strict type checking and typed routes
+- CSS Modules and global CSS custom properties
+- `react-simple-maps` and `d3-geo` for geographic rendering
+- Supabase Postgres for anonymous intent events and contact messages
+- JSON-backed wine content in `src/data/regions.json`
+- Vercel configuration for deployment in the London region
 
----
+The atlas, search, comparison, food pairing, and wine matching features use the
+local JSON dataset. Supabase is required for intent collection, the internal
+intelligence dashboard, and contact-form persistence.
 
-## Quick Start
+## Requirements
+
+- Node.js 20 or a current Node.js LTS release
+- npm
+- A Supabase project for service-backed features
+
+## Local setup
 
 ```bash
-# 1. Clone / download the project
-git clone https://github.com/your-username/wwwine.git
+git clone <repository-url>
 cd wwwine
-
-# 2. Install dependencies (no paid packages)
 npm install
-
-# 3. Run locally
-npm run dev
-# → http://localhost:3000
 ```
 
----
-
-## Deploy to Vercel (Free)
+Create the local environment file from the tracked template:
 
 ```bash
-# Option A — Vercel CLI
-npm install -g vercel
-vercel
-
-# Option B — GitHub
-# Push to GitHub → Import repo at vercel.com/new → Deploy
+cp .env.local.example .env.local
 ```
 
-No environment variables required. The project is fully static-data-driven.
+On PowerShell:
 
----
-
-## Project Structure
-
-```
-wwwine/
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx          # Root layout, fonts, metadata
-│   │   ├── page.tsx            # Home page (server component)
-│   │   ├── globals.css         # Global styles, CSS variables
-│   │   └── api/
-│   │       ├── regions/
-│   │       │   ├── route.ts    # GET /api/regions?q=bordeaux
-│   │       │   └── [id]/route.ts  # GET /api/regions/bordeaux
-│   │       └── compare-wines/
-│   │           └── route.ts    # GET /api/compare-wines
-│   ├── components/
-│   │   ├── AtlasClient.tsx     # Main client shell (map + compare nav)
-│   │   ├── Header.tsx          # Top nav
-│   │   ├── WorldMap.tsx        # react-simple-maps interactive map
-│   │   ├── RegionPanel.tsx     # Side panel with full region detail
-│   │   └── CompareEngine.tsx   # Side-by-side wine comparison
-│   ├── data/
-│   │   ├── regions.json        # All wine region data (10 regions to start)
-│   │   └── compare-wines.json  # Wines available in the comparison engine
-│   ├── lib/
-│   │   └── data.ts             # Data access helpers, search, sommelier note
-│   └── types/
-│       └── index.ts            # All TypeScript types
-├── public/                     # Static assets
-├── next.config.js
-├── tsconfig.json
-├── vercel.json
-└── package.json
+```powershell
+Copy-Item .env.local.example .env.local
 ```
 
----
+Fill in the Supabase values, initialise the database as described below, then
+start the application:
 
-## Data Schema
-
-### Wine Region (`src/data/regions.json`)
-
-```json
-{
-  "id": "bordeaux",
-  "region": "Bordeaux",
-  "country": "France",
-  "continent": "Europe",
-  "coordinates": { "lat": 44.8378, "lng": -0.5792 },
-  "mythology": [
-    {
-      "name": "Bacchus",
-      "culture": "Roman",
-      "role": "God of Wine, Festivity & Ritual Madness",
-      "note": "Historical context about the deity and this region..."
-    }
-  ],
-  "appellations": [
-    {
-      "name": "Médoc",
-      "type": "AOC",
-      "grapes": ["Cabernet Sauvignon", "Merlot"],
-      "description": "The great châteaux of the left bank."
-    }
-  ],
-  "wineries": [
-    {
-      "name": "Château Margaux",
-      "founded": 1590,
-      "flagship": "Château Margaux Premier Grand Cru Classé"
-    }
-  ],
-  "grapes": ["Cabernet Sauvignon", "Merlot"],
-  "description": "Long-form description of the region...",
-  "climate": "Maritime — mild, wet winters...",
-  "soilTypes": ["Gravel", "Clay", "Limestone"],
-  "color": "#722F37",
-  "vintage": "c. 1st century BCE",
-  "bestVintages": [2000, 2005, 2009, 2010],
-  "productionVolume": "~700 million bottles/year"
-}
+```bash
+npm run dev
 ```
 
-### Compare Wine (`src/data/compare-wines.json`)
+The default development URL is `http://localhost:3000`.
 
-```json
-{
-  "id": "arg-malbec",
-  "label": "Argentine Malbec",
-  "regionId": "mendoza",
-  "region": "Mendoza",
-  "country": "Argentina",
-  "grapes": ["Malbec"],
-  "style": "Full-bodied, velvety, dark fruit",
-  "tastingNotes": ["Blackberry", "Plum", "Dark chocolate"],
-  "aging": "12–18 months French oak",
-  "alcohol": "13.5–15%",
-  "priceRange": "$$",
-  "criticScore": 92,
-  "servingTemp": "16–18°C",
-  "foodPairings": ["Asado", "Empanadas"],
-  "color": "#6B2D8B",
-  "agingPotential": "5–15 years"
-}
+## Environment variables
+
+| Variable | Required | Scope | Purpose |
+|---|---:|---|---|
+| `SUPABASE_URL` | Yes | Server | Supabase project URL |
+| `SUPABASE_ANON_KEY` | Yes | Server only | Intent-event inserts and dashboard queries |
+| `SUPABASE_SERVICE_ROLE_KEY` | Yes | Server only | Preferred credential for contact-message reads and writes |
+| `INTELLIGENCE_SECRET` | Yes | Server/client entry | Bearer secret entered at `/intelligence` and checked by protected APIs |
+| `NEXT_DIST_DIR` | No | Build | Moves Next.js output, useful for OneDrive workspaces on Windows |
+
+Never prefix the service-role key or intelligence secret with `NEXT_PUBLIC_`.
+Do not commit `.env.local`, `.env.production`, or any real credentials. The
+browser sends the intelligence secret as a bearer token after the operator
+enters it; it is not embedded in the client bundle.
+
+## Supabase setup
+
+Run these tracked scripts in the Supabase SQL Editor:
+
+1. `supabase/intent_events.sql`
+2. `supabase/contact_messages.sql`
+
+Both tables use Row Level Security, but their access models differ:
+
+- `/api/intent` uses `SUPABASE_ANON_KEY` for both event inserts and dashboard
+  reads. The deployed `intent_events` policies must therefore allow the `anon`
+  role to perform those operations. The dashboard API still requires
+  `INTELLIGENCE_SECRET`, but that bearer check happens in Next.js rather than
+  Supabase.
+- `/api/contact` prefers `SUPABASE_SERVICE_ROLE_KEY` and falls back to the
+  configured secret or anonymous key. Production should provide the
+  service-role key so contact data remains inaccessible through public RLS
+  policies.
+
+All Supabase credentials are currently consumed by server routes. Keep the
+service-role key restricted to server environments and do not expose the anon
+key through a `NEXT_PUBLIC_` variable unless the client architecture changes.
+
+The current intent dashboard aggregates rows in the API process. This is fine
+for the present volume, but should move to SQL views or RPC functions before
+the event table becomes large. A retention job is not installed automatically;
+configure a scheduled deletion policy in Supabase if raw events should expire.
+
+## Internal services
+
+| Route | Access | Responsibility |
+|---|---|---|
+| `POST /api/intent` | Application, Supabase anon role | Validate and store anonymous interaction events |
+| `GET /api/intent?hours=24` | Bearer secret, Supabase anon role | Return aggregated intelligence data, up to 720 hours |
+| `POST /api/contact` | Public form | Validate and store contact messages |
+| `GET /api/contact` | Bearer secret | Return the latest 200 contact messages |
+| `PATCH /api/contact` | Bearer secret | Mark a contact message read or unread |
+| `GET /api/regions` | Public | List, search, or filter wine regions |
+| `GET /api/regions/[id]` | Public | Return one region |
+| `GET /api/compare-wines` | Public | Return comparison-ready appellation data |
+
+The `/intelligence` page is an internal interface over the protected intent and
+contact endpoints. Its current shared-secret gate is suitable for a single
+operator, not a multi-user team. Before adding collaborators, replace it with
+individual authentication, role-based access, and auditable credential
+rotation.
+
+Contact rate limiting is currently held in process memory: five submissions per
+IP per hour. It resets when a server instance restarts and is not coordinated
+across multiple instances. Use a shared rate-limit store before relying on it
+for higher traffic or abuse prevention.
+
+## Data and application structure
+
+```text
+src/
+  app/                  App Router pages and API routes
+  components/           Atlas, navigation, tools, forms, and shared UI
+  data/regions.json     Canonical wine-region and appellation content
+  lib/data.ts           Dataset transforms and lookup helpers
+  lib/search.ts         Client search indexing and result resolution
+  lib/intent.ts         Anonymous event model and client transport
+  types/index.ts        Shared domain types
+supabase/               Reproducible database schema scripts
+public/                 Static assets
 ```
 
----
+`regions.json` is the canonical content source. Appellations drive comparison,
+food pairing, wine matching, search, static appellation pages, and map detail.
+Changes should satisfy the interfaces in `src/types/index.ts` and preserve
+globally unique region and appellation IDs.
 
-## Adding Wine Regions
+The world geometry is fetched at runtime from jsDelivr using the
+`world-atlas@2` countries dataset. Local development and production therefore
+need outbound access for the map background. Wine pins and application data are
+served locally.
 
-1. Open `src/data/regions.json`
-2. Add a new object following the schema above
-3. Use real `lat`/`lng` coordinates for accurate map placement
-4. The pin appears immediately on the map — no code changes needed
+## Commands
 
----
-
-## REST API
-
-| Endpoint | Description |
+| Command | Purpose |
 |---|---|
-| `GET /api/regions` | All regions |
-| `GET /api/regions?q=bordeaux` | Search by name, country, grape, appellation |
-| `GET /api/regions?continent=Europe` | Filter by continent |
-| `GET /api/regions/bordeaux` | Single region by ID |
-| `GET /api/compare-wines` | All comparison wines |
+| `npm run dev` | Start the development server |
+| `npm run type-check` | Run TypeScript without emitting files |
+| `npm run build` | Create and validate the production build |
+| `npm run start` | Serve an existing production build |
+| `npm run lint` | Run Next.js linting once ESLint has been configured |
 
----
+Run at least `npm run type-check` and `npm run build` before deployment.
 
-## Roadmap Ideas
+## Deployment
 
-- [ ] Region pages at `/region/[id]` with full-page detail
-- [ ] User-contributed region submissions (via GitHub PR or form)
-- [ ] Vintage chart overlays on the map
-- [ ] Wine search across grapes, appellations, countries
-- [ ] Colour-coded map by wine style (red / white / sparkling / fortified)
-- [ ] Offline PWA support
-- [ ] i18n (French, Spanish, Italian, German, Portuguese)
+`vercel.json` configures the Next.js build and deploys functions to `lhr1`.
+Configure the environment variables in the hosting project for
+Preview and Production as appropriate. Apply Supabase schema changes before
+deploying code that depends on them.
 
----
+The Next.js configuration limits build workers to avoid file-locking failures
+inside OneDrive-synced Windows directories. `NEXT_DIST_DIR` can move generated
+output elsewhere when needed.
 
-## Philosophy
+## Ownership and future collaboration
 
-wwwine is free to use, free to build, and free to host.  
-The data is JSON. The stack is standard. The knowledge belongs to everyone.
+Copyright is retained by Aziz Ibrahim. Viewing this repository does not grant
+permission to reuse, redistribute, host, or create derivative products from its
+code, data, copy, design, or assets.
 
-*In vino veritas.*
+Before accepting contributions, decide and document:
 
----
+- whether the project remains proprietary or adopts an open-source license;
+- whether contributors assign copyright or grant a contribution license;
+- branch protection, review requirements, and release ownership;
+- individual access controls for Vercel, Supabase, and the intelligence area;
+- secret rotation and offboarding procedures.
 
-## License
-
-MIT — fork it, extend it, make it yours.
+Do not accept substantive third-party code before those terms are in place.

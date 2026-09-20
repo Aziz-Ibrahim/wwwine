@@ -18,6 +18,7 @@ build
 .env.production.local
 .env.production
 .env.*
+!.env.local.example
 
 # Vercel
 .vercel
@@ -40,6 +41,7 @@ HOW-TO-ADD-DATA.md
 
 # Database
 *.sql
+!supabase/*.sql
 
 # Windows / OneDrive
 *.lnk
