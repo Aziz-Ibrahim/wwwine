@@ -25,6 +25,7 @@ export interface Appellation {
   id: string;                    // unique e.g. "sancerre"
   name: string;                  // "Sancerre"
   type: string;                  // "AOC" | "DOC" | "AVA" etc.
+  image: string;                 // representative wine colour asset
   coordinates: Coordinates;      // precise lat/lng for map pin
   grapes: string[];
   description: string;
@@ -99,4 +100,5 @@ export interface CompareItem {
   color: string;
   type: string;             // AOC, DOC, AVA…
   description: string;
+  image: string;
 }

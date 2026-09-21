@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Route } from 'next'
 import type { AppellationWithRegion } from '@/lib/data'
 import styles from '@/app/appellations/appellations.module.css'
@@ -28,9 +29,47 @@ const scaleDescriptors = {
   alcohol: ['Low <11%', 'Moderate', 'Medium', 'High', 'Very High'],
 } as const
 
+const appearanceByImage: Record<string, string> = {
+  'lemon-green.png': 'Pale lemon-green',
+  'lemon.png': 'Medium lemon',
+  'gold.png': 'Deep gold',
+  'amber.png': 'Deep amber',
+  'copper-orange.png': 'Medium copper-orange',
+  'pale-pink.png': 'Pale pink',
+  'salmon.png': 'Medium salmon',
+  'deep-pink.png': 'Deep pink',
+  'purple.png': 'Deep purple',
+  'ruby.png': 'Medium ruby',
+  'garnet.png': 'Medium garnet',
+  'tawny.png': 'Deep tawny',
+  'sparkling-lemon-green.png': 'Pale lemon-green with fine bubbles',
+  'sparkling-lemon.png': 'Medium lemon with fine bubbles',
+  'sparkling-gold.png': 'Deep gold with fine bubbles',
+  'sparkling-pale-pink.png': 'Pale pink with fine bubbles',
+}
+
+function getAppearance(image: string) {
+  return appearanceByImage[image.split('/').pop() ?? ''] ?? 'Typical wine colour'
+}
+
+function listNotes(notes: string[]) {
+  if (notes.length < 2) return notes[0] ?? ''
+  return `${notes.slice(0, -1).join(', ')} and ${notes.at(-1)}`
+}
+
 export default function AppellationGuide({
   app, related, backLabel, backHref, onBack, onSelectRelated, embedded = false,
 }: Props) {
+  const appearance = getAppearance(app.image)
+  const noseNotes = [...app.tastingProfile.fruits.slice(0, 3), ...app.tastingProfile.secondaryNotes.slice(0, 2)]
+  const palate = [
+    `${scaleDescriptors.body[app.tastingProfile.body - 1].toLowerCase()}-bodied`,
+    `${scaleDescriptors.acidity[app.tastingProfile.acidity - 1].toLowerCase()} acidity`,
+    app.tastingProfile.tannins > 1 ? `${scaleDescriptors.tannins[app.tastingProfile.tannins - 1].toLowerCase()} tannins` : null,
+    app.tastingProfile.sweetness > 2 ? scaleDescriptors.sweetness[app.tastingProfile.sweetness - 1].toLowerCase() : 'dry',
+    `with a ${app.tastingProfile.finish} finish`,
+  ].filter(Boolean).join(', ')
+
   const back = onBack ? (
     <button type="button" className={`${styles.back} ${styles.backButton}`} onClick={onBack}>{backLabel}</button>
   ) : (
@@ -40,13 +79,33 @@ export default function AppellationGuide({
   return (
     <div className={`${styles.wrap} ${embedded ? styles.embedded : ''}`}>
       {back}
-      <p className={styles.eyebrow}>{app.regionName} | {app.country}</p>
-      <h1 className={styles.title}>{app.name} {app.type} Wine Guide</h1>
-      <p className={styles.intro}>{app.tastingProfile.style}</p>
-      <div className={styles.meta}>
-        <span className={styles.pill}>{app.grapes.slice(0, 3).join(', ')}</span>
-        <span className={styles.pill}>Serve {app.servingTemp}</span>
-        <span className={styles.pill}>Age {app.agingPotential}</span>
+      <div className={styles.guideHero}>
+        <div className={styles.guideHeroCopy}>
+          <p className={styles.eyebrow}>{app.regionName} | {app.country}</p>
+          <h1 className={styles.title}>{app.name} {app.type} Wine Guide</h1>
+          <p className={styles.intro}>{app.tastingProfile.style}</p>
+          <div className={styles.meta}>
+            <span className={styles.pill}>{app.grapes.slice(0, 3).join(', ')}</span>
+            <span className={styles.pill}>Serve {app.servingTemp}</span>
+            <span className={styles.pill}>Age {app.agingPotential}</span>
+          </div>
+        </div>
+        <figure className={styles.wineImageWrap}>
+          <div className={styles.wineImageCanvas}>
+            <Image
+              className={styles.wineImage}
+              src={app.image}
+              alt={`${app.name} wine colour in the glass`}
+              fill
+              sizes={embedded ? '(max-width: 640px) 100vw, 240px' : '(max-width: 640px) 100vw, 320px'}
+              priority={!embedded}
+            />
+          </div>
+          <figcaption className={styles.wineImageCaption}>
+            <span>Typical colour</span>
+            <strong>{appearance}</strong>
+          </figcaption>
+        </figure>
       </div>
 
       <div className={styles.contentGrid}>
@@ -54,6 +113,24 @@ export default function AppellationGuide({
           <section className={styles.section}>
             <h2>Overview</h2>
             <p className={styles.description}>{app.description}</p>
+          </section>
+
+          <section className={styles.section}>
+            <h2>In The Glass</h2>
+            <dl className={styles.sensoryNotes}>
+              <div className={styles.sensoryNote}>
+                <dt>Colour</dt>
+                <dd>{appearance}</dd>
+              </div>
+              <div className={styles.sensoryNote}>
+                <dt>Nose</dt>
+                <dd>{listNotes(noseNotes)}.</dd>
+              </div>
+              <div className={styles.sensoryNote}>
+                <dt>Palate</dt>
+                <dd>{app.tastingProfile.style}. Generally {palate}.</dd>
+              </div>
+            </dl>
           </section>
 
           <section className={styles.section}>

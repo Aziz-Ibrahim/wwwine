@@ -9,11 +9,20 @@
 
 .eyebrow { font-family:var(--font-display); font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
 
+.guideHero { display:grid; grid-template-columns:minmax(0,1fr) minmax(240px,320px); gap:42px; align-items:center; margin-bottom:40px; }
+.guideHeroCopy { min-width:0; }
+.wineImageWrap { width:100%; margin:0; border:1px solid var(--border); background:#fff; }
+.wineImageCanvas { position:relative; width:100%; aspect-ratio:1; }
+.wineImage { object-fit:cover; }
+.wineImageCaption { display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding:12px 14px; border-top:1px solid var(--border); background:var(--bg-surface); color:var(--text-primary); }
+.wineImageCaption span { font-family:var(--font-display); font-size:9px; letter-spacing:1.4px; text-transform:uppercase; color:var(--text-muted); }
+.wineImageCaption strong { font-family:var(--font-serif); font-size:16px; font-weight:600; text-align:right; }
+
 .title { max-width:860px; font-family:var(--font-display); font-size:clamp(34px,5vw,58px); line-height:1.05; color:var(--text-primary); margin-bottom:14px; }
 
 .intro { max-width:780px; font-family:var(--font-serif); font-size:20px; line-height:1.45; color:var(--text-secondary); margin-bottom:28px; }
 
-.meta { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:34px; }
+.meta { display:flex; flex-wrap:wrap; gap:8px; }
 
 .pill { display:inline-flex; align-items:center; min-height:28px; padding:5px 10px; border:1px solid var(--border-gold); background:var(--gold-dim); color:var(--gold-bright); font-family:var(--font-display); font-size:10px; letter-spacing:1.4px; text-transform:uppercase; }
 
@@ -27,6 +36,12 @@
 .section ul { margin:10px 0 0 18px; }
 
 .description { font-family:var(--font-serif) !important; font-size:19px !important; line-height:1.55 !important; }
+
+.sensoryNotes { display:grid; gap:0; margin:0; }
+.sensoryNote { display:grid; grid-template-columns:82px minmax(0,1fr); gap:16px; padding:14px 0; border-top:1px solid var(--border); }
+.sensoryNote:first-child { border-top:0; padding-top:0; }
+.sensoryNote dt { font-family:var(--font-display); font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); }
+.sensoryNote dd { margin:0; font-family:var(--font-serif); font-size:17px; line-height:1.55; color:var(--text-secondary); }
 
 .tagList, .statGrid, .scaleGrid { display:flex; flex-wrap:wrap; gap:8px; }
 
@@ -61,8 +76,12 @@
 /* ── Index page grid ───────────────────────── */
 .listGrid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px; }
 
-.listCard { display:block; min-height:172px; padding:18px; border:1px solid var(--border); background:var(--bg-surface); color:inherit; text-decoration:none; transition:border-color 0.15s; }
+.listCard { display:grid; grid-template-columns:128px minmax(0,1fr); min-height:164px; border:1px solid var(--border); background:var(--bg-surface); color:inherit; text-decoration:none; transition:border-color 0.15s; overflow:hidden; }
 .listCard:hover { border-color:var(--border-gold); }
+
+.listImageWrap { position:relative; display:block; min-height:100%; background:#fff; border-right:1px solid var(--border); }
+.listImage { object-fit:cover; }
+.listCopy { display:block; min-width:0; padding:18px; }
 
 .listName { display:block; margin-bottom:8px; font-family:var(--font-display); font-size:16px; line-height:1.25; color:var(--text-primary); }
 .listMeta { display:block; margin-bottom:12px; font-family:var(--font-display); font-size:9px; letter-spacing:1.2px; text-transform:uppercase; color:var(--gold); }
@@ -72,6 +91,8 @@
   .contentGrid, .listGrid { grid-template-columns:1fr; }
   .side { order:-1; }
   .listGrid { grid-template-columns:repeat(2, 1fr); }
+  .guideHero { grid-template-columns:minmax(0,1fr) minmax(220px,280px); gap:28px; }
+  .listCard { grid-template-columns:112px minmax(0,1fr); }
 }
 
 @media (max-width: 640px) {
@@ -79,4 +100,10 @@
   .intro { font-size:18px; }
   .listGrid { grid-template-columns:1fr; }
   .embedded { width:min(100% - 28px, 1080px); padding:28px 0 48px; }
+  .guideHero { grid-template-columns:1fr; gap:22px; margin-bottom:30px; }
+  .wineImageWrap { width:min(100%, 360px); }
+  .listCard { grid-template-columns:96px minmax(0,1fr); min-height:132px; }
+  .listCopy { padding:14px; }
+  .listDesc { font-size:14px; }
+  .sensoryNote { grid-template-columns:68px minmax(0,1fr); gap:12px; }
 }

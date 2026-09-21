@@ -23,6 +23,7 @@ export function getAllAppellations(): CompareItem[] {
         color: app.color ?? region.color,
         type: app.type,
         description: app.description,
+        image: app.image,
       })
     }
   }

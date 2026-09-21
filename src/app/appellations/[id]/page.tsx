@@ -25,7 +25,7 @@ export function generateMetadata({ params }: Props): Metadata {
     title, description,
     keywords: [app.name, app.type, app.regionName, app.country, ...app.grapes, 'wine appellation', 'wine guide'],
     alternates: { canonical: `/appellations/${app.id}` },
-    openGraph: { title, description, type: 'article', images: [{ url: '/wwwine-logo.png' }] },
+    openGraph: { title, description, type: 'article', images: [{ url: app.image }] },
   }
 }
 
@@ -35,6 +35,7 @@ function jsonLdFor(app: NonNullable<ReturnType<typeof getAppellationById>>) {
     '@type': 'Article',
     headline: `${app.name} ${app.type} Wine Guide`,
     description: app.description,
+    image: app.image,
     about: [
       { '@type': 'Place', name: `${app.name}, ${app.regionName}, ${app.country}`,
         geo: { '@type': 'GeoCoordinates', latitude: app.coordinates.lat, longitude: app.coordinates.lng } },
