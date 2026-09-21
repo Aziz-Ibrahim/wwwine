@@ -11,7 +11,7 @@ import styles from './LegalHeader.module.css'
 const navItems: { label: string; href: Route }[] = [
   { label: 'Atlas', href: '/?view=map' },
   { label: 'Food', href: '/?view=food' },
-  { label: 'Match', href: '/?view=match' },
+  { label: 'Discover', href: '/?view=match' },
   { label: 'Compare', href: '/?view=compare' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },

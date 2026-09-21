@@ -1,286 +1,260 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useMemo, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import type { Route } from 'next'
 import type { CompareItem } from '@/types'
 import { intent } from '@/lib/intent'
 import styles from './WineMatch.module.css'
 
-interface Question {
-  id: string
-  text: string
-  emoji: string
-  options: { label: string; value: string; hint?: string }[]
-  // maps to tasting profile adjustments
-  weights: Record<string, Partial<Record<'body'|'tannins'|'acidity'|'sweetness'|'alcohol'|'style', number>>>
+type Dimension = 'body' | 'tannins' | 'acidity' | 'sweetness' | 'alcohol'
+type WineFamily = 'red' | 'white' | 'rose' | 'sparkling' | 'orange'
+type Answers = Record<string, string>
+type Target = Record<Dimension, number>
+type ScoredWine = CompareItem & { distance: number; family: WineFamily }
+
+interface Option {
+  label: string
+  value: string
+  hint: string
+  profile?: Partial<Record<Dimension, number>>
+  family?: WineFamily | 'any'
+  aromas?: string[]
 }
+
+interface Question { id: string; eyebrow: string; text: string; options: Option[] }
 
 const QUESTIONS: Question[] = [
-  {
-    id: 'coffee', emoji: '☕', text: 'How do you take your coffee or tea?',
-    options: [
-      { label: 'Black, no sugar',       value: 'black',   hint: 'Bitter & bold' },
-      { label: 'Milk, no sugar',        value: 'milk',    hint: 'Smooth & rounded' },
-      { label: 'Sweet — a couple of sugars', value: 'sweet', hint: 'Touch of sweetness' },
-      { label: 'Very sweet & milky',    value: 'vsweeet', hint: 'Rich & indulgent' },
-      { label: 'I prefer neither',      value: 'neither', hint: 'Herbal or neutral' },
-    ],
-    weights: {
-      black:   { tannins: 2, acidity: 1, sweetness: -1 },
-      milk:    { body: 1, tannins: 1 },
-      sweet:   { sweetness: 1, acidity: -1 },
-      vsweeet: { sweetness: 2, body: 1, acidity: -2 },
-      neither: { acidity: 1, body: -1 },
-    }
-  },
-  {
-    id: 'snack', emoji: '🍫', text: 'What\'s your favourite sweet treat?',
-    options: [
-      { label: 'Dark chocolate',        value: 'dark',    hint: 'Intense & bitter' },
-      { label: 'Milk chocolate',        value: 'milk',    hint: 'Creamy & sweet' },
-      { label: 'Salted caramel',        value: 'caramel', hint: 'Sweet-savoury balance' },
-      { label: 'Fresh fruit',           value: 'fruit',   hint: 'Clean & bright' },
-      { label: 'Pastry / croissant',    value: 'pastry',  hint: 'Buttery & rich' },
-    ],
-    weights: {
-      dark:    { tannins: 2, sweetness: -1, alcohol: 1 },
-      milk:    { sweetness: 1, body: 1, tannins: -1 },
-      caramel: { sweetness: 1, body: 1, acidity: 1 },
-      fruit:   { acidity: 2, sweetness: -1, body: -1 },
-      pastry:  { body: 2, acidity: -1, sweetness: 1 },
-    }
-  },
-  {
-    id: 'texture', emoji: '🍽️', text: 'You\'re at a dinner — which dish excites you most?',
-    options: [
-      { label: 'Grilled steak or lamb', value: 'meat',    hint: 'Bold & savoury' },
-      { label: 'Grilled fish or seafood', value: 'fish',  hint: 'Delicate & fresh' },
-      { label: 'Mushroom risotto',       value: 'earthy', hint: 'Earthy & umami' },
-      { label: 'Cheese board',          value: 'cheese',  hint: 'Rich & varied' },
-      { label: 'Spiced vegetable dish', value: 'spiced',  hint: 'Aromatic & complex' },
-    ],
-    weights: {
-      meat:   { body: 2, tannins: 2, acidity: -1 },
-      fish:   { body: -2, acidity: 2, tannins: -2 },
-      earthy: { body: 1, tannins: 1, acidity: 1 },
-      cheese: { body: 2, sweetness: 1, acidity: 1 },
-      spiced: { acidity: 1, sweetness: 1, alcohol: 1 },
-    }
-  },
-  {
-    id: 'season', emoji: '🌤️', text: 'Pick a moment you love:',
-    options: [
-      { label: 'Winter evening by the fire', value: 'cosy',    hint: 'Warm & comforting' },
-      { label: 'Summer terrace at sunset',   value: 'summer',  hint: 'Fresh & celebratory' },
-      { label: 'Autumn walk in the woods',   value: 'autumn',  hint: 'Earthy & complex' },
-      { label: 'Spring lunch in the garden', value: 'spring',  hint: 'Light & floral' },
-      { label: 'Late night jazz bar',        value: 'night',   hint: 'Smoky & contemplative' },
-    ],
-    weights: {
-      cosy:   { body: 2, tannins: 1, sweetness: 1, acidity: -1 },
-      summer: { acidity: 2, body: -1, sweetness: -1 },
-      autumn: { tannins: 1, body: 1, acidity: 1 },
-      spring: { acidity: 1, body: -1, sweetness: -1 },
-      night:  { body: 2, tannins: 2, acidity: -1 },
-    }
-  },
-  {
-    id: 'fruit', emoji: '🍒', text: 'Pick the fruit you\'d grab first from a bowl:',
-    options: [
-      { label: 'Blackberries or blackcurrant', value: 'dark',   hint: 'Intense & deep' },
-      { label: 'Raspberries or strawberries',  value: 'red',    hint: 'Bright & fragrant' },
-      { label: 'Peach or apricot',            value: 'stone',  hint: 'Rich & honeyed' },
-      { label: 'Lemon or grapefruit',         value: 'citrus', hint: 'Sharp & zesty' },
-      { label: 'Green apple or pear',         value: 'green',  hint: 'Crisp & refreshing' },
-    ],
-    weights: {
-      dark:   { body: 2, tannins: 1, sweetness: -1 },
-      red:    { acidity: 1, tannins: -1, body: -1 },
-      stone:  { sweetness: 1, body: 1, acidity: -1 },
-      citrus: { acidity: 2, sweetness: -2, body: -1 },
-      green:  { acidity: 2, sweetness: -1, body: -1 },
-    }
-  },
-  {
-    id: 'complexity', emoji: '🎭', text: 'What kind of experience are you after tonight?',
-    options: [
-      { label: 'Relaxed, easy, uncomplicated', value: 'easy',    hint: 'Nothing to overthink' },
-      { label: 'Interesting, something to talk about', value: 'curious', hint: 'Conversation starter' },
-      { label: 'A special occasion wine',      value: 'special', hint: 'Pull out the stops' },
-      { label: 'Something unusual & different', value: 'unusual', hint: 'Surprise me' },
-      { label: 'Pure hedonism — rich & bold',  value: 'hedonism', hint: 'Turn it up' },
-    ],
-    weights: {
-      easy:    { body: -1, tannins: -1, acidity: -1 },
-      curious: { acidity: 1, tannins: 1 },
-      special: { body: 1, tannins: 1, acidity: 1, alcohol: 1 },
-      unusual: { acidity: 1, sweetness: 1 },
-      hedonism:{ body: 2, alcohol: 2, sweetness: 1 },
-    }
-  },
+  { id: 'family', eyebrow: 'Start with the glass', text: 'What are you in the mood for?', options: [
+    { label: 'Red', value: 'red', hint: 'From silky Pinot to powerful Cabernet', family: 'red' },
+    { label: 'White', value: 'white', hint: 'Fresh, aromatic or richly textured', family: 'white' },
+    { label: 'Rose', value: 'rose', hint: 'Pale and delicate to deep and savoury', family: 'rose' },
+    { label: 'Sparkling', value: 'sparkling', hint: 'Bright bubbles or mature complexity', family: 'sparkling' },
+    { label: 'Orange', value: 'orange', hint: 'Textural, savoury and skin-contact', family: 'orange' },
+    { label: 'Surprise me', value: 'any', hint: 'Keep every style in play', family: 'any' },
+  ] },
+  { id: 'sweetness', eyebrow: 'Balance', text: 'How dry should it feel?', options: [
+    { label: 'Bone dry', value: 'bone-dry', hint: 'No perceptible sweetness', profile: { sweetness: 1 } },
+    { label: 'Mostly dry', value: 'dry', hint: 'Rounded, but still clearly dry', profile: { sweetness: 2 } },
+    { label: 'Off-dry', value: 'off-dry', hint: 'A gentle touch of sweetness', profile: { sweetness: 3 } },
+    { label: 'Sweet', value: 'sweet', hint: 'Rich fruit and obvious sweetness', profile: { sweetness: 4.5 } },
+    { label: 'No preference', value: 'any', hint: 'Let the other answers decide' },
+  ] },
+  { id: 'body', eyebrow: 'Weight', text: 'What kind of weight do you enjoy?', options: [
+    { label: 'Light and delicate', value: 'light', hint: 'Lifted, subtle and easy', profile: { body: 1.5, alcohol: 2 } },
+    { label: 'Medium and balanced', value: 'medium', hint: 'Neither light nor heavy', profile: { body: 3, alcohol: 3 } },
+    { label: 'Rich and full', value: 'full', hint: 'Generous, broad and powerful', profile: { body: 4.5, alcohol: 4 } },
+    { label: 'No preference', value: 'any', hint: 'Show me the best overall fit' },
+  ] },
+  { id: 'acidity', eyebrow: 'Freshness', text: 'How much freshness do you like?', options: [
+    { label: 'Soft and rounded', value: 'soft', hint: 'Gentle rather than sharp', profile: { acidity: 2 } },
+    { label: 'Fresh and balanced', value: 'fresh', hint: 'Enough lift for the table', profile: { acidity: 3.5 } },
+    { label: 'Crisp and mouth-watering', value: 'crisp', hint: 'Bright, zesty and energetic', profile: { acidity: 5 } },
+    { label: 'No preference', value: 'any', hint: 'I am open to either' },
+  ] },
+  { id: 'texture', eyebrow: 'Texture', text: 'Which texture sounds most appealing?', options: [
+    { label: 'Silky and smooth', value: 'silky', hint: 'Very little grip', profile: { tannins: 1.5 } },
+    { label: 'Creamy and rounded', value: 'creamy', hint: 'Broad and softly textured', profile: { tannins: 1, body: 3.5 }, aromas: ['cream', 'butter', 'lees'] },
+    { label: 'Mineral and precise', value: 'mineral', hint: 'Taut, clean and focused', profile: { tannins: 1, acidity: 4.5 }, aromas: ['mineral', 'flint', 'chalk', 'saline'] },
+    { label: 'Gently grippy', value: 'grippy', hint: 'Noticeable structure', profile: { tannins: 3.5 } },
+    { label: 'Firm and tannic', value: 'firm', hint: 'Powerful, structured and age-worthy', profile: { tannins: 5, body: 4 } },
+  ] },
+  { id: 'aroma', eyebrow: 'Aromas', text: 'Which aromas draw you in?', options: [
+    { label: 'Citrus and green fruit', value: 'citrus', hint: 'Lemon, lime, apple and pear', aromas: ['lemon', 'lime', 'citrus', 'apple', 'pear', 'grapefruit'] },
+    { label: 'Flowers and stone fruit', value: 'floral', hint: 'Peach, apricot and blossom', aromas: ['peach', 'apricot', 'flower', 'blossom', 'rose', 'violet'] },
+    { label: 'Red berries', value: 'red-fruit', hint: 'Strawberry, cherry and raspberry', aromas: ['strawberry', 'cherry', 'raspberry', 'redcurrant'] },
+    { label: 'Dark fruit and spice', value: 'dark-fruit', hint: 'Blackberry, cassis, plum and pepper', aromas: ['blackberry', 'blackcurrant', 'cassis', 'plum', 'pepper', 'spice'] },
+    { label: 'Earthy and savoury', value: 'savoury', hint: 'Herbs, tobacco, mushroom and leather', aromas: ['earth', 'herb', 'tobacco', 'mushroom', 'leather', 'cedar'] },
+    { label: 'Surprise me', value: 'any', hint: 'Do not favour one aroma family' },
+  ] },
+  { id: 'occasion', eyebrow: 'The moment', text: 'What kind of bottle are you looking for?', options: [
+    { label: 'Easy-going', value: 'easy', hint: 'Relaxed and immediately enjoyable', profile: { body: 2.5, tannins: 2, alcohol: 2.5 } },
+    { label: 'Food-friendly', value: 'food', hint: 'Freshness and balance at the table', profile: { acidity: 4, body: 3 } },
+    { label: 'Celebratory', value: 'celebration', hint: 'Bright, polished and occasion-ready', profile: { acidity: 4, alcohol: 3 } },
+    { label: 'Contemplative', value: 'contemplative', hint: 'Complex, structured and slowly revealing', profile: { body: 4, tannins: 4, alcohol: 4 } },
+    { label: 'Adventurous', value: 'adventurous', hint: 'Distinctive and outside the familiar' },
+  ] },
 ]
 
-type Answers = Record<string, string>
+const DEFAULT_TARGET: Target = { body: 3, tannins: 2.5, acidity: 3.5, sweetness: 1.5, alcohol: 3 }
+const DIMENSION_WEIGHT: Target = { body: 1.7, tannins: 1.3, acidity: 1.6, sweetness: 2.2, alcohol: 0.7 }
 
-function computeScores(answers: Answers): Record<string, number> {
-  const scores: Record<string, number> = { body:0, tannins:0, acidity:0, sweetness:0, alcohol:0 }
-  for (const q of QUESTIONS) {
-    const ans = answers[q.id]
-    if (!ans) continue
-    const w = q.weights[ans] ?? {}
-    for (const [k, v] of Object.entries(w)) {
-      if (k in scores) scores[k] += v as number
-    }
-  }
-  return scores
+function selectedOptions(answers: Answers) {
+  return QUESTIONS.flatMap(question => {
+    const option = question.options.find(item => item.value === answers[question.id])
+    return option ? [option] : []
+  })
 }
 
-function matchWines(scores: Record<string, number>, appellations: CompareItem[]): CompareItem[] {
-  // Normalise scores to 1–5 scale (they start at 0)
-  // Base is 3 (medium everything), biased by answers
-  const target = {
-    body:      Math.max(1, Math.min(5, 3 + scores.body)),
-    tannins:   Math.max(1, Math.min(5, 3 + scores.tannins)),
-    acidity:   Math.max(1, Math.min(5, 3 + scores.acidity)),
-    sweetness: Math.max(1, Math.min(5, 2 + scores.sweetness)),
-    alcohol:   Math.max(1, Math.min(5, 3 + scores.alcohol)),
+function buildTarget(answers: Answers): Target {
+  const totals = { ...DEFAULT_TARGET }
+  const counts: Target = { body: 1, tannins: 1, acidity: 1, sweetness: 1, alcohol: 1 }
+  for (const option of selectedOptions(answers)) {
+    for (const [key, value] of Object.entries(option.profile ?? {})) {
+      const dimension = key as Dimension
+      totals[dimension] += value
+      counts[dimension] += 1
+    }
   }
-  return appellations
-    .map(a => {
-      const tp = a.tastingProfile
-      const dist = Math.sqrt(
-        Math.pow(tp.body      - target.body, 2) * 2 +
-        Math.pow(tp.tannins   - target.tannins, 2) * 1.5 +
-        Math.pow(tp.acidity   - target.acidity, 2) * 1.5 +
-        Math.pow(tp.sweetness - target.sweetness, 2) * 2 +
-        Math.pow(tp.alcohol   - target.alcohol, 2) * 1
-      )
-      return { ...a, dist }
-    })
-    .sort((a: any, b: any) => a.dist - b.dist)
-    .slice(0, 8)
+  return Object.fromEntries(Object.keys(totals).map(key => {
+    const dimension = key as Dimension
+    return [dimension, totals[dimension] / counts[dimension]]
+  })) as Target
+}
+
+function wineFamily(wine: CompareItem): WineFamily {
+  const image = wine.image.toLowerCase()
+  if (image.includes('sparkling')) return 'sparkling'
+  if (image.includes('pale-pink') || image.includes('salmon') || image.includes('deep-pink')) return 'rose'
+  if (image.includes('copper-orange')) return 'orange'
+  if (image.includes('purple') || image.includes('ruby') || image.includes('garnet') || image.includes('tawny')) return 'red'
+  return 'white'
+}
+
+function searchableNotes(wine: CompareItem) {
+  const profile = wine.tastingProfile
+  return [...profile.fruits, ...profile.secondaryNotes, ...(profile.tertiaryNotes ?? []), profile.style].join(' ').toLowerCase()
+}
+
+function rankWines(answers: Answers, appellations: CompareItem[]): ScoredWine[] {
+  const target = buildTarget(answers)
+  const options = selectedOptions(answers)
+  const chosenFamilies = options.map(option => option.family).filter(Boolean)
+  const preferredFamily = chosenFamilies.at(-1)
+  const aromaTerms = options.flatMap(option => option.aromas ?? [])
+  return appellations.map(wine => {
+    const family = wineFamily(wine)
+    let squaredDistance = 0
+    for (const dimension of Object.keys(target) as Dimension[]) {
+      squaredDistance += Math.pow(wine.tastingProfile[dimension] - target[dimension], 2) * DIMENSION_WEIGHT[dimension]
+    }
+    let distance = Math.sqrt(squaredDistance)
+    if (preferredFamily && preferredFamily !== 'any' && family !== preferredFamily) distance += 8
+    if (aromaTerms.length) {
+      const notes = searchableNotes(wine)
+      distance -= Math.min(1.8, aromaTerms.filter(term => notes.includes(term)).length * 0.45)
+    }
+    return { ...wine, family, distance }
+  }).sort((a, b) => a.distance - b.distance)
+}
+
+function diverseMatches(ranked: ScoredWine[]) {
+  const selected: ScoredWine[] = []
+  for (const wine of ranked) {
+    if (selected.some(item => item.regionId === wine.regionId)) continue
+    selected.push(wine)
+    if (selected.length === 4) break
+  }
+  if (selected.length < 4) {
+    for (const wine of ranked) {
+      if (!selected.some(item => item.id === wine.id)) selected.push(wine)
+      if (selected.length === 4) break
+    }
+  }
+  return selected
+}
+
+function matchReasons(wine: ScoredWine, target: Target, answers: Answers) {
+  const names: Record<Dimension, string> = { body: 'body', tannins: 'texture', acidity: 'freshness', sweetness: 'dryness', alcohol: 'weight' }
+  const reasons = (['sweetness', 'body', 'acidity', 'tannins'] as Dimension[]).map(dimension => ({
+    difference: Math.abs(wine.tastingProfile[dimension] - target[dimension]),
+    text: `Close to your preferred ${names[dimension]}`,
+  }))
+  const aromaTerms = selectedOptions(answers).flatMap(option => option.aromas ?? [])
+  const aromaMatches = aromaTerms.filter(term => searchableNotes(wine).includes(term))
+  if (aromaMatches.length) reasons.push({ difference: -1, text: `Shows ${aromaMatches.slice(0, 2).join(' and ')} notes` })
+  return reasons.sort((a, b) => a.difference - b.difference).slice(0, 2).map(reason => reason.text)
+}
+
+function profileSummary(target: Target, family?: WineFamily | 'any') {
+  const familyText = family && family !== 'any' ? `${family} wines` : 'wines'
+  const body = target.body < 2.5 ? 'lighter' : target.body > 3.6 ? 'fuller-bodied' : 'medium-bodied'
+  const freshness = target.acidity > 4 ? 'vivid freshness' : target.acidity < 2.7 ? 'a softer shape' : 'balanced freshness'
+  const sweetness = target.sweetness > 3 ? 'noticeable sweetness' : target.sweetness > 2 ? 'a gentle softness' : 'a dry finish'
+  return `You lean toward ${body} ${familyText} with ${freshness} and ${sweetness}.`
 }
 
 interface Props { appellations: CompareItem[] }
 
 export default function WineMatch({ appellations }: Props) {
-  const [step,    setStep]    = useState<'quiz'|'results'>('quiz')
+  const [step, setStep] = useState<'quiz' | 'results'>('quiz')
   const [current, setCurrent] = useState(0)
   const [answers, setAnswers] = useState<Answers>({})
-
-  const scores  = useMemo(() => computeScores(answers), [answers])
-  const matches = useMemo(() => step === 'results' ? matchWines(scores, appellations) : [], [scores, appellations, step])
-
-  const q = QUESTIONS[current]
-  const progress = Math.round((current / QUESTIONS.length) * 100)
+  const target = useMemo(() => buildTarget(answers), [answers])
+  const ranked = useMemo(() => rankWines(answers, appellations), [answers, appellations])
+  const matches = useMemo(() => step === 'results' ? diverseMatches(ranked) : [], [ranked, step])
+  const question = QUESTIONS[current]
+  const progress = Math.round(((current + 1) / QUESTIONS.length) * 100)
+  const preferredFamily = selectedOptions(answers).map(option => option.family).filter(Boolean).at(-1)
 
   function pick(value: string) {
-    const next = { ...answers, [q.id]: value }
+    const next = { ...answers, [question.id]: value }
     setAnswers(next)
-    if (current < QUESTIONS.length - 1) {
-      setCurrent(c => c + 1)
-    } else {
-      setStep('results')
-      // Track quiz completion with top match
-      const topMatch = matchWines(computeScores({ ...answers, [q.id]: value }), appellations)[0]
-      if (topMatch) {
-        intent.quizComplete(topMatch.label, topMatch.country, topMatch.regionName, topMatch.tastingProfile.style)
-      }
-    }
+    if (current < QUESTIONS.length - 1) return setCurrent(index => index + 1)
+    const topMatch = diverseMatches(rankWines(next, appellations))[0]
+    setStep('results')
+    if (topMatch) intent.quizComplete(topMatch.label, topMatch.country, topMatch.regionName, topMatch.tastingProfile.style)
   }
 
-  function restart() {
-    setAnswers({})
-    setCurrent(0)
-    setStep('quiz')
-  }
+  function restart() { setAnswers({}); setCurrent(0); setStep('quiz') }
 
   if (step === 'results') {
-    return (
-      <div className={styles.page}>
-        <div className={styles.resultsHero}>
-          <div className={styles.resultsEmoji}>🍷</div>
-          <h1 className={styles.resultsTitle}>Your Wine Profile</h1>
-          <p className={styles.resultsSub}>Based on your answers, here are the wines that match your taste</p>
-          <button className={styles.restartBtn} onClick={restart}>↺ Retake Quiz</button>
-        </div>
-
-        {/* Taste radar summary */}
-        <div className={styles.profileBar}>
-          {Object.entries(scores).map(([k, v]) => {
-            const norm = Math.max(1, Math.min(5, (k === 'sweetness' ? 2 : 3) + v))
-            const labels: Record<string, [string,string]> = {
-              body:     ['Light','Full'],     tannins:  ['Silky','Grippy'],
-              acidity:  ['Soft','Electric'],  sweetness:['Dry','Sweet'],
-              alcohol:  ['Low','High'],
-            }
-            const [lo, hi] = labels[k] ?? [k,'']
-            return (
-              <div key={k} className={styles.profileItem}>
-                <div className={styles.profileKey}>{k}</div>
-                <div className={styles.profileTrack}>
-                  <div className={styles.profileFill} style={{ width:`${((norm-1)/4)*100}%` }} />
-                </div>
-                <div className={styles.profileScale}><span>{lo}</span><span>{hi}</span></div>
-              </div>
-            )
-          })}
-        </div>
-
-        <div className={styles.matchGrid}>
-          {matches.map((w, i) => (
-            <div key={w.id} className={styles.matchCard} style={{ borderTop:`3px solid ${w.color}` }}>
-              {i === 0 && <div className={styles.topMatch}>★ Best Match</div>}
-              <div className={styles.matchName}>{w.label.replace(` (${w.type})`, '')}</div>
-              <div className={styles.matchMeta}>{w.type} · {w.regionName}, {w.country}</div>
-              <p className={styles.matchStyle}>{w.tastingProfile.style}</p>
-              <div className={styles.matchGrapes}>
-                {w.grapes.slice(0,3).map(g => <span key={g} className={styles.grape}>{g}</span>)}
-              </div>
-              <div className={styles.matchFooter}>
-                <span>🌡️ {w.servingTemp}</span>
-                <span>⏳ {w.agingPotential}</span>
-              </div>
-            </div>
-          ))}
-        </div>
+    const rankLabels = ['Best match', 'Excellent alternative', 'Something different', 'Wildcard']
+    const scaleLabels: Record<Dimension, [string, string]> = {
+      body: ['Light', 'Full'], tannins: ['Silky', 'Grippy'], acidity: ['Soft', 'Electric'],
+      sweetness: ['Dry', 'Sweet'], alcohol: ['Low', 'High'],
+    }
+    return <div className={styles.page}>
+      <header className={styles.resultsHero}>
+        <p className={styles.eyebrow}>Your wine profile</p>
+        <h1 className={styles.resultsTitle}>Four Wines To Discover</h1>
+        <p className={styles.resultsSub}>{profileSummary(target, preferredFamily)}</p>
+        <button className={styles.restartBtn} onClick={restart}>Retake quiz</button>
+      </header>
+      <div className={styles.profileBar}>
+        {(Object.entries(target) as [Dimension, number][]).map(([key, value]) => <div key={key} className={styles.profileItem}>
+          <div className={styles.profileKey}>{key}</div>
+          <div className={styles.profileTrack}><div className={styles.profileFill} style={{ width: `${((value - 1) / 4) * 100}%` }} /></div>
+          <div className={styles.profileScale}><span>{scaleLabels[key][0]}</span><span>{scaleLabels[key][1]}</span></div>
+        </div>)}
       </div>
-    )
-  }
-
-  return (
-    <div className={styles.page}>
-      <div className={styles.quizWrap}>
-        {/* Progress */}
-        <div className={styles.progressWrap}>
-          <div className={styles.progressBar}>
-            <div className={styles.progressFill} style={{ width:`${progress}%` }} />
+      <div className={styles.matchGrid}>
+        {matches.map((wine, index) => <article key={wine.id} className={styles.matchCard}>
+          <div className={styles.matchImageWrap}>
+            <Image className={styles.matchImage} src={wine.image} alt="" fill sizes="(max-width: 600px) 100vw, 280px" />
+            <span className={styles.matchRank}>{rankLabels[index]}</span>
           </div>
-          <div className={styles.progressLabel}>{current + 1} of {QUESTIONS.length}</div>
-        </div>
-
-        {/* Question */}
-        <div className={styles.qCard}>
-          <div className={styles.qEmoji}>{q.emoji}</div>
-          <h2 className={styles.qText}>{q.text}</h2>
-          <div className={styles.options}>
-            {q.options.map(opt => (
-              <button
-                key={opt.value}
-                className={`${styles.option} ${answers[q.id] === opt.value ? styles.optionSelected : ''}`}
-                onClick={() => pick(opt.value)}
-              >
-                <span className={styles.optionLabel}>{opt.label}</span>
-                {opt.hint && <span className={styles.optionHint}>{opt.hint}</span>}
-              </button>
-            ))}
+          <div className={styles.matchContent}>
+            <h2 className={styles.matchName}>{wine.label.replace(` (${wine.type})`, '')}</h2>
+            <div className={styles.matchMeta}>{wine.type} | {wine.regionName}, {wine.country}</div>
+            <p className={styles.matchStyle}>{wine.tastingProfile.style}</p>
+            <ul className={styles.reasonList}>{matchReasons(wine, target, answers).map(reason => <li key={reason}>{reason}</li>)}</ul>
+            <div className={styles.matchGrapes}>{wine.grapes.slice(0, 3).map(grape => <span key={grape} className={styles.grape}>{grape}</span>)}</div>
+            <Link className={styles.guideLink} href={`/appellations/${wine.id}` as Route}>Explore wine guide</Link>
           </div>
-        </div>
-
-        {/* Back button */}
-        {current > 0 && (
-          <button className={styles.backBtn} onClick={() => setCurrent(c => c - 1)}>← Back</button>
-        )}
+        </article>)}
       </div>
     </div>
-  )
+  }
+
+  return <div className={styles.page}>
+    <div className={styles.quizWrap}>
+      <header className={styles.quizHeader}><p className={styles.eyebrow}>Discover</p><h1 className={styles.quizTitle}>Find Your Wine</h1></header>
+      <div className={styles.progressWrap}>
+        <div className={styles.progressBar}><div className={styles.progressFill} style={{ width: `${progress}%` }} /></div>
+        <div className={styles.progressLabel}>{current + 1} of {QUESTIONS.length}</div>
+      </div>
+      <div className={styles.qCard}>
+        <p className={styles.questionEyebrow}>{question.eyebrow}</p>
+        <h2 className={styles.qText}>{question.text}</h2>
+        <div className={styles.options}>{question.options.map(option => <button
+          key={option.value}
+          className={`${styles.option} ${answers[question.id] === option.value ? styles.optionSelected : ''}`}
+          onClick={() => pick(option.value)}
+        ><span className={styles.optionLabel}>{option.label}</span><span className={styles.optionHint}>{option.hint}</span></button>)}</div>
+      </div>
+      {current > 0 && <button className={styles.backBtn} onClick={() => setCurrent(index => index - 1)}>Back</button>}
+    </div>
+  </div>
 }

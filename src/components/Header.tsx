@@ -18,7 +18,7 @@ interface Props {
 const NAV: { key: AppView; label: string; icon: string }[] = [
   { key: 'map',     label: 'Atlas',   icon: '🗺' },
   { key: 'food',    label: 'Food',    icon: '🍽' },
-  { key: 'match',   label: 'Match',   icon: '✨' },
+  { key: 'match',   label: 'Discover', icon: '✨' },
   { key: 'compare', label: 'Compare', icon: '⚖' },
 ]
 
