@@ -24,6 +24,12 @@
 
 .meta { display:flex; flex-wrap:wrap; gap:8px; }
 
+.affiliateSlot { margin-top:22px; }
+.affiliateSlotWide { margin:34px 0 38px; }
+.affiliateLabel { display:block; margin-bottom:8px; font-family:var(--font-display); font-size:8px; letter-spacing:1.4px; text-transform:uppercase; color:var(--text-muted); }
+.affiliateCanvas { min-height:250px; border:1px solid var(--border); background:linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface2) 100%); }
+.affiliateSlotWide .affiliateCanvas { min-height:112px; }
+
 .pill { display:inline-flex; align-items:center; min-height:28px; padding:5px 10px; border:1px solid var(--border-gold); background:var(--gold-dim); color:var(--gold-bright); font-family:var(--font-display); font-size:10px; letter-spacing:1.4px; text-transform:uppercase; }
 
 /* ── Detail page ───────────────────────────── */
@@ -98,6 +104,9 @@
 @media (max-width: 640px) {
   .wrap { width:min(100vw - 28px, 1080px); padding-top:104px; }
   .intro { font-size:18px; }
+  .affiliateSlotWide { margin:28px 0 32px; }
+  .affiliateSlotWide .affiliateCanvas { min-height:96px; }
+  .affiliateCanvas { min-height:220px; }
   .listGrid { grid-template-columns:1fr; }
   .embedded { width:min(100% - 28px, 1080px); padding:28px 0 48px; }
   .guideHero { grid-template-columns:1fr; gap:22px; margin-bottom:30px; }

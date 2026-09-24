@@ -108,6 +108,11 @@ export default function AppellationGuide({
         </figure>
       </div>
 
+      <aside className={`${styles.affiliateSlot} ${styles.affiliateSlotWide}`} aria-label="Affiliate banner">
+        <span className={styles.affiliateLabel}>Affiliate banner</span>
+        <div className={styles.affiliateCanvas} data-affiliate-slot="appellation-detail-top" />
+      </aside>
+
       <div className={styles.contentGrid}>
         <article>
           <section className={styles.section}>
@@ -197,6 +202,11 @@ export default function AppellationGuide({
             <div className={styles.stat}><span className={styles.statLabel}>Finish</span><span className={styles.statValue}>{app.tastingProfile.finish}</span></div>
             <div className={styles.stat}><span className={styles.statLabel}>History</span><span className={styles.statValue}>{app.regionVintage}</span></div>
           </div>
+
+          <aside className={styles.affiliateSlot} aria-label="Affiliate banner">
+            <span className={styles.affiliateLabel}>Affiliate banner</span>
+            <div className={styles.affiliateCanvas} data-affiliate-slot="appellation-detail-sidebar" />
+          </aside>
 
           {app.bestVintages && app.bestVintages.length > 0 && (
             <section className={styles.section}>

@@ -44,6 +44,11 @@ export default function AppellationsPage() {
           <span className={styles.pill}>{countryCount} countries</span>
         </div>
 
+        <aside className={`${styles.affiliateSlot} ${styles.affiliateSlotWide}`} aria-label="Affiliate banner">
+          <span className={styles.affiliateLabel}>Affiliate banner</span>
+          <div className={styles.affiliateCanvas} data-affiliate-slot="appellations-index-top" />
+        </aside>
+
         <div className={styles.listGrid}>
           {appellations.map(app => (
             <Link key={app.id} className={styles.listCard} href={`/appellations/${app.id}`}>
