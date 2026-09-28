@@ -81,6 +81,16 @@
 
 /* ── Index page grid ───────────────────────── */
 .listGrid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px; }
+.alphabetIndex { position:sticky; top:64px; z-index:100; margin-bottom:24px; padding:8px 0; border-bottom:1px solid var(--border); background:var(--bg-page); }
+.alphabetLetters { display:flex; flex-wrap:nowrap; align-items:center; justify-content:center; }
+.letterLink, .letterDisabled { display:inline-flex; flex:0 1 28px; min-width:0; align-items:center; justify-content:center; height:28px; font-family:var(--font-display); font-size:11px; }
+.letterLink { color:var(--gold-bright); text-decoration:none; }
+.letterLink:hover { color:var(--text-primary); text-decoration:underline; text-underline-offset:4px; }
+.letterLink:focus-visible { outline:2px solid var(--gold); outline-offset:-2px; }
+.letterDisabled { color:var(--text-muted); opacity:0.45; }
+.letterSection { margin-bottom:36px; }
+.letterHeading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+.letterHeading h2 { font-family:var(--font-display); font-size:28px; color:var(--gold); scroll-margin-top:124px; }
 
 .listCard { display:grid; grid-template-columns:128px minmax(0,1fr); min-height:164px; border:1px solid var(--border); background:var(--bg-surface); color:inherit; text-decoration:none; transition:border-color 0.15s; overflow:hidden; }
 .listCard:hover { border-color:var(--border-gold); }

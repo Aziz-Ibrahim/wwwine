@@ -26,6 +26,13 @@ export default function AppellationsPage() {
   const appellations = getAllAppellationDetails().sort((a, b) => a.name.localeCompare(b.name))
   const regionCount = new Set(appellations.map(app => app.regionId)).size
   const countryCount = new Set(appellations.map(app => app.countryCode)).size
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+  const groups = alphabet.map(letter => ({
+    letter,
+    appellations: appellations.filter(app =>
+      app.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().startsWith(letter)
+    ),
+  }))
 
   return (
     <main className={styles.page}>
@@ -49,8 +56,27 @@ export default function AppellationsPage() {
           <div className={styles.affiliateCanvas} data-affiliate-slot="appellations-index-top" />
         </aside>
 
-        <div className={styles.listGrid}>
-          {appellations.map(app => (
+        <nav className={styles.alphabetIndex} aria-label="Browse appellations by letter" id="alphabet-index">
+          <div className={styles.alphabetLetters}>
+            {groups.map(group => group.appellations.length > 0 ? (
+              <a key={group.letter} className={styles.letterLink} href={`#letter-${group.letter}`} aria-label={`Appellations beginning with ${group.letter}`}>
+                {group.letter}
+              </a>
+            ) : (
+              <span key={group.letter} className={styles.letterDisabled} aria-label={`No appellations beginning with ${group.letter}`}>
+                {group.letter}
+              </span>
+            ))}
+          </div>
+        </nav>
+
+        {groups.filter(group => group.appellations.length > 0).map(group => (
+          <section key={group.letter} className={styles.letterSection} aria-labelledby={`letter-${group.letter}`}>
+            <div className={styles.letterHeading}>
+              <h2 id={`letter-${group.letter}`} tabIndex={-1}>{group.letter}</h2>
+            </div>
+            <div className={styles.listGrid}>
+          {group.appellations.map(app => (
             <Link key={app.id} className={styles.listCard} href={`/appellations/${app.id}`}>
               <span className={styles.listImageWrap}>
                 <Image
@@ -68,7 +94,9 @@ export default function AppellationsPage() {
               </span>
             </Link>
           ))}
-        </div>
+            </div>
+          </section>
+        ))}
       </div>
       <Footer />
     </main>
