@@ -13,6 +13,9 @@
 .footerLink, .legalButton { padding:0; border:0; background:transparent; color:var(--text-secondary); font-family:var(--font-sans); font-size:13px; line-height:1.5; text-decoration:none; white-space:nowrap; cursor:pointer; transition:color .15s ease; }
 .footerLink:hover, .legalButton:hover { color:var(--accent-bright); }
 .bottom { width:min(1400px, calc(100% - 48px)); margin:0 auto; padding:15px 0 18px; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; gap:20px; color:var(--text-muted); font-family:var(--font-sans); font-size:11px; }
+.copyrightLine { display:flex; align-items:center; gap:8px; white-space:nowrap; }
+.copyrightDivider { opacity:.45; }
+.version { font-size:10px; letter-spacing:.8px; text-transform:uppercase; color:var(--text-muted); }
 .credit { display:flex; align-items:center; gap:8px; color:var(--text-muted); text-decoration:none; opacity:.78; transition:opacity .15s ease; }
 .credit:hover { opacity:1; }
 .creditLabel { font-family:var(--font-sans); font-size:10px; letter-spacing:.8px; text-transform:uppercase; white-space:nowrap; }
@@ -26,6 +29,6 @@
   .compactOnMobile .inner { display:none; }
   .compactOnMobile .bottom { width:100%; min-height:44px; padding:8px 14px; flex-direction:row; align-items:center; justify-content:center; overflow-x:auto; }
   .compactOnMobile .compactLinks { display:flex; }
-  .compactOnMobile .copyright, .compactOnMobile .credit { display:none; }
+  .compactOnMobile .copyrightLine, .compactOnMobile .credit { display:none; }
   .compactOnMobile .footerLink, .compactOnMobile .legalButton { font-size:11px; }
 }

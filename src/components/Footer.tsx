@@ -44,7 +44,11 @@ export default function Footer({ compactOnMobile = false }: FooterProps) {
         </div>
       </div>
       <div className={styles.bottom}>
-        <span className={styles.copyright}>© {new Date().getFullYear()} World Wide Wine</span>
+        <span className={styles.copyrightLine}>
+          <span className={styles.copyright}>© {new Date().getFullYear()} World Wide Wine</span>
+          <span className={styles.copyrightDivider} aria-hidden="true">/</span>
+          <span className={styles.version}>v6.1</span>
+        </span>
         <nav className={styles.compactLinks} aria-label="Footer navigation">
           <Link href="/about" className={styles.footerLink}>About</Link>
           <Link href="/contact" className={styles.footerLink}>Contact</Link>

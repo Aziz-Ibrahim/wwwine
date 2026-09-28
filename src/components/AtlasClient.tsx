@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import type { WineRegion, WineCountry, CompareItem, AppView } from '@/types'
 import type { SearchResult } from '@/lib/search'
 import { resolveRegions } from '@/lib/search'
@@ -30,11 +30,25 @@ interface Props {
 export default function AtlasClient({ regions, countries, allAppellations, initialView = 'map' }: Props) {
   const [view,  setView]  = useState<AppView>(initialView)
   const [panel, setPanel] = useState<PanelState>({ kind: 'empty' })
+  const [introVisible, setIntroVisible] = useState(initialView === 'map')
+  const [introClosing, setIntroClosing] = useState(false)
+  const mapLayoutRef = useRef<HTMLDivElement>(null)
 
   const panelOpen = panel.kind !== 'empty'
   const selectedRegionId = panel.kind === 'region' ? panel.region.id : null
 
+  useEffect(() => {
+    const mapLayout = mapLayoutRef.current
+    if (!mapLayout) return
+
+    if (introVisible) mapLayout.setAttribute('inert', '')
+    else mapLayout.removeAttribute('inert')
+
+    return () => mapLayout.removeAttribute('inert')
+  }, [introVisible])
+
   const handleSearchResult = useCallback((result: SearchResult) => {
+    setIntroVisible(false)
     setView('map')
     const resolved = resolveRegions(result)
     intent.search(result.label, result.type, resolved.length > 0)
@@ -47,17 +61,28 @@ export default function AtlasClient({ regions, countries, allAppellations, initi
 
   const closePanel = useCallback(() => setPanel({ kind: 'empty' }), [])
 
+  const handleViewChange = useCallback((nextView: AppView) => {
+    if (nextView !== 'map') setIntroVisible(false)
+    setView(nextView)
+  }, [])
+
+  const dismissIntro = useCallback(() => setIntroClosing(true), [])
+
   return (
     <div className={styles.root}>
       <Header
         view={view}
-        onViewChange={v => setView(v)}
+        onViewChange={handleViewChange}
         onSearchResult={handleSearchResult}
       />
 
       {view === 'map' && (
         <main className={styles.main}>
-          <div className={`${styles.mapLayout} ${panelOpen ? styles.panelOpen : styles.emptyState}`}>
+          <div
+            ref={mapLayoutRef}
+            className={`${styles.mapLayout} ${panelOpen ? styles.panelOpen : styles.emptyState} ${introVisible && !introClosing ? styles.introCovered : ''}`}
+            aria-hidden={introVisible}
+          >
 
             {/* MAP — hidden when panel open */}
             <div className={styles.mapArea}>
@@ -98,6 +123,32 @@ export default function AtlasClient({ regions, countries, allAppellations, initi
               )}
             </div>
           </div>
+
+          {introVisible && (
+            <section
+              className={`${styles.intro} ${introClosing ? styles.introClosing : ''}`}
+              aria-labelledby="intro-title"
+              onTransitionEnd={event => {
+                if (introClosing && event.propertyName === 'opacity') setIntroVisible(false)
+              }}
+            >
+              <div className={styles.introContent}>
+                <span className={styles.introEyebrow}>An atlas for the curious palate</span>
+                <h1 id="intro-title" className={styles.introTitle}>World Wide Wine</h1>
+                <p className={styles.introCopy}>
+                  Follow the map from storied wine countries to their regions,
+                  appellations, grapes, and notable houses.
+                </p>
+                <button className={styles.introButton} type="button" onClick={dismissIntro}>
+                  <span>Explore atlas</span>
+                  <span className={styles.introButtonIcon} aria-hidden="true">&rarr;</span>
+                </button>
+                <span className={styles.introMeta}>
+                  {countries.length} countries / {allAppellations.length} appellations
+                </span>
+              </div>
+            </section>
+          )}
         </main>
       )}
 
