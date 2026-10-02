@@ -1,5 +1,7 @@
 import type { WineRegion } from '@/types'
 import { allRegions } from '@/lib/data'
+import { wineRegister } from '@/lib/wine-register'
+import { normalizeWineName } from '@/lib/wine-names'
 
 export type SearchResultType = 'appellation' | 'region' | 'country' | 'grape'
 
@@ -10,17 +12,18 @@ export interface SearchResult {
   regionId?: string       // to open the panel
   countryCode?: string    // to fly to country
   query: string           // the original term matched
+  href?: string          // official catalogue entry, where no atlas panel exists
 }
 
 export function search(query: string): SearchResult[] {
-  const q = query.trim().toLowerCase()
+  const q = normalizeWineName(query)
   if (!q || q.length < 2) return []
 
   const results: SearchResult[] = []
   const seen = new Set<string>()
 
   const add = (r: SearchResult) => {
-    const key = `${r.type}:${r.label}`
+    const key = `${r.type}:${r.countryCode}:${r.label}:${r.href || ''}`
     if (!seen.has(key)) { seen.add(key); results.push(r) }
   }
 
@@ -29,17 +32,28 @@ export function search(query: string): SearchResult[] {
   for (const r of allRegions) {
     countries.set(r.countryCode, { name: r.country, code: r.countryCode })
   }
+  for (const r of wineRegister) {
+    countries.set(r.countryCode, { name: r.country, code: r.countryCode })
+  }
 
   // 1. Country matches
   for (const [, c] of countries) {
-    if (c.name.toLowerCase().includes(q)) {
-      add({ type: 'country', label: c.name, sublabel: 'Country', countryCode: c.code, query })
+    if (normalizeWineName(c.name).includes(q) || normalizeWineName(c.code) === q || allRegions.some(r => r.countryCode === c.code && normalizeWineName(r.country).includes(q))) {
+      add({ type: 'country', label: c.name, sublabel: 'Browse regions and appellations', countryCode: c.code, query, href: `/appellations?country=${c.code}` })
+    }
+  }
+
+  // Official catalogue names and aliases also resolve when a tasting guide
+  // or a verified map coordinate is not available yet.
+  for (const r of wineRegister) {
+    if ([r.name, ...r.aliases].some(name => normalizeWineName(name).includes(q))) {
+      add({ type: 'region', label: r.name, sublabel: `${r.designation} · ${r.area ? `${r.area}, ` : ''}${r.country}`, countryCode: r.countryCode, query, href: `/regions/${r.id}` })
     }
   }
 
   // 2. Region matches
   for (const r of allRegions) {
-    if (r.region.toLowerCase().includes(q) || r.country.toLowerCase().includes(q)) {
+    if (normalizeWineName(r.region).includes(q) || normalizeWineName(r.country).includes(q)) {
       add({ type: 'region', label: r.region, sublabel: `${r.country} · ${r.appellations.length} appellations`, regionId: r.id, countryCode: r.countryCode, query })
     }
   }
@@ -47,7 +61,7 @@ export function search(query: string): SearchResult[] {
   // 3. Appellation matches
   for (const r of allRegions) {
     for (const a of r.appellations) {
-      if (a.name.toLowerCase().includes(q) || a.id.includes(q)) {
+      if (normalizeWineName(a.name).includes(q) || a.id.includes(q)) {
         add({ type: 'appellation', label: a.name, sublabel: `${a.type} · ${r.region}, ${r.country}`, regionId: r.id, countryCode: r.countryCode, query })
       }
     }
@@ -57,7 +71,7 @@ export function search(query: string): SearchResult[] {
   for (const r of allRegions) {
     for (const a of r.appellations) {
       for (const grape of a.grapes) {
-        if (grape.toLowerCase().includes(q)) {
+        if (normalizeWineName(grape).includes(q)) {
           add({ type: 'grape', label: grape, sublabel: `Grape · found in ${a.name}, ${r.country}`, regionId: r.id, countryCode: r.countryCode, query })
         }
       }
@@ -67,8 +81,8 @@ export function search(query: string): SearchResult[] {
   // Sort: exact matches first, then by type priority
   const typePriority: Record<SearchResultType, number> = { country: 0, region: 1, appellation: 2, grape: 3 }
   results.sort((a, b) => {
-    const aExact = a.label.toLowerCase() === q ? -1 : 0
-    const bExact = b.label.toLowerCase() === q ? -1 : 0
+    const aExact = normalizeWineName(a.label) === q ? -1 : 0
+    const bExact = normalizeWineName(b.label) === q ? -1 : 0
     if (aExact !== bExact) return aExact - bExact
     return typePriority[a.type] - typePriority[b.type]
   })

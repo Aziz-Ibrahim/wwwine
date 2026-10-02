@@ -1,0 +1,21 @@
+{
+  "eambrosia.json": "https://webgate.ec.europa.eu/eambrosia-api/api/v1/geographical-indications",
+  "au.html": "https://www.wineaustralia.com/labelling/register-of-protected-gis-and-other-terms/geographical-indications",
+  "us.html": "https://www.ttb.gov/regulated-commodities/beverage-alcohol/wine/established-avas",
+  "nz-local.html": "https://www.iponz.govt.nz/get-ip/geographical-indications/register/?location=nz&sort=north-to-south",
+  "ge.html": "https://www.sakpatenti.gov.ge/en/state_registry/",
+  "cl.html": "https://normativa.sag.gob.cl/Publico/Normas/DetalleNorma.aspx?id=13601",
+  "ar.pdf": "https://www.argentina.gob.ar/sites/default/files/2022/04/i.g._y_d.o.c._de_la_republica_argentina.pdf",
+  "za.pdf": "https://www.sawis.co.za/cert/download/Production_areas_-_Eng_%26_Afr_-_Feb26.pdf",
+  "jp.html": "https://www.nta.go.jp/english/taxes/liquor_administration/geographical/02.htm",
+  "ca-bc.html": "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/168_2018/",
+  "ca-on.html": "https://vqaontario.ca/find-a-vqa-wine/",
+  "ca-qc.html": "https://cartv.gouv.qc.ca/appellations-et-termes-valorisants/appellations-reconnues/repertoire/",
+  "ch.pdf": "https://www.blw.admin.ch/dam/de/sd-web/bQQd5jj01Ivw/AOC_KUB-AOC_DOC_1er%20janvier%202026.pdf",
+  "br-ip.pdf": "https://www.gov.br/inpi/pt-br/servicos/indicacoes-geograficas/arquivos/status-pedidos/LISTADASINDICAESDEPROCEDNCIARECONHECIDAS.At29Setembro2026.pdf",
+  "br-do.pdf": "https://www.gov.br/inpi/pt-br/servicos/indicacoes-geograficas/arquivos/status-pedidos/LISTACOMASDENOMINAESDEORIGEMRECONHECIDAS.At23Junho2026.pdf",
+  "in.html": "https://search.ipindia.gov.in/GIRPublicSearch/Application/Details/123",
+  "me.pdf": "https://data.consilium.europa.eu/doc/document/AD-22-2025-INIT/en/pdf",
+  "au-regions.geojson": "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer/1/query?where=1%3D1&outFields=*&returnGeometry=true&outSR=4326&maxAllowableOffset=0.01&f=geojson",
+  "au-gippsland.geojson": "https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer/2/query?where=GI_NAME%3D%27Gippsland%27&outFields=*&returnGeometry=true&outSR=4326&maxAllowableOffset=0.01&f=geojson"
+}

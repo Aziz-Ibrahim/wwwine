@@ -1,6 +1,11 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useMemo } from 'react'
+import Link from 'next/link'
+import type { Route } from 'next'
+import { useRouter } from 'next/navigation'
+import { wineRegister, type RegisteredWineRegion } from '@/lib/wine-register'
+import { normalizeWineName } from '@/lib/wine-names'
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps'
 import type { WineRegion, WineCountry } from '@/types'
 import styles from './WorldMap.module.css'
@@ -46,16 +51,28 @@ interface Props {
 }
 
 export default function WorldMap({ regions, countries, selectedRegionId, onSelectRegion }: Props) {
+  const router = useRouter()
   const [level, setLevel]                   = useState<'world' | 'country'>('world')
   const [activeCountry, setActiveCountry]   = useState<WineCountry | null>(null)
   const [zoom, setZoom]                     = useState(1)
   const [center, setCenter]                 = useState<[number, number]>([10, 15])
   const [hoveredCountry, setHoveredCountry] = useState<WineCountry | null>(null)
   const [hoveredRegion, setHoveredRegion]   = useState<WineRegion | null>(null)
+  const [hoveredRegistered, setHoveredRegistered] = useState<RegisteredWineRegion | null>(null)
+
+  const mappedCountries = useMemo(() => countries.map(country => {
+    const existing = regions.filter(r => r.countryCode === country.code)
+    const additional = wineRegister.filter(r => r.countryCode === country.code && r.coordinates && !existing.some(e => normalizeWineName(e.region) === normalizeWineName(r.name)))
+    return { ...country, regionCount: existing.length + additional.length }
+  }), [countries, regions])
 
   const countryRegions = activeCountry
     ? regions.filter(r => r.countryCode === activeCountry.code)
     : []
+  const registeredMapRegions = activeCountry ? wineRegister.filter(r =>
+    r.countryCode === activeCountry.code && r.coordinates &&
+    !countryRegions.some(existing => normalizeWineName(existing.region) === normalizeWineName(r.name))
+  ) : []
 
   const worldPinR  = 5
   const regionPinR = (sel: boolean) => sel ? 6 : 4.5
@@ -78,6 +95,7 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
     setCenter([10, 15])
     setHoveredCountry(null)
     setHoveredRegion(null)
+    setHoveredRegistered(null)
   }, [])
 
   const panMap = useCallback((lngDirection: number, latDirection: number) => {
@@ -112,12 +130,12 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
         <div className={styles.hint}>
           {level === 'world'
             ? 'Tap a country pin to explore'
-            : 'Tap a region — appellations appear in the panel'}
+            : 'Tap a region to explore its wines or official record'}
         </div>
       </div>
 
       {/* ── HTML TOOLTIP — shown on hover/tap, never in SVG ── */}
-      {(tooltipCountry || tooltipRegion) && (
+      {(tooltipCountry || tooltipRegion || hoveredRegistered) && (
         <div className={styles.tooltip}>
           {tooltipCountry && (
             <>
@@ -135,6 +153,10 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
               </span>
             </>
           )}
+          {hoveredRegistered && <>
+            <span className={styles.tooltipName}>{hoveredRegistered.name}</span>
+            <span className={styles.tooltipMeta}>{hoveredRegistered.designation} · tap to explore</span>
+          </>}
         </div>
       )}
 
@@ -174,7 +196,7 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
           </Geographies>
 
           {/* WORLD: country pins */}
-          {level === 'world' && countries.map(c => {
+          {level === 'world' && mappedCountries.map(c => {
             const h = hoveredCountry?.code === c.code
             const r = worldPinR
             return (
@@ -231,6 +253,20 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
           })}
 
           {/* COUNTRY: region pins */}
+          {level === 'country' && registeredMapRegions.map(region => (
+            <Marker key={region.id} coordinates={[region.coordinates!.lng, region.coordinates!.lat]}>
+              <g transform={`scale(${1 / zoom})`} role="link" tabIndex={0} aria-label={`${region.name} — official wine region`} style={{ cursor: 'pointer' }}
+                onClick={() => router.push(`/regions/${region.id}` as Route)}
+                onMouseEnter={() => { setHoveredCountry(null); setHoveredRegion(null); setHoveredRegistered(region) }}
+                onMouseLeave={() => setHoveredRegistered(null)}
+                onFocus={() => { setHoveredCountry(null); setHoveredRegion(null); setHoveredRegistered(region) }}
+                onBlur={() => setHoveredRegistered(null)}
+                onKeyDown={event => { if (event.key === 'Enter') router.push(`/regions/${region.id}` as Route) }}>
+                <title>{region.name}</title>
+                <circle r={5} fill={activeCountry?.color || '#8B2020'} stroke="#F5E6C8" strokeWidth={0.8} />
+              </g>
+            </Marker>
+          ))}
           {level === 'country' && countryRegions.map(reg => {
             const h   = hoveredRegion?.id === reg.id
             const sel = selectedRegionId === reg.id
@@ -284,8 +320,11 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
 
       {/* ── FOOTER ── */}
       <div className={styles.footer}>
-        {level === 'world' && `${countries.length} countries · ${regions.reduce((a, r) => a + r.appellations.length, 0)} appellations`}
-        {level === 'country' && activeCountry && `${countryRegions.length} regions in ${activeCountry.name}`}
+        {level === 'world' && <>{countries.length} mapped countries{' · '}<Link href="/appellations">Browse all regions & appellations</Link></>}
+        {level === 'country' && activeCountry && <>
+          {countryRegions.length + registeredMapRegions.length} mapped regions in {activeCountry.name}{' · '}
+          <Link href={`/appellations?country=${activeCountry.code}`}>Browse all regions</Link>
+        </>}
       </div>
 
       {/* ── MAP CONTROLS ── */}

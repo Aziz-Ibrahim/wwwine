@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { getAllAppellationDetails } from '@/lib/data'
+import { wineRegister } from '@/lib/wine-register'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://wwwine.co.uk'
@@ -19,5 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/privacy`,            lastModified: new Date(), changeFrequency: 'yearly',  priority: 0.3 },
     { url: `${baseUrl}/terms`,              lastModified: new Date(), changeFrequency: 'yearly',  priority: 0.3 },
     ...appellationRoutes,
+    ...wineRegister.map(region => ({ url: `${baseUrl}/regions/${region.id}`, changeFrequency: 'monthly' as const, priority: 0.6 })),
   ]
 }

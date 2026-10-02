@@ -1,9 +1,12 @@
 'use client'
 
 import { useState, useCallback, useEffect, useRef } from 'react'
+import { useRouter } from 'next/navigation'
+import type { Route } from 'next'
 import type { WineRegion, WineCountry, CompareItem, AppView } from '@/types'
 import type { SearchResult } from '@/lib/search'
 import { resolveRegions } from '@/lib/search'
+import { wineRegister, wineRegisterCountryCount } from '@/lib/wine-register'
 import WorldMap from '@/components/WorldMap'
 import AppellationPanel from '@/components/AppellationPanel'
 import SearchResultPanel from '@/components/SearchResultPanel'
@@ -28,6 +31,7 @@ interface Props {
 }
 
 export default function AtlasClient({ regions, countries, allAppellations, initialView = 'map' }: Props) {
+  const router = useRouter()
   const [view,  setView]  = useState<AppView>(initialView)
   const [panel, setPanel] = useState<PanelState>({ kind: 'empty' })
   const [introVisible, setIntroVisible] = useState(initialView === 'map')
@@ -48,6 +52,10 @@ export default function AtlasClient({ regions, countries, allAppellations, initi
   }, [introVisible])
 
   const handleSearchResult = useCallback((result: SearchResult) => {
+    if (result.href) {
+      router.push(result.href as Route)
+      return
+    }
     setIntroVisible(false)
     setView('map')
     const resolved = resolveRegions(result)
@@ -57,7 +65,7 @@ export default function AtlasClient({ regions, countries, allAppellations, initi
     } else {
       setPanel({ kind: 'searchResult', result, regions: resolved })
     }
-  }, [])
+  }, [router])
 
   const closePanel = useCallback(() => setPanel({ kind: 'empty' }), [])
 
@@ -117,7 +125,7 @@ export default function AtlasClient({ regions, countries, allAppellations, initi
                     <div className={styles.step}><span className={styles.stepNum}>3</span><span className={styles.stepText}>Select an <strong>appellation</strong> from the list</span></div>
                   </div>
                   <div className={styles.emptyDivider} />
-                  <span className={styles.emptyCount}>{allAppellations.length} appellations · {countries.length} countries</span>
+                  <span className={styles.emptyCount}>{wineRegister.length.toLocaleString('en')} registered designations · {wineRegisterCountryCount} countries</span>
                   <span className={styles.emptySearchHint}>Or use the 🔍 search in the top bar</span>
                 </div>
               )}
@@ -144,7 +152,7 @@ export default function AtlasClient({ regions, countries, allAppellations, initi
                   <span className={styles.introButtonIcon} aria-hidden="true">&rarr;</span>
                 </button>
                 <span className={styles.introMeta}>
-                  {countries.length} countries / {allAppellations.length} appellations
+                  {wineRegister.length.toLocaleString('en')} registered designations / {wineRegisterCountryCount} countries
                 </span>
               </div>
             </section>

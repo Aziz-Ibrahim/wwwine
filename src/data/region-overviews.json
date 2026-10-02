@@ -1,0 +1,22 @@
+{
+  "au-yarra-valley": {
+    "description": "East of Melbourne, the Yarra Valley is a cool-climate region known for Chardonnay and Pinot Noir, alongside Cabernet Sauvignon and Shiraz. Valley-floor sites and the higher Upper Yarra offer different growing conditions, with both grey soils and red volcanic soils. Its first vineyards were planted in 1838.",
+    "grapes": ["Chardonnay", "Pinot Noir", "Cabernet Sauvignon", "Shiraz"],
+    "source": "https://www.soilquality.org.au/au/grapeandwine/yarra-valley"
+  },
+  "au-coonawarra": {
+    "description": "Coonawarra lies in South Australia's Limestone Coast. Its red terra rossa soils and long association with Cabernet Sauvignon define its reputation, while Shiraz is another established variety. John Riddoch's major vineyard plantings in 1891 helped establish the region's commercial wine industry.",
+    "grapes": ["Cabernet Sauvignon", "Shiraz"],
+    "source": "https://www.zema.com.au/Our-Story/Our-Estate"
+  },
+  "au-clare-valley": {
+    "description": "In South Australia's Mount Lofty Ranges, Clare Valley is particularly associated with Riesling. Shiraz and Cabernet Sauvignon are also important regional styles. Its producers helped establish the use of screwcap closures for premium Australian Riesling.",
+    "grapes": ["Riesling", "Shiraz", "Cabernet Sauvignon"],
+    "source": "https://www.australianwine.com/australian-wine-discovered/regions/clare-valley"
+  },
+  "au-margaret-river": {
+    "description": "Margaret River is a coastal wine region in Western Australia's south-west. Cabernet Sauvignon, Chardonnay and Semillon–Sauvignon Blanc blends are its signature styles. Modern commercial planting began at Vasse Felix in 1967, following research into the area's suitability for viticulture.",
+    "grapes": ["Cabernet Sauvignon", "Chardonnay", "Semillon", "Sauvignon Blanc"],
+    "source": "https://margaretriver.wine/the-margaret-river-wine-story/"
+  }
+}

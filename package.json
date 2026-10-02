@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "data:validate": "node scripts/validate-wine-register.cjs",
+    "data:import": "node scripts/import-wine-registers.cjs"
   },
   "dependencies": {
     "next": "14.2.0",
