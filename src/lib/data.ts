@@ -1,12 +1,10 @@
-import type { WineRegion, WineCountry, CompareItem, Deity } from '@/types'
+import type { Appellation, WineRegion, WineCountry, CompareItem, Deity } from '@/types'
 import regionsData from '@/data/regions.json'
 import regionalProfiles from '@/data/regional-wine-profiles.json'
 import registerData from '@/data/wine-register.json'
 import regionOverviews from '@/data/region-overviews.json'
 
 // Editorial profiles extend the atlas without overwriting existing wine guides.
-// These profiles use verified regional coordinates; registration years are not
-// substituted for winemaking history.
 const expandedRegions = (regionsData as unknown as WineRegion[]).map(region => ({ ...region, appellations: [...region.appellations] }))
 for (const [registerId, profile] of Object.entries(regionalProfiles)) {
   const record = registerData.records.find(region => region.id === registerId)
@@ -64,10 +62,6 @@ export function buildCountries(): WineCountry[] {
   return Array.from(map.values())
 }
 
-export function getRegionsByCountry(code: string): WineRegion[] {
-  return allRegions.filter(r => r.countryCode === code)
-}
-
 export function getSommelierNote(a: CompareItem, b: CompareItem): string {
   const tpA = a.tastingProfile, tpB = b.tastingProfile
   const bolder = tpA.body >= tpB.body ? a : b
@@ -85,8 +79,6 @@ export function getSommelierNote(a: CompareItem, b: CompareItem): string {
 
 // ── SEO static pages ─────────────────────────────────────────────
 
-import type { Appellation } from '@/types'
-
 export interface AppellationWithRegion extends Appellation {
   regionId:          string
   regionName:        string
@@ -101,19 +93,23 @@ export interface AppellationWithRegion extends Appellation {
 
 export function getAllAppellationDetails(): AppellationWithRegion[] {
   return allRegions.flatMap(region =>
-    region.appellations.map(app => ({
-      ...app,
-      regionId:          region.id,
-      regionName:        region.region,
-      country:           region.country,
-      countryCode:       region.countryCode,
-      continent:         region.continent,
-      regionColor:       region.color,
-      regionDescription: region.description,
-      regionVintage:     region.vintage ?? '',
-      regionMythology:   region.mythology ?? [],
-    }))
+    region.appellations.map(app => withAppellationRegion(app, region))
   )
+}
+
+export function withAppellationRegion(app: Appellation, region: WineRegion): AppellationWithRegion {
+  return {
+    ...app,
+    regionId:          region.id,
+    regionName:        region.region,
+    country:           region.country,
+    countryCode:       region.countryCode,
+    continent:         region.continent,
+    regionColor:       region.color,
+    regionDescription: region.description,
+    regionVintage:     region.vintage ?? '',
+    regionMythology:   region.mythology ?? [],
+  }
 }
 
 export function getAppellationById(id: string): AppellationWithRegion | undefined {

@@ -60,7 +60,7 @@ export default function AppellationPage({ params }: Props) {
     <main className={styles.page}>
       <LegalHeader />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFor(app)) }} />
-      <AppellationGuide app={app} related={related} backLabel={catalogueRegion ? `Back to ${catalogueRegion.name}` : 'Back to appellations'} backHref={(catalogueRegion ? `/regions/${catalogueRegion.id}` : '/appellations') as Route} regionWines={catalogueRegion ? { name: catalogueRegion.name, wines: getRegisteredRegionGuides(catalogueRegion) } : undefined} />
+      <AppellationGuide app={app} related={related} backLabel={catalogueRegion ? `Back to ${catalogueRegion.name}` : `Back to ${app.country} appellations`} backHref={(catalogueRegion ? `/regions/${catalogueRegion.id}` : `/appellations?country=${app.countryCode}`) as Route} regionWines={catalogueRegion ? { name: catalogueRegion.name, wines: getRegisteredRegionGuides(catalogueRegion) } : undefined} />
       <Footer />
     </main>
   )

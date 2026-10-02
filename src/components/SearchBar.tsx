@@ -100,7 +100,7 @@ export default function SearchBar({ onResult }: Props) {
               {results.length === 0 ? (
                 <div className={styles.noResults}>
                   <span className={styles.noResultsIcon}>🔍</span>
-                  <span className={styles.noResultsText}>No results for <em>"{query}"</em></span>
+                  <span className={styles.noResultsText}>No results for <em>&quot;{query}&quot;</em></span>
                   <span className={styles.noResultsSub}>Try a country, region, appellation or grape variety</span>
                 </div>
               ) : (

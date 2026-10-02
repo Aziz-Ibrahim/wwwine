@@ -72,7 +72,7 @@ export default function FoodPairing({ appellations }: Props) {
       <div className={styles.hero}>
         <div className={styles.heroIcon}>🍽️</div>
         <h1 className={styles.heroTitle}>Food & Wine Pairing</h1>
-        <p className={styles.heroSub}>Type an ingredient or dish — we'll find the wines that belong at your table</p>
+        <p className={styles.heroSub}>Type an ingredient or dish — we&apos;ll find the wines that belong at your table</p>
 
         <div className={styles.searchWrap}>
           <input
@@ -108,8 +108,8 @@ export default function FoodPairing({ appellations }: Props) {
           {results.length === 0 ? (
             <div className={styles.empty}>
               <span className={styles.emptyIcon}>🔍</span>
-              <p className={styles.emptyTitle}>No direct matches for <em>"{submitted}"</em></p>
-              <p className={styles.emptySub}>Try a simpler term — "lamb", "fish", "cheese" — or one of the suggestions above</p>
+              <p className={styles.emptyTitle}>No direct matches for <em>&quot;{submitted}&quot;</em></p>
+              <p className={styles.emptySub}>Try a simpler term — &quot;lamb&quot;, &quot;fish&quot;, &quot;cheese&quot; — or one of the suggestions above</p>
             </div>
           ) : (
             <>

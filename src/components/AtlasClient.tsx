@@ -20,7 +20,7 @@ import styles from './AtlasClient.module.css'
 
 type PanelState =
   | { kind: 'empty' }
-  | { kind: 'region';       region: WineRegion }
+  | { kind: 'region';       region: WineRegion; appellationId?: string }
   | { kind: 'searchResult'; result: SearchResult; regions: WineRegion[] }
 
 interface Props {
@@ -62,7 +62,7 @@ export default function AtlasClient({ regions, countries, allAppellations, initi
     const resolved = resolveRegions(result)
     intent.search(result.label, result.type, resolved.length > 0)
     if (resolved.length === 1 && result.type !== 'country') {
-      setPanel({ kind: 'region', region: resolved[0] })
+      setPanel({ kind: 'region', region: resolved[0], appellationId: result.appellationId })
     } else {
       setPanel({ kind: 'searchResult', result, regions: resolved })
     }
@@ -93,7 +93,6 @@ export default function AtlasClient({ regions, countries, allAppellations, initi
             aria-hidden={introVisible}
           >
 
-            {/* MAP — hidden when panel open */}
             <div className={styles.mapArea}>
               <WorldMap
                 regions={regions}
@@ -106,7 +105,7 @@ export default function AtlasClient({ regions, countries, allAppellations, initi
             {/* PANEL */}
             <div className={styles.panelArea}>
               {panel.kind === 'region' && (
-                <AppellationPanel key={panel.region.id} region={panel.region} onClose={closePanel} />
+                <AppellationPanel key={`${panel.region.id}:${panel.appellationId ?? ''}`} region={panel.region} initialAppellationId={panel.appellationId} onClose={closePanel} />
               )}
               {panel.kind === 'searchResult' && (
                 <SearchResultPanel

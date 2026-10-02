@@ -2,28 +2,14 @@
 
 import { useState } from 'react'
 import AppellationGuide from '@/components/AppellationGuide'
-import type { AppellationWithRegion } from '@/lib/data'
+import { withAppellationRegion } from '@/lib/data'
 import type { Appellation, WineRegion } from '@/types'
 import styles from './AppellationPanel.module.css'
 
 interface Props {
   region: WineRegion
+  initialAppellationId?: string
   onClose: () => void
-}
-
-function withRegion(app: Appellation, region: WineRegion): AppellationWithRegion {
-  return {
-    ...app,
-    regionId: region.id,
-    regionName: region.region,
-    country: region.country,
-    countryCode: region.countryCode,
-    continent: region.continent,
-    regionColor: region.color,
-    regionDescription: region.description,
-    regionVintage: region.vintage,
-    regionMythology: region.mythology ?? [],
-  }
 }
 
 function AppDetail({ app, region, onBack, onSelect }: {
@@ -32,11 +18,11 @@ function AppDetail({ app, region, onBack, onSelect }: {
   onBack: () => void
   onSelect: (app: Appellation) => void
 }) {
-  const detail = withRegion(app, region)
+  const detail = withAppellationRegion(app, region)
   const related = region.appellations
     .filter(item => item.id !== app.id)
     .slice(0, 5)
-    .map(item => withRegion(item, region))
+    .map(item => withAppellationRegion(item, region))
 
   return (
     <AppellationGuide
@@ -44,16 +30,14 @@ function AppDetail({ app, region, onBack, onSelect }: {
       related={related}
       backLabel={`Back to ${region.region}`}
       onBack={onBack}
-      onSelectRelated={item => onSelect(item)}
+      onSelectRelated={onSelect}
       embedded
     />
   )
 }
 
-export default function AppellationPanel({ region, onClose }: Props) {
-  const [selectedApp, setSelectedApp] = useState<Appellation | null>(null)
-
-
+export default function AppellationPanel({ region, initialAppellationId, onClose }: Props) {
+  const [selectedApp, setSelectedApp] = useState<Appellation | null>(() => region.appellations.find(app => app.id === initialAppellationId) ?? null)
   if (selectedApp) {
     return <AppDetail app={selectedApp} region={region} onBack={() => setSelectedApp(null)} onSelect={setSelectedApp} />
   }
@@ -78,7 +62,6 @@ export default function AppellationPanel({ region, onClose }: Props) {
               key={app.id}
               className={styles.appRow}
               onClick={() => setSelectedApp(app)}
-              style={{ '--accent': app.color ?? region.color } as React.CSSProperties}
             >
               <div className={styles.appDot} style={{ background: app.color ?? region.color }} />
               <div className={styles.appRowContent}>

@@ -90,7 +90,7 @@ export default function CompareEngine({ wines }: Props) {
 
         {note && (
           <div className={styles.sommelierBlock}>
-            <div className={styles.sommelierTitle}>✦ Sommelier's Note</div>
+            <div className={styles.sommelierTitle}>✦ Sommelier&apos;s Note</div>
             <p className={styles.sommelierText}>{note}</p>
           </div>
         )}

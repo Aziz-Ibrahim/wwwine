@@ -37,22 +37,6 @@
 .pageLink:hover { color:var(--text-primary); }
 .pageLink.active { color:var(--accent); background:var(--accent-dim); }
 
-.atlasLink {
-  min-height: 34px;
-  display: inline-flex;
-  align-items: center;
-  padding: 0 14px;
-  border-radius: var(--radius);
-  background: var(--wine-dim);
-  color: var(--wine-bright);
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-}
-.atlasLink:hover { background:var(--bg-surface2); color:var(--text-primary); }
-
 .themeBtn {
   width:34px; height:34px;
   background:var(--bg-surface2); border:1px solid var(--border);

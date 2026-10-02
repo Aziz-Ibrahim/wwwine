@@ -81,11 +81,11 @@ export default function SearchResultPanel({ result, regions, onSelectRegion, onC
             <span className={styles.emptyIcon}>🗺️</span>
             <h3 className={styles.emptyTitle}>No regions charted yet</h3>
             <p className={styles.emptyText}>
-              We don't currently have wine region data for <strong>{result.label}</strong> in our atlas.
+              We don&apos;t currently have wine region data for <strong>{result.label}</strong> in our atlas.
             </p>
             <p className={styles.emptyNote}>
-              Our atlas is growing every day. If you'd like to see{' '}
-              <strong>{result.label}</strong> added, we'd love to hear from you.
+              Our atlas is growing every day. If you&apos;d like to see{' '}
+              <strong>{result.label}</strong> added, we&apos;d love to hear from you.
             </p>
             <div className={styles.expandingBadge}>🌱 Expanding daily</div>
           </div>
@@ -114,7 +114,7 @@ export default function SearchResultPanel({ result, regions, onSelectRegion, onC
           <span className={styles.emptyIcon}>🍷</span>
           <h3 className={styles.emptyTitle}>Not in our atlas yet</h3>
           <p className={styles.emptyText}>
-            We're expanding our data every day, but at the moment we don't have
+            We&apos;re expanding our data every day, but at the moment we don&apos;t have
             information about <strong>
               {result.type === 'grape' ? `${result.label} wines` : result.label}
             </strong> in our atlas.

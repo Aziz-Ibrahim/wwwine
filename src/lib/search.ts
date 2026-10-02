@@ -10,6 +10,7 @@ export interface SearchResult {
   label: string           // what to display in the dropdown
   sublabel: string        // secondary info
   regionId?: string       // to open the panel
+  appellationId?: string  // to open a matched wine guide
   countryCode?: string    // to fly to country
   query: string           // the original term matched
   href?: string          // destination for a published catalogue entry
@@ -61,7 +62,7 @@ export function search(query: string): SearchResult[] {
   for (const r of allRegions) {
     for (const a of r.appellations) {
       if (normalizeWineName(a.name).includes(q) || a.id.includes(q)) {
-        add({ type: 'appellation', label: a.name, sublabel: `${a.type} · ${r.region}, ${r.country}`, regionId: r.id, countryCode: r.countryCode, query })
+        add({ type: 'appellation', label: a.name, sublabel: `${a.type} · ${r.region}, ${r.country}`, regionId: r.id, appellationId: a.id, countryCode: r.countryCode, query })
       }
     }
   }

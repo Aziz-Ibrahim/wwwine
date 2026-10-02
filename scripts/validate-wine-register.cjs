@@ -62,6 +62,7 @@ assert.equal(new Set(entries.map(e => e.id)).size, entries.length)
 for (const entry of entries) {
   assert(entry.hasGuide, `Placeholder catalogue entry: ${entry.id}`)
   if (entry.href.startsWith('/regions/')) assert(wineRegister.some(region => entry.href === `/regions/${region.id}` && getRegisteredRegionGuides(region).length))
+  else assert(require('../src/lib/data.ts').getAppellationById(entry.href.replace('/appellations/', '')), `Missing detail destination: ${entry.id}`)
 }
 for (const [id, destination] of Object.entries(consolidatedRegions)) {
   assert(!wineRegister.some(region => region.id === id))
@@ -85,9 +86,13 @@ const profiles = require('../src/data/regional-wine-profiles.json')
 const details = getAllAppellationDetails()
 for (const wine of details) {
   assert(wine.description && wine.grapes.length && wine.foodPairings.length && wine.tastingProfile.fruits.length, `Incomplete guide: ${wine.id}`)
+  assert(wine.servingTemp && wine.agingPotential && wine.tastingProfile.style && wine.tastingProfile.finish, `Incomplete detail content: ${wine.id}`)
+  for (const key of ['body', 'tannins', 'acidity', 'sweetness', 'alcohol']) assert(Number.isInteger(wine.tastingProfile[key]) && wine.tastingProfile[key] >= 1 && wine.tastingProfile[key] <= 5, `Invalid ${key}: ${wine.id}`)
   assert(fs.existsSync(path.join('public', wine.image.replace(/^\//, ''))), `Missing image: ${wine.id}`)
   assert(entries.some(entry => entry.href === `/appellations/${wine.id}` || wineRegister.some(region => entry.id === region.id && getRegisteredRegionGuides(region).some(guide => guide.id === wine.id))), `Unreachable guide: ${wine.id}`)
 }
+const sancerre = search('Sancerre').find(result => result.type === 'appellation')
+assert.equal(sancerre?.appellationId, 'sancerre', 'Appellation search must select the matched guide')
 assert.equal(new Set(details.map(wine => wine.id)).size, details.length, 'Duplicate wine guide IDs')
 for (const [regionId, profile] of Object.entries(profiles)) {
   const record = records.find(region => region.id === regionId)

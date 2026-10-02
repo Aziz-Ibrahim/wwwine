@@ -21,6 +21,7 @@ export default function RegionPage({ params }: { params: { id: string } }) {
   if (consolidatedRegions[params.id]) permanentRedirect(`/regions/${consolidatedRegions[params.id]}`)
   if (!region) notFound()
   const guides = getRegisteredRegionGuides(region)
+  if (!guides.length) notFound()
   return <main className={styles.page}>
     <LegalHeader />
     <AppellationGuide app={guides[0]} related={guides.slice(1)} backLabel={`Back to ${region.country} appellations`} backHref={`/appellations?country=${region.countryCode}`} regionWines={{ name: region.name, wines: guides }} />
