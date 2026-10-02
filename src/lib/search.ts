@@ -12,7 +12,7 @@ export interface SearchResult {
   regionId?: string       // to open the panel
   countryCode?: string    // to fly to country
   query: string           // the original term matched
-  href?: string          // official catalogue entry, where no atlas panel exists
+  href?: string          // destination for a published catalogue entry
 }
 
 export function search(query: string): SearchResult[] {
@@ -43,8 +43,7 @@ export function search(query: string): SearchResult[] {
     }
   }
 
-  // Official catalogue names and aliases also resolve when a tasting guide
-  // or a verified map coordinate is not available yet.
+  // Published catalogue names and consolidated aliases resolve to wine guides.
   for (const r of wineRegister) {
     if ([r.name, ...r.aliases].some(name => normalizeWineName(name).includes(q))) {
       add({ type: 'region', label: r.name, sublabel: `${r.designation} · ${r.area ? `${r.area}, ` : ''}${r.country}`, countryCode: r.countryCode, query, href: `/regions/${r.id}` })

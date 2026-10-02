@@ -11,6 +11,11 @@
 
 .guideHero { display:grid; grid-template-columns:minmax(0,1fr) minmax(240px,320px); gap:42px; align-items:center; margin-bottom:40px; }
 .guideHeroCopy { min-width:0; }
+.regionWines { margin:0 0 32px; padding-bottom:24px; border-bottom:1px solid var(--border); }
+.regionWines h2 { margin-bottom:14px; color:var(--gold); font-family:var(--font-display); font-size:12px; letter-spacing:1px; text-transform:uppercase; }
+.wineChoice { padding:9px 12px; border:1px solid var(--border); color:var(--text-secondary); background:var(--bg-surface); font-family:var(--font-serif); font-size:16px; text-decoration:none; }
+.wineChoice:hover, .wineChoiceSelected { border-color:var(--gold); color:var(--gold-bright); background:var(--gold-dim); }
+.wineChoice:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
 .wineImageWrap { width:100%; margin:0; border:1px solid var(--border); background:#fff; }
 .wineImageCanvas { position:relative; width:100%; aspect-ratio:1; }
 .wineImage { object-fit:cover; }
@@ -31,8 +36,6 @@
 .affiliateSlotWide .affiliateCanvas { min-height:112px; }
 
 .pill { display:inline-flex; align-items:center; min-height:28px; padding:5px 10px; border:1px solid var(--border-gold); background:var(--gold-dim); color:var(--gold-bright); font-family:var(--font-display); font-size:10px; letter-spacing:1.4px; text-transform:uppercase; }
-
-/* ── Detail page ───────────────────────────── */
 .contentGrid { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(280px,0.8fr); gap:46px; align-items:start; }
 
 .section { padding:28px 0; border-top:1px solid var(--border); }
@@ -78,9 +81,6 @@
 .patronHead span:last-child { color:var(--gold); font-family:var(--font-sans); font-size:9px; letter-spacing:1.2px; text-transform:uppercase; }
 .patronRole { margin-top:4px; color:var(--text-secondary); font-family:var(--font-sans); font-size:12px; line-height:1.5; }
 .patronNote { margin-top:5px; color:var(--text-muted); font-family:var(--font-serif); font-size:13px; font-style:italic; line-height:1.5; }
-
-/* ── Index page grid ───────────────────────── */
-.listGrid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px; }
 .browseFilters { display:flex; gap:20px; margin:24px 0 12px; }
 .browseFilters label { display:flex; flex-direction:column; gap:8px; flex:1; min-width:0; font-family:var(--font-display); font-size:12px; color:var(--text-secondary); }
 .browseFilters input, .browseFilters select { width:100%; min-height:44px; padding:10px 12px; border:1px solid var(--border); background:var(--bg-surface); color:var(--text-primary); font:14px var(--font-sans); }
@@ -109,24 +109,13 @@
 .letterHeading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--border); }
 .letterHeading h2 { font-family:var(--font-display); font-size:28px; color:var(--gold); scroll-margin-top:124px; }
 
-.listCard { display:grid; grid-template-columns:128px minmax(0,1fr); min-height:164px; border:1px solid var(--border); background:var(--bg-surface); color:inherit; text-decoration:none; transition:border-color 0.15s; overflow:hidden; }
-.listCard:hover { border-color:var(--border-gold); }
-
-.listImageWrap { position:relative; display:block; min-height:100%; background:#fff; border-right:1px solid var(--border); }
-.listImage { object-fit:cover; }
-.listCopy { display:block; min-width:0; padding:18px; }
-
 .listName { display:block; margin-bottom:8px; font-family:var(--font-display); font-size:16px; line-height:1.25; color:var(--text-primary); }
-.listMeta { display:block; margin-bottom:12px; font-family:var(--font-display); font-size:9px; letter-spacing:1.2px; text-transform:uppercase; color:var(--gold); }
-.listDesc { display:block; font-family:var(--font-serif); font-size:15px; line-height:1.45; color:var(--text-secondary); }
 
 @media (max-width: 860px) {
   .registerGrid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .contentGrid, .listGrid { grid-template-columns:1fr; }
+  .contentGrid { grid-template-columns:1fr; }
   .side { order:-1; }
-  .listGrid { grid-template-columns:repeat(2, 1fr); }
   .guideHero { grid-template-columns:minmax(0,1fr) minmax(220px,280px); gap:28px; }
-  .listCard { grid-template-columns:112px minmax(0,1fr); }
 }
 
 @media (max-width: 640px) {
@@ -137,12 +126,8 @@
   .affiliateSlotWide { margin:28px 0 32px; }
   .affiliateSlotWide .affiliateCanvas { min-height:96px; }
   .affiliateCanvas { min-height:220px; }
-  .listGrid { grid-template-columns:1fr; }
   .embedded { width:min(100% - 28px, 1080px); padding:28px 0 48px; }
   .guideHero { grid-template-columns:1fr; gap:22px; margin-bottom:30px; }
   .wineImageWrap { width:min(100%, 360px); }
-  .listCard { grid-template-columns:96px minmax(0,1fr); min-height:132px; }
-  .listCopy { padding:14px; }
-  .listDesc { font-size:14px; }
   .sensoryNote { grid-template-columns:68px minmax(0,1fr); gap:12px; }
 }

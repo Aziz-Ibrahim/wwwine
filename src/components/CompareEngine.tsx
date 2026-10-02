@@ -72,15 +72,15 @@ export default function CompareEngine({ wines }: Props) {
     <div className={styles.root}>
       <div className={styles.inner}>
         <div className={styles.pageHeader}>
-          <h1 className={styles.pageTitle}>Comparison Engine</h1>
-          <p className={styles.pageSubtitle}>Lay appellations side by side. Understand the world in a glass.</p>
+          <h1 className={styles.pageTitle}>Wine Style Comparison</h1>
+          <p className={styles.pageSubtitle}>Compare regional wine styles side by side.</p>
           <div className={styles.goldLine} />
         </div>
 
         <div className={styles.selectors}>
-          <Selector label="Appellation A" value={wineA} onChange={setWineA} />
+          <Selector label="Wine Style A" value={wineA} onChange={setWineA} />
           <div className={styles.vs}>vs</div>
-          <Selector label="Appellation B" value={wineB} onChange={setWineB} />
+          <Selector label="Wine Style B" value={wineB} onChange={setWineB} />
         </div>
 
         <div className={styles.cards}>

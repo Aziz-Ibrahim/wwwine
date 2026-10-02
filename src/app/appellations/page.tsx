@@ -3,12 +3,12 @@ import Link from 'next/link'
 import Footer from '@/components/Footer'
 import LegalHeader from '@/components/LegalHeader'
 import WineRegionBrowser from '@/components/WineRegionBrowser'
-import { getWineBrowseEntries, wineRegister, registerSources } from '@/lib/wine-register'
+import { getWineBrowseEntries } from '@/lib/wine-register'
 import styles from './appellations.module.css'
 
 export const metadata: Metadata = {
   title: 'Wine Regions & Appellations | wwwine',
-  description: 'Browse wine regions and appellations by country or name, with official register sources and selected tasting guides.',
+  description: 'Browse wine regions and appellations by country or name, with wine styles, tasting guides and food pairings.',
   alternates: { canonical: '/appellations' },
   openGraph: {
     title: 'Wine Regions & Appellations | wwwine',
@@ -30,13 +30,12 @@ export default function AppellationsPage({ searchParams }: { searchParams: { cou
         <h1 className={styles.title}>Wine Regions & Appellations</h1>
         <p className={styles.intro}>Explore wine-growing places by country or name. Discover official appellations, regional designations and selected guides to the wines they produce.</p>
         <div className={styles.meta} aria-label="Catalogue summary">
-          <span className={styles.pill}>{wineRegister.length.toLocaleString('en')} registered designations</span>
+          <span className={styles.pill}>{entries.length.toLocaleString('en')} appellations & wine guides</span>
           <span className={styles.pill}>{new Set(entries.map(e => e.countryCode)).size} countries with entries</span>
         </div>
         <details className={styles.coverage}>
-          <summary>Sources and coverage</summary>
-          <p>This catalogue is expanding toward worldwide coverage. It is not yet a complete list of every country’s official regions. Designations can overlap and include regions, subregions and broader areas. A tasting guide describes a representative wine style.</p>
-          <ul>{registerSources.map(source => <li key={source.id}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.name}</a>: {source.recordCount.toLocaleString('en')} entries. {source.scope} Checked {source.checkedAt}.</li>)}</ul>
+          <summary>About the catalogue</summary>
+          <p>The catalogue includes regions and appellations with available wine guides. Shared entries group designations that currently lead to the same wine. Each guide describes a representative style; this is not a complete register of official regions.</p>
         </details>
         <aside className={`${styles.affiliateSlot} ${styles.affiliateSlotWide}`} aria-label="Affiliate banner">
           <span className={styles.affiliateLabel}>Affiliate banner</span>

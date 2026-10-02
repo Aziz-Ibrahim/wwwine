@@ -130,7 +130,7 @@ export default function WorldMap({ regions, countries, selectedRegionId, onSelec
         <div className={styles.hint}>
           {level === 'world'
             ? 'Tap a country pin to explore'
-            : 'Tap a region to explore its wines or official record'}
+            : 'Tap a region to explore its wines'}
         </div>
       </div>
 

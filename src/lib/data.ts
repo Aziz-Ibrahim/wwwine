@@ -1,7 +1,23 @@
 import type { WineRegion, WineCountry, CompareItem, Deity } from '@/types'
 import regionsData from '@/data/regions.json'
+import regionalProfiles from '@/data/regional-wine-profiles.json'
+import registerData from '@/data/wine-register.json'
+import regionOverviews from '@/data/region-overviews.json'
 
-export const allRegions: WineRegion[] = regionsData as unknown as WineRegion[]
+// Editorial profiles extend the atlas without overwriting existing wine guides.
+// These profiles use verified regional coordinates; registration years are not
+// substituted for winemaking history.
+const expandedRegions = (regionsData as unknown as WineRegion[]).map(region => ({ ...region, appellations: [...region.appellations] }))
+for (const [registerId, profile] of Object.entries(regionalProfiles)) {
+  const record = registerData.records.find(region => region.id === registerId)
+  if (!record?.coordinates) throw new Error(`Missing mapped region for wine profiles: ${registerId}`)
+  const overview = regionOverviews[registerId as keyof typeof regionOverviews]
+  const additions = profile.wines.map(wine => ({ ...wine, type: record.designation, coordinates: record.coordinates, climate: profile.climate, soilTypes: profile.soilTypes, registeredRegionIds: [registerId] })) as WineRegion['appellations']
+  const existing = expandedRegions.find(region => region.id === profile.regionId)
+  if (existing) existing.appellations.push(...additions.filter(wine => !existing.appellations.some(current => current.id === wine.id)))
+  else expandedRegions.push({ id: profile.regionId, region: record.name, country: record.country, countryCode: record.countryCode, continent: 'Oceania', coordinates: record.coordinates, countryCoordinates: { lat: -25, lng: 133 }, color: additions[0].color || '#7B1E24', vintage: profile.history, description: overview.description, mythology: [], appellations: additions })
+}
+export const allRegions: WineRegion[] = expandedRegions
 
 // Build flat list of all appellations for compare engine
 export function getAllAppellations(): CompareItem[] {

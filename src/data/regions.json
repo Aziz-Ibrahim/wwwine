@@ -4868,6 +4868,144 @@
     ]
   },
   {
+    "id": "coonawarra",
+    "region": "Coonawarra",
+    "country": "Australia",
+    "countryCode": "AU",
+    "continent": "Oceania",
+    "coordinates": {
+      "lat": -37.3025,
+      "lng": 140.8625
+    },
+    "countryCoordinates": {
+      "lat": -25,
+      "lng": 133
+    },
+    "color": "#7B1E24",
+    "vintage": "c. 1890 CE",
+    "description": "Coonawarra's narrow terra rossa strip over limestone is known for structured Cabernet Sauvignon and a range of cool-climate wines, including Chardonnay.",
+    "mythology": [],
+    "appellations": [
+      {
+        "id": "coonawarra-chardonnay",
+        "name": "Coonawarra Chardonnay",
+        "type": "GI",
+        "coordinates": {
+          "lat": -37.3025,
+          "lng": 140.8625
+        },
+        "grapes": [
+          "Chardonnay"
+        ],
+        "description": "A cool-climate Chardonnay from Coonawarra, where the region's association identifies the variety as well suited to local conditions. Citrus and stone-fruit flavors meet a fresh, balanced palate.",
+        "climate": "Cool maritime conditions influenced by the Southern Ocean.",
+        "soilTypes": [
+          "Terra rossa over limestone"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 1,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Lemon",
+            "White peach",
+            "Pear"
+          ],
+          "secondaryNotes": [
+            "Citrus blossom",
+            "Subtle oak"
+          ],
+          "finish": "long",
+          "style": "Fresh, balanced Chardonnay with citrus and stone-fruit character"
+        },
+        "servingTemp": "10–12°C",
+        "foodPairings": [
+          "Roast chicken",
+          "Grilled seafood",
+          "Creamy pasta",
+          "Soft cheeses"
+        ],
+        "agingPotential": "2–8 years",
+        "image": "/wine-colours/gold.png",
+        "sources": [
+          {
+            "label": "Coonawarra Vignerons: World Class Wines",
+            "url": "https://coonawarra.org/discover-coonawarra/"
+          },
+          {
+            "label": "Coonawarra Vignerons: Wine Varieties",
+            "url": "https://coonawarra.org/wine-varieties-available-in-coonawarra-cellar-doors/"
+          },
+          {
+            "label": "Coonawarra Vignerons: About Coonawarra",
+            "url": "https://coonawarra.org/about/"
+          }
+        ]
+      },
+      {
+        "id": "coonawarra-cabernet-sauvignon",
+        "name": "Coonawarra Cabernet Sauvignon",
+        "type": "GI",
+        "coordinates": {
+          "lat": -37.3025,
+          "lng": 140.8625
+        },
+        "grapes": [
+          "Cabernet Sauvignon"
+        ],
+        "description": "Coonawarra's signature Cabernet Sauvignon combines savoury structure with ripe, concentrated fruit, shaped by the region's terra rossa soils and maritime ripening conditions.",
+        "climate": "Cool maritime conditions influenced by the Southern Ocean.",
+        "soilTypes": [
+          "Terra rossa over limestone"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 4,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 4,
+          "fruits": [
+            "Blackcurrant",
+            "Black cherry",
+            "Cassis"
+          ],
+          "secondaryNotes": [
+            "Cedar",
+            "Herbs",
+            "Spice"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Tobacco"
+          ],
+          "finish": "very long",
+          "style": "Savoury, structured Cabernet with ripe, concentrated fruit"
+        },
+        "servingTemp": "16–18°C",
+        "foodPairings": [
+          "Roast lamb",
+          "Grilled steak",
+          "Aged cheddar",
+          "Mushroom dishes"
+        ],
+        "agingPotential": "8–20 years",
+        "image": "/wine-colours/ruby.png",
+        "sources": [
+          {
+            "label": "Coonawarra Vignerons: About Coonawarra",
+            "url": "https://coonawarra.org/about/"
+          },
+          {
+            "label": "Coonawarra Vignerons: Coonawarra Cabernet Sauvignon",
+            "url": "https://coonawarra.org/2018/02/coonawarra-cabernet-sauvignon/"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "marlborough",
     "region": "Marlborough",
     "country": "New Zealand",

@@ -1,8 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import AppellationGuide from '@/components/AppellationGuide'
-import { intent } from '@/lib/intent'
 import type { AppellationWithRegion } from '@/lib/data'
 import type { Appellation, WineRegion } from '@/types'
 import styles from './AppellationPanel.module.css'
@@ -33,17 +32,6 @@ function AppDetail({ app, region, onBack, onSelect }: {
   onBack: () => void
   onSelect: (app: Appellation) => void
 }) {
-  const openedAt = useRef(Date.now())
-
-  useEffect(() => {
-    openedAt.current = Date.now()
-    intent.viewAppellation(region.country, region.region, app.name, app.tastingProfile.style)
-    return () => {
-      const seconds = (Date.now() - openedAt.current) / 1000
-      intent.dwellAppellation(app.name, region.country, seconds)
-    }
-  }, [app, region.country, region.region])
-
   const detail = withRegion(app, region)
   const related = region.appellations
     .filter(item => item.id !== app.id)
@@ -65,7 +53,6 @@ function AppDetail({ app, region, onBack, onSelect }: {
 export default function AppellationPanel({ region, onClose }: Props) {
   const [selectedApp, setSelectedApp] = useState<Appellation | null>(null)
 
-  useEffect(() => setSelectedApp(null), [region.id])
 
   if (selectedApp) {
     return <AppDetail app={selectedApp} region={region} onBack={() => setSelectedApp(null)} onSelect={setSelectedApp} />
@@ -77,7 +64,7 @@ export default function AppellationPanel({ region, onClose }: Props) {
         <button className={styles.closeBtn} onClick={onClose} aria-label="Close">✕</button>
         <div className={styles.regionCountry}>{region.country}</div>
         <h2 className={styles.regionTitle}>{region.region}</h2>
-        <p className={styles.regionVintage}>Winemaking since {region.vintage}</p>
+        {region.vintage && <p className={styles.regionVintage}>{region.vintage}</p>}
         <p className={styles.regionDesc}>{region.description}</p>
         {region.productionVolume && <div className={styles.prodVol}>Production: {region.productionVolume}</div>}
       </div>

@@ -3,14 +3,37 @@
 Target: every official wine region worldwide. **The target is not yet complete.**
 
 The 2 October 2026 import contains 2,762 official designations across 40 countries.
-Together with unmatched existing wine guides, the browse page has 2,829 entries.
+The public catalogue now contains **125 entries across 27 countries**, covering
+all **136 wine guides**. Counts on the index and atlas come from this published dataset.
+
+## Offline catalogue cleanup
+
+The 2,684 imported designations without a linked wine guide are excluded from
+the public index, search, map pins, sitemap and detail routes. Their records remain
+in the import archive for provenance; they are not published placeholder pages.
+The exact excluded set is returned by `getRegisterGuideCoverage().unlinked`.
+
+Three duplicate listings are consolidated because each pair exposes identical wines:
+
+| Removed listing | Shared destination |
+| --- | --- |
+| Bannockburn GI | Central Otago GI |
+| Dundee Hills AVA | Willamette Valley AVA |
+| Luj?n de Cuyo IG | Luj?n de Cuyo DOC |
+
+Old URLs redirect to the shared destination and names remain searchable aliases.
+No individual wine guide was removed. The retained 75 register entries plus 50
+standalone guides make up the 125 browse entries. Colour images, tasting notes,
+food matches and guide reachability are checked by the local validator.
+
 These are designations, not 2,762 mutually exclusive areas: regions, subregions,
 zones, and different protected wine categories can overlap.
 
 ## Imported sources
 
 Exact URLs, download dates, SHA-256 snapshot hashes and scopes are embedded in
-`src/data/wine-register.json` and surfaced on the browse/detail pages.
+`src/data/wine-register.json`. Provenance is retained internally; the public
+catalogue and wine pages no longer show external registry links.
 
 | Source | Imported entries | Scope |
 | --- | ---: | --- |
@@ -66,11 +89,25 @@ for overview navigation, not a legal boundary or a vineyard location. Each point
 retains its source layer. Australian subregions and other countries' new records
 remain searchable and browsable without speculative coordinates.
 
-The original 122 tasting guides remain intact. New registration records do not
-invent tasting scores, mythology, producers or vintages. Exact name/country
-matches and three explicit Australian mappings link to existing guides. Short
-sourced regional introductions cover Yarra Valley, Coonawarra, Clare Valley and
-Margaret River. More detailed editorial guides remain separate work.
+Existing tasting guides remain intact, including the two Coonawarra guides in
+`regions.json`. Twelve additional wine profiles in `regional-wine-profiles.json`
+cover Yarra Valley (4), Clare Valley (3), Margaret River (4), and Coonawarra Shiraz
+(1). They are merged into the atlas, search, compare, food pairing and wine-match
+datasets, and use the same `AppellationGuide` component and colour photographs.
+Region pages with profiles present the guide directly, with navigation to the
+other wines produced there. Explicit mappings also connect existing guides in
+New Zealand, Japan, Canada, South Africa, Chile, the US and Austria.
+
+The five-point sensory ratings, serving suggestions and food matches are
+editorial guides to a representative style, not analytical measurements or
+guarantees about every bottle. Research sources stay in the data. No producers,
+vintage recommendations or numerical ageing claims are generated for the new
+profiles. Regional coordinates are overview map points, not vineyard locations.
+
+**Wine-profile enrichment is still incomplete.** Unprofiled catalogue entries
+state that their guides are being researched rather than displaying guessed
+colours, grapes or country-level tasting notes as local facts. Run
+`npm.cmd run data:validate` for current linked/unlinked designation counts.
 
 ## Refresh and validate
 
@@ -98,3 +135,9 @@ extractions. Preserve the snapshot directory with a release for reproducibility.
 The data validator exercises the real application search/link functions and
 checks counts, stable unique IDs, source URLs, finite sourced coordinates,
 excluded products, alternative spellings, homonyms and key regression records.
+
+When a development server is already running, use the existing `NEXT_DIST_DIR`
+setting to keep verification builds separate, for example
+`node_modules/.cache/wine-guide-build`. Set the same value when starting that
+production preview. Sharing `.next` between a running dev server and a production
+build can replace runtime chunks and cause local 500 responses.

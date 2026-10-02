@@ -1,5 +1,7 @@
 'use client'
 
+import { useEffect } from 'react'
+import { observeAppellation } from '@/lib/appellation-intent'
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Route } from 'next'
@@ -14,6 +16,7 @@ interface Props {
   onBack?: () => void
   onSelectRelated?: (app: AppellationWithRegion) => void
   embedded?: boolean
+  regionWines?: { name: string; wines: AppellationWithRegion[] }
 }
 
 const scaleLabels = {
@@ -58,8 +61,20 @@ function listNotes(notes: string[]) {
 }
 
 export default function AppellationGuide({
-  app, related, backLabel, backHref, onBack, onSelectRelated, embedded = false,
+  app, related, backLabel, backHref, onBack, onSelectRelated, embedded = false, regionWines,
 }: Props) {
+  useEffect(() => {
+    // Deferring setup avoids recording React's development-only effect replay.
+    let stop: (() => void) | undefined
+    const timer = window.setTimeout(() => {
+      stop = observeAppellation(app.country, app.regionName, app.name, app.tastingProfile.style)
+    }, 0)
+    return () => {
+      window.clearTimeout(timer)
+      stop?.()
+    }
+  }, [app.id, app.country, app.regionName, app.name, app.tastingProfile.style])
+
   const appearance = getAppearance(app.image)
   const noseNotes = [...app.tastingProfile.fruits.slice(0, 3), ...app.tastingProfile.secondaryNotes.slice(0, 2)]
   const palate = [
@@ -79,6 +94,12 @@ export default function AppellationGuide({
   return (
     <div className={`${styles.wrap} ${embedded ? styles.embedded : ''}`}>
       {back}
+      {regionWines && <nav className={styles.regionWines} aria-label={`Wines from ${regionWines.name}`}>
+        <h2>Wines from {regionWines.name}</h2>
+        <div className={styles.tagList}>{regionWines.wines.map(wine => <Link key={wine.id} className={`${styles.wineChoice} ${wine.id === app.id ? styles.wineChoiceSelected : ''}`} href={`/appellations/${wine.id}`}>
+          {wine.name}
+        </Link>)}</div>
+      </nav>}
       <div className={styles.guideHero}>
         <div className={styles.guideHeroCopy}>
           <p className={styles.eyebrow}>{app.regionName} | {app.country}</p>
@@ -200,7 +221,7 @@ export default function AppellationGuide({
             <div className={styles.stat}><span className={styles.statLabel}>Region</span><span className={styles.statValue}>{app.regionName}</span></div>
             <div className={styles.stat}><span className={styles.statLabel}>Country</span><span className={styles.statValue}>{app.country}</span></div>
             <div className={styles.stat}><span className={styles.statLabel}>Finish</span><span className={styles.statValue}>{app.tastingProfile.finish}</span></div>
-            <div className={styles.stat}><span className={styles.statLabel}>History</span><span className={styles.statValue}>{app.regionVintage}</span></div>
+            {app.regionVintage && <div className={styles.stat}><span className={styles.statLabel}>History</span><span className={styles.statValue}>{app.regionVintage}</span></div>}
           </div>
 
           <aside className={styles.affiliateSlot} aria-label="Affiliate banner">

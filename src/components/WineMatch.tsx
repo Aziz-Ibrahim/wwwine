@@ -141,9 +141,11 @@ function rankWines(answers: Answers, appellations: CompareItem[]): ScoredWine[] 
 
 function diverseMatches(ranked: ScoredWine[]) {
   const selected: ScoredWine[] = []
+  const regionCounts = new Map<string, number>()
   for (const wine of ranked) {
-    if (selected.some(item => item.regionId === wine.regionId)) continue
+    if ((regionCounts.get(wine.regionId) ?? 0) >= 2) continue
     selected.push(wine)
+    regionCounts.set(wine.regionId, (regionCounts.get(wine.regionId) ?? 0) + 1)
     if (selected.length === 4) break
   }
   if (selected.length < 4) {

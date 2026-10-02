@@ -1,0 +1,564 @@
+{
+  "au-yarra-valley": {
+    "regionId": "yarra-valley",
+    "history": "First vineyards planted in 1838",
+    "climate": "Cool conditions, with altitude and exposure creating substantial differences between vineyards.",
+    "soilTypes": [
+      "Grey loams",
+      "Red volcanic soils"
+    ],
+    "wines": [
+      {
+        "id": "yarra-valley-pinot-noir",
+        "name": "Yarra Valley Pinot Noir",
+        "grapes": [
+          "Pinot Noir"
+        ],
+        "image": "/wine-colours/ruby.png",
+        "color": "#8B2942",
+        "description": "Pinot Noir is one of the Yarra Valley's signature wines. Red fruit and floral aromas sit above a supple palate; cooler sites often emphasise freshness, while oak and whole-bunch fermentation can add spice and savoury detail.",
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 2,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Cherry",
+            "Raspberry",
+            "Pomegranate"
+          ],
+          "secondaryNotes": [
+            "Violet",
+            "Gentle spice"
+          ],
+          "tertiaryNotes": [
+            "Forest floor"
+          ],
+          "finish": "long",
+          "style": "Fragrant, fresh Pinot Noir with supple red fruit and fine tannins"
+        },
+        "servingTemp": "14–16°C",
+        "agingPotential": "Enjoy young; structured examples develop with cellaring",
+        "foodPairings": [
+          "Roast duck",
+          "Mushroom risotto",
+          "Grilled salmon",
+          "Roast beetroot"
+        ],
+        "sources": [
+          {
+            "label": "Yarra Yering: Waterloo Pinot Noir",
+            "url": "https://cdn11.bigcommerce.com/s-kpv77en2bq/content/pdfs/2024-WATERLOO-PINOT-NOIR.pdf"
+          },
+          {
+            "label": "Wine Australia: Pinot Noir",
+            "url": "https://www.australianwine.com/our-wines/pinot-noir"
+          }
+        ]
+      },
+      {
+        "id": "yarra-valley-chardonnay",
+        "name": "Yarra Valley Chardonnay",
+        "grapes": [
+          "Chardonnay"
+        ],
+        "image": "/wine-colours/lemon.png",
+        "color": "#C6A445",
+        "description": "Yarra Valley Chardonnay commonly balances citrus and stone fruit with lively acidity. Barrel fermentation and lees ageing can add texture and toasted-nut character, although the amount of oak varies considerably between producers.",
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 1,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Lemon",
+            "White peach",
+            "Melon"
+          ],
+          "secondaryNotes": [
+            "Toasted nuts",
+            "Creamy lees"
+          ],
+          "finish": "long",
+          "style": "Citrus-led Chardonnay with fresh acidity and a gently textured palate"
+        },
+        "servingTemp": "10–12°C",
+        "agingPotential": "Enjoy young; concentrated examples can develop in bottle",
+        "foodPairings": [
+          "Roast chicken",
+          "Grilled prawns",
+          "Creamy mushroom pasta",
+          "Baked white fish"
+        ],
+        "sources": [
+          {
+            "label": "Wine Australia: Chardonnay",
+            "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/chardonnay"
+          }
+        ]
+      },
+      {
+        "id": "yarra-valley-cabernet-sauvignon",
+        "name": "Yarra Valley Cabernet Sauvignon",
+        "grapes": [
+          "Cabernet Sauvignon"
+        ],
+        "image": "/wine-colours/ruby.png",
+        "color": "#782936",
+        "description": "Cabernet Sauvignon has a long history in the Yarra Valley. Its cooler-climate expression often combines blackcurrant fruit with leafy freshness and a firm structure; some producers blend it with other Bordeaux varieties.",
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 4,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Blackcurrant",
+            "Plum"
+          ],
+          "secondaryNotes": [
+            "Cedar",
+            "Leafy herbs"
+          ],
+          "tertiaryNotes": [
+            "Tobacco"
+          ],
+          "finish": "long",
+          "style": "Structured Cabernet with dark fruit, leafy freshness and fine-grained tannins"
+        },
+        "servingTemp": "16–18°C",
+        "agingPotential": "Structured examples are suited to cellaring",
+        "foodPairings": [
+          "Rosemary lamb",
+          "Grilled steak",
+          "Lentil and mushroom roast",
+          "Mature cheddar"
+        ],
+        "sources": [
+          {
+            "label": "Yering Station: Yarra Valley Cabernet Sauvignon",
+            "url": "https://www.yering.com/product/23-yering-station-cabernet-sauvignon/"
+          }
+        ]
+      },
+      {
+        "id": "yarra-valley-shiraz",
+        "name": "Yarra Valley Shiraz / Syrah",
+        "grapes": [
+          "Shiraz"
+        ],
+        "image": "/wine-colours/ruby.png",
+        "color": "#84263B",
+        "description": "Yarra Valley Shiraz is also labelled Syrah, particularly where producers emphasise a savoury, cool-climate style. Berry fruit, floral lift and peppery spice often accompany a medium-weight palate.",
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 3,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Blackberry",
+            "Red plum"
+          ],
+          "secondaryNotes": [
+            "Black pepper",
+            "Violet"
+          ],
+          "finish": "long",
+          "style": "Peppery, medium-bodied Syrah with fresh berry fruit and savoury detail"
+        },
+        "servingTemp": "15–17°C",
+        "agingPotential": "Enjoy young or cellar structured examples",
+        "foodPairings": [
+          "Peppered lamb",
+          "Grilled aubergine",
+          "Duck with lentils",
+          "Herb-roasted mushrooms"
+        ],
+        "sources": [
+          {
+            "label": "Wine Australia: Yarra Valley",
+            "url": "https://www.australianwine.com/our-places/victoria/yarra-valley-wine-region"
+          },
+          {
+            "label": "Wine Yarra Valley: regional wines",
+            "url": "https://wineyarravalley.com.au/explore-yarra-valley/yarra-valley-wine/"
+          }
+        ]
+      }
+    ]
+  },
+  "au-clare-valley": {
+    "regionId": "clare-valley",
+    "history": "",
+    "climate": "Warm days and cooler nights; elevation and varied exposures help retain freshness.",
+    "soilTypes": [],
+    "wines": [
+      {
+        "id": "clare-valley-riesling",
+        "name": "Clare Valley Riesling",
+        "grapes": [
+          "Riesling"
+        ],
+        "image": "/wine-colours/lemon-green.png",
+        "color": "#B3B757",
+        "description": "Dry Riesling is Clare Valley's best-known white wine. Lime and lemon flavours meet a taut, refreshing palate, usually without obvious oak. Mature examples can gain honeyed and toasty complexity while retaining their acid backbone.",
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 1,
+          "acidity": 5,
+          "sweetness": 1,
+          "alcohol": 2,
+          "fruits": [
+            "Lime",
+            "Lemon",
+            "Green apple"
+          ],
+          "secondaryNotes": [
+            "Citrus blossom"
+          ],
+          "tertiaryNotes": [
+            "Toast",
+            "Honey"
+          ],
+          "finish": "long",
+          "style": "Dry, lime-driven Riesling with a light body and incisive acidity"
+        },
+        "servingTemp": "8–10°C",
+        "agingPotential": "Enjoy fresh; fine examples can age for many years",
+        "foodPairings": [
+          "Fresh oysters",
+          "Grilled fish with lemon",
+          "Prawn salad",
+          "Goat's cheese"
+        ],
+        "sources": [
+          {
+            "label": "Wine Australia: Riesling",
+            "url": "https://www.australianwine.com/our-wines/riesling"
+          },
+          {
+            "label": "Wine Australia: Clare Valley Estate Riesling",
+            "url": "https://www.australianwine.com/trade/expo/products/1408-estate-range-riesling-2019"
+          }
+        ]
+      },
+      {
+        "id": "clare-valley-shiraz",
+        "name": "Clare Valley Shiraz",
+        "grapes": [
+          "Shiraz"
+        ],
+        "image": "/wine-colours/purple.png",
+        "color": "#6F2240",
+        "description": "Clare Valley also produces substantial red wines. Its Shiraz typically has ripe dark fruit and spice, with enough structure and freshness to balance the richness. Oak maturation can add savoury and toasted notes.",
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 3,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 4,
+          "fruits": [
+            "Blackberry",
+            "Black cherry",
+            "Plum"
+          ],
+          "secondaryNotes": [
+            "Liquorice",
+            "Spice"
+          ],
+          "finish": "long",
+          "style": "Rich, dark-fruited Shiraz with rounded texture and balancing structure"
+        },
+        "servingTemp": "16–18°C",
+        "agingPotential": "Enjoy young; concentrated examples can develop with age",
+        "foodPairings": [
+          "Slow-cooked beef",
+          "Barbecued lamb",
+          "Roasted portobello mushrooms",
+          "Aged hard cheese"
+        ],
+        "sources": [
+          {
+            "label": "Wine Australia: Clare Valley",
+            "url": "https://www.australianwine.com/our-places/south-australia/clare-valley-wine-region"
+          }
+        ]
+      },
+      {
+        "id": "clare-valley-cabernet-sauvignon",
+        "name": "Clare Valley Cabernet Sauvignon",
+        "grapes": [
+          "Cabernet Sauvignon"
+        ],
+        "image": "/wine-colours/ruby.png",
+        "color": "#792C3A",
+        "description": "Cabernet Sauvignon is an established Clare Valley red. Blackcurrant fruit, herbal detail and firm tannins give the wines their shape; ripeness and oak treatment vary with vineyard and producer.",
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 4,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 4,
+          "fruits": [
+            "Blackcurrant",
+            "Blackberry"
+          ],
+          "secondaryNotes": [
+            "Mint",
+            "Cedar"
+          ],
+          "tertiaryNotes": [
+            "Tobacco"
+          ],
+          "finish": "long",
+          "style": "Firm, dark-fruited Cabernet with herbal freshness and a structured finish"
+        },
+        "servingTemp": "16–18°C",
+        "agingPotential": "Structured examples benefit from bottle age",
+        "foodPairings": [
+          "Roast lamb",
+          "Beef casserole",
+          "Mushroom pie",
+          "Mature cheddar"
+        ],
+        "sources": [
+          {
+            "label": "Taylors: St Andrews Clare Valley Cabernet Sauvignon",
+            "url": "https://www.taylorswines.com.au/products/st-andrews-cabernet-sauvignon-2017"
+          }
+        ]
+      }
+    ]
+  },
+  "au-margaret-river": {
+    "regionId": "margaret-river",
+    "history": "Modern commercial planting began in 1967",
+    "climate": "Maritime conditions moderated by the Indian and Southern Oceans.",
+    "soilTypes": [],
+    "wines": [
+      {
+        "id": "margaret-river-cabernet-sauvignon",
+        "name": "Margaret River Cabernet Sauvignon",
+        "grapes": [
+          "Cabernet Sauvignon"
+        ],
+        "image": "/wine-colours/ruby.png",
+        "color": "#782638",
+        "description": "Margaret River Cabernet combines aromatic dark fruit with fine tannins. It may include small amounts of other Bordeaux varieties; the most structured examples develop well in bottle.",
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 4,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Blackcurrant",
+            "Redcurrant"
+          ],
+          "secondaryNotes": [
+            "Cedar",
+            "Bay leaf"
+          ],
+          "finish": "long",
+          "style": "Perfumed Cabernet with fine tannins and fresh, concentrated fruit"
+        },
+        "servingTemp": "16–18°C",
+        "agingPotential": "Fine examples are suited to long-term cellaring",
+        "foodPairings": [
+          "Herb-crusted lamb",
+          "Beef short ribs",
+          "Mushroom Wellington",
+          "Aged cheddar"
+        ],
+        "sources": [
+          {
+            "label": "Margaret River Wine Association: varieties",
+            "url": "https://margaretriver.wine/wine-varieties/"
+          }
+        ]
+      },
+      {
+        "id": "margaret-river-chardonnay",
+        "name": "Margaret River Chardonnay",
+        "grapes": [
+          "Chardonnay"
+        ],
+        "image": "/wine-colours/lemon.png",
+        "color": "#C6A24D",
+        "description": "Concentrated fruit and a fresh acid line underpin Margaret River Chardonnay. Barrel fermentation and lees ageing often contribute texture without obscuring its citrus and stone-fruit character.",
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 1,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Grapefruit",
+            "White peach"
+          ],
+          "secondaryNotes": [
+            "Flint",
+            "Nougat"
+          ],
+          "finish": "long",
+          "style": "Layered Chardonnay with concentrated fruit, texture and lively acidity"
+        },
+        "servingTemp": "10–12°C",
+        "agingPotential": "Enjoy young or cellar concentrated examples",
+        "foodPairings": [
+          "Roast chicken",
+          "Lobster",
+          "Pumpkin ravioli",
+          "Seared scallops"
+        ],
+        "sources": [
+          {
+            "label": "Margaret River Wine Association: varieties",
+            "url": "https://margaretriver.wine/wine-varieties/"
+          }
+        ]
+      },
+      {
+        "id": "margaret-river-semillon-sauvignon-blanc",
+        "name": "Margaret River Semillon–Sauvignon Blanc",
+        "grapes": [
+          "Semillon",
+          "Sauvignon Blanc"
+        ],
+        "image": "/wine-colours/lemon-green.png",
+        "color": "#ADBA66",
+        "description": "This regional white blend brings together Sauvignon Blanc's aromatic lift and Semillon's texture. Fresh, stainless-steel-fermented examples are common, alongside more textured barrel-influenced versions.",
+        "tastingProfile": {
+          "body": 2,
+          "tannins": 1,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Gooseberry",
+            "Passionfruit",
+            "Lime"
+          ],
+          "secondaryNotes": [
+            "Fresh herbs"
+          ],
+          "finish": "medium",
+          "style": "Crisp, aromatic white blend with bright fruit and gentle texture"
+        },
+        "servingTemp": "8–10°C",
+        "agingPotential": "Fresh styles are best enjoyed young",
+        "foodPairings": [
+          "Grilled prawns",
+          "Goat's cheese salad",
+          "Fish tacos",
+          "Asparagus risotto"
+        ],
+        "sources": [
+          {
+            "label": "Margaret River Wine Association: varieties",
+            "url": "https://margaretriver.wine/wine-varieties/"
+          }
+        ]
+      },
+      {
+        "id": "margaret-river-shiraz",
+        "name": "Margaret River Shiraz",
+        "grapes": [
+          "Shiraz"
+        ],
+        "image": "/wine-colours/ruby.png",
+        "color": "#873049",
+        "description": "Margaret River Shiraz often emphasises fragrance and medium-bodied balance. Its berry fruit and spice suit a savoury style, sometimes labelled Syrah.",
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 3,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Mulberry",
+            "Plum"
+          ],
+          "secondaryNotes": [
+            "Violet",
+            "Spice"
+          ],
+          "finish": "long",
+          "style": "Fragrant, medium-bodied Shiraz with berry fruit and savoury spice"
+        },
+        "servingTemp": "15–17°C",
+        "agingPotential": "Enjoy young or cellar structured examples",
+        "foodPairings": [
+          "Grilled lamb",
+          "Sausages with lentils",
+          "Roast mushrooms",
+          "Peppered beef"
+        ],
+        "sources": [
+          {
+            "label": "Margaret River Wine Association: varieties",
+            "url": "https://margaretriver.wine/wine-varieties/"
+          }
+        ]
+      }
+    ]
+  },
+  "au-coonawarra": {
+    "regionId": "coonawarra",
+    "history": "Commercial vineyard plantings established in 1891",
+    "climate": "Cool maritime conditions influenced by the Southern Ocean.",
+    "soilTypes": [
+      "Terra rossa over limestone"
+    ],
+    "wines": [
+      {
+        "id": "coonawarra-shiraz",
+        "name": "Coonawarra Shiraz",
+        "grapes": [
+          "Shiraz"
+        ],
+        "image": "/wine-colours/ruby.png",
+        "color": "#803044",
+        "description": "Coonawarra has a long Shiraz tradition alongside its celebrated Cabernet Sauvignon. Berry and plum fruit, pepper and floral notes often meet a savoury palate with more restraint than many warmer-climate Australian examples.",
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 3,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Plum",
+            "Blackberry"
+          ],
+          "secondaryNotes": [
+            "Black pepper",
+            "Floral notes"
+          ],
+          "finish": "long",
+          "style": "Savoury Shiraz with berry fruit, pepper and a fresh, structured palate"
+        },
+        "servingTemp": "15–17°C",
+        "agingPotential": "Enjoy young; structured wines can develop in bottle",
+        "foodPairings": [
+          "Roast lamb",
+          "Peppered steak",
+          "Mushroom ragù",
+          "Grilled aubergine"
+        ],
+        "sources": [
+          {
+            "label": "Wynns: Coonawarra Shiraz",
+            "url": "https://www.wynns.com.au/en-au/coonawarra-shiraz-2023-8094270.html"
+          },
+          {
+            "label": "Penfolds: Bin 128 Coonawarra Shiraz",
+            "url": "https://www.penfolds.com/en/tasting-notes/the-australia-collection/bin-128-coonawarra-shiraz-2023.html"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -38,6 +38,8 @@ export interface Appellation {
   bestVintages?: number[];
   wineries?: Winery[];
   color?: string;                // override region color if needed
+  sources?: { label: string; url: string }[];
+  registeredRegionIds?: string[]; // explicit links to the wine-region catalogue
 }
 
 export interface Deity {

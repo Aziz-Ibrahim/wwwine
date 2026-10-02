@@ -48,21 +48,57 @@ require.extensions['.ts'] = (module, filename) => {
   module._compile(compiled.outputText, filename)
 }
 const { search } = require('../src/lib/search.ts')
-const { getWineBrowseEntries } = require('../src/lib/wine-register.ts')
+const { getWineBrowseEntries, getRegisteredRegionGuides, getRegisterGuideCoverage, wineRegister, consolidatedRegions } = require('../src/lib/wine-register.ts')
 for (const name of ['Yarra Valley', 'Coonawarra', 'Clare Valley', 'Margaret River']) {
   const result = search(name).find(r => r.label === name && r.countryCode === 'AU')
   assert(result?.href?.startsWith('/regions/au-'), `Missing search destination: ${name}`)
   assert(records.find(r => `/regions/${r.id}` === result.href)?.coordinates, `Missing map point: ${name}`)
 }
-assert(search('Hawkes Bay').some(r => r.countryCode === 'NZ'))
-assert(search('Valle de Cafayate').some(r => r.countryCode === 'AR'))
-const sanCarlos = search('San Carlos').filter(r => r.countryCode === 'AR' && r.label === 'San Carlos')
-assert.equal(sanCarlos.length, 2)
-assert.notEqual(sanCarlos[0].sublabel, sanCarlos[1].sublabel)
-assert(search('北海道').some(r => r.label === 'Hokkaido'))
+assert(search('Bannockburn').some(r => r.href === '/regions/nz-central-otago'))
+assert(search('Dundee Hills').some(r => r.href === '/regions/us-ava-9-90'))
 assert(search('Yarra Valley').length <= 12)
 const entries = getWineBrowseEntries()
 assert.equal(new Set(entries.map(e => e.id)).size, entries.length)
-for (const entry of entries) assert(entry.href.startsWith('/regions/') || entry.href.startsWith('/appellations/'))
+for (const entry of entries) {
+  assert(entry.hasGuide, `Placeholder catalogue entry: ${entry.id}`)
+  if (entry.href.startsWith('/regions/')) assert(wineRegister.some(region => entry.href === `/regions/${region.id}` && getRegisteredRegionGuides(region).length))
+}
+for (const [id, destination] of Object.entries(consolidatedRegions)) {
+  assert(!wineRegister.some(region => region.id === id))
+  const parent = wineRegister.find(region => region.id === destination)
+  assert(parent, `Missing consolidation destination: ${destination}`)
+  const child = records.find(region => region.id === id)
+  assert.deepEqual(getRegisteredRegionGuides(child).map(wine => wine.id).sort(), getRegisteredRegionGuides(parent).map(wine => wine.id).sort())
+}
 assert(entries.some(e => e.name === 'Sancerre' && e.hasGuide))
-console.log(`Validated ${records.length} registered designations, ${entries.length} browse entries, map coordinates, aliases and search destinations.`)
+const coonawarra = records.find(region => region.id === 'au-coonawarra')
+const coonawarraGuides = getRegisteredRegionGuides(coonawarra)
+assert.deepEqual(coonawarraGuides.map(guide => guide.id).sort(), ['coonawarra-cabernet-sauvignon', 'coonawarra-chardonnay', 'coonawarra-shiraz'])
+for (const guide of coonawarraGuides) {
+  assert(guide.sources?.length, `Missing source provenance: ${guide.id}`)
+  for (const source of guide.sources) assert(['https:', 'http:'].includes(new URL(source.url).protocol))
+  assert(fs.existsSync(path.join('public', guide.image.replace(/^\//, ''))), `Missing image: ${guide.id}`)
+}
+const coverage = getRegisterGuideCoverage()
+const { getAllAppellations, getAllAppellationDetails } = require('../src/lib/data.ts')
+const profiles = require('../src/data/regional-wine-profiles.json')
+const details = getAllAppellationDetails()
+for (const wine of details) {
+  assert(wine.description && wine.grapes.length && wine.foodPairings.length && wine.tastingProfile.fruits.length, `Incomplete guide: ${wine.id}`)
+  assert(fs.existsSync(path.join('public', wine.image.replace(/^\//, ''))), `Missing image: ${wine.id}`)
+  assert(entries.some(entry => entry.href === `/appellations/${wine.id}` || wineRegister.some(region => entry.id === region.id && getRegisteredRegionGuides(region).some(guide => guide.id === wine.id))), `Unreachable guide: ${wine.id}`)
+}
+assert.equal(new Set(details.map(wine => wine.id)).size, details.length, 'Duplicate wine guide IDs')
+for (const [regionId, profile] of Object.entries(profiles)) {
+  const record = records.find(region => region.id === regionId)
+  const linked = getRegisteredRegionGuides(record)
+  for (const wine of profile.wines) {
+    assert(linked.some(guide => guide.id === wine.id), `Unlinked regional wine: ${wine.id}`)
+    assert(getAllAppellations().some(guide => guide.id === wine.id), `Missing from compare/food matching: ${wine.id}`)
+    assert(fs.existsSync(path.join('public', wine.image.replace(/^\//, ''))), `Missing colour photo: ${wine.id}`)
+    assert(wine.foodPairings.length && wine.tastingProfile.fruits.length && wine.sources.length, `Incomplete profile: ${wine.id}`)
+    for (const key of ['body', 'tannins', 'acidity', 'sweetness', 'alcohol']) assert(wine.tastingProfile[key] >= 1 && wine.tastingProfile[key] <= 5)
+  }
+}
+assert(!getRegisteredRegionGuides(records.find(r => r.id === 'us-ava-9-23')).some(wine => wine.id === 'santa-barbara'), 'Santa Barbara must not inherit the Napa GI')
+console.log(`Validated ${records.length} registered designations and ${entries.length} browse entries. ${coverage.linkedIds.length} designations link to curated guides; ${coverage.unlinked.length} still need guide coverage.`)

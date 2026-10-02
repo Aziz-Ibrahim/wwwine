@@ -1,9 +1,10 @@
-import type { Metadata } from 'next'
+import type { Metadata, Route } from 'next'
 import { notFound } from 'next/navigation'
 import Footer from '@/components/Footer'
 import LegalHeader from '@/components/LegalHeader'
 import AppellationGuide from '@/components/AppellationGuide'
 import { getAllAppellationDetails, getAppellationById } from '@/lib/data'
+import { wineRegister, getRegisteredRegionGuides } from '@/lib/wine-register'
 import styles from '../appellations.module.css'
 
 type Props = { params: { id: string } }
@@ -52,12 +53,14 @@ export default function AppellationPage({ params }: Props) {
   const related = getAllAppellationDetails()
     .filter(item => item.regionId === app.regionId && item.id !== app.id)
     .slice(0, 5)
+  const catalogueRegion = wineRegister.find(region => app.registeredRegionIds?.includes(region.id))
+    || wineRegister.find(region => getRegisteredRegionGuides(region).some(wine => wine.id === app.id))
 
   return (
     <main className={styles.page}>
       <LegalHeader />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFor(app)) }} />
-      <AppellationGuide app={app} related={related} backLabel="All appellations" backHref="/appellations" />
+      <AppellationGuide app={app} related={related} backLabel={catalogueRegion ? `Back to ${catalogueRegion.name}` : 'Back to appellations'} backHref={(catalogueRegion ? `/regions/${catalogueRegion.id}` : '/appellations') as Route} regionWines={catalogueRegion ? { name: catalogueRegion.name, wines: getRegisteredRegionGuides(catalogueRegion) } : undefined} />
       <Footer />
     </main>
   )
