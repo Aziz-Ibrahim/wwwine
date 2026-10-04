@@ -11583,5 +11583,185 @@
       }
     ],
     "productionVolume": "~150 million bottles/year across Provence appellations"
+  },
+  {
+    "id": "hawkes-bay",
+    "region": "Hawke's Bay",
+    "country": "New Zealand",
+    "countryCode": "NZ",
+    "continent": "Oceania",
+    "coordinates": {
+      "lat": -39.6,
+      "lng": 176.85
+    },
+    "countryCoordinates": {
+      "lat": -40.9,
+      "lng": 174.9
+    },
+    "color": "#8B2942",
+    "vintage": "",
+    "description": "On the east coast of New Zealand's North Island, Hawke's Bay produces structured reds and textured whites. Syrah, Merlot-Cabernet Sauvignon blends and Chardonnay offer distinct expressions of a region whose vineyard sites range from gravel terraces to coastal and hillside locations.",
+    "mythology": [],
+    "appellations": [
+      {
+        "id": "hawkes-bay-syrah",
+        "name": "Hawke's Bay Syrah",
+        "type": "GI",
+        "coordinates": {
+          "lat": -39.6,
+          "lng": 176.85
+        },
+        "registeredRegionIds": [
+          "nz-hawke-s-bay"
+        ],
+        "grapes": [
+          "Syrah"
+        ],
+        "description": "Hawke's Bay Syrah typically combines dark berry fruit with violet and pepper aromas. Its savoury character, fresh acidity and fine tannins give a structured but balanced palate; oak maturation can contribute gentle spice.",
+        "climate": "Temperate maritime conditions, with warm summers moderated by coastal influences and cooler nights.",
+        "soilTypes": [
+          "Alluvial gravel",
+          "Sandy loam",
+          "Silt loam"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 3,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Blackberry",
+            "Black plum",
+            "Black cherry"
+          ],
+          "secondaryNotes": [
+            "Black pepper",
+            "Violet",
+            "Gentle oak spice"
+          ],
+          "tertiaryNotes": [
+            "Leather",
+            "Earth"
+          ],
+          "finish": "long",
+          "style": "Peppery, fragrant Syrah with dark fruit, fresh acidity and fine tannins"
+        },
+        "servingTemp": "16–18°C",
+        "foodPairings": [
+          "Roast lamb",
+          "Grilled beef",
+          "Venison",
+          "Roasted mushrooms"
+        ],
+        "agingPotential": "3–10 years, depending on producer and vintage",
+        "image": "/wine-colours/ruby.png"
+      },
+      {
+        "id": "hawkes-bay-merlot-cabernet-sauvignon",
+        "name": "Hawke's Bay Merlot-Cabernet Sauvignon",
+        "type": "GI",
+        "coordinates": {
+          "lat": -39.6,
+          "lng": 176.85
+        },
+        "registeredRegionIds": [
+          "nz-hawke-s-bay"
+        ],
+        "grapes": [
+          "Merlot",
+          "Cabernet Sauvignon"
+        ],
+        "description": "Merlot-Cabernet Sauvignon blends bring together Merlot's plum fruit and supple texture with Cabernet Sauvignon's blackcurrant character and firmer structure. Hawke's Bay examples range from approachable, fruit-led wines to concentrated, oak-matured reds suited to cellaring; the blend proportions vary by producer.",
+        "climate": "Temperate maritime conditions, with warm summers moderated by coastal influences and cooler nights.",
+        "soilTypes": [
+          "Alluvial gravel",
+          "Sandy loam",
+          "Silt loam"
+        ],
+        "tastingProfile": {
+          "body": 4,
+          "tannins": 4,
+          "acidity": 3,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Black plum",
+            "Blackcurrant",
+            "Black cherry"
+          ],
+          "secondaryNotes": [
+            "Cedar",
+            "Baking spice",
+            "Dried herbs"
+          ],
+          "tertiaryNotes": [
+            "Tobacco",
+            "Leather"
+          ],
+          "finish": "long",
+          "style": "Structured Merlot-Cabernet Sauvignon with ripe dark fruit and savoury oak notes"
+        },
+        "servingTemp": "16–18°C",
+        "foodPairings": [
+          "Roast beef",
+          "Lamb shoulder",
+          "Beef stew",
+          "Aged Cheddar"
+        ],
+        "agingPotential": "4–12 years, depending on producer and vintage",
+        "image": "/wine-colours/ruby.png"
+      },
+      {
+        "id": "hawkes-bay-chardonnay",
+        "name": "Hawke's Bay Chardonnay",
+        "type": "GI",
+        "coordinates": {
+          "lat": -39.6,
+          "lng": 176.85
+        },
+        "registeredRegionIds": [
+          "nz-hawke-s-bay"
+        ],
+        "grapes": [
+          "Chardonnay"
+        ],
+        "description": "Hawke's Bay Chardonnay commonly combines ripe stone fruit and citrus with a textured palate. Barrel fermentation and lees ageing can add toasted-nut and creamy notes, while fresher styles emphasise fruit and acidity. Oak influence and richness vary between producers and vineyard sites.",
+        "climate": "Temperate maritime conditions, with warm summers moderated by coastal influences and cooler nights.",
+        "soilTypes": [
+          "Alluvial gravel",
+          "Silt loam",
+          "Clay loam"
+        ],
+        "tastingProfile": {
+          "body": 3,
+          "tannins": 1,
+          "acidity": 4,
+          "sweetness": 1,
+          "alcohol": 3,
+          "fruits": [
+            "Peach",
+            "Lemon",
+            "Melon"
+          ],
+          "secondaryNotes": [
+            "Toasted nuts",
+            "Creamy lees",
+            "Gentle oak spice"
+          ],
+          "finish": "long",
+          "style": "Textured Chardonnay with ripe stone fruit, citrus freshness and gentle oak"
+        },
+        "servingTemp": "10–12°C",
+        "foodPairings": [
+          "Roast chicken",
+          "Grilled fish",
+          "Scallops",
+          "Creamy mushroom pasta"
+        ],
+        "agingPotential": "2–7 years, depending on producer and vintage",
+        "image": "/wine-colours/lemon.png"
+      }
+    ]
   }
 ]
