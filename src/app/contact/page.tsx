@@ -5,6 +5,7 @@ import ContactForm from '@/components/ContactForm'
 import styles from '../info.module.css'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/contact' },
   title: 'Contact | wwwine',
   description: 'Get in touch with World Wide Wine.',
 }

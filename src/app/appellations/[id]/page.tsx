@@ -26,7 +26,7 @@ export function generateMetadata({ params }: Props): Metadata {
     title, description,
     keywords: [app.name, app.type, app.regionName, app.country, ...app.grapes, 'wine appellation', 'wine guide'],
     alternates: { canonical: `/appellations/${app.id}` },
-    openGraph: { title, description, type: 'article', images: [{ url: app.image }] },
+    openGraph: { title, description, url: `/appellations/${app.id}`, type: 'article', images: [{ url: app.image }] },
   }
 }
 

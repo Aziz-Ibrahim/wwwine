@@ -2,6 +2,7 @@ import data from '@/data/wine-register.json'
 import { getAllAppellationDetails } from '@/lib/data'
 import type { Coordinates } from '@/types'
 import { normalizeWineName } from '@/lib/wine-names'
+import regionRedirects from './region-redirects.json'
 
 export interface RegisteredWineRegion {
   id: string
@@ -56,11 +57,7 @@ export function getRegisteredRegionGuides(region: RegisteredWineRegion) {
   ))
 }
 
-export const consolidatedRegions: Record<string, string> = {
-  'nz-bannockburn': 'nz-central-otago',
-  'us-ava-9-180': 'us-ava-9-90',
-  'ar-lujan-de-cuyo-mendoza-ig': 'ar-lujan-de-cuyo-mendoza-doc',
-}
+export const consolidatedRegions: Record<string, string> = regionRedirects
 
 export const wineRegister = registerRecords
   .filter(region => !consolidatedRegions[region.id] && getRegisteredRegionGuides(region).length > 0)

@@ -5,6 +5,7 @@ import LegalHeader from '@/components/LegalHeader'
 import styles from '../legal.module.css'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/privacy' },
   title: 'Privacy Policy | wwwine',
   description: 'How wwwine handles anonymous behavioural data, preference storage, and privacy rights.',
 }

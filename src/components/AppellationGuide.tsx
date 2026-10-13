@@ -16,6 +16,7 @@ interface Props {
   onBack?: () => void
   onSelectRelated?: (app: AppellationWithRegion) => void
   embedded?: boolean
+  headingLevel?: 1 | 2
   regionWines?: { name: string; wines: AppellationWithRegion[] }
 }
 
@@ -61,7 +62,7 @@ function listNotes(notes: string[]) {
 }
 
 export default function AppellationGuide({
-  app, related, backLabel, backHref, onBack, onSelectRelated, embedded = false, regionWines,
+  app, related, backLabel, backHref, onBack, onSelectRelated, embedded = false, regionWines, headingLevel = 1,
 }: Props) {
   useEffect(() => {
     // Deferring setup avoids recording React's development-only effect replay.
@@ -76,6 +77,7 @@ export default function AppellationGuide({
   }, [app.id, app.country, app.regionName, app.name, app.tastingProfile.style])
 
   const appearance = getAppearance(app.image)
+  const Heading = headingLevel === 1 ? 'h1' : 'h2'
   const noseNotes = [...app.tastingProfile.fruits.slice(0, 3), ...app.tastingProfile.secondaryNotes.slice(0, 2)]
   const palate = [
     `${scaleDescriptors.body[app.tastingProfile.body - 1].toLowerCase()}-bodied`,
@@ -103,7 +105,7 @@ export default function AppellationGuide({
       <div className={styles.guideHero}>
         <div className={styles.guideHeroCopy}>
           <p className={styles.eyebrow}>{app.regionName} | {app.country}</p>
-          <h1 className={styles.title}>{app.name} {app.type} Wine Guide</h1>
+          <Heading className={styles.title}>{app.name} {app.type} Wine Guide</Heading>
           <p className={styles.intro}>{app.tastingProfile.style}</p>
           <div className={styles.meta}>
             <span className={styles.pill}>{app.grapes.slice(0, 3).join(', ')}</span>

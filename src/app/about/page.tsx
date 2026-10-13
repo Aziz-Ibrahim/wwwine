@@ -5,6 +5,7 @@ import LegalHeader from '@/components/LegalHeader'
 import styles from '../info.module.css'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/about' },
   title: 'About | wwwine',
   description: 'The story and purpose behind the World Wide Wine interactive atlas.',
 }

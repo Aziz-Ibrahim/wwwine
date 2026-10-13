@@ -5,6 +5,7 @@ import LegalHeader from '@/components/LegalHeader'
 import styles from '../legal.module.css'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/terms' },
   title: 'Terms of Use | wwwine',
   description: 'The terms that govern use of wwwine, the World Wide Wine atlas.',
 }

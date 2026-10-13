@@ -9,6 +9,7 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "data:validate": "node scripts/validate-wine-register.cjs",
+    "seo:validate": "node scripts/validate-seo.cjs",
     "data:import": "node scripts/import-wine-registers.cjs"
   },
   "dependencies": {

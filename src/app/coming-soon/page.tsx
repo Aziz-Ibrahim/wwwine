@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 import LegalHeader from '@/components/LegalHeader'
 import styles from '../info.module.css'
 
-export const metadata: Metadata = { title: 'Coming Soon | wwwine' }
+export const metadata: Metadata = { title: 'Coming Soon | wwwine', robots: { index: false, follow: true } }
 
 const labels: Record<string, string> = { guides: 'Wine guides', journal: 'The journal', cellar: 'My cellar' }
 

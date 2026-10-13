@@ -38,6 +38,9 @@ yarn-error.log*
 
 # Documentation
 HOW-TO-ADD-DATA.md
+seo-audit-2026-10.md
+*.zip
+
 
 # Database
 *.sql
